@@ -162,7 +162,13 @@ tr:hover {
       //resultDiv.innerHTML += "</ol>";
       $(".answer").show();
     }
+    function askai(){
+      prompt = "what is 4*5";
+    $.get("https://script.google.com/macros/s/AKfycbwdGU177ArBJMp6rru38WdoFL7GcVjD3rKp0FKXpdhLDtD734PqjMdpwBj1nzNZRwpY/exec?action=askai&prompt"+prompt,function(results){
+    alert(results);
+    });
 
+    }
     // Generate the quiz questions when the page loads
     generateQuiz();
   </script>
