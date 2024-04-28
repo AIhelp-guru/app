@@ -170,7 +170,7 @@ tr:hover {
       type: 'GET',
       success: function(data) {
         // Handle the successful response
-        alert(data);
+        $("#quizContainer").html(data);
       },
       error: function(xhr, status, error) {
         // Handle the error response
