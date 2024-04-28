@@ -166,7 +166,7 @@ tr:hover {
     function askai(){
       prompt = $("#prompt").val();
         $.ajax({
-      url: 'https://script.google.com/macros/s/AKfycbwdGU177ArBJMp6rru38WdoFL7GcVjD3rKp0FKXpdhLDtD734PqjMdpwBj1nzNZRwpY/exec?action=askai&prompt'+prompt,
+      url: 'https://script.google.com/macros/s/AKfycbwdGU177ArBJMp6rru38WdoFL7GcVjD3rKp0FKXpdhLDtD734PqjMdpwBj1nzNZRwpY/exec?action=askai&prompt='+prompt,
       type: 'GET',
       success: function(data) {
         // Handle the successful response
