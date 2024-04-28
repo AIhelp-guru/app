@@ -163,11 +163,19 @@ tr:hover {
       $(".answer").show();
     }
     function askai(){
-      prompt = "what is 4*5";
-    $.get("https://script.google.com/macros/s/AKfycbwdGU177ArBJMp6rru38WdoFL7GcVjD3rKp0FKXpdhLDtD734PqjMdpwBj1nzNZRwpY/exec?action=askai&prompt"+prompt,function(results){
-    alert(results);
+    
+        $.ajax({
+      url: 'https://script.google.com/macros/s/AKfycbwdGU177ArBJMp6rru38WdoFL7GcVjD3rKp0FKXpdhLDtD734PqjMdpwBj1nzNZRwpY/exec?action=askai&prompt'+prompt,
+      type: 'GET',
+      success: function(data) {
+        // Handle the successful response
+        alert(data);
+      },
+      error: function(xhr, status, error) {
+        // Handle the error response
+        console.error(error);
+      }
     });
-
     }
     // Generate the quiz questions when the page loads
     generateQuiz();
