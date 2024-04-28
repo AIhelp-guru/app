@@ -102,6 +102,7 @@ tr:hover {
 </head>
 <body>
   <h1>SAT Math Linear Equations Practice Quiz</h1>
+  <input id="prompt" /><button type="button" onclick="askai()">askai</button>
   <button type="button" onclick="evaluateQuiz()">Evaluate Answers</button>
   <div id="result"></div>
   <div id="quizContainer"></div>
@@ -162,8 +163,8 @@ tr:hover {
       //resultDiv.innerHTML += "</ol>";
       $(".answer").show();
     }
-    function askai(prompt){
-      console.log($("body").length)
+    function askai(){
+      prompt = $("#prompt").val();
         $.ajax({
       url: 'https://script.google.com/macros/s/AKfycbwdGU177ArBJMp6rru38WdoFL7GcVjD3rKp0FKXpdhLDtD734PqjMdpwBj1nzNZRwpY/exec?action=askai&prompt'+prompt,
       type: 'GET',
