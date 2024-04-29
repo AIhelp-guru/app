@@ -120,21 +120,20 @@ tr:hover {
   }
   #toolbar{
     right: 0px;
-    top:0px;
+    top: 0px;
     position: fixed;
     width: 100%;
     padding: 10px;
     border: 1px solid black;
-    height: 100px;
-    background: white;
-    margin: 10px;
+    height: 30px;
+    background: black;
   }
  </style> 
  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
   <h1 id="lesson">SAT Math nonLinear Equations Practice Quiz</h1>
-  <div id="toolbar"><input id="prompt" placeholder="Do you need help"/><button type="button" onclick="askai()">askai</button>
+  <div id="toolbar"><input id="prompt" placeholder="Do you need help"/><button style="float:right" type="button" onclick="askai()">askai</button>
     <div id="ai_result"></div></div>
   <button type="button" onclick="evaluateQuiz()">Evaluate Answers</button>
   <div id="result"></div>
