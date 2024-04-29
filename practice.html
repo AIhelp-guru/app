@@ -186,8 +186,9 @@ tr:hover {
     }
     function askai(){
       prompt = "Please limit your response related to this subject / topic : ["+$("#lesson").text()+"], prompt:"+$("#prompt").val();
-      $("#ai_result").html("AI is thinking...").show();
-        $.ajax({
+      copy(prompt);
+      $("#ai_result").html("prompt copied, paste it in the chat window.").show();
+     /*   $.ajax({
       url: 'https://script.google.com/macros/s/AKfycbzxpRdzWBDqR5487v6Ex_VomXkQ-FN756O11MUyuJwADVAn5NF2EZ4vP8kQX5QA4Pi9lw/exec?action=askai&prompt='+prompt,
       type: 'GET',
       success: function(data) {
@@ -198,8 +199,31 @@ tr:hover {
         // Handle the error response
         console.error(error);
       }
-    });
+    });*/
     }
+    function copy(text) {
+        // Create a temporary textarea element
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+
+        // Append it to the document body (off-screen)
+        document.body.appendChild(textArea);
+
+        // Select the text
+        textArea.focus();
+        textArea.select();
+
+        try {
+          // Copy the text using the document.execCommand() method
+          document.execCommand('copy');
+          console.log("Text copied to clipboard (fallback method)");
+        } catch (err) {
+          console.error("Fallback copy failed: ", err);
+        } finally {
+          // Remove the temporary textarea element
+          document.body.removeChild(textArea);
+        }
+}
     // Generate the quiz questions when the page loads
     generateQuiz();
   </script>
