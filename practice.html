@@ -104,13 +104,24 @@ tr:hover {
   border:1px inset gray;
 
  }
- 
+ #ai_result{
+   display:none;
+   position:fixed;
+   z-index:9999;
+   background:white;
+ }
+  #prompt{
+  width:200px;
+    font-size:1.2em;
+    padding:5px;
+  }
  </style> 
  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
   <h1>SAT Math Linear Equations Practice Quiz</h1>
-  <input id="prompt" /><button type="button" onclick="askai()">askai</button>
+  <span style="float:right;width:auto;padding:10px;border:1px solid black"><input id="prompt" placeholder="Do you need help"/><button type="button" onclick="askai()">askai</button>
+    <div id="ai_result"></div></span>
   <button type="button" onclick="evaluateQuiz()">Evaluate Answers</button>
   <div id="result"></div>
   <div id="quizContainer"></div>
@@ -173,12 +184,13 @@ tr:hover {
     }
     function askai(){
       prompt = $("#prompt").val();
+      $("#ai_result").html("AI is thinking...").show();
         $.ajax({
       url: 'https://script.google.com/macros/s/AKfycbwdGU177ArBJMp6rru38WdoFL7GcVjD3rKp0FKXpdhLDtD734PqjMdpwBj1nzNZRwpY/exec?action=askai&prompt='+prompt,
       type: 'GET',
       success: function(data) {
         // Handle the successful response
-        $("#quizContainer").html(data);
+        $("#ai_result").html(data);
       },
       error: function(xhr, status, error) {
         // Handle the error response
