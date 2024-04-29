@@ -107,9 +107,13 @@ tr:hover {
  #ai_result{
    display:none;
    
-   z-index:9999;
-   background:white;
-   width:300px;
+  position: fixed;
+  right: 0px;
+  top: 55px;
+  background: yellow;
+  z-index:9999;
+  background:white;
+  width:300px;
    
  }
   #prompt{
@@ -208,7 +212,10 @@ tr:hover {
     function askai(){
       prompt = "Please limit your response related to this subject / topic : ["+$("#lesson").text()+"], prompt:"+$("#prompt").val();
       copy(prompt);
-     
+      $("#prompt").val('');
+      window.setTimeout(function(){
+        $("#ai_result").hide();
+      },2000);
       window.open('https://www.poe.com', '_blank', 'left=300,top=200,width=800,height=600');
       $("#ai_result").html("prompt copied, paste it in the chat window.").show();
      /*   $.ajax({
