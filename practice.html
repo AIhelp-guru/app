@@ -136,7 +136,7 @@ tr:hover {
     questionRow.append(answerOptions);
 
     var answerRow = $("<tr></tr>");
-    answerRow.append("<td><div class='notes' contenteditable = true></div></td><td><div class='answer'>" + question.answer + ": " + question.explanation + "</div></td>");
+    answerRow.append("<td><textarea class='notes' placeholder='Notes / scratch pad' contenteditable = true></textarea></td><td><div class='answer'>" + question.answer + ": " + question.explanation + "</div></td>");
     quizContainer.append(questionRow, answerRow);
   }
 }
