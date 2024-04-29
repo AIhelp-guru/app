@@ -121,7 +121,7 @@ tr:hover {
  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-  <h1>SAT Math Linear Equations Practice Quiz</h1>
+  <h1 id="lesson">SAT Math nonLinear Equations Practice Quiz</h1>
   <div style="float:right;width:350px;padding:10px;border:1px solid black;height:80%;background:white;margin:10px"><input id="prompt" placeholder="Do you need help"/><button type="button" onclick="askai()">askai</button>
     <div id="ai_result"></div></div>
   <button type="button" onclick="evaluateQuiz()">Evaluate Answers</button>
@@ -185,7 +185,7 @@ tr:hover {
       $(".answer").show();
     }
     function askai(){
-      prompt = $("#prompt").val();
+      prompt = "Please limit your response related to this subject / topic : ["+$("#lesson").text()+"], prompt:"+$("#prompt").val();
       $("#ai_result").html("AI is thinking...").show();
         $.ajax({
       url: 'https://script.google.com/macros/s/AKfycbwdGU177ArBJMp6rru38WdoFL7GcVjD3rKp0FKXpdhLDtD734PqjMdpwBj1nzNZRwpY/exec?action=askai&prompt='+prompt,
