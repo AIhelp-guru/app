@@ -188,7 +188,7 @@ tr:hover {
       prompt = "Please limit your response related to this subject / topic : ["+$("#lesson").text()+"], prompt:"+$("#prompt").val();
       $("#ai_result").html("AI is thinking...").show();
         $.ajax({
-      url: 'https://script.google.com/macros/s/AKfycbwdGU177ArBJMp6rru38WdoFL7GcVjD3rKp0FKXpdhLDtD734PqjMdpwBj1nzNZRwpY/exec?action=askai&prompt='+prompt,
+      url: 'https://script.google.com/macros/s/AKfycbzxpRdzWBDqR5487v6Ex_VomXkQ-FN756O11MUyuJwADVAn5NF2EZ4vP8kQX5QA4Pi9lw/exec?action=askai&prompt='+prompt,
       type: 'GET',
       success: function(data) {
         // Handle the successful response
