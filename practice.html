@@ -223,7 +223,7 @@ tr:hover {
       type: 'GET',
       success: function(data) {
         // Handle the successful response
-        $("#ai_result").html(data);
+        $("#ai_result").html(data).show();
       },
       error: function(xhr, status, error) {
         // Handle the error response
