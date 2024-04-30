@@ -216,10 +216,10 @@ tr:hover {
       window.setTimeout(function(){
         $("#ai_result").hide();
       },2000);
-      window.open('https://www.poe.com', '_blank', 'left=300,top=200,width=800,height=600');
-      $("#ai_result").html("prompt copied, paste it in the chat window.").show();
-     /*   $.ajax({
-      url: 'https://script.google.com/macros/s/AKfycbzxpRdzWBDqR5487v6Ex_VomXkQ-FN756O11MUyuJwADVAn5NF2EZ4vP8kQX5QA4Pi9lw/exec?action=askai&prompt='+prompt,
+     // window.open('https://www.poe.com', '_blank', 'left=300,top=200,width=800,height=600');
+      //$("#ai_result").html("prompt copied, paste it in the chat window.").show();
+      $.ajax({
+      url: 'https://script.google.com/macros/s/AKfycbwcfw6P9wi_rPDWOReu9Y4sIvTH5Y5cpmdtmkESEOT5X0_5wu9iVg0UxtlApXJOYNgDLQ/exec?action=askai&prompt='+prompt,
       type: 'GET',
       success: function(data) {
         // Handle the successful response
@@ -229,7 +229,7 @@ tr:hover {
         // Handle the error response
         console.error(error);
       }
-    });*/
+    });
     }
     function copy(text) {
         // Create a temporary textarea element
