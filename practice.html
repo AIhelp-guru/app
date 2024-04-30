@@ -106,9 +106,11 @@ tr:hover {
  }
  #ai_result{
    display:none;
-   
+   background: wheat;
+    padding: 20px;
+    border: 1px solid black;
   position: fixed;
-  right: 0px;
+  right: 130px;
   top: 55px;
   background: yellow;
   z-index:9999;
@@ -223,7 +225,10 @@ tr:hover {
       type: 'GET',
       success: function(data) {
         // Handle the successful response
-        $("#ai_result").html(data).show();
+        $("#ai_result").html("<div id='close'>X</div>"+data).show();
+        $("#close").click(function(){
+          $("#ai_result").html('').hide();
+        })
       },
       error: function(xhr, status, error) {
         // Handle the error response
