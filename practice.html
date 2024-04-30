@@ -219,7 +219,7 @@ tr:hover {
         $("#ai_result").hide();
       },2000);
      // window.open('https://www.poe.com', '_blank', 'left=300,top=200,width=800,height=600');
-      //$("#ai_result").html("prompt copied, paste it in the chat window.").show();
+      $("#ai_result").html("AI responding ... ").show();
       $.ajax({
       url: 'https://script.google.com/macros/s/AKfycbwcfw6P9wi_rPDWOReu9Y4sIvTH5Y5cpmdtmkESEOT5X0_5wu9iVg0UxtlApXJOYNgDLQ/exec?action=askai&prompt='+prompt,
       type: 'GET',
