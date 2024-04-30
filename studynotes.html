@@ -1,0 +1,168 @@
+<!DOCTYPE html> 
+<html>
+   <head>
+      <title>My notes</title>
+      <link rel="stylesheet" type="text/css" href="study.css">
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      
+   </head>
+   <body>
+      <div id="toolbar">
+      <div id="topic"></div>
+      <details open>
+         <summary>Menu</summary>
+     
+         <div class="menu">
+         
+         </div>
+      </details>
+   </div>
+      <center>
+      
+      <h4 class="prefilled-content" id="intro">
+   
+      </h4>
+   </center>
+   
+      <div class="left-panel">
+         <div class="section">
+            <h2 class="section-heading">Research Resources</h2>
+            <div class="prefilled-content" id="research">
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/fmt6mKBQhVg?si=bWP179BzEsGOf8xF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+         </div>
+     
+    
+      <div class="section">
+         <h2 class="section-heading">Deeper Questions to explore</h2>
+         
+            <details style="position: absolute;background: #d4d4d4;max-height: 200px;width: 29%; overflow:auto;">
+               <summary>Hint</summary>
+               <div id="qs"></div>
+            </details>
+            <br>
+            <div class="prefilled-content" contenteditable="true" style="height:200px;overflow:auto;border:inset 2px #333;border-radius: 5px;" ></div>
+         </div>
+      
+      
+   </div>
+   <div class="right-panel">
+      <button class="askai" prompt="Please review and give feedback :" >Check my notes</button>
+      <div class="section">
+         <h2 class="section-heading">Key Concepts </h2>
+         
+            <details style="position: absolute;background: #d4d4d4;max-height: 200px;width: 29%; overflow:auto;">
+               <summary>Hint</summary>
+               <div id="key_concepts"></div>
+            </details>
+            <br>
+            <div class="prefilled-content" contenteditable="true" style="height:100px;overflow:auto;border:inset 2px #333;border-radius: 5px;">
+         </div>
+      </div>
+      <div class="section">
+        
+         <h2 class="section-heading">My notes</h2><div class="guidance"> In this section, summarize the key information and main principles you have learned.</div>
+         <div class="student-input" contenteditable="true" placeholder="Enter your key findings and information here...">
+            <li></li>
+         </div>
+      
+        
+         
+      </div>
+      
+      
+      
+   </div>
+      <script>
+         var sdata;
+        $(".askai").click(function(){
+            prompt = $(this).attr("prompt")+ $(this).prev().text();
+            var $temp = $('<input>');
+             $("body").append($temp);
+             $temp.val(prompt).select();
+             document.execCommand("copy");
+             $temp.remove();
+        })
+      $.get("https://script.google.com/macros/s/AKfycbzxpRdzWBDqR5487v6Ex_VomXkQ-FN756O11MUyuJwADVAn5NF2EZ4vP8kQX5QA4Pi9lw/exec",function(data){
+         sdata = data;
+
+         menu = addsubjects();
+         $(".menu").html(menu);
+
+         load(0);
+  
+      });
+
+      function load(id){
+         $("#intro").html(""+ sdata[id][3]);
+         $("#topic").html(sdata[id][0]+"-"+sdata[id][1]+":"+sdata[3][2]);
+         $("#key_concepts").html(sdata[id][4]);
+         $("#qs").html(((sdata[id][5]).split("?")).join(" ? <br>"));
+         $("#research").html(sdata[id][6]);
+        
+      }
+    /**
+      function  addsubjects(){
+         for(i=0;i<sdata.length;i++){
+            $("#subjects").append("<option value='"+i+"'>"+sdata[i][0]+" - "+sdata[i][1] + " : " + sdata[i][2] +"</option>");
+         }
+         $("#subjects").change(function(){
+            load($(this).val());
+         })
+      } **/
+      function addsubjects() {
+            data = sdata;
+            
+            const groups = new Map();
+            data.forEach(([group1, group2, item]) => {
+               if (!groups.has(group1)) {
+                  groups.set(group1, new Map());
+               }
+               if (!groups.get(group1).has(group2)) {
+                  groups.get(group1).set(group2, []);
+               }
+               groups.get(group1).get(group2).push(item);
+            });
+
+            // Create the HTML menu structure
+            let menuHtml = '';
+            menuindex = 0;
+            groups.forEach((group2Map, group1) => {
+               menuHtml += `<h3>${group1}</h3>`;
+               group2Map.forEach((items, group2) => {
+                 
+                  items.forEach((item) => {
+                  menuHtml += `<button class="menu-item" onclick="load(${menuindex++})">${item}</button><br>`;
+                  });
+                  
+               });
+            });
+            
+            return menuHtml;
+      }
+      function convertKeyConceptsToNumberedHtml(keyConceptsText) {
+         // Split the text into individual key concepts
+         const keyConcepts = keyConceptsText.split("\n\n");
+
+         // Create an HTML string with numbered list items
+         let html = "<ol>";
+         keyConcepts.forEach((keyConcept, index) => {
+            html += `<li>${index + 1}. ${keyConcept}</li>`;
+         });
+         html += "</ol>";
+
+      return html;
+      }
+      $(".askai").click(function(){
+            prompt = $(this).attr("prompt")+ $(this).prev().text();
+            var $temp = $('<input>');
+             $("body").append($temp);
+             $temp.val(prompt).select();
+             document.execCommand("copy");
+             $temp.remove();
+        })
+      </script>
+
+
+   </body>
+</html>
