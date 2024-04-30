@@ -212,7 +212,7 @@ tr:hover {
       $(".answer").show();
     }
     function askai(){
-      prompt = "Please limit your response related to this subject / topic : ["+$("#lesson").text()+"], prompt:"+$("#prompt").val();
+      prompt = "Please limit your response related to this subject / topic (in html format): ["+$("#lesson").text()+"], prompt:"+$("#prompt").val();
       copy(prompt);
       $("#prompt").val('');
       window.setTimeout(function(){
