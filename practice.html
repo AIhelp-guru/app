@@ -227,6 +227,7 @@ tr:hover {
       url: 'https://script.google.com/macros/s/AKfycbwcfw6P9wi_rPDWOReu9Y4sIvTH5Y5cpmdtmkESEOT5X0_5wu9iVg0UxtlApXJOYNgDLQ/exec?action=askai&prompt='+prompt,
       type: 'GET',
       success: function(data) {
+        $("#ai_result").html("Almost there ... ").show();
         // Handle the successful response
         data = data.replace("```html","").replaceAll("```","");
         $("#ai_result").html("<div id='close'>X</div>"+data).show();
