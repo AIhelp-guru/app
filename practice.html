@@ -201,7 +201,7 @@ tr:hover {
     questionRow.append(answerOptions);
 
     var answerRow = $("<tr></tr>");
-    answerRow.append("<td><textarea class='notes' placeholder='Notes / scratch pad' contenteditable = true></textarea></td><td><div class='answer'>" + question.answer + ": " + question.explanation + "</div></td>");
+    answerRow.append("<td><textarea class='notes' placeholder='Notes / scratch pad' contenteditable = true></textarea></td><td><div class='answer'>" + question.answer + ": " + question.explanation + '</div><div class="buttons"><img src="learn_icon.png" alt="Learn" class="button learn icon"><img src="chat_icon.png" alt="Chat" class="button chat icon"><img src="detail_icon.png" alt="Detail" class="button detail icon"></div></td>');
     quizContainer.append(questionRow, answerRow);
   }
 }
