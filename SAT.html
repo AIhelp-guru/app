@@ -278,7 +278,7 @@ function sendMessage() {
         msgElement.textContent = message ;
         chatbotMessages.appendChild(msgElement);
         input.value = '';
-        $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' height='20px' width='20px' />")
+        $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
         askai(message+ "; context:" + pageText);
     }
 }
@@ -293,7 +293,7 @@ function askai(prompt){
       url: 'https://script.google.com/macros/s/AKfycbwcfw6P9wi_rPDWOReu9Y4sIvTH5Y5cpmdtmkESEOT5X0_5wu9iVg0UxtlApXJOYNgDLQ/exec?action=askai&prompt='+prompt,
       type: 'GET',
       success: function(data) {
-       // $("#waiting").remove();
+       $("#waiting").remove();
         data = data.replace("```html","").replaceAll("```","");
         $("#chatbotMessages").append("<div class='aiResponse'>"+data+"</div>");
       },
