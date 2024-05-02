@@ -165,9 +165,10 @@ function renderPage(num) {
         };
         var renderTask = page.render(renderContext);
         renderTask.promise.then(function() {
-            console.log('Page rendered');
+            
             return page.getTextContent();  // Retrieve text content of the page
         }).then(function(textContent) {
+          console.log(textContent);
             // Process text content here
             var textLayerDiv = document.createElement('div');
             textLayerDiv.setAttribute('class', 'textLayer');
