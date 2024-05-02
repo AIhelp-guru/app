@@ -271,12 +271,33 @@ function sendMessage() {
     if (message) {
         const chatbotMessages = document.getElementById('chatbotMessages');
         const msgElement = document.createElement('div');
-        msgElement.textContent = message + "; context:" + pageText;
+        msgElement.textContent = message ;
         chatbotMessages.appendChild(msgElement);
         input.value = '';
+        askai(message+ "; context:" + pageText);
     }
 }
 
+function askai(prompt){
+      //prompt = "Please limit your response related to this subject / topic (in html format): ["+$("#lesson").text()+"], prompt:"+$("#prompt").val();
+      //copy(prompt);
+      //$("#prompt").val('');
+      
+     
+      $.ajax({
+      url: 'https://script.google.com/macros/s/AKfycbwcfw6P9wi_rPDWOReu9Y4sIvTH5Y5cpmdtmkESEOT5X0_5wu9iVg0UxtlApXJOYNgDLQ/exec?action=askai&prompt='+prompt,
+      type: 'GET',
+      success: function(data) {
+        
+        data = data.replace("```html","").replaceAll("```","");
+        $("#chatbotMessages").append("<div class='aiResponse'>"+data+"</div>");
+      },
+      error: function(xhr, status, error) {
+        // Handle the error response
+        console.error(error);
+      }
+    });
+    }
 $("#chatbotPanel").toggle();
 generateQuestionCheckboxes(pages)
 
