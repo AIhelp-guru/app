@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAT Practice Test</title>
+<style>
+  body { font-family: Arial, sans-serif; display: flex; }
+  #pdfViewer { width: 80%; height: 100vh; border-right: 2px solid #ccc;overflow:auto }
+  #answerPanel { width: 50%; padding: 20px; overflow-y: auto; }
+  .answerButton { padding: 10px; margin: 5px; background-color: #f0f0f0; border: none; cursor: pointer; }
+  .answerButton:hover { background-color: #ddd; }
+  #pageNext,#pagePrev{height:30px;background:orange;color:white;}
+  .textLayer{display: none;}
+  #chatbotPanel {
+    position: fixed;
+    border-radius: 20px;
+    top: 100px;
+    bottom: 10px;
+    width: 500px;
+    height: 600px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px 20px 0 0;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-out;
+}
+
+#chatbotHeader {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px 20px 0 0;
+}
+
+#chatbotHeader span {
+    flex-grow: 1;
+}
+
+#chatbotHeader button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+}
+
+#chatbotMessages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#chatbotInput {
+    border: none;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+button {
+    cursor: pointer;
+}
+
+.chatbot-open {
+    transform: translateY(100%);
+}
+
+.chatbot-closed {
+    transform: translateY(100%);
+}
+
+#chatbotOpenButton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+    <button  id="pagePrev" >Prev Page</button>
+    <div id="pdfViewer"></div>
+<!-- Pagination for the pdf viewer-->
+
+
+<button  id="pageNext" >Next Page</button>
+<div id="answerPanel">
+  <label id="pageNumber"></label>
+  <h2>Answers</h2>
+  <button id="chatbotOpenButton">Chat with us!</button>
+<div id="chatbotPanel" class="chatbot-closed">
+    <div id="chatbotHeader">
+        <span>Chatbot</span>
+        <button id="closeChatbot" onclick="toggleChatbot()">×</button>
+    </div>
+    <div id="chatbotMessages"></div>
+    <input type="text" id="chatbotInput" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+  <div id="questionsContainer"></div>
+</div>
+<!-- jquery CDN-->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
+<script>
+  document.getElementById('pdfViewer').innerHTML = '<input type="file" id="fileInput" accept=".pdf" />';
+var pdfDoc = null, pageNum = 1, canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
+var pages = [0, 0, 0, 0, '1-4', '5-10', 0, '11-16','17-21'];
+
+// Ensure the canvas is appended only once and not every time a PDF is loaded
+document.getElementById('pdfViewer').appendChild(canvas);
+
+document.getElementById('fileInput').addEventListener('change', function(event) {
+  var file = event.target.files[0];
+  if (file.type !== 'application/pdf') {
+    console.error(file.name + ' is not a PDF file.');
+    return;
+  }
+
+  var fileReader = new FileReader();
+  fileReader.onload = function() {
+    var typedarray = new Uint8Array(this.result);
+
+    var loadingTask = pdfjsLib.getDocument(typedarray);
+    loadingTask.promise.then(function(pdf) {
+      console.log('PDF loaded');
+      pdfDoc = pdf; // Store the PDF document globally
+      renderPage(pageNum); // Render the first page
+      $("#fileInput").hide();
+      $("#pageNumber").html(pageNum);
+    }, function(reason) {
+      console.error(reason);
+    });
+  };
+  fileReader.readAsArrayBuffer(file);
+});
+
+// Function to render a page
+function renderPage(num) {
+    pdfDoc.getPage(num).then(function(page) {
+        console.log('Page loaded');
+        $("#pageNumber").html(pageNum);
+        $(".page").hide();
+         $("#p"+pageNum).show();
+        // Setup viewport and canvas for rendering
+        var scale = 1.2;
+        var viewport = page.getViewport({ scale: scale });
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        
+        // Prepare to render the PDF page
+        var renderContext = {
+            canvasContext: ctx,
+            viewport: viewport
+        };
+        var renderTask = page.render(renderContext);
+        renderTask.promise.then(function() {
+            console.log('Page rendered');
+            return page.getTextContent();  // Retrieve text content of the page
+        }).then(function(textContent) {
+            // Process text content here
+            var textLayerDiv = document.createElement('div');
+            textLayerDiv.setAttribute('class', 'textLayer');
+
+            // Set style to make text layer fit the canvas dimensions
+            textLayerDiv.style.position = 'absolute';
+            textLayerDiv.style.left = canvas.offsetLeft + 'px';
+            textLayerDiv.style.top = canvas.offsetTop + 'px';
+            textLayerDiv.style.height = canvas.offsetHeight + 'px';
+            textLayerDiv.style.width = canvas.offsetWidth + 'px';
+            
+            //document.body.appendChild(textLayerDiv);
+            $("#p"+pageNum).append("<div class='textLayer'>"+textContent+"</div>");
+            // Pass the text content to PDF.js's text layer builder
+            pdfjsLib.renderTextLayer({
+                textContent: textContent,
+                container: textLayerDiv,
+                viewport: viewport,
+                textDivs: []
+            });
+        });
+    });
+}
+
+
+// Add event listeners for page navigation
+document.getElementById('pageNext').addEventListener('click', function() {
+  if (pageNum >= pdfDoc.numPages) {
+    return;
+  }
+  pageNum++;
+  renderPage(pageNum);
+});
+
+// Example of previous page handling (assuming there is a button with id="pagePrev")
+document.getElementById('pagePrev').addEventListener('click', function() {
+  if (pageNum <= 1) {
+    return;
+  }
+  pageNum--;
+  renderPage(pageNum);
+});
+
+  
+ 
+function generateQuestionCheckboxes(pages) {
+    const container = document.getElementById('questionsContainer'); // Assumes there's a div with this id in your HTML
+    container.innerHTML = ''; // Clear previous contents
+    i = 0;
+    pages.forEach((page, index) => {
+        
+        const pageDiv = document.createElement('div');
+        pageDiv.classList.add('page');
+        pageDiv.setAttribute("id",`p${index + 1}`);
+        
+        const pageTitle = document.createElement('h3');
+        pageTitle.textContent = `Page ${index + 1}`;
+        pageDiv.appendChild(pageTitle);
+        if (page === 0) return; // Skip pages with no questions
+
+        // Check if the page range is a range or a single number
+        const range = page.includes('-') ? page.split('-').map(Number) : [Number(page), Number(page)];
+        for (let q = range[0]; q <= range[1]; q++) {
+            const questionDiv = document.createElement('div');
+            questionDiv.classList.add('question');
+            const questionTitle = document.createElement('h4');
+            questionTitle.textContent = `Question ${q}`;
+            questionDiv.appendChild(questionTitle);
+
+            ['A', 'B', 'C', 'D'].forEach(option => {
+                const optionLabel = document.createElement('label');
+                const optionInput = document.createElement('input');
+                optionInput.type = 'checkbox';
+                optionInput.id = `page${index + 1}-question${q}-option${option}`;
+                optionInput.name = `question${q}-page${index + 1}`;
+
+                const optionText = document.createTextNode(` ${option})`);
+                optionLabel.appendChild(optionInput);
+                optionLabel.appendChild(optionText);
+                questionDiv.appendChild(optionLabel);
+            });
+
+            pageDiv.appendChild(questionDiv);
+        }
+
+        container.appendChild(pageDiv);
+        $(".page").hide();
+        $("#p1").show();
+    });
+}
+document.getElementById('chatbotOpenButton').addEventListener('click', toggleChatbot);
+
+function toggleChatbot() {
+    $("#chatbotPanel").toggle();
+    /*const chatbotPanel = document.getElementById('chatbotPanel');
+    if (chatbotPanel.classList.contains('chatbot-open')) {
+        chatbotPanel.classList.remove('chatbot-open');
+        chatbotPanel.classList.add('chatbot-closed');
+    } else {
+        chatbotPanel.classList.add('chatbot-open');
+        chatbotPanel.classList.remove('chatbot-closed');
+    }*/
+}
+
+function sendMessage() {
+    const input = document.getElementById('chatbotInput');
+    const message = input.value.trim();
+    if (message) {
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const msgElement = document.createElement('div');
+        msgElement.textContent = message;
+        chatbotMessages.appendChild(msgElement);
+        input.value = '';
+    }
+}
+
+$("#chatbotPanel").toggle();
+generateQuestionCheckboxes(pages)
+
+</script>
+</body>
+</html>
