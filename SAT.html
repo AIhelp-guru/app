@@ -300,6 +300,15 @@ function askai(prompt){
     }
 $("#chatbotPanel").toggle();
 generateQuestionCheckboxes(pages)
+$(document).ready(function() {
+    $('#chatbotInput').keydown(function(event) {
+        // Check if the key pressed is the Enter key
+        if (event.which == 13) {
+            sendMessage();
+            event.preventDefault();  // Prevents the default action (form submission)
+        }
+    });
+});
 
 </script>
 </body>
