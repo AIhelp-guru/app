@@ -145,50 +145,42 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
   fileReader.readAsArrayBuffer(file);
 });
 
-// Function to render a page
 function renderPage(num) {
     pdfDoc.getPage(num).then(function(page) {
         console.log('Page loaded');
-        $("#pageNumber").html(pageNum);
+        $("#pageNumber").html(num);
         $(".page").hide();
-         $("#p"+pageNum).show();
-        // Setup viewport and canvas for rendering
+        $("#p"+num).show();
+
         var scale = 1.2;
         var viewport = page.getViewport({ scale: scale });
         canvas.height = viewport.height;
         canvas.width = viewport.width;
-        
-        // Prepare to render the PDF page
+
         var renderContext = {
             canvasContext: ctx,
             viewport: viewport
         };
         var renderTask = page.render(renderContext);
         renderTask.promise.then(function() {
-            
-            return page.getTextContent();  // Retrieve text content of the page
+            return page.getTextContent();
         }).then(function(textContent) {
-          console.log(textContent);
-            // Process text content here
+            var strings = textContent.items.map(function(item) { return item.str; });
+            var textStr = strings.join(" ");  // Joins all text strings into a single string with spaces
+            console.log(textStr);  // Logs the readable text
+            
             var textLayerDiv = document.createElement('div');
-            textLayerDiv.setAttribute('class', 'textLayer');
-
-            // Set style to make text layer fit the canvas dimensions
+            textLayerDiv.className = 'textLayer';
             textLayerDiv.style.position = 'absolute';
             textLayerDiv.style.left = canvas.offsetLeft + 'px';
             textLayerDiv.style.top = canvas.offsetTop + 'px';
             textLayerDiv.style.height = canvas.offsetHeight + 'px';
             textLayerDiv.style.width = canvas.offsetWidth + 'px';
-            
-            //document.body.appendChild(textLayerDiv);
-            $("#p"+pageNum).append("<div class='textLayer'>"+textContent+"</div>");
-            // Pass the text content to PDF.js's text layer builder
-            pdfjsLib.renderTextLayer({
-                textContent: textContent,
-                container: textLayerDiv,
-                viewport: viewport,
-                textDivs: []
-            });
+
+            $("#p"+num).append(textLayerDiv);
+            textLayerDiv.textContent = textStr;  // Adds the processed text directly to the div
+
+            // If using the text layer builder from PDF.js, continue using it as needed
         });
     });
 }
