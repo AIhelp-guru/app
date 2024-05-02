@@ -323,6 +323,7 @@ var url = $("#pdfURL").val();
 var loadingTask = pdfjsLib.getDocument(url);
     loadingTask.promise.then(function(pdf) {
         pdfDoc = pdf;
+        renderPage(1)
     });
 }
 </script>
