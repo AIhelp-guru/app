@@ -271,7 +271,7 @@ function sendMessage() {
     if (message) {
         const chatbotMessages = document.getElementById('chatbotMessages');
         const msgElement = document.createElement('div');
-        msgElement.textContent = message + "context:" + $("#p"+pageNum).text();
+        msgElement.textContent = message + "; context:" + $("#p"+(pageNum + 1)).find(".textLayer").text();
         chatbotMessages.appendChild(msgElement);
         input.value = '';
     }
