@@ -293,7 +293,7 @@ function askai(prompt){
       url: 'https://script.google.com/macros/s/AKfycbwcfw6P9wi_rPDWOReu9Y4sIvTH5Y5cpmdtmkESEOT5X0_5wu9iVg0UxtlApXJOYNgDLQ/exec?action=askai&prompt='+prompt,
       type: 'GET',
       success: function(data) {
-        $("#waiting").remove();
+       // $("#waiting").remove();
         data = data.replace("```html","").replaceAll("```","");
         $("#chatbotMessages").append("<div class='aiResponse'>"+data+"</div>");
       },
