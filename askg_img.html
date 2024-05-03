@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gemini API Demo</title>
+</head>
+<body>
+  <h1>Gemini API Demo</h1>
+  <form id="form">
+    <input type="file" id="imageUpload" accept="image/*">
+    <br>
+    <label for="prompt">Prompt:</label>
+    <input type="text" id="prompt">
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="response"></div>
+
+  <script>
+    const form = document.getElementById('form');
+    const imageUpload = document.getElementById('imageUpload');
+    const promptInput = document.getElementById('prompt');
+    const responseDiv = document.getElementById('response');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const file = imageUpload.files[0];
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        const base64Image = reader.result.split(',')[1];
+        const prompt = promptInput.value;
+
+        fetch('https://us-central1-aihelp-382014.cloudfunctions.net/askG', {  // Replace with your Cloud Function URL
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ image: base64Image, prompt: prompt })
+        })
+        .then(response => response.json())
+        .then(data => {
+          responseDiv.textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => console.error(error));
+      };
+
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
