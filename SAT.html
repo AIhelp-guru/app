@@ -106,7 +106,7 @@ button {
 
 
 <button  id="pageNext" >Next Page</button>
-<button id="loadJson">Loadjson</button>
+
 <div id="answerPanel">
   <label id="pageNumber"></label>
   <h2>Answers</h2>
@@ -365,9 +365,7 @@ $(document).ready(function() {
         }
     });
 
-    $("#loadJson").click(function(){
-        askai("create a JSONcreate a json with question, answer, explanation as elements of array"  + pageText,createQuestions);
-    })
+   
 });
 function createQuestions(data){
     console.log(data);
