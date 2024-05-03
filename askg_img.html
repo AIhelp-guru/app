@@ -40,7 +40,7 @@
         })
         .then(response => response.json())
         .then(data => {
-          responseDiv.textContent = JSON.stringify(data, null, 2);
+          responseDiv.textContent = data; //JSON.stringify(data, null, 2);
         })
         .catch(error => console.error(error));
       };
