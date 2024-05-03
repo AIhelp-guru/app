@@ -309,6 +309,8 @@ function sendMessage() {
                 askai(message + "; Image data: " + base64.substring(0, 30) + "...; context:" + pageText); // Send a part of the base64 data in the log for brevity
             });
         } else {
+            $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
+              
             askai(message + "; context:" + pageText);
         }
     }
@@ -328,6 +330,7 @@ function sendMessage() {
     }
 }
 */
+
 function askai(prompt,callback){
       //prompt = "Please limit your response related to this subject / topic (in html format): ["+$("#lesson").text()+"], prompt:"+$("#prompt").val();
       //copy(prompt);
