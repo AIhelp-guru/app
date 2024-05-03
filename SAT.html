@@ -130,7 +130,7 @@ button {
 <script>
   document.getElementById('pdfViewer').innerHTML = '<input type="file" id="fileInput" accept=".pdf" />';
 var pdfDoc = null, pageNum = 1, pageText ='', canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
-var pages = [0, 0, 0, 0, '1-4', '5-10', 0, '11-16','17-21'];
+var pages = ['1', '1', '0', '0', '1-4', '5-10', '0', '11-16','17-21'];
 
 // Ensure the canvas is appended only once and not every time a PDF is loaded
 document.getElementById('pdfViewer').appendChild(canvas);
@@ -163,7 +163,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 
 function renderPage(num) {
     pdfDoc.getPage(num).then(function(page) {
-        console.log('Page loaded');
+        
         $("#pageNumber").html(num);
         $(".page").hide();
         $("#p"+num).show();
