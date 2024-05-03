@@ -106,6 +106,7 @@ button {
 
 
 <button  id="pageNext" >Next Page</button>
+<button id="loadJson">Loadjson</button>
 <div id="answerPanel">
   <label id="pageNumber"></label>
   <h2>Answers</h2>
@@ -327,7 +328,7 @@ function sendMessage() {
     }
 }
 */
-function askai(prompt){
+function askai(prompt,callback){
       //prompt = "Please limit your response related to this subject / topic (in html format): ["+$("#lesson").text()+"], prompt:"+$("#prompt").val();
       //copy(prompt);
       //$("#prompt").val('');
@@ -338,6 +339,9 @@ function askai(prompt){
       type: 'GET',
       success: function(data) {
        $("#waiting").remove();
+       if(callback){
+        callback(data);
+       }
         data = data.replace("```html","").replaceAll("```","");
         $("#chatbotMessages").append("<div class='aiResponse'>"+data+"</div>");
       },
@@ -357,8 +361,14 @@ $(document).ready(function() {
             event.preventDefault();  // Prevents the default action (form submission)
         }
     });
-});
 
+    $("#loadJson").click(function(){
+        askai("create a JSONcreate a json with question, answer, explanation as elements of array"  + pageText,createQuestions);
+    })
+});
+function createQuestions(data){
+    console.log(data);
+}
 function loadfromURL(){
 var url = $("#pdfURL").val();
 var loadingTask = pdfjsLib.getDocument(url);
