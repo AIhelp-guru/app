@@ -116,6 +116,8 @@ button {
     </div>
     <div id="chatbotMessages"></div>
     <input type="text" id="chatbotInput" placeholder="Type your message...">
+    <input type="file" id="imageInput" accept="image/*" style="margin-bottom: 10px;">
+
     <button onclick="sendMessage()">Send</button>
 </div>
 
@@ -277,7 +279,39 @@ function toggleChatbot() {
         chatbotPanel.classList.remove('chatbot-closed');
     }*/
 }
+function getFileBase64(file, callback) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => callback(reader.result);
+    reader.onerror = (error) => console.log('Error: ', error);
+}
 
+function sendMessage() {
+    const input = document.getElementById('chatbotInput');
+    const message = input.value.trim();
+    const imageInput = document.getElementById('imageInput');
+    const file = imageInput.files[0];
+
+    if (message || file) {
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const msgElement = document.createElement('div');
+        msgElement.textContent = message;
+        chatbotMessages.appendChild(msgElement);
+        input.value = '';
+        imageInput.value = ''; // Reset the file input
+
+        if (file) {
+            getFileBase64(file, function(base64) {
+                // Now we have the base64 of the image, send it along with the message
+                $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
+                askai(message + "; Image data: " + base64.substring(0, 30) + "...; context:" + pageText); // Send a part of the base64 data in the log for brevity
+            });
+        } else {
+            askai(message + "; context:" + pageText);
+        }
+    }
+}
+/*
 function sendMessage() {
     const input = document.getElementById('chatbotInput');
     const message = input.value.trim();
@@ -291,7 +325,7 @@ function sendMessage() {
         askai(message+ "; context:" + pageText);
     }
 }
-
+*/
 function askai(prompt){
       //prompt = "Please limit your response related to this subject / topic (in html format): ["+$("#lesson").text()+"], prompt:"+$("#prompt").val();
       //copy(prompt);
