@@ -187,15 +187,15 @@ function renderPage(num) {
             
             var textLayerDiv = document.createElement('div');
             textLayerDiv.className = 'textLayer';
-            textLayerDiv.style.position = 'absolute';
-            textLayerDiv.style.left = canvas.offsetLeft + 'px';
-            textLayerDiv.style.top = canvas.offsetTop + 'px';
-            textLayerDiv.style.height = canvas.offsetHeight + 'px';
-            textLayerDiv.style.width = canvas.offsetWidth + 'px';
+            //textLayerDiv.style.position = 'absolute';
+            //textLayerDiv.style.left = canvas.offsetLeft + 'px';
+           // textLayerDiv.style.top = canvas.offsetTop + 'px';
+           // textLayerDiv.style.height = canvas.offsetHeight + 'px';
+            //textLayerDiv.style.width = canvas.offsetWidth + 'px';
 
             $("#p"+num).append(textLayerDiv);
             textLayerDiv.textContent = textStr;  // Adds the processed text directly to the div
-
+            $(".textLayer").show();
             // If using the text layer builder from PDF.js, continue using it as needed
         });
     });
