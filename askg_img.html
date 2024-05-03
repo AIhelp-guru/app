@@ -31,12 +31,12 @@
         const base64Image = reader.result.split(',')[1];
         const prompt = promptInput.value;
 
-        fetch('https://us-central1-aihelp-382014.cloudfunctions.net/askG', {  // Replace with your Cloud Function URL
+        fetch('https://script.google.com/macros/s/AKfycbwcfw6P9wi_rPDWOReu9Y4sIvTH5Y5cpmdtmkESEOT5X0_5wu9iVg0UxtlApXJOYNgDLQ/exec?action=askai&prompt=', {  // Replace with your Cloud Function URL
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ image: base64Image, prompt: prompt })
+          body: JSON.stringify({ action:askai, prompt: prompt + base64Image })
         })
         .then(response => {
           console.log(response);
