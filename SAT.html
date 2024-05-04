@@ -383,6 +383,7 @@ function createQuestions(data){
 }
 function loadfromURL(){
 var url = $("#pdfURL").val();
+$("#fileInput").hide();
 var loadingTask = pdfjsLib.getDocument(url);
     loadingTask.promise.then(function(pdf) {
         pdfDoc = pdf;
@@ -401,7 +402,7 @@ function getanswers() {
         for (let i = 0; i < data.length; i++) {
             if (filename === data[i][0]) {
                 const questionDiv = $('<div>').addClass('question');
-                const questionTitle = $('<h4>').text(`Question ${data[i][1]} <button class='reveal'>Reveal</button>`);
+                const questionTitle = $('<h4>').text(`Question ${data[i][1]}`);
                 questionDiv.append(questionTitle);
                 question_options = data[i][2].split(",");
                 question_options.forEach(option => {
@@ -415,9 +416,14 @@ function getanswers() {
                     optionLabel.append(optionInput).append(` ${option})`);
                     questionDiv.append(optionLabel);
                 });
+                questionDiv.append("<button class='reveal'>Reveal</button>");
                 questionDiv.append("<div class='answer'>"+data[i][3]+"</div>");
                 questionDiv.append("<div class='explanation'>"+data[i][4]+"</div>");
                 $("#questionsContainer").append(questionDiv);
+                $(".reveal").click(function(){
+                    $(this).next().show();
+                    $(this).next().next().show();
+                })
             }
         }
     });
