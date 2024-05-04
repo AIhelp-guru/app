@@ -108,13 +108,23 @@ button {
 #fileInput{
     display: none;
 }
+#toolbar{
+    position:fixed;
+    height:30px;
+    background-color: blue;
+    color:white;
+    top:0px;
+    left:0px;
+    z-index:9999;
+}
 </style>
 </head>
 <body>
+<div id="toolbar"><button  id="pagePrev" ><</button><label id="pageNumber"></label><button  id="pageNext" >></button></div>
    <div id="urlForm"> <input id="pdfURL" value="https://aihelp-guru.github.io/app/ACT%20Practice%20Questions%20_%20The%20Princeton%20Review.pdf"/>
     <button id="loadfromURL" onclick="loadfromURL()">Load</button><br>
 </div>
-    <div id="pdfViewer"></div><div style="position:fixed;top:0px;left:45%"><button  id="pagePrev" ><</button><label id="pageNumber"></label><button  id="pageNext" >></button></div>
+    <div id="pdfViewer"></div><div style="position:fixed;top:0px;left:45%"></div>
 <!-- Pagination for the pdf viewer-->
 
 
