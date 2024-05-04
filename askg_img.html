@@ -31,9 +31,9 @@
       reader.onloadend = () => {
         const base64Image = reader.result.split(',')[1];
         const prompt = promptInput.value;
-        url="https://us-east1-aihelp-382014.cloudfunctions.net/askai_node"
+        url="https://us-east1-aihelp-382014.cloudfunctions.net/askai_node?q=what%20is%2015*8"
 
-        $.post(url,{q:"what is 6*7?"},function(data){
+        $.get(url,function(data){
           $("#response").html(data);
         })
         /*fetch(url, {  // Replace with your Cloud Function URL
