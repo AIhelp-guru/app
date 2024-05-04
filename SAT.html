@@ -125,6 +125,10 @@ button {
     width: 100%;
     text-align: center;
 }
+.reveal{
+    margin:10px;
+    border:none;
+}
 </style>
 </head>
 <body>
@@ -401,8 +405,8 @@ function getanswers() {
                 questionDiv.append("<div class='explanation'>Explanation: "+data[i][4]+"</div>");
                 $("#questionsContainer").append(questionDiv);
                 $(".reveal").click(function(){
-                    $(this).next().show();
-                    $(this).next().next().show();
+                    $(this).next().toggle();
+                    $(this).next().next().toggle();
                 })
             }
         }
