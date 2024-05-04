@@ -384,7 +384,7 @@ function createQuestions(data){
 }
 function loadfromURL(){
 var url = $("#pdfURL").val();
-getanswers() ;
+
     $("#fileInput").hide();
 var loadingTask = pdfjsLib.getDocument(url);
     loadingTask.promise.then(function(pdf) {
