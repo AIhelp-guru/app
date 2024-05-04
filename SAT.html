@@ -231,53 +231,6 @@ document.getElementById('pagePrev').addEventListener('click', function() {
 
   
  
-function generateQuestionCheckboxes(pages) {
-    getanswers();
-    const container = document.getElementById('questionsContainer'); // Assumes there's a div with this id in your HTML
-    container.innerHTML = ''; // Clear previous contents
-    i = 0;
-    /*
-    pages.forEach((page, index) => {
-        
-        const pageDiv = document.createElement('div');
-        pageDiv.classList.add('page');
-        pageDiv.setAttribute("id",`p${index + 1}`);
-        
-        const pageTitle = document.createElement('h3');
-        pageTitle.textContent = `Page ${index + 1}`;
-        pageDiv.appendChild(pageTitle);
-        if (page === 0) return; // Skip pages with no questions
-
-        // Check if the page range is a range or a single number
-        const range = page.includes('-') ? page.split('-').map(Number) : [Number(page), Number(page)];
-        for (let q = range[0]; q <= range[1]; q++) {
-            const questionDiv = document.createElement('div');
-            questionDiv.classList.add('question');
-            const questionTitle = document.createElement('h4');
-            questionTitle.textContent = `Question ${q}`;
-            questionDiv.appendChild(questionTitle);
-
-            ['A', 'B', 'C', 'D'].forEach(option => {
-                const optionLabel = document.createElement('label');
-                const optionInput = document.createElement('input');
-                optionInput.type = 'checkbox';
-                optionInput.id = `page${index + 1}-question${q}-option${option}`;
-                optionInput.name = `question${q}-page${index + 1}`;
-
-                const optionText = document.createTextNode(` ${option})`);
-                optionLabel.appendChild(optionInput);
-                optionLabel.appendChild(optionText);
-                questionDiv.appendChild(optionLabel);
-            });
-
-            pageDiv.appendChild(questionDiv);
-        }
-
-        container.appendChild(pageDiv);
-        $(".page").hide();
-        $("#p1").show();
-    });*/
-}
 document.getElementById('chatbotOpenButton').addEventListener('click', toggleChatbot);
 
 function toggleChatbot() {
@@ -376,7 +329,7 @@ $(document).ready(function() {
             event.preventDefault();  // Prevents the default action (form submission)
         }
     });
-    getanswers();
+    getWorksheets();
    
 });
 function createQuestions(data){
@@ -395,7 +348,7 @@ var loadingTask = pdfjsLib.getDocument(url);
 
 function getanswers() {
     const url = "https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic=worksheets";
-    loadfromURL();
+    
     $.get(url, function(data) {
         console.log(data);
         const filename = $("#pdfURL").val();
@@ -448,7 +401,9 @@ function getWorksheets(){
         
         
     });
-}
+    }else{
+        loadfromURL();
+    }
 }
 </script>
 </body>
