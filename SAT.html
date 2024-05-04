@@ -401,7 +401,7 @@ function getanswers() {
         for (let i = 0; i < data.length; i++) {
             if (filename === data[i][0]) {
                 const questionDiv = $('<div>').addClass('question');
-                const questionTitle = $('<h4>').text(`Question ${data[i][1]}`);
+                const questionTitle = $('<h4>').text(`Question ${data[i][1]} <button class='reveal'>Reveal</button>`);
                 questionDiv.append(questionTitle);
                 question_options = data[i][2].split(",");
                 question_options.forEach(option => {
