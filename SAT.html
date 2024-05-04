@@ -6,8 +6,14 @@
 <title>SAT Practice Test</title>
 <style>
   body { font-family: Arial, sans-serif; display: flex; }
-  #pdfViewer { width: 80%; height: 100vh; border-right: 2px solid #ccc;overflow:auto }
-  #answerPanel { width: 50%; padding: 20px; overflow-y: auto;display: inline-block; }
+  #pdfViewer { 
+    width: 80%; 
+    height: 100vh; 
+    border-right: 2px solid #ccc;
+    overflow:auto;
+    margin-top:50px;
+ }
+  #answerPanel { width: 50%; padding: 20px; overflow-y: auto;display: inline-block;margin-top:50px; }
   .answerButton { padding: 10px; margin: 5px; background-color: #f0f0f0; border: none; cursor: pointer; }
   .answerButton:hover { background-color: #ddd; }
   #pageNext,#pagePrev{height:30px;background:none;color:gray;font-size:2em;border:none;cursor:pointer}
@@ -153,7 +159,7 @@ button {
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
 <script>
-  document.getElementById('pdfViewer').innerHTML = '<img id="waiting" src="https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369" style="height:50px;width:50px;background:gold;border-radius:25px;"" /><input type="file" id="fileInput" accept=".pdf" />';
+  document.getElementById('pdfViewer').innerHTML = '<img id="wkloading" src="https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369" style="height:50px;width:50px;background:gold;border-radius:25px;"" /><input type="file" id="fileInput" accept=".pdf" />';
 var pdfDoc = null, pageNum = 1, pageText ='', canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
 var pages = ['1', '1', '0', '0', '1-4', '5-10', '0', '11-16','17-21'];
 
@@ -359,7 +365,8 @@ var url = $("#pdfURL").val();
 var loadingTask = pdfjsLib.getDocument(url);
     loadingTask.promise.then(function(pdf) {
         pdfDoc = pdf;
-        renderPage(1)
+        renderPage(1);
+        $("#wkloading").hide();
     });
     getanswers();
 }
