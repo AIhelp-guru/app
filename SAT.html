@@ -415,7 +415,8 @@ function getanswers() {
                     optionLabel.append(optionInput).append(` ${option})`);
                     questionDiv.append(optionLabel);
                 });
-
+                questionDiv.append("<div class='answer'>"+data[i][3]+"</div>");
+                questionDiv.append("<div class='explanation'>"+data[i][4]+"</div>");
                 $("#questionsContainer").append(questionDiv);
             }
         }
