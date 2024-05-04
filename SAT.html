@@ -102,13 +102,16 @@ button {
 #pdfURL{
     height:30px;
 }
+#urlForm{
+    display: none;
+}
 
 </style>
 </head>
 <body>
-    <input id="pdfURL" value="https://aihelp-guru.github.io/app/ACT%20Practice%20Questions%20_%20The%20Princeton%20Review.pdf"/>
+   <div id="urlForm"> <input id="pdfURL" value="https://aihelp-guru.github.io/app/ACT%20Practice%20Questions%20_%20The%20Princeton%20Review.pdf"/>
     <button id="loadfromURL" onclick="loadfromURL()">Load</button><br>
-    
+</div>
     <div id="pdfViewer"></div><div style="position:fixed;top:0px;left:45%"><button  id="pagePrev" ><</button><label id="pageNumber"></label><button  id="pageNext" >></button></div>
 <!-- Pagination for the pdf viewer-->
 
