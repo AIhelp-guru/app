@@ -431,6 +431,25 @@ function getanswers() {
     });
 }
 
+function getWorksheets(){
+    l = location.href;
+    if(l.indexOf("wksheet=") >= 0){
+            w = l.substr(l.indexOf("wksheet=")+8);
+    const url = "https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic=index";
+    
+    $.get(url, function(data) {
+       for(i=0;i<data.length;i++){
+            if(data[i][0] === w){
+                $("#pdfURL").val(data[i][1]);
+                loadfromURL();
+            }
+
+       }
+        
+        
+    });
+}
+}
 </script>
 </body>
 </html>
