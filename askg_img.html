@@ -33,7 +33,7 @@
         const prompt = promptInput.value;
         url="https://us-east1-aihelp-382014.cloudfunctions.net/askai_node"
 
-        $.ajax(url,{text:"what is 6*7?"},function(data){
+        $.post(url,{text:"what is 6*7?"},function(data){
           $("#response").html(data);
         })
         /*fetch(url, {  // Replace with your Cloud Function URL
