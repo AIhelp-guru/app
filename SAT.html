@@ -11,7 +11,7 @@
   .answerButton { padding: 10px; margin: 5px; background-color: #f0f0f0; border: none; cursor: pointer; }
   .answerButton:hover { background-color: #ddd; }
   #pageNext,#pagePrev{height:30px;background:none;color:gray;font-size:2em;border:none;cursor:pointer}
-  .answer,.explanation{display:none};
+  .answer,.explanation{display:none;padding:10px};
   #pageNext{
     left:50%;
   }
@@ -417,8 +417,8 @@ function getanswers() {
                     questionDiv.append(optionLabel);
                 });
                 questionDiv.append("<button class='reveal'>Reveal</button>");
-                questionDiv.append("<div class='answer'>"+data[i][3]+"</div>");
-                questionDiv.append("<div class='explanation'>"+data[i][4]+"</div>");
+                questionDiv.append("<div class='answer'>Answer: "+data[i][3]+"</div>");
+                questionDiv.append("<div class='explanation'>Explanation: "+data[i][4]+"</div>");
                 $("#questionsContainer").append(questionDiv);
                 $(".reveal").click(function(){
                     $(this).next().show();
