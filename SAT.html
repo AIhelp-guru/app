@@ -403,8 +403,8 @@ function getanswers() {
                 const questionDiv = $('<div>').addClass('question');
                 const questionTitle = $('<h4>').text(`Question ${data[i][1]}`);
                 questionDiv.append(questionTitle);
-
-                ['A', 'B', 'C', 'D'].forEach(option => {
+                question_options = data[i][2].split(",");
+                question_options.forEach(option => {
                     const optionLabel = $('<label>');
                     const optionInput = $('<input>', {
                         type: 'checkbox',
