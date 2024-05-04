@@ -170,6 +170,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 });
 
 function renderPage(num) {
+        getanswers() ;
     pdfDoc.getPage(num).then(function(page) {
         
         $("#pageNumber").html(num);
