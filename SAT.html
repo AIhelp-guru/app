@@ -395,7 +395,36 @@ function getanswers(){
 
     $.get(url,function(data){
         console.log(data);
-        $("#questionsContainer").html(data);
+        filename =  $("#pdfURL").val();
+        $("#questionsContainer").html('');
+        for(i=0;i<data.length;i++){
+           if(filename === data[i][0]){
+            const questionDiv = $('<div>').addClass('question');
+            const questionTitle = $('<h4>').text(`Question ${data[i][1]}`);
+            questionDiv.append(questionTitle);
+
+            ['A', 'B', 'C', 'D'].forEach(option => {
+                const optionLabel = $('<label>');
+                const optionInput = $('<input>', {
+                    type: 'checkbox',
+                    id: `page${1}-question${i}-option${option}`,
+                    name: `question${i}-page${1}`
+                });
+
+                const optionText = document.createTextNode(` ${option})`);
+                optionLabel.append(optionInput).append(optionText);
+                questionDiv.append(optionLabel);
+            });
+
+            $("#questionsContainer").append(questionDiv);
+
+            
+           }
+
+
+
+        }
+        
     })
 
 }
