@@ -170,7 +170,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 });
 
 function renderPage(num) {
-        getanswers() ;
+        
     pdfDoc.getPage(num).then(function(page) {
         
         $("#pageNumber").html(num);
@@ -384,7 +384,8 @@ function createQuestions(data){
 }
 function loadfromURL(){
 var url = $("#pdfURL").val();
-$("#fileInput").hide();
+getanswers() ;
+    $("#fileInput").hide();
 var loadingTask = pdfjsLib.getDocument(url);
     loadingTask.promise.then(function(pdf) {
         pdfDoc = pdf;
