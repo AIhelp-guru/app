@@ -392,7 +392,7 @@ var loadingTask = pdfjsLib.getDocument(url);
 
 function getanswers() {
     const url = "https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic=worksheets";
-
+    loadfromURL();
     $.get(url, function(data) {
         console.log(data);
         const filename = $("#pdfURL").val();
