@@ -235,6 +235,7 @@ function generateQuestionCheckboxes(pages) {
     const container = document.getElementById('questionsContainer'); // Assumes there's a div with this id in your HTML
     container.innerHTML = ''; // Clear previous contents
     i = 0;
+    /*
     pages.forEach((page, index) => {
         
         const pageDiv = document.createElement('div');
@@ -274,7 +275,7 @@ function generateQuestionCheckboxes(pages) {
         container.appendChild(pageDiv);
         $(".page").hide();
         $("#p1").show();
-    });
+    });*/
 }
 document.getElementById('chatbotOpenButton').addEventListener('click', toggleChatbot);
 
@@ -359,12 +360,13 @@ function askai(prompt,callback){
       },
       error: function(xhr, status, error) {
         // Handle the error response
+        
         console.error(error);
       }
     });
     }
 $("#chatbotPanel").toggle();
-generateQuestionCheckboxes(pages)
+
 $(document).ready(function() {
     $('#chatbotInput').keydown(function(event) {
         // Check if the key pressed is the Enter key
@@ -393,7 +395,7 @@ function getanswers(){
 
     $.get(url,function(data){
         console.log(data);
-
+        $("#questionsContainer").html(data);
     })
 
 }
