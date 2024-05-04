@@ -33,7 +33,7 @@
         url="https://us-central1-aihelp-382014.cloudfunctions.net/askgemini"
 
         fetch(url, {  // Replace with your Cloud Function URL
-          
+          mode: 'no-cors',
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
