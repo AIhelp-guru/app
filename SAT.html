@@ -206,7 +206,7 @@ function renderPage(num) {
 
             $("#p"+num).append(textLayerDiv);
             textLayerDiv.textContent = textStr;  // Adds the processed text directly to the div
-            $(".textLayer").show();
+            //$(".textLayer").show();
             // If using the text layer builder from PDF.js, continue using it as needed
         });
     });
@@ -234,6 +234,7 @@ document.getElementById('pagePrev').addEventListener('click', function() {
   
  
 function generateQuestionCheckboxes(pages) {
+    getanswers();
     const container = document.getElementById('questionsContainer'); // Assumes there's a div with this id in your HTML
     container.innerHTML = ''; // Clear previous contents
     i = 0;
@@ -388,6 +389,16 @@ var loadingTask = pdfjsLib.getDocument(url);
         pdfDoc = pdf;
         renderPage(1)
     });
+}
+
+function getanswers(){
+    url = "https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic=worksheets";
+
+    $.get(url,function(data){
+        console.log(data);
+
+    })
+
 }
 </script>
 </body>
