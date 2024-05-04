@@ -390,44 +390,38 @@ var loadingTask = pdfjsLib.getDocument(url);
     });
 }
 
-function getanswers(){
-    url = "https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic=worksheets";
+function getanswers() {
+    const url = "https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic=worksheets";
 
-    $.get(url,function(data){
+    $.get(url, function(data) {
         console.log(data);
-        filename =  $("#pdfURL").val();
+        const filename = $("#pdfURL").val();
         $("#questionsContainer").html('');
-        for(i=0;i<data.length;i++){
-           if(filename === data[i][0]){
-            const questionDiv = $('<div>').addClass('question');
-            const questionTitle = $('<h4>').text(`Question ${data[i][1]}`);
-            questionDiv.append(questionTitle);
 
-            ['A', 'B', 'C', 'D'].forEach(option => {
-                const optionLabel = $('<label>');
-                const optionInput = $('<input>', {
-                    type: 'checkbox',
-                    id: `page${1}-question${i}-option${option}`,
-                    name: `question${i}-page${1}`
+        for (let i = 0; i < data.length; i++) {
+            if (filename === data[i][0]) {
+                const questionDiv = $('<div>').addClass('question');
+                const questionTitle = $('<h4>').text(`Question ${data[i][1]}`);
+                questionDiv.append(questionTitle);
+
+                ['A', 'B', 'C', 'D'].forEach(option => {
+                    const optionLabel = $('<label>');
+                    const optionInput = $('<input>', {
+                        type: 'checkbox',
+                        id: `page${1}-question${i}-option${option}`,
+                        name: `question${i}-page${1}`
+                    });
+
+                    optionLabel.append(optionInput).append(` ${option})`);
+                    questionDiv.append(optionLabel);
                 });
 
-                const optionText = document.createTextNode(` ${option})`);
-                optionLabel.append(optionInput).append(optionText);
-                questionDiv.append(optionLabel);
-            });
-
-            $("#questionsContainer").append(questionDiv);
-
-            
-           }
-
-
-
+                $("#questionsContainer").append(questionDiv);
+            }
         }
-        
-    })
-
+    });
 }
+
 </script>
 </body>
 </html>
