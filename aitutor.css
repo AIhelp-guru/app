@@ -102,10 +102,10 @@ button {
     height:30px;
 }
 #urlForm{
-    display: none;
+    display: block;
 }
 #fileInput{
-    display: none;
+    display: block;
 }
 #toolbar{
     position:fixed;
