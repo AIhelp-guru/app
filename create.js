@@ -156,6 +156,9 @@ function loadfromURL(){
     var url = $("#pdfURL").val();
     
         $("#urlForm").hide();
+        $("#pageNext").show();
+        $("#pagePrev").show();
+        
     var loadingTask = pdfjsLib.getDocument(url);
         loadingTask.promise.then(function(pdf) {
             pdfDoc = pdf;
