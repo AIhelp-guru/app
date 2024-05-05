@@ -121,7 +121,7 @@ function callgemini(prompt){
         url: 'https://us-central1-aihelp-382014.cloudfunctions.net/askgemini',
 
         type: 'POST',
-        data: JSON.stringify({ "text": prompt }),
+        data: { "text": prompt },
         crossDomain: true,
         dataType: 'jsonp',
         success: function(data) {
