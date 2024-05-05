@@ -84,14 +84,6 @@ document.getElementById('pagePrev').addEventListener('click', function() {
     renderPage(pageNum);
 });
 
-// Event listener for chatbot open button
-document.getElementById('chatbotOpenButton').addEventListener('click', toggleChatbot);
-
-// Function to toggle chatbot visibility
-function toggleChatbot() {
-    $("#chatbotPanel").toggle();
-    $("#gform").toggle();
-}
 
 // Function to get base64 representation of a file
 function getFileBase64(file, callback) {
