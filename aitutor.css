@@ -9,14 +9,8 @@ body { font-family: Arial, sans-serif; display: flex; }
   #answerPanel { width: 50%; padding: 20px; overflow-y: auto;display: inline-block;margin-top:50px; }
   .answerButton { padding: 10px; margin: 5px; background-color: #f0f0f0; border: none; cursor: pointer; }
   .answerButton:hover { background-color: #ddd; }
-  #pageNext,#pagePrev{height:30px;background:none;color:gray;font-size:2em;border:none;cursor:pointer}
-  .answer,.explanation{display:none;padding:10px};
-  #pageNext{
-    left:50%;
-  }
-  #pagePrev{
-    left:10px;
-  }
+   .answer,.explanation{display:none;padding:10px};
+  
   .textLayer{display: block;}
   #chatbotPanel {
     position: fixed;
@@ -149,3 +143,14 @@ button {
 #pageNext:hover {
     background-color: #45a049;
 }
+
+#pageNext{
+    position:fixed;
+    left:50%;
+    display: none;
+  }
+#pagePrev{
+    position:fixed;
+    left:10px;
+    display: none;
+  }
