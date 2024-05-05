@@ -107,10 +107,10 @@ function sendMessage() {
         chatbotMessages.appendChild(msgElement);
         input.value = '';
         
-       {
+       
             $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
-            askai(message + "; context:" + pageText);
-        }
+            alert(message + "; context:" + pageText);
+            
     }
 }
 
