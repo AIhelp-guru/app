@@ -126,6 +126,7 @@ function callgemini(prompt){
             $("#waiting").remove();
             
             data = data.replace("```html","").replaceAll("```","");
+            data = convertToBold(data);
             $("#chatbotMessages").append("<div class='aiResponse'>"+data+"</div>");
         },
         error: function(xhr, status, error) {
@@ -136,7 +137,9 @@ function callgemini(prompt){
         }
     });
 }
-
+function convertToBold(text) {
+    return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+}
 // Function to send message to AI
 function askai(prompt,callback){
     $.ajax({
