@@ -306,21 +306,7 @@ function sendMessage() {
         }
     }
 }
-/*
-function sendMessage() {
-    const input = document.getElementById('chatbotInput');
-    const message = input.value.trim();
-    if (message) {
-        const chatbotMessages = document.getElementById('chatbotMessages');
-        const msgElement = document.createElement('div');
-        msgElement.textContent = message ;
-        chatbotMessages.appendChild(msgElement);
-        input.value = '';
-        $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
-        askai(message+ "; context:" + pageText);
-    }
-}
-*/
+
 
 function askai(prompt,callback){
       //prompt = "Please limit your response related to this subject / topic (in html format): ["+$("#lesson").text()+"], prompt:"+$("#prompt").val();
