@@ -123,7 +123,8 @@ function callgemini(prompt){
         type: 'POST',
         data: { "text": prompt },
         headers: {
-            "Access-Control-Allow-Headers": "x-requested-with"
+            "Access-Control-Allow-Headers": "x-requested-with",
+            "Access-Control-Allow-Origin": "https://aihelp-guru.github.io/"
         },
         crossDomain: true,
         success: function(data) {
