@@ -123,7 +123,6 @@ function callgemini(prompt){
         type: 'POST',
         data: { "text": prompt },
         crossDomain: true,
-        dataType: 'jsonp',
         success: function(data) {
             $("#waiting").remove();
             if(callback){
