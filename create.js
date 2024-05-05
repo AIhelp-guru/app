@@ -124,9 +124,7 @@ function callgemini(prompt){
         data: { "text": prompt },
         success: function(data) {
             $("#waiting").remove();
-            if(callback){
-                callback(data);
-            }
+            
             data = data.replace("```html","").replaceAll("```","");
             $("#chatbotMessages").append("<div class='aiResponse'>"+data+"</div>");
         },
