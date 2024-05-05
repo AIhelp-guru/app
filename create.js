@@ -130,6 +130,9 @@ function callgemini(prompt){
         },
         error: function(xhr, status, error) {
             console.error(error);
+            $("#waiting").remove();
+            $("#chatbotMessages").append("<div class='aiResponse'>AI didn't respond to your message. Probably due to restrictions. Ask another question</div>");
+
         }
     });
 }
