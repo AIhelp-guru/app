@@ -177,7 +177,7 @@ function loadfromURL(){
     }
 
 function rw_file(data=''){
- url ="https://us-central1-aihelp-382014.cloudfunctions.net/rw_hmwrk";
+ url ="https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework";
 
  filename = $("#pdfURL").val();
  $.ajax({
