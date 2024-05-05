@@ -1,0 +1,124 @@
+body { font-family: Arial, sans-serif; display: flex; }
+  #pdfViewer { 
+    width: 80%; 
+    height: 100vh; 
+    border-right: 2px solid #ccc;
+    overflow:auto;
+    margin-top:50px;
+ }
+  #answerPanel { width: 50%; padding: 20px; overflow-y: auto;display: inline-block;margin-top:50px; }
+  .answerButton { padding: 10px; margin: 5px; background-color: #f0f0f0; border: none; cursor: pointer; }
+  .answerButton:hover { background-color: #ddd; }
+  #pageNext,#pagePrev{height:30px;background:none;color:gray;font-size:2em;border:none;cursor:pointer}
+  .answer,.explanation{display:none;padding:10px};
+  #pageNext{
+    left:50%;
+  }
+  #pagePrev{
+    left:10px;
+  }
+  .textLayer{display: block;}
+  #chatbotPanel {
+    position: fixed;
+    border-radius: 20px;
+    top: 100px;
+    right:50px;
+    bottom: 10px;
+    width: 500px;
+    height: 600px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px 20px 0 0;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-out;
+}
+
+#chatbotHeader {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px 20px 0 0;
+}
+
+#chatbotHeader span {
+    flex-grow: 1;
+}
+
+#chatbotHeader button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+}
+
+#chatbotMessages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#chatbotInput {
+    border: none;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+button {
+    cursor: pointer;
+}
+
+.chatbot-open {
+    transform: translateY(100%);
+}
+
+.chatbot-closed {
+    transform: translateY(100%);
+}
+
+#chatbotOpenButton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.aiResponse{
+    margin:5px;
+    padding:5px;
+    background-color: rgb(255, 243, 172);
+}
+#loadfromURL{
+    height:30px;
+}
+#pdfURL{
+    height:30px;
+}
+#urlForm{
+    display: none;
+}
+#fileInput{
+    display: none;
+}
+#toolbar{
+    position:fixed;
+    height:50px;
+    background-color: black;
+    color:white;
+    top:0px;
+    left:0px;
+    z-index:9999;
+    width: 100%;
+    text-align: center;
+}
+.reveal{
+    margin:10px;
+    border:none;
+}
