@@ -127,7 +127,7 @@ function callgemini(prompt){
             
             data = data.replace("```html","").replaceAll("```","");
             data = convertToBold(data);
-            $("#chatbotMessages").append("<div class='aiResponse'>"+data+"</div>");
+            $("#chatbotMessages").append("<div class='aiResponse' contenteditable='true'>"+data+"</div>");
         },
         error: function(xhr, status, error) {
             console.error(error);
