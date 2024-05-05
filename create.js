@@ -151,6 +151,19 @@ function askai(prompt,callback){
     });
 }
 
+//Function to load from URL
+function loadfromURL(){
+    var url = $("#pdfURL").val();
+    
+        $("#fileInput").hide();
+    var loadingTask = pdfjsLib.getDocument(url);
+        loadingTask.promise.then(function(pdf) {
+            pdfDoc = pdf;
+            renderPage(1);
+            
+        });
+        
+    }
 // Initial setup on document ready
 $(document).ready(function() {
     $('#chatbotInput').keydown(function(event) {
