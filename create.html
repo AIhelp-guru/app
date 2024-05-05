@@ -10,36 +10,37 @@
 </head>
 <body>
 <div id="toolbar"><button  id="pagePrev" ><</button><label id="pageNumber"></label><button  id="pageNext" >></button></div>
-
-   <div id="urlForm"> <input id="pdfURL" value="https://aihelp-guru.github.io/app/ACT%20Practice%20Questions%20_%20The%20Princeton%20Review.pdf"/>
-    <button id="loadfromURL" onclick="loadfromURL()">Load</button><br>
-</div>
-    <div id="pdfViewer"></div><div style="position:fixed;top:0px;left:45%"></div>
-<!-- Pagination for the pdf viewer-->
-
-
-
-<div id="answerPanel">
-  
-  <h2>Answers</h2>
-  <button id="chatbotOpenButton">Chat with us!</button>
-<div id="chatbotPanel" class="chatbot-closed">
-    <div id="chatbotHeader">
-        <span>Chatbot</span>
-        <button id="closeChatbot" onclick="toggleChatbot()">×</button>
+<div id="main">
+    <div id="urlForm"> <input id="pdfURL" value="https://aihelp-guru.github.io/app/ACT%20Practice%20Questions%20_%20The%20Princeton%20Review.pdf"/>
+        <button id="loadfromURL" onclick="loadfromURL()">Load</button><br>
     </div>
-    <div id="chatbotMessages"></div>
-    <input type="text" id="chatbotInput" placeholder="Type your message...">
-    <input type="file" id="imageInput" accept="image/*" style="margin-bottom: 10px;">
+        <div id="pdfViewer"></div><div style="position:fixed;top:0px;left:45%"></div>
+    <!-- Pagination for the pdf viewer-->
 
-    <button onclick="sendMessage()">Send</button>
-</div>
-<details>
-<summary>Text</summary>
-<div id="textContent"></div>
-</details>
 
-  <div id="questionsContainer"></div>
+
+    <div id="answerPanel">
+    
+    <h2>Answers</h2>
+    <button id="chatbotOpenButton">Chat with us!</button>
+    <div id="chatbotPanel" class="chatbot-closed">
+        <div id="chatbotHeader">
+            <span>Chatbot</span>
+            <button id="closeChatbot" onclick="toggleChatbot()">×</button>
+        </div>
+        <div id="chatbotMessages"></div>
+        <input type="text" id="chatbotInput" placeholder="Type your message...">
+        <input type="file" id="imageInput" accept="image/*" style="margin-bottom: 10px;">
+
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <details>
+    <summary>Text</summary>
+    <div id="textContent"></div>
+    </details>
+
+    <div id="questionsContainer"></div>
+    </div>
 </div>
 <!-- jquery CDN-->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
