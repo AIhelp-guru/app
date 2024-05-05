@@ -63,9 +63,6 @@ function renderPage(num) {
             pageText = (textStr); // Store the readable text
             $("#textContent").html(pageText);
 
-            // Display text content in questionsContainer
-            $("#questionsContainer").append(textLayerDiv);
-            textLayerDiv.textContent = textStr;
         });
     });
 }
