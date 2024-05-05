@@ -13,7 +13,7 @@ body { font-family: Arial, sans-serif; display: flex; }
   
   .textLayer{display: block;}
   #chatbotPanel {
-    position: fixed;
+    
     border-radius: 20px;
     top: 100px;
     right:50px;
