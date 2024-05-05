@@ -155,7 +155,7 @@ function askai(prompt,callback){
 function loadfromURL(){
     var url = $("#pdfURL").val();
     
-        $("#fileInput").hide();
+        $("#urlForm").hide();
     var loadingTask = pdfjsLib.getDocument(url);
         loadingTask.promise.then(function(pdf) {
             pdfDoc = pdf;
