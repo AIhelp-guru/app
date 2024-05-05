@@ -105,24 +105,17 @@ function getFileBase64(file, callback) {
 function sendMessage() {
     const input = document.getElementById('chatbotInput');
     const message = input.value.trim();
-    const imageInput = document.getElementById('imageInput');
-    const file = imageInput.files[0];
+    //const imageInput = document.getElementById('imageInput');
+    //const file = imageInput.files[0];
 
-    if (message || file) {
+    if (message) {
         const chatbotMessages = document.getElementById('chatbotMessages');
         const msgElement = document.createElement('div');
         msgElement.textContent = message;
         chatbotMessages.appendChild(msgElement);
         input.value = '';
-        imageInput.value = '';
-
-        // If file is selected, convert it to base64 and send along with message
-        if (file) {
-            getFileBase64(file, function(base64) {
-                $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
-                askai(message + "; Image data: " + base64.substring(0, 300) + "...");
-            });
-        } else {
+        
+       {
             $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
             askai(message + "; context:" + pageText);
         }
