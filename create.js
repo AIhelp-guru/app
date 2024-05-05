@@ -1,4 +1,3 @@
-document.getElementById('pdfViewer').innerHTML = '<img id="wkloading" src="https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369" style="height:50px;width:50px;background:gold;border-radius:25px;"" />';
 var pdfDoc = null, pageNum = 1, pageText ='', canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
 var pages = ['1', '1', '0', '0', '1-4', '5-10', '0', '11-16','17-21'];
 
