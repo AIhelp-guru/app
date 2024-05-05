@@ -122,8 +122,10 @@ function callgemini(prompt){
 
         type: 'POST',
         data: { "text": prompt },
+        headers: {
+            "Access-Control-Allow-Headers": "x-requested-with"
+        },
         crossDomain: true,
-        dataType: 'jsonp',
         success: function(data) {
             $("#waiting").remove();
             if(callback){
