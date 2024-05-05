@@ -95,33 +95,53 @@ button {
     padding:5px;
     background-color: rgb(255, 243, 172);
 }
-#loadfromURL{
-    height:30px;
-}
-#pdfURL{
-    height:30px;
-}
-#urlForm{
-    display: block;
-}
-#fileInput{
-    display: block;
-}
-#toolbar{
-    position:fixed;
-    height:50px;
-    background-color: black;
-    color:white;
-    top:0px;
-    left:0px;
-    z-index:9999;
-    width: 100%;
-    text-align: center;
-}
+
+
 .reveal{
     margin:10px;
     border:none;
 }
 #main{
     margin-top:50px;
+}
+#toolbar {
+    background-color: #f2f2f2;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#urlForm {
+    display: flex;
+    align-items: center;
+}
+
+#fileInput {
+    margin-right: 10px;
+}
+
+#pdfURL {
+    margin-right: 10px;
+}
+
+#loadfromURL,
+#pagePrev,
+#pageNext {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+#loadfromURL:hover,
+#pagePrev:hover,
+#pageNext:hover {
+    background-color: #45a049;
 }
