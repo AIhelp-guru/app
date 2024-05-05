@@ -129,10 +129,12 @@ button {
     margin:10px;
     border:none;
 }
+
 </style>
 </head>
 <body>
 <div id="toolbar"><button  id="pagePrev" ><</button><label id="pageNumber"></label><button  id="pageNext" >></button></div>
+<div id="textContent"></div>
    <div id="urlForm"> <input id="pdfURL" value="https://aihelp-guru.github.io/app/ACT%20Practice%20Questions%20_%20The%20Princeton%20Review.pdf"/>
     <button id="loadfromURL" onclick="loadfromURL()">Load</button><br>
 </div>
@@ -220,14 +222,8 @@ function renderPage(num) {
             var strings = textContent.items.map(function(item) { return item.str; });
             var textStr = strings.join(" ");  // Joins all text strings into a single string with spaces
             pageText = (textStr);  // Logs the readable text
+            $("#textContent").html(pageText);
             
-            var textLayerDiv = document.createElement('div');
-            textLayerDiv.className = 'textLayer';
-            //textLayerDiv.style.position = 'absolute';
-            //textLayerDiv.style.left = canvas.offsetLeft + 'px';
-           // textLayerDiv.style.top = canvas.offsetTop + 'px';
-           // textLayerDiv.style.height = canvas.offsetHeight + 'px';
-            //textLayerDiv.style.width = canvas.offsetWidth + 'px';
 
             $("#questionsContainer").append(textLayerDiv);
             textLayerDiv.textContent = textStr;  // Adds the processed text directly to the div
