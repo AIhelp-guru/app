@@ -177,13 +177,14 @@ function loadfromURL(){
     }
 
 function rw_file(data=''){
- url ="https://us-east1-aihelp-382014.cloudfunctions.net/rw_homework?filename=testfile&data=";
+ url ="https://us-east1-aihelp-382014.cloudfunctions.net/rw_homework";
+
  filename = $("#pdfURL").val();
  $.ajax({
-    url: 'https://us-central1-aihelp-382014.cloudfunctions.net/askgemini',
+    url: url,
 
     type: 'POST',
-    data: { "filename":filename,"data": data },
+    data: { filename:filename,data: data },
     success: function(data) {
         alert(data);
     }
