@@ -124,7 +124,7 @@ function callgemini(prompt){
         data: { "text": prompt },
         headers: {
             "Access-Control-Allow-Headers": "x-requested-with",
-            "Access-Control-Allow-Origin": "https://aihelp-guru.github.io/"
+            "Access-Control-Allow-Origin": "https://us-central1-aihelp-382014.cloudfunctions.net/askgemini"
         },
         crossDomain: true,
         success: function(data) {
