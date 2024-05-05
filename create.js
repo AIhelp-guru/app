@@ -110,9 +110,30 @@ function sendMessage() {
        
             $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
             console.log(pageText);
-            askai(message + "; page reference:" + pageText);
+            callgemini(message + "; page reference:" + pageText);
             
     }
+}
+
+function callgemini(prompt){
+    
+    $.ajax({
+        url: 'https://us-central1-aihelp-382014.cloudfunctions.net/askgemini',
+
+        type: 'POST',
+        data: JSON.stringify({ "text": prompt }),
+        success: function(data) {
+            $("#waiting").remove();
+            if(callback){
+                callback(data);
+            }
+            data = data.replace("```html","").replaceAll("```","");
+            $("#chatbotMessages").append("<div class='aiResponse'>"+data+"</div>");
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+    });
 }
 
 // Function to send message to AI
