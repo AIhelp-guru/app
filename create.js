@@ -177,14 +177,14 @@ function loadfromURL(){
     }
 
 function rw_file(data=''){
- url ="https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework";
+ url ="https://us-east1-aihelp-382014.cloudfunctions.net/readwrite_jd";
 
  filename = $("#pdfURL").val();
  $.ajax({
     url: url,
 
     type: 'POST',
-    data: { filename:filename,data: data },
+    data: { "user":filename,"data": data },
     success: function(data) {
         alert(data);
     }
