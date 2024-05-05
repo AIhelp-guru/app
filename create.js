@@ -175,6 +175,21 @@ function loadfromURL(){
         });
         
     }
+
+function rw_file(data=''){
+ url ="https://us-east1-aihelp-382014.cloudfunctions.net/rw_homework?filename=testfile&data=";
+ filename = $("#pdfURL").val();
+ $.ajax({
+    url: 'https://us-central1-aihelp-382014.cloudfunctions.net/askgemini',
+
+    type: 'POST',
+    data: { "filename":filename,"data": data },
+    success: function(data) {
+        alert(data);
+    }
+});
+
+}
 // Initial setup on document ready
 $(document).ready(function() {
     $('#chatbotInput').keydown(function(event) {
