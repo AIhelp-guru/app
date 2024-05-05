@@ -6,7 +6,7 @@ body { font-family: Arial, sans-serif; display: flex; }
     overflow:auto;
     margin-top:50px;
  }
-  #answerPanel { width: 550px; padding: 20px; overflow-y: auto;display: inline-block;margin-top:50px; }
+  #answerPanel { width: 600px; padding: 20px; overflow-y: auto;display: inline-block;margin-top:50px; }
   .answerButton { padding: 10px; margin: 5px; background-color: #f0f0f0; border: none; cursor: pointer; }
   .answerButton:hover { background-color: #ddd; }
    .answer,.explanation{display:none;padding:10px};
