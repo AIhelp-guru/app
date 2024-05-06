@@ -89,6 +89,11 @@ button {
     padding:5px;
     background-color: rgb(255, 243, 172);
 }
+.user_prompt{
+    margin:5px;
+    padding:5px;
+    background-color: rgb(228, 255, 209);
+}
 
 
 .reveal{
