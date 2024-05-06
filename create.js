@@ -137,6 +137,16 @@ function callgemini(prompt){
         }
     });
 }
+
+function rw_file(filename,data){
+    $.ajax({url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
+    type:'post',
+    data:{'filename':filename,'data':data},
+    success:function(data){
+
+        console.log(data);}
+})
+}
 function convertToBold(text) {
     return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
 }
