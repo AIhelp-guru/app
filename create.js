@@ -218,9 +218,9 @@ $(document).ready(function() {
             event.preventDefault();
         }else{
             $("details").hide();
-            prompt = $(this).val();
+            prompt = ($(this).val()).toLowerCase();
             $("details").each(function(){
-                if($(this).find("summary").indexOf(prompt) >=0){
+                if(($(this).find("summary").text()).toLowerCase().indexOf(prompt) >=0){
                     $(this).show();
                 }
             })
