@@ -208,7 +208,7 @@ function rw_file(action){
         data:{'filename':'madhutemp@gmail.com','data':'read_data'},
         success:function(data){
 
-            console.log(data);
+            $("#chatbotMessages").html(data);
         }
     })
     }
@@ -225,5 +225,6 @@ $(document).ready(function() {
     });
     $("#fileInput").show();
     $("#pdfURL").show();
-    $(".save_btn").click(function(){ rw_file('update')})
+    $(".save_btn").click(function(){ rw_file('update')});
+    $(".load_btn").click(function(){ rw_file('read')});
 });
