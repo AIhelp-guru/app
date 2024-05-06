@@ -199,7 +199,7 @@ function rw_file(action){
         success:function(data){
             data = JSON.parse(data);
             data = data.replaceAll("\\n","");
-            $("#chatbotMessages").html("<b>Help</b><div id='teachersHelp'>"+data +"</div></details>");
+            $("#chatbotMessages").html("<b>Help</b><div id='teachers'>"+data +"</div></details>");
             $("#teachersHelp").find("details").attr('open', false);
         }
     })
