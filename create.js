@@ -101,12 +101,9 @@ function sendMessage() {
     //const file = imageInput.files[0];
 
     if (message) {
-        const chatbotMessages = document.getElementById('chatbotMessages');
-        const msgElement = document.createElement('div');
-        msgElement.textContent = message;
-        chatbotMessages.appendChild(msgElement);
-        input.value = '';
         
+        input.value = '';
+        $("#chatbotMessages").append("<div class='user_prompt'>"+message+"</div>");
        
             $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
             //console.log(pageText);
