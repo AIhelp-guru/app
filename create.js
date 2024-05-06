@@ -103,7 +103,7 @@ function sendMessage() {
     if (message) {
         
         input.value = '';
-        $("#chatbotMessages").append("<div class='user_prompt'>"+message+"</div>");
+        $("#chatbotMessages").append("<details open><summary><div class='user_prompt'>"+message+"</div></summary></details>");
        
             $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
             //console.log(pageText);
@@ -124,12 +124,13 @@ function callgemini(prompt){
             
             data = data.replace("```html","").replaceAll("```","");
             data = convertToBold(data);
-            $("#chatbotMessages").append("<div class='aiResponse' contenteditable='true'>"+data+"</div>");
+            $("#chatbotMessages").find(".user_prompt").last().parents("details").append("<div class='aiResponse' contenteditable='true'>"+data+"</div>");
         },
         error: function(xhr, status, error) {
             console.error(error);
             $("#waiting").remove();
-            $("#chatbotMessages").append("<div class='aiResponse'>AI didn't respond to your message. Probably due to restrictions. Ask another question</div>");
+            alert("AI didn't respond to your message. Probably due to restrictions. Ask another question");
+            //$("#chatbotMessages").find(".user_prompt").last().parents("details").append("<div class='aiResponse'>AI didn't respond to your message. Probably due to restrictions. Ask another question</div>");
 
         }
     });
