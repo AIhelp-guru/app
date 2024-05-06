@@ -186,10 +186,16 @@ function loadfromURL(){
         
     }
 
-function rw_file(data=''){
+function rw_file(action){
+
  url ="https://us-east1-aihelp-382014.cloudfunctions.net/readwrite_jd";
 
  filename = $("#pdfURL").val();
+    if(action === "update"){
+        data = $("#chatbotMessages").html();
+    }else{
+        data = '';
+    }
  $.ajax({
     url: url,
 
@@ -211,4 +217,5 @@ $(document).ready(function() {
     });
     $("#fileInput").show();
     $("#pdfURL").show();
+    $(".save_btn").click(function(){ rw_file('update')})
 });
