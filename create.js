@@ -196,15 +196,15 @@ function rw_file(action){
     }else{
         data = '';
     }
- $.ajax({
-    url: url,
+    $.ajax({
+        url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
+        type:'post',
+        data:{'filename':'madhutemp@gmail.com','data':JSON.stringify($("#chatbotMessages").html())},
+        success:function(data){
 
-    type: 'POST',
-    data: { "user":filename,"data": JSON.stringify(data) },
-    success: function(data) {
-        alert(data);
-    }
-});
+            console.log(data);
+        }
+    })
 
 }
 // Initial setup on document ready
