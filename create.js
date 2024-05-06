@@ -208,7 +208,7 @@ function rw_file(action){
         data:{'filename':'madhutemp@gmail.com','data':'read_data'},
         success:function(data){
 
-            $("#chatbotMessages").html("<details><summary>Hint</summary>"+data +"</details>");
+            $("#chatbotMessages").html("<details><summary>Hint</summary><div class='aiResponse'>"+data +"</div></details>");
         }
     })
     }
