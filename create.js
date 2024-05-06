@@ -192,19 +192,27 @@ function rw_file(action){
 
  filename = $("#pdfURL").val();
     if(action === "update"){
-        data = $("#chatbotMessages").html();
+        $.ajax({
+            url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
+            type:'post',
+            data:{'filename':'madhutemp@gmail.com','data':JSON.stringify($("#chatbotMessages").html())},
+            success:function(data){
+    
+                console.log(data);
+            }
+        })
     }else{
-        data = '';
-    }
-    $.ajax({
+         $.ajax({
         url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
         type:'post',
-        data:{'filename':'madhutemp@gmail.com','data':JSON.stringify($("#chatbotMessages").html())},
+        data:{'filename':'madhutemp@gmail.com','data':JSON.stringify('')},
         success:function(data){
 
             console.log(data);
         }
     })
+    }
+   
 
 }
 // Initial setup on document ready
