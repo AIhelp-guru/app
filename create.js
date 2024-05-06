@@ -199,7 +199,7 @@ function rw_file(action){
         type:'post',
         data:{'filename':'madhutemp@gmail.com','data':'read_data'},
         success:function(data){
-            data = data.replaceAll("\n","");
+            data = data.replaceAll("\\n","");
             $("#chatbotMessages").html("<details><summary>Hint</summary><div class='aiResponse'>"+data +"</div></details>");
         }
     })
@@ -219,5 +219,5 @@ $(document).ready(function() {
     $("#pdfURL").show();
     $(".save_btn").click(function(){ rw_file('update')});
     $(".load_btn").click(function(){ rw_file('read')});
-    alert("now");
+  
 });
