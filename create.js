@@ -200,7 +200,7 @@ function rw_file(action){
     url: url,
 
     type: 'POST',
-    data: { "user":filename,"data": data },
+    data: { "user":filename,"data": JSON.stringify(data) },
     success: function(data) {
         alert(data);
     }
