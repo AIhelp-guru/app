@@ -205,7 +205,7 @@ function rw_file(action){
          $.ajax({
         url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
         type:'post',
-        data:{'filename':'madhutemp@gmail.com','data':JSON.stringify('')},
+        data:{'filename':'madhutemp@gmail.com','data':'read_data'},
         success:function(data){
 
             console.log(data);
