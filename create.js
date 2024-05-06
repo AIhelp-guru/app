@@ -103,7 +103,7 @@ function sendMessage() {
     if (message) {
         
         input.value = '';
-        $("#chatbotMessages").append("<details open><summary><div class='user_prompt'>"+message+"</div></summary></details>");
+        $("#chatbotMessages").append("<details open><summary class='user_prompt'>"+message+"</summary></details>");
        
             $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
             //console.log(pageText);
@@ -200,7 +200,7 @@ function rw_file(action){
             data = JSON.parse(data);
             data = data.replaceAll("\\n","");
             $("#chatbotMessages").html("<b>Help</b><div id='teachersHelp'>"+data +"</div></details>");
-            $("#teacherHelp").find("detail").prop('open', false);
+            $("#teacherHelp").find("detail").attr('open', false);
         }
     })
     }
