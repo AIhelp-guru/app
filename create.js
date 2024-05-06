@@ -188,7 +188,7 @@ function loadfromURL(){
 
 function rw_file(action){
 
- url ="https://us-east1-aihelp-382014.cloudfunctions.net/readwrite_jd";
+ url ="https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework";
 
  filename = $("#pdfURL").val();
     if(action === "update"){
