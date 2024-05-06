@@ -210,14 +210,27 @@ function rw_file(action){
 // Initial setup on document ready
 $(document).ready(function() {
     $('#chatbotInput').keydown(function(event) {
+
+       
+
         if (event.which == 13) {
             sendMessage();
             event.preventDefault();
+        }else{
+            $("details").hide();
+            prompt = $(this).val();
+            $("details").each(function(){
+                if($(this).find("summary").indexOf(prompt) >=0){
+                    $(this).show();
+                }
+            })
         }
     });
     $("#fileInput").show();
     $("#pdfURL").show();
     $(".save_btn").click(function(){ rw_file('update')});
     $(".load_btn").click(function(){ rw_file('read')});
+
+
   
 });
