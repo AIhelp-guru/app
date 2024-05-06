@@ -37,6 +37,10 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 
 // Function to render a page
 function renderPage(num) {
+    $("#urlForm").hide();
+    $("#pageNext").show();
+    $("#pagePrev").show();
+    
     pdfDoc.getPage(num).then(function(page) {
         $("#pageNumber").html(num);
         $(".page").hide();
