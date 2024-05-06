@@ -200,7 +200,7 @@ function rw_file(action){
             data = JSON.parse(data);
             data = data.replaceAll("\\n","");
             $("#chatbotMessages").html("<b>Help</b><div id='teachersHelp'>"+data +"</div></details>");
-            $("#teacherHelp").find("details").attr('open', false);
+            $("#teachersHelp").find("details").attr('open', false);
         }
     })
     }
