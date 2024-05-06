@@ -199,7 +199,8 @@ function rw_file(action){
         success:function(data){
             data = JSON.parse(data);
             data = data.replaceAll("\\n","");
-            $("#chatbotMessages").html("<details><summary>Hint</summary><div class='aiResponse'>"+data +"</div></details>");
+            $("#chatbotMessages").html("<b>Help</b><div id='teachersHelp'>"+data +"</div></details>");
+            $("#teacherHelp").find("detail").prop('open', false);
         }
     })
     }
