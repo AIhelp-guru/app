@@ -227,4 +227,5 @@ $(document).ready(function() {
     $("#pdfURL").show();
     $(".save_btn").click(function(){ rw_file('update')});
     $(".load_btn").click(function(){ rw_file('read')});
+    alert("now");
 });
