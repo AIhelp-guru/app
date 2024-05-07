@@ -159,22 +159,33 @@ tr:hover {
   
   <div id="quizContainer"></div>
 
-<script id='subjectScripts' src="Math_Algebra.js"></script>
+  <script id='subjectScripts' src="Math_Algebra.js"></script>
   <script>
-  var subjects = ["Math_Algebra","Math_Nonlinear"];
-  for(i=0;i<subjects.length;i++){
-    $("#quizzes").append("<option value='"+subjects[i]+".js'>Quiz "+subjects[i].replaceAll("_"," ")+"</option>");
-
-  }
-  $("#quizzes").change(function(){
-    var selectedQuiz = $(this).val();
-    $("#subjectScripts").attr("src",selectedQuiz);
-
+      // Array of subjects
+      var subjects = ["Math_Algebra", "Math_Nonlinear"];
     
-    $("#quizContainer").html('');
-    generateQuiz();
-
-  })
+      // Loop through each subject to populate the select options
+      for (var i = 0; i < subjects.length; i++) {
+        $("#quizzes").append("<option value='" + subjects[i] + ".js'>Quiz " + subjects[i].replace(/_/g, " ") + "</option>");
+      }
+    
+      // Event listener for when the select option changes
+      $("#quizzes").change(function() {
+        var selectedQuiz = $(this).val();
+        $("#subjectScripts").attr("src", selectedQuiz);
+    
+        // Clear quiz container
+        $("#quizContainer").html('');
+        
+        // Wait for the script to load and then call the generateQuiz function
+        $("#subjectScripts").on("load", function() {
+          if (typeof generateQuiz === 'function') {
+            generateQuiz();
+          }
+        });
+      });
+    
+  
 
     // function generateQuizOne(index){
     //       i = index;
