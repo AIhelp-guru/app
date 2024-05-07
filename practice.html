@@ -148,7 +148,8 @@ tr:hover {
     margin:50px;
   }
   #chatbotPanel {
-    
+    display: none;
+    position:fixed;
     border-radius: 20px;
     top: 100px;
     right:50px;
@@ -274,7 +275,7 @@ $("#quizzes").change(function() {
         questionRow.append(answerOptions);
 
         var answerRow = $("<tr></tr>");
-        answerRow.append("<td><textarea class='notes' placeholder='Notes / scratch pad' contenteditable = true></textarea><button>Chat</button></td><td><div class='answer'>" + question.answer + ": " + question.explanation + '</div></div></td>');
+        answerRow.append("<td><textarea class='notes' placeholder='Notes / scratch pad' contenteditable = true></textarea><button class='chatwithAI'>Chat</button></td><td><div class='answer'>" + question.answer + ": " + question.explanation + '</div></div></td>');
         quizContainer.append(questionRow, answerRow);
       }
 }
@@ -357,6 +358,9 @@ $("#quizzes").change(function() {
     // Generate the quiz questions when the page loads
     
     generateQuiz(quizData);
+    $(".chatwithAI").click(function(){
+      $("#chatbotMessages").toggle();
+    })
   </script>
 </body>
 </html>
