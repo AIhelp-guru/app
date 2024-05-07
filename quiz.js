@@ -59,9 +59,7 @@
     "answer": "c",
     "explanation": "The equation of the tangent line to the graph of a function f(x) at x = a is y = f(a) + f'(a)(x - a). In this case, f(x) = e^x, f'(x) = e^x, and a = 1. Therefore, f(1) = e, f'(1) = e, and the equation of the tangent line is y = e + e(x - 1)."
   }
-]
-
-var quizData2 = [
+,
   {
       "question": "A certain book has 300 pages. If Mario reads 12 pages each day, how many days will it take him to read the entire book?",
       "options": ["a) 25", "b) 24", "c) 26", "d) 30"],
@@ -164,8 +162,7 @@ var quizData2 = [
       "answer": "c",
       "explanation": "5x - 3 = 2x + 12, or 3x = 15, so x = 5."
   }
-];
-var quizData3 = [
+,
   {
       "question": "<p>1. Solve for <em>x</em> in the equation \(3x + 7 = 2x + 13\):</p>",
       "options": ["<p>a) \(1\)</p>", "<p>b) \(2\)</p>", "<p>c) \(3\)</p>", "<p>d) \(4\)</p>"],
@@ -226,8 +223,7 @@ var quizData3 = [
       "answer": "c",
       "explanation": "<p>The value of \(3y\) when \(y = 4\) is \(3 \cdot 4 = 12\).</p>"
   }
-];
-var quizData4 = [
+,
   {
       "question": "<p>1. Solve for <em>x</em> in the equation \(5x - 3 = 2x + 12\):</p>",
       "options": ["<p>a) \(3\)</p>", "<p>b) \(4\)</p>", "<p>c) \(5\)</p>", "<p>d) \(6\)</p>"],
