@@ -321,10 +321,8 @@ $("#quizzes").change(function() {
         $("#ai_result").html("Almost there ... ").show();
         // Handle the successful response
         data = data.replace("```html","").replaceAll("```","");
-        $("#ai_result").html("<div id='close'>X</div>"+data).show();
-        $("#close").click(function(){
-          $("#ai_result").html('').hide();
-        })
+        $("#chatbotMessages").append("<div class='aiResponse'>"+data+"</div>");
+        $("#chatbotPanel").show();
       },
       error: function(xhr, status, error) {
         // Handle the error response
