@@ -1,4 +1,4 @@
-  var qData = {"subject":"Math Algebra","Questions":[
+  var qData = [{"subject":"Math Algebra","Questions":[
     
   {
       "question": "A certain book has 300 pages. If Mario reads 12 pages each day, how many days will it take him to read the entire book?",
@@ -225,7 +225,8 @@
       "explanation": "<p>The value of \(2x\) when \(x = 3\) is \(2 \cdot 3 = 6\).</p>"
   }
 ]
-};
+  }
+];
 
 qData.push({"subject":"Math non-Linear functions" , 
     "questions":[{
