@@ -161,29 +161,35 @@ tr:hover {
 
   <script id='subjectScripts' src="Math_Algebra.js"></script>
   <script>
-      // Array of subjects
-      var subjects = ["Math_Algebra", "Math_Nonlinear"];
-    
-      // Loop through each subject to populate the select options
-      for (var i = 0; i < subjects.length; i++) {
-        $("#quizzes").append("<option value='" + subjects[i] + ".js'>Quiz " + subjects[i].replace(/_/g, " ") + "</option>");
-      }
-    
-      // Event listener for when the select option changes
-      $("#quizzes").change(function() {
-        var selectedQuiz = $(this).val();
-        $("#subjectScripts").attr("src", selectedQuiz);
-    
-        // Clear quiz container
-        $("#quizContainer").html('');
-        
-        // Wait for the script to load and then call the generateQuiz function
-        $("#subjectScripts").on("load", function() {
-          if (typeof generateQuiz === 'function') {
-            generateQuiz();
-          }
+    // Array of subjects
+var subjects = ["Math_Algebra", "Math_Nonlinear"];
+
+// Populate the dropdown menu
+for (var i = 0; i < subjects.length; i++) {
+    $("#quizzes").append("<option value='" + subjects[i] + ".js'>Quiz " + subjects[i].replace(/_/g, " ") + "</option>");
+}
+
+// Change event listener for the dropdown
+$("#quizzes").change(function() {
+    var selectedQuiz = $(this).val();
+    $("#subjectScripts").attr("src", selectedQuiz);
+
+    // Clear previous quiz
+    $("#quizContainer").html('');
+
+    // Dynamically load the selected script
+    $.getScript(selectedQuiz)
+        .done(function(script, textStatus) {
+            // Use the quizData defined in the script
+            if (typeof quizData !== 'undefined') {
+                generateQuiz(quizData);
+            }
+        })
+        .fail(function(jqxhr, settings, exception) {
+            console.log("Could not load script: " + selectedQuiz);
         });
-      });
+});
+
     
   
 
@@ -208,7 +214,7 @@ tr:hover {
     // }
 
     // Function to generate quiz questions dynamically
-    function generateQuiz(s=0,l = quizData.length ) {
+    function generateQuiz(quizData,s=0,l = quizData.length ) {
       var quizContainer = $("#quizContainer");
       quizContainer.empty();
 
