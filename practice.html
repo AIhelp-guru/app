@@ -214,7 +214,7 @@ $("#quizzes").change(function() {
         questionRow.append(answerOptions);
 
         var answerRow = $("<tr></tr>");
-        answerRow.append("<td><textarea class='notes' placeholder='Notes / scratch pad' contenteditable = true></textarea></td><td><div class='answer'>" + question.answer + ": " + question.explanation + '</div><button>Chat</button>"></div></td>');
+        answerRow.append("<td><textarea class='notes' placeholder='Notes / scratch pad' contenteditable = true></textarea></td><td><div class='answer'>" + question.answer + ": " + question.explanation + '</div><button>Chat</button></div></td>');
         quizContainer.append(questionRow, answerRow);
       }
 }
