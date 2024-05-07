@@ -165,8 +165,69 @@ var quizData2 = [
       "explanation": "5x - 3 = 2x + 12, or 3x = 15, so x = 5."
   }
 ];
-
 var quizData = [
+  {
+      "question": "<p>1. Solve for <em>x</em> in the equation \(3x + 7 = 2x + 13\):</p>",
+      "options": ["<p>a) \(1\)</p>", "<p>b) \(2\)</p>", "<p>c) \(3\)</p>", "<p>d) \(4\)</p>"],
+      "answer": "b",
+      "explanation": "<p>To solve the equation \(3x + 7 = 2x + 13\), first subtract \(2x\) from both sides:</p><p>\(x + 7 = 13\). Next, subtract 7 from both sides:</p><p>\(x = 6\).</p>"
+  },
+  {
+      "question": "<p>2. What is the value of \(4^2 - 3 \times 2\)?</p>",
+      "options": ["<p>a) \(7\)</p>", "<p>b) \(9\)</p>", "<p>c) \(11\)</p>", "<p>d) \(13\)</p>"],
+      "answer": "c",
+      "explanation": "<p>\(4^2 = 16\) and \(3 \times 2 = 6\). Therefore, \(4^2 - 3 \times 2 = 16 - 6 = 10\).</p>"
+  },
+  {
+      "question": "<p>3. What is the value of \(z\) when \(z = 3y + 2\) and \(y = 4\)?</p>",
+      "options": ["<p>a) \(12\)</p>", "<p>b) \(14\)</p>", "<p>c) \(16\)</p>", "<p>d) \(18\)</p>"],
+      "answer": "b",
+      "explanation": "<p>Substituting \(y = 4\) into the equation \(z = 3y + 2\), we get \(z = 3 \times 4 + 2 = 12 + 2 = 14\).</p>"
+  },
+  {
+      "question": "<p>4. A square has a side length of 6 cm. What is the perimeter of the square?</p><svg width='100' height='100'><rect x='20' y='20' width='60' height='60' style='fill:lightblue;stroke:black;stroke-width:2'/></svg>",
+      "options": ["<p>a) \(12\)</p>", "<p>b) \(18\)</p>", "<p>c) \(24\)</p>", "<p>d) \(36\)</p>"],
+      "answer": "c",
+      "explanation": "<p>The perimeter of a square is given by \(4 \times side\). Since the side length is 6 cm, the perimeter is \(4 \times 6 = 24\) cm.</p>"
+  },
+  {
+      "question": "<p>5. The product of two numbers is 24 and their sum is 9. What are the two numbers?</p>",
+      "options": ["<p>a) \(3\) and \(6\)</p>", "<p>b) \(4\) and \(5\)</p>", "<p>c) \(6\) and \(3\)</p>", "<p>d) \(7\) and \(2\)</p>"],
+      "answer": "b",
+      "explanation": "<p>Let the numbers be \(x\) and \(y\). Then, \(x \cdot y = 24\) and \(x + y = 9\). The numbers \(4\) and \(5\) satisfy these conditions.</p>"
+  },
+  {
+      "question": "<p>6. If a rectangle has a length of \(10\) cm and a width of \(4\) cm, what is its area?</p><svg width='100' height='40'><rect x='0' y='0' width='100' height='40' style='fill:lightblue;stroke:black;stroke-width:2'/></svg>",
+      "options": ["<p>a) \(20\)</p>", "<p>b) \(30\)</p>", "<p>c) \(40\)</p>", "<p>d) \(50\)</p>"],
+      "answer": "c",
+      "explanation": "<p>The area of a rectangle is given by \(length \times width\). Therefore, the area is \(10 \times 4 = 40\) square centimeters.</p>"
+  },
+  {
+      "question": "<p>7. Solve for \(x\) in the equation \(2x + 6 = 4x - 8\):</p>",
+      "options": ["<p>a) \(-2\)</p>", "<p>b) \(0\)</p>", "<p>c) \(2\)</p>", "<p>d) \(4\)</p>"],
+      "answer": "a",
+      "explanation": "<p>To solve the equation \(2x + 6 = 4x - 8\), first subtract \(2x\) from both sides:</p><p>\(6 = 2x - 8\). Next, add 8 to both sides:</p><p>\(14 = 2x\). Finally, divide both sides by 2:</p><p>\(x = -2\).</p>"
+  },
+  {
+      "question": "<p>8. What is the value of \(4y - 3\) when \(y = 2\)?</p>",
+      "options": ["<p>a) \(-1\)</p>", "<p>b) \(1\)</p>", "<p>c) \(5\)</p>", "<p>d) \(7\)</p>"],
+      "answer": "c",
+      "explanation": "<p>Substituting \(y = 2\) into the expression \(4y - 3\), we get \(4 \cdot 2 - 3 = 8 - 3 = 5\).</p>"
+  },
+  {
+      "question": "<p>9. The following triangle has sides of length \(6\), \(8\), and \(10\). Is it a right triangle?</p><svg width='120' height='120'><polygon points='10,110 50,10 110,110' style='fill:lightblue;stroke:black;stroke-width:2'/></svg>",
+      "options": ["<p>a) Yes</p>", "<p>b) No</p>", "<p>c) Cannot be determined</p>", "<p>d) Not enough information</p>"],
+      "answer": "a",
+      "explanation": "<p>By the Pythagorean theorem, a triangle is a right triangle if \(a^2 + b^2 = c^2\). Here, \(6^2 + 8^2 = 10^2\), so it is a right triangle.</p>"
+  },
+  {
+      "question": "<p>10. If \(y\) is a positive integer, what is the value of \(3y\) when \(y = 4\)?</p>",
+      "options": ["<p>a) \(4\)</p>", "<p>b) \(8\)</p>", "<p>c) \(12\)</p>", "<p>d) \(16\)</p>"],
+      "answer": "c",
+      "explanation": "<p>The value of \(3y\) when \(y = 4\) is \(3 \cdot 4 = 12\).</p>"
+  }
+];
+var quizData3 = [
   {
       "question": "<p>1. Solve for <em>x</em> in the equation \(5x - 3 = 2x + 12\):</p>",
       "options": ["<p>a) \(3\)</p>", "<p>b) \(4\)</p>", "<p>c) \(5\)</p>", "<p>d) \(6\)</p>"],
