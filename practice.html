@@ -159,35 +159,20 @@ tr:hover {
   
   <div id="quizContainer"></div>
 
-<script src="Math_Algebra.js"></script>
+<script id='subjectScripts' src="Math_Algebra.js"></script>
   <script>
-  //var quizData = quizData1;
-  for(i=0;i<5;i++){
-    $("#quizzes").append("<option value='"+i+"'>Quiz "+i+"</option>");
+  var subjects = "Math_Algebra,Math_Nonlinear";
+  for(i=0;i<subjects;i++){
+    $("#quizzes").append("<option value='"+subjects[i]+".js'>Quiz "+subjects[i].replaceAll("_"," ")+"</option>");
 
   }
   $("#quizzes").change(function(){
     var selectedQuiz = $(this).val();
+    $("#subjectScripts").attr("src",selectedQuiz);
 
-    switch (selectedQuiz) {
-        case '1':
-            quizData = quizData1;
-            break;
-        case '2':
-            quizData = quizData2;
-            break;
-        case '3':
-            quizData = quizData3;
-            break;
-        case '4':
-            quizData = quizData4;
-            break;
-        default:
-            quizData = '';
-            break;
     }
     $("#quizContainer").html('');
-    generateQuiz(1,2);
+    generateQuiz();
 
   })
 
