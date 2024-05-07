@@ -199,7 +199,7 @@ function rw_file(filename,action){
          $.ajax({
         url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
         type:'post',
-        data:{'filename':filename,'data':'read_data'},
+        data:{'filename':"madhutemp@gmail.com",'data':'read_data'},
         success:function(data){
             data = JSON.parse(data);
             data = data.replaceAll("\\n","");
