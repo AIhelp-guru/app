@@ -61,7 +61,7 @@
   }
 ]
 
-var quizData = [
+var quizData2 = [
   {
       "question": "A certain book has 300 pages. If Mario reads 12 pages each day, how many days will it take him to read the entire book?",
       "options": ["a) 25", "b) 24", "c) 26", "d) 30"],
@@ -163,5 +163,68 @@ var quizData = [
       "options": ["a) 3", "b) 4", "c) 5", "d) 6"],
       "answer": "c",
       "explanation": "5x - 3 = 2x + 12, or 3x = 15, so x = 5."
+  }
+];
+
+var quizData = [
+  {
+      "question": "<p>1. Solve for <em>x</em> in the equation \(5x - 3 = 2x + 12\):</p>",
+      "options": ["<p>a) \(3\)</p>", "<p>b) \(4\)</p>", "<p>c) \(5\)</p>", "<p>d) \(6\)</p>"],
+      "answer": "c",
+      "explanation": "<p>To solve the equation \(5x - 3 = 2x + 12\), first subtract \(2x\) from both sides:</p><p>\(3x - 3 = 12\). Next, add 3 to both sides:</p><p>\(3x = 15\). Finally, divide both sides by 3:</p><p>\(x = 5\).</p>"
+  },
+  {
+      "question": "<p>2. What is the value of \(7^2 - 4 \times 5\)?</p>",
+      "options": ["<p>a) \(29\)</p>", "<p>b) \(33\)</p>", "<p>c) \(39\)</p>", "<p>d) \(49\)</p>"],
+      "answer": "b",
+      "explanation": "<p>\(7^2 = 49\) and \(4 \times 5 = 20\). Therefore, \(7^2 - 4 \times 5 = 49 - 20 = 29\).</p>"
+  },
+  {
+      "question": "<p>3. What is the value of \(y\) when \(y = 2x + 1\) and \(x = 3\)?</p>",
+      "options": ["<p>a) \(5\)</p>", "<p>b) \(6\)</p>", "<p>c) \(7\)</p>", "<p>d) \(8\)</p>"],
+      "answer": "c",
+      "explanation": "<p>Substituting \(x = 3\) into the equation \(y = 2x + 1\), we get \(y = 2 \times 3 + 1 = 6 + 1 = 7\).</p>"
+  },
+  {
+      "question": "<p>4. A rectangle has a length that is twice its width. If the perimeter of the rectangle is 30 cm, what is the width?</p><svg width='100' height='50'><rect x='20' y='10' width='60' height='30' style='fill:lightblue;stroke:black;stroke-width:2'/></svg>",
+      "options": ["<p>a) \(5\)</p>", "<p>b) \(6\)</p>", "<p>c) \(8\)</p>", "<p>d) \(10\)</p>"],
+      "answer": "a",
+      "explanation": "<p>Let the width be \(w\). Then the length is \(2w\). The perimeter of the rectangle is \(2w + 2 \cdot 2w = 30\), so \(6w = 30\), and \(w = 5\).</p>"
+  },
+  {
+      "question": "<p>5. The product of two numbers is 36 and their sum is 15. What are the two numbers?</p>",
+      "options": ["<p>a) \(9\) and \(6\)</p>", "<p>b) \(12\) and \(3\)</p>", "<p>c) \(10\) and \(5\)</p>", "<p>d) \(8\) and \(7\)</p>"],
+      "answer": "a",
+      "explanation": "<p>Let the numbers be \(x\) and \(y\). Then, \(x \cdot y = 36\) and \(x + y = 15\). The numbers \(9\) and \(6\) satisfy these conditions.</p>"
+  },
+  {
+      "question": "<p>6. If a rectangle has a length of \(8\) cm and a width of \(3\) cm, what is its area?</p><svg width='80' height='30'><rect x='0' y='0' width='80' height='30' style='fill:lightblue;stroke:black;stroke-width:2'/></svg>",
+      "options": ["<p>a) \(24\)</p>", "<p>b) \(18\)</p>", "<p>c) \(30\)</p>", "<p>d) \(48\)</p>"],
+      "answer": "a",
+      "explanation": "<p>The area of a rectangle is given by \(length \times width\). Therefore, the area is \(8 \times 3 = 24\) square centimeters.</p>"
+  },
+  {
+      "question": "<p>7. Solve for \(x\) in the equation \(x - 5 = 2x + 10\):</p>",
+      "options": ["<p>a) \(-5\)</p>", "<p>b) \(5\)</p>", "<p>c) \(-10\)</p>", "<p>d) \(10\)</p>"],
+      "answer": "a",
+      "explanation": "<p>To solve the equation \(x - 5 = 2x + 10\), first subtract \(x\) from both sides:</p><p>\(-5 = x + 10\). Next, subtract 10 from both sides:</p><p>\(-15 = x\).</p>"
+  },
+  {
+      "question": "<p>8. What is the value of \(3x + 5\) when \(x = -2\)?</p>",
+      "options": ["<p>a) \(-1\)</p>", "<p>b) \(1\)</p>", "<p>c) \(5\)</p>", "<p>d) \(-11\)</p>"],
+      "answer": "a",
+      "explanation": "<p>Substituting \(x = -2\) into the expression \(3x + 5\), we get \(3 \cdot (-2) + 5 = -6 + 5 = -1\).</p>"
+  },
+  {
+      "question": "<p>9. The following triangle has sides of length \(3\), \(4\), and \(5\). Is it a right triangle?</p><svg width='100' height='100'><polygon points='10,90 10,10 50,90' style='fill:lightblue;stroke:black;stroke-width:2'/></svg>",
+      "options": ["<p>a) Yes</p>", "<p>b) No</p>", "<p>c) Cannot be determined</p>", "<p>d) Not enough information</p>"],
+      "answer": "a",
+      "explanation": "<p>By the Pythagorean theorem, a triangle is a right triangle if \(a^2 + b^2 = c^2\). Here, \(3^2 + 4^2 = 5^2\), so it is a right triangle.</p>"
+  },
+  {
+      "question": "<p>10. If \(x\) is a positive integer, what is the value of \(2x\) when \(x = 3\)?</p>",
+      "options": ["<p>a) \(3\)</p>", "<p>b) \(4\)</p>", "<p>c) \(6\)</p>", "<p>d) \(9\)</p>"],
+      "answer": "c",
+      "explanation": "<p>The value of \(2x\) when \(x = 3\) is \(2 \cdot 3 = 6\).</p>"
   }
 ];
