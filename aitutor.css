@@ -161,3 +161,6 @@ button {
     left:10px;
     display: none;
   }
+#save_new_btn{
+    float:right;
+}
