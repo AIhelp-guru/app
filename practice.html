@@ -214,12 +214,13 @@ $("#quizzes").change(function() {
         questionRow.append(answerOptions);
 
         var answerRow = $("<tr></tr>");
-        answerRow.append("<td><textarea class='notes' placeholder='Notes / scratch pad' contenteditable = true></textarea></td><td><div class='answer'>" + question.answer + ": " + question.explanation + '</div><button>Chat</button></div></td>');
+        answerRow.append("<td><textarea class='notes' placeholder='Notes / scratch pad' contenteditable = true></textarea><button>Chat</button></td><td><div class='answer'>" + question.answer + ": " + question.explanation + '</div></div></td>');
         quizContainer.append(questionRow, answerRow);
       }
 }
     // Function to evaluate quiz answers
     function evaluateQuiz() {
+      $(".answer").show();
       var score = 0;
       var explanations = [];
 
@@ -240,13 +241,8 @@ $("#quizzes").change(function() {
       var resultDiv = document.getElementById("result");
       resultDiv.innerHTML = "<h2>Quiz Result</h2>";
       resultDiv.innerHTML += "<p>Score: " + score + " out of " + quizData.length + "</p>";
-      //resultDiv.innerHTML += "<h3>Explanations:</h3>";
-      //resultDiv.innerHTML += "<ol>";
-      //explanations.forEach(function(explanation) {
-        //resultDiv.innerHTML += "<li>" + explanation + "</li>";
-      //});
-      //resultDiv.innerHTML += "</ol>";
-      $(".answer").show();
+     
+      
     }
     function askai(){
       prompt = "Please limit your response related to this subject / topic (in html format): ["+$("#lesson").text()+"], prompt:"+$("#prompt").val();
