@@ -161,7 +161,7 @@ tr:hover {
 
 <script id='subjectScripts' src="Math_Algebra.js"></script>
   <script>
-  var subjects = "Math_Algebra,Math_Nonlinear";
+  var subjects = ["Math_Algebra","Math_Nonlinear"];
   for(i=0;i<subjects;i++){
     $("#quizzes").append("<option value='"+subjects[i]+".js'>Quiz "+subjects[i].replaceAll("_"," ")+"</option>");
 
