@@ -223,7 +223,7 @@ function savenew() {
             contentType: "application/json",
             success: function(response) {
                 console.log(response);
-                rw_file(filename, "read");
+                rw_file(filename, "read_data");
                 // Uncomment the following lines if needed
                 // $("#chatbotMessages").html("<div id='teachers'>" + response + "</div>");
                 // $("#teachersHelp").find("details").attr('open', false);
