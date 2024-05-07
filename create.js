@@ -213,7 +213,7 @@ function rw_file(filename,action){
 }
 function savenew() {
     var data = $(".aiResponse").last().html();
-    var filename = prompt("Enter a filename");
+    var filename = "practice_test";
 
     if (filename) {
         $.ajax({
