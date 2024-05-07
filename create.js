@@ -180,7 +180,7 @@ function loadfromURL(){
         
     }
 
-function rw_file(filename,action,data){
+async function rw_file(filename,action,data){
 
  url ="https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework";
 
@@ -224,7 +224,8 @@ function savenew() {
             contentType: "application/json",
             success: function(response) {
                 console.log(response);
-                rw_file(filename, "read_data","");
+                saved = await rw_file(filename, "read_data","");
+                return saved;
                 // Uncomment the following lines if needed
                 // $("#chatbotMessages").html("<div id='teachers'>" + response + "</div>");
                 // $("#teachersHelp").find("details").attr('open', false);
