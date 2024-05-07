@@ -162,5 +162,6 @@ button {
     display: none;
   }
 #save_new_btn{
+    color:orange;
     float:right;
 }

@@ -180,7 +180,7 @@ function loadfromURL(){
         
     }
 
-function rw_file(action){
+function rw_file(filename,action){
 
  url ="https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework";
 
@@ -189,7 +189,7 @@ function rw_file(action){
         $.ajax({
             url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
             type:'post',
-            data:{'filename':'madhutemp@gmail.com','data':JSON.stringify($("#chatbotMessages").html())},
+            data:{'filename':filename,'data':JSON.stringify($("#chatbotMessages").html())},
             success:function(data){
     
                 console.log(data);
@@ -199,7 +199,7 @@ function rw_file(action){
          $.ajax({
         url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
         type:'post',
-        data:{'filename':'madhutemp@gmail.com','data':'read_data'},
+        data:{'filename':filename,'data':'read_data'},
         success:function(data){
             data = JSON.parse(data);
             data = data.replaceAll("\\n","");
@@ -209,6 +209,25 @@ function rw_file(action){
     })
     }
    
+
+}
+
+function savenew(){
+   data =  $(".aiResponse").last().html();
+   filename = prompt("Enter a filename");
+
+   $.ajax({
+    url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
+    type:'post',
+    data:{'filename':filename,'data':data},
+    success:function(data){
+        console.log(data);
+        rw_file(filename,"read");
+        // $("#chatbotMessages").html("<div id='teachers'>"+data +"</div></details>");
+        // $("#teachersHelp").find("details").attr('open', false);
+    }
+})
+    
 
 }
 // Initial setup on document ready
@@ -232,9 +251,11 @@ $(document).ready(function() {
     });
     $("#fileInput").show();
     $("#pdfURL").show();
-    $(".save_btn").click(function(){ rw_file('update')});
-    $(".load_btn").click(function(){ rw_file('read')});
+    $("#save_btn").click(function(){ rw_file("madhutemp@gmail.com",'update')});
+    $("#load_btn").click(function(){ rw_file("madhutemp@gmail.com",'read')});
+    $("#save_new_btn").click(function(){savenew();
 
+    });
 
   
 });
