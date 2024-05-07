@@ -147,6 +147,55 @@ tr:hover {
   #quizContainer{
     margin:50px;
   }
+  #chatbotPanel {
+    
+    border-radius: 20px;
+    top: 100px;
+    right:50px;
+    bottom: 10px;
+    width: 500px;
+    height: 700px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px 20px 0 0;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-out;
+}
+
+#chatbotHeader {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px 20px 0 0;
+}
+
+#chatbotHeader span {
+    flex-grow: 1;
+}
+
+#chatbotHeader button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+}
+
+#chatbotMessages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#chatbotInput {
+    border: none;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
  </style> 
  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
@@ -158,7 +207,18 @@ tr:hover {
   <div id="result"></div>
   
   <div id="quizContainer"></div>
-
+  <div id="chatbotPanel" class="chatbot-closed">
+    <div id="chatbotHeader">
+        <span>Chatbot</span><button id='save_btn'>Save</button><button id='load_btn'>Load</button>
+        <button id='save_new_btn'>Save New</button>
+        <!-- <button id="closeChatbot" onclick="toggleChatbot()">×</button> -->
+    </div>
+    <div id="chatbotMessages"></div>
+    <input type="text" id="chatbotInput" placeholder="Type your message...">
+    
+    <button onclick="sendMessage()">Send</button>
+</div>
+<div id="questionsContainer"></div>
   <script id='subjectScripts' src="Math_Algebra.js"></script>
   <script>
     // Array of subjects
