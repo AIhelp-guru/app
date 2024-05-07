@@ -187,7 +187,7 @@ tr:hover {
             break;
     }
     $("#quizContainer").html('');
-    generateQuizOne(0);
+    generateQuiz(0);
 
   })
 
@@ -212,11 +212,11 @@ tr:hover {
     }
 
     // Function to generate quiz questions dynamically
-    function generateQuiz() {
+    function generateQuiz(l = quizData.length ) {
       var quizContainer = $("#quizContainer");
       quizContainer.empty();
 
-  for (var i = 0; i < quizData.length; i++) {
+  for (var i = 0; i < l; i++) {
     var question = quizData[i];
     var questionRow = $("<tr></tr>");
     questionRow.append("<td style='width:45%;font-weight:bold'>" + (i + 1) + ". " + question.question + "</td>");
