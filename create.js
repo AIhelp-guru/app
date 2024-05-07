@@ -259,7 +259,7 @@ $(document).ready(function() {
     $("#fileInput").show();
     $("#pdfURL").show();
     $("#save_btn").click(function(){ rw_file("madhutemp@gmail.com",'update',JSON.stringify($("#chatbotMessages").html()))});
-    $("#load_btn").click(function(){ rw_file("madhutemp@gmail.com",'read')});
+    $("#load_btn").click(function(){ rw_file("madhutemp@gmail.com",'read',"")});
     $("#save_new_btn").click(function(){ rw_file("practice_test",'update',JSON.stringify($(".aiResponse").last().html()))});
 
   
