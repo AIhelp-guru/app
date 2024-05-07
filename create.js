@@ -219,7 +219,7 @@ function savenew() {
         $.ajax({
             url: "https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
             type: 'post',
-            data: JSON.stringify({'filename': filename, 'data': data}),
+            data: JSON.stringify({'filename': filename.toString(), 'data': data.toString()}),
             contentType: "application/json",
             success: function(response) {
                 console.log(response);
