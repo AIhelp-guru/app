@@ -1,4 +1,4 @@
-  var qData = [{"Subject":"Math Algebra","Questions":[
+  var quizData = [
     
   {
       "question": "A certain book has 300 pages. If Mario reads 12 pages each day, how many days will it take him to read the entire book?",
@@ -223,7 +223,5 @@
       "options": ["<p>a) \(3\)</p>", "<p>b) \(4\)</p>", "<p>c) \(6\)</p>", "<p>d) \(9\)</p>"],
       "answer": "c",
       "explanation": "<p>The value of \(2x\) when \(x = 3\) is \(2 \cdot 3 = 6\).</p>"
-  }
-]
   }
 ];
