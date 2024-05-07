@@ -214,7 +214,8 @@ $("#quizzes").change(function() {
     // }
 
     // Function to generate quiz questions dynamically
-    function generateQuiz(quizData,s=0,l = quizData.length ) {
+    function generateQuiz(quizData,s=0) {
+      l = quizData.length;
       var quizContainer = $("#quizContainer");
       quizContainer.empty();
 
