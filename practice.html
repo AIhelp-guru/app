@@ -187,13 +187,34 @@ tr:hover {
             break;
     }
     $("#quizContainer").html('');
-    generateQuiz();
+    generateQuizOne(0);
 
   })
+
+    function generateQuizOne(index){
+          i = index;
+          var question = quizData[i];
+          var questionRow = $("<tr></tr>");
+          questionRow.append("<td style='width:45%;font-weight:bold'>" + (i + 1) + ". " + question.question + "</td>");
+
+          var answerOptions = $("<div class='answer-options'></div>");
+          for (var j = 0; j < question.options.length; j++) {
+            var option = question.options[j];
+            var optionElement = $("<label><input type='radio' name='q" + (i + 1) + "' value='" + option.charAt(0) + "'>" + option + "</label>");
+            answerOptions.append(optionElement);
+          }
+          questionRow.append(answerOptions);
+
+          var answerRow = $("<tr></tr>");
+          answerRow.append("<td><textarea class='notes' placeholder='Notes / scratch pad' contenteditable = true></textarea></td><td><div class='answer'>" + question.answer + ": " + question.explanation + '</div><div class="buttons"><img src="learn_icon.png" alt="Learn" class="button learn icon"><img src="chat_icon.png" alt="Chat" class="button chat icon"><img src="detail_icon.png" alt="Detail" class="button detail icon"></div></td>');
+          quizContainer.append(questionRow, answerRow);
+     
+    }
+
     // Function to generate quiz questions dynamically
     function generateQuiz() {
-  var quizContainer = $("#quizContainer");
-  quizContainer.empty();
+      var quizContainer = $("#quizContainer");
+      quizContainer.empty();
 
   for (var i = 0; i < quizData.length; i++) {
     var question = quizData[i];
