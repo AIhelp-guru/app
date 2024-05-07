@@ -161,7 +161,35 @@ tr:hover {
 
 <script src="quiz.js"></script>
   <script>
-  
+  var quizData = quizData1;
+  for(i=0;i<4;i++){
+    $("#quizzes").append("<option value='"+i+"'>Quiz "+i+"</option>");
+
+  }
+  $("#quizzes").change(function(){
+    var selectedQuiz = $(this).val();
+
+    switch (selectedQuiz) {
+        case '1':
+            quizData = quizData1;
+            break;
+        case '2':
+            quizData = quizData2;
+            break;
+        case '3':
+            quizData = quizData3;
+            break;
+        case '4':
+            quizData = quizData4;
+            break;
+        default:
+            quizData = '';
+            break;
+    }
+    $("#quizContainer").html('');
+    generateQuiz();
+
+  })
     // Function to generate quiz questions dynamically
     function generateQuiz() {
   var quizContainer = $("#quizContainer");
