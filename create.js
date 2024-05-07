@@ -225,6 +225,7 @@ function savenew() {
             success: function(response) {
                 console.log(response);
                 saved = await rw_file(filename, "read_data","");
+                
                 return saved;
                 // Uncomment the following lines if needed
                 // $("#chatbotMessages").html("<div id='teachers'>" + response + "</div>");
