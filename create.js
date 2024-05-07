@@ -180,7 +180,7 @@ function loadfromURL(){
         
     }
 
-function rw_file(filename,action){
+function rw_file(filename,action,data){
 
  url ="https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework";
 
@@ -189,7 +189,7 @@ function rw_file(filename,action){
         $.ajax({
             url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
             type:'post',
-            data:{'filename':filename,'data':JSON.stringify($("#chatbotMessages").html())},
+            data:{'filename':filename,'data':data},
             success:function(data){
     
                 console.log(data);
@@ -258,11 +258,9 @@ $(document).ready(function() {
     });
     $("#fileInput").show();
     $("#pdfURL").show();
-    $("#save_btn").click(function(){ rw_file("madhutemp@gmail.com",'update')});
+    $("#save_btn").click(function(){ rw_file("madhutemp@gmail.com",'update',JSON.stringify($("#chatbotMessages").html()))});
     $("#load_btn").click(function(){ rw_file("madhutemp@gmail.com",'read')});
-    $("#save_new_btn").click(function(){savenew();
-
-    });
+    $("#save_new_btn").click(function(){ rw_file("practice_test",'update',JSON.stringify($(".aiResponse").last().html()))});
 
   
 });
