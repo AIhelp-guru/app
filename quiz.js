@@ -165,7 +165,7 @@ var quizData2 = [
       "explanation": "5x - 3 = 2x + 12, or 3x = 15, so x = 5."
   }
 ];
-var quizData = [
+var quizData3 = [
   {
       "question": "<p>1. Solve for <em>x</em> in the equation \(3x + 7 = 2x + 13\):</p>",
       "options": ["<p>a) \(1\)</p>", "<p>b) \(2\)</p>", "<p>c) \(3\)</p>", "<p>d) \(4\)</p>"],
@@ -227,7 +227,7 @@ var quizData = [
       "explanation": "<p>The value of \(3y\) when \(y = 4\) is \(3 \cdot 4 = 12\).</p>"
   }
 ];
-var quizData3 = [
+var quizData4 = [
   {
       "question": "<p>1. Solve for <em>x</em> in the equation \(5x - 3 = 2x + 12\):</p>",
       "options": ["<p>a) \(3\)</p>", "<p>b) \(4\)</p>", "<p>c) \(5\)</p>", "<p>d) \(6\)</p>"],
