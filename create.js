@@ -211,25 +211,32 @@ function rw_file(filename,action){
    
 
 }
+function savenew() {
+    var data = $(".aiResponse").last().html();
+    var filename = prompt("Enter a filename");
 
-function savenew(){
-   data =  $(".aiResponse").last().html();
-   filename = prompt("Enter a filename");
-
-   $.ajax({
-    url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
-    type:'post',
-    data:{'filename':filename,'data':data},
-    success:function(data){
-        console.log(data);
-        rw_file(filename,"read");
-        // $("#chatbotMessages").html("<div id='teachers'>"+data +"</div></details>");
-        // $("#teachersHelp").find("details").attr('open', false);
+    if (filename) {
+        $.ajax({
+            url: "https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
+            type: 'post',
+            data: JSON.stringify({'filename': filename, 'data': data}),
+            contentType: "application/json",
+            success: function(response) {
+                console.log(response);
+                rw_file(filename, "read");
+                // Uncomment the following lines if needed
+                // $("#chatbotMessages").html("<div id='teachers'>" + response + "</div>");
+                // $("#teachersHelp").find("details").attr('open', false);
+            },
+            error: function(xhr, status, error) {
+                console.error("Error:", status, error);
+            }
+        });
+    } else {
+        console.log("Filename input was cancelled or empty.");
     }
-})
-    
-
 }
+
 // Initial setup on document ready
 $(document).ready(function() {
     $('#chatbotInput').keydown(function(event) {
