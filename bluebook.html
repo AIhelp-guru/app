@@ -115,12 +115,23 @@
     #title{
         width:50%;
     }
-        
+    #toolbar{
+    right: 0px;
+    top: 0px;
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    height: 30px;
+    background: black;
+  }    
     </style>
 </head>
 <body>
     <div class="container">
       <div class="top-section">
+        <div id="toolbar"><label id="lesson">SAT Practice Test</label><button type="button" style="float:right" onclick="evaluateQuiz()">Evaluate Answers</button><input id="prompt" placeholder="Do you need help"/><button style="float:right" type="button" onclick="askai()">askai</button>
+   
         <div class="header"><span id='title'>Section 1, Module 1: Reading and Writing </span><span class="time">31:19 <button>Hide</button></span></div>
         
         
