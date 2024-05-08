@@ -434,6 +434,7 @@ tr:hover {
     </style>
 </head>
 <body>
+    <script id='subjectScripts' src="Math_Algebra.js"></script>
     <div id="toolbar"><label id="lesson">SAT Practice Test</label></div>
    <div class="container">
       <div class="top-section">
@@ -443,14 +444,14 @@ tr:hover {
         
       </div>
       <div class="middle-section">
-        <div class="content">
+        <div id="content">
           Researchers and conservationists stress that biodiversity
           loss due to invasive species is _____. For example, people
           can take simple steps such as washing their footwear
           after travel to avoid introducing potentially invasive
           organisms into new environments.
         </div>
-        <div class="question">
+        <div id="question">
           <span>Which choice completes the text with the most logical and precise word or phrase?</span>
           <div class="options">
             <div class="option">
@@ -487,5 +488,14 @@ tr:hover {
         
         <button onclick="sendMessage()">Send</button>
     </div>
+    <script>
+
+        function loadQuestion(num){
+            $("#content").html("");
+            $("#question").html(quizData[num].question);
+        }
+
+        loadQuestion(0);
+    </script>
 </body>
 </html>
