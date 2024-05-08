@@ -506,12 +506,59 @@ tr:hover {
             $("#question_index").html("Question "+(num+1)+" of "+quizData.length);
             qindex++;
         }
+        function sendMessage() {
+    const input = document.getElementById('chatbotInput');
+    const message = input.value.trim();
+    //const imageInput = document.getElementById('imageInput');
+    //const file = imageInput.files[0];
 
+    if (message) {
+        
+        input.value = '';
+        $("#chatbotMessages").append("<details open><summary class='user_prompt'>"+message+"</summary></details>");
+       
+            $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
+            //console.log(pageText);
+            callgemini(message + "; respond in HTML format, based on this page reference:" + $("#quizContainer").text());
+            
+    }
+}
+
+function callgemini(prompt){
+    
+    $.ajax({
+        url: 'https://us-central1-aihelp-382014.cloudfunctions.net/askgemini',
+
+        type: 'POST',
+        data: { "text": prompt },
+        success: function(data) {
+            $("#waiting").remove();
+            
+            data = data.replace("```html","").replaceAll("```","");
+            data = convertToBold(data);
+            $("#chatbotMessages").find(".user_prompt").last().parents("details").append("<div class='aiResponse' contenteditable='true'>"+data+"</div>");
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+            $("#waiting").remove();
+            alert("AI didn't respond to your message. Probably due to restrictions. Ask another question");
+            //$("#chatbotMessages").find(".user_prompt").last().parents("details").append("<div class='aiResponse'>AI didn't respond to your message. Probably due to restrictions. Ask another question</div>");
+
+        }
+    });
+}
+
+
+function convertToBold(text) {
+    return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+}
         loadQuestion(0);
         $("#nextQ").click(function(){ loadQuestion();});
 
         $("#chatbotPanel").hide();
         $("#help").click(function(){$("#chatbotPanel").toggle();})
+
+        $()
     </script>
 </body>
 </html>
