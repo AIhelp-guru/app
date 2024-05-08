@@ -476,7 +476,7 @@ tr:hover {
       </div>
       <div class="bottom-section">
         <span id="question_index">Question 1 of 27</span>
-        <button style="float:right;margin:10px">Next</button>
+        <button id="nextQ" style="float:right;margin:10px">Next</button>
       </div>
     </div>
     <div id="chatbotPanel" class="chatbot-closed">
@@ -490,8 +490,9 @@ tr:hover {
         <button onclick="sendMessage()">Send</button>
     </div>
     <script>
-
-        function loadQuestion(num){
+        qindex = 0;
+        function loadQuestion(){
+            num = qindex;
             $("#title").html("SAT Math Algebra Practice")
             $("#content").html("");
             $("#question_text").html(quizData[num].question);
@@ -500,10 +501,12 @@ tr:hover {
                 
                 $("#options").append('<div class="option"><input type="radio" id="option-'+i+'" name="option"><label for="option-'+i+'">'+quizData[num].options[i]+'</label></div>');
             }
-            $("#question_index").html("Question "+num+" of "+quizData.length)
+            $("#question_index").html("Question "+(num+1)+" of "+quizData.length);
+            qindex++;
         }
 
         loadQuestion(0);
+        $("#nextQ").click(function(){ loadQuestion();});
     </script>
 </body>
 </html>
