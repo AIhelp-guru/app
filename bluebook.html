@@ -149,7 +149,7 @@
    
   .textLayer{display: block;}
   #chatbotPanel {
-    
+    display: none;
     border-radius: 20px;
     margin-top: 100px;
     margin-left:10px;
@@ -478,6 +478,7 @@ tr:hover {
       <div class="bottom-section">
         <span id="question_index">Question 1 of 27</span>
         <button id="nextQ" style="float:right;margin:10px">Next</button>
+        <button id="help" style="float:right;margin:10px">Tutor me</button>
       </div>
     </div>
     <div id="chatbotPanel" class="chatbot-closed">
@@ -508,6 +509,7 @@ tr:hover {
 
         loadQuestion(0);
         $("#nextQ").click(function(){ loadQuestion();});
+        $("#help").click(function(){$("#chatbotPanel").toggle();})
     </script>
 </body>
 </html>
