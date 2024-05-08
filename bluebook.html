@@ -439,6 +439,9 @@ tr:hover {
     background-color: #ddd;
     font-size: 0.8em;
   }
+  .refQuestion{
+    display: none;
+  }
     </style>
      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
@@ -491,7 +494,7 @@ tr:hover {
     <div id="notes" > <div id="notesHeader">Take your notes here</div><div style="height:100%;overflow:auto"contenteditable="true"></div> </div>
     <div id="chatbotPanel" class="chatbot-closed">
         <div id="chatbotHeader">
-            <span>Chatbot</span>
+            <span>Chatbot</span><button id="save" style="float:right">Save</button>
             <!-- <button id="closeChatbot" onclick="toggleChatbot()">×</button> -->
         </div>
         <div id="chatbotMessages"></div>
@@ -501,6 +504,7 @@ tr:hover {
     </div>
     <script>
         var qindex = 0;
+        var username = "admin";
         var selectedQuiz = "Math_Algebra";
         function loadQuestion(){
             num = qindex;
@@ -525,7 +529,7 @@ function sendMessage() {
     if (message) {
         
         input.value = '';
-        $("#chatbotMessages").append("<details open><summary class='user_prompt'>"+message+"</summary></details>");
+        $("#chatbotMessages").append("<details open><summary class='user_prompt'>"+message+"</summary><div class='refQuestion'>"+$("#question_text").text()+"</div></details>");
        
             $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
             //console.log($(".middle_section").text());
@@ -641,6 +645,11 @@ $("#quizzes").change(function() {
             event.preventDefault();  // Prevents the default action (form submission)
         }
     });
+
+    $("#save").click(function(){
+        filename = username + $("#title").text();
+        rw_file(filename,"update",$("#chatbotMessages").html());
+    })
     </script>
 </body>
 </html>
