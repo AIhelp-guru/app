@@ -454,7 +454,7 @@ tr:hover {
         </div>
         <div id="question">
           <span id="question_text">Which choice completes the text with the most logical and precise word or phrase?</span>
-          <div class="options">
+          <div id="options">
             <div class="option">
               <input type="radio" id="option-a" name="option">
               <label for="option-a">preventable</label>
@@ -494,6 +494,11 @@ tr:hover {
         function loadQuestion(num){
             $("#content").html("");
             $("#question_text").html(quizData[num].question);
+            for(i=0;i<quizData[num].options.length;i++){
+                $("#options").html('');
+                $("#options").append('<div class="option"><input type="radio" id="option-'+i+'" name="option"><label for="option-'+i+'">'+quizData[num].options[i]+'</label></div>');
+            }
+
         }
 
         loadQuestion(0);
