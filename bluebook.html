@@ -497,7 +497,7 @@ tr:hover {
         var selectedQuiz = "Math_Algebra";
         function loadQuestion(){
             num = qindex;
-            $("#title").html(selectedQuiz.replaceAll("_"," "));
+            $("#title").html(selectedQuiz.replaceAll("_"," ").replace(".js",""));
             $("#content").html("");
             $("#question_text").html(quizData[num].question);
             $("#options").html('');
