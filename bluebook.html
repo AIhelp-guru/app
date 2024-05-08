@@ -562,7 +562,38 @@ function callgemini(prompt){
 function convertToBold(text) {
     return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
 }
+async function rw_file(filename,action,data){
 
+url ="https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework";
+
+filename = $("#pdfURL").val();
+   if(action === "update"){
+       $.ajax({
+           url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
+           type:'post',
+           data:{'filename':filename,'data':data},
+           success:function(data){
+   
+               console.log(data);
+           }
+       })
+   }else{
+        $.ajax({
+       url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
+       type:'post',
+       data:{'filename':filename,'data':'read_data'},
+       success:function(data){
+           data = JSON.parse(data);
+           data = data.replaceAll("\\n","");
+           $("#chatbotMessages").html("<div id='teachers'>"+data +"</div></details>");
+           $("#teachersHelp").find("details").attr('open', false);
+           return data;
+       }
+   })
+   }
+  
+
+}
 
 var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry"];
 
