@@ -437,7 +437,7 @@ tr:hover {
 </head>
 <body>
     <script id='subjectScripts' src="Math_Algebra.js"></script>
-    <div id="toolbar"><label id="lesson">SAT Practice Test</label></div>
+    <div id="toolbar"><label id="lesson">SAT Practice Test</label><select id="quizzes"></select></div>
    <div class="container">
       <div class="top-section">
         
@@ -553,6 +553,35 @@ function callgemini(prompt){
 function convertToBold(text) {
     return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
 }
+
+
+var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry"];
+
+// Populate the dropdown menu
+for (var i = 0; i < subjects.length; i++) {
+    $("#quizzes").append("<option value='" + subjects[i] + ".js'>" + subjects[i].replace(/_/g, " ") + "</option>");
+}
+
+// Change event listener for the dropdown
+$("#quizzes").change(function() {
+    var selectedQuiz = $(this).val();
+    $("#subjectScripts").attr("src", selectedQuiz);
+
+
+    // Dynamically load the selected script
+    $.getScript(selectedQuiz)
+        .done(function(script, textStatus) {
+            // Use the quizData defined in the script
+            if (typeof quizData !== 'undefined') {
+                loadQuestion(0);
+            }
+        })
+        .fail(function(jqxhr, settings, exception) {
+            console.log("Could not load script: " + selectedQuiz);
+        });
+});
+
+    
         loadQuestion(0);
         $("#nextQ").click(function(){ loadQuestion();});
 
@@ -563,7 +592,7 @@ function convertToBold(text) {
             $("#notes").toggle();
         })
 
-        $()
+    
     </script>
 </body>
 </html>
