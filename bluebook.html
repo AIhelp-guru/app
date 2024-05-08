@@ -148,7 +148,7 @@
    .answer,.explanation{display:none;padding:10px};
    
   .textLayer{display: block;}
-  #chatbotPanel {
+  #chatbotPanel,#notes {
     display: none;
     border-radius: 20px;
     margin-top: 100px;
@@ -481,6 +481,7 @@ tr:hover {
         <button id="help" style="float:right;margin:10px;background-color:orange">Tutor me</button>
       </div>
     </div>
+    <div id="notes" contenteditable="true"> Take your notes here</div>
     <div id="chatbotPanel" class="chatbot-closed">
         <div id="chatbotHeader">
             <span>Chatbot</span>
@@ -556,7 +557,11 @@ function convertToBold(text) {
         $("#nextQ").click(function(){ loadQuestion();});
 
         $("#chatbotPanel").hide();
-        $("#help").click(function(){$("#chatbotPanel").toggle();})
+        $("#notes").show();
+        $("#help").click(function(){
+            $("#chatbotPanel").toggle();
+            $("#notes").toggle();
+        })
 
         $()
     </script>
