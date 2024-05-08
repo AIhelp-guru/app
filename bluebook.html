@@ -493,10 +493,11 @@ tr:hover {
         <button onclick="sendMessage()">Send</button>
     </div>
     <script>
-        qindex = 0;
+        var qindex = 0;
+        var selectedQuiz;
         function loadQuestion(){
             num = qindex;
-            $("#title").html("SAT Math Algebra Practice")
+            $("#title").html(selectedQuiz.replaceAll("_"," "));
             $("#content").html("");
             $("#question_text").html(quizData[num].question);
             $("#options").html('');
@@ -564,7 +565,7 @@ for (var i = 0; i < subjects.length; i++) {
 
 // Change event listener for the dropdown
 $("#quizzes").change(function() {
-    var selectedQuiz = $(this).val();
+    selectedQuiz = $(this).val();
     $("#subjectScripts").attr("src", selectedQuiz);
 
 
