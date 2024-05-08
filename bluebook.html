@@ -126,6 +126,305 @@
     height: 30px;
     background: black;
   }    
+  /** styles for chatbot **/
+
+  #pdfViewer { 
+    width: 80%; 
+    height: 100vh; 
+    border-right: 2px solid #ccc;
+    overflow:auto;
+    margin-top:50px;
+ }
+  #answerPanel { width: 600px; padding: 20px; overflow-y: auto;display: inline-block;margin-top:50px; }
+  .answerButton { padding: 10px; margin: 5px; background-color: #f0f0f0; border: none; cursor: pointer; }
+  .answerButton:hover { background-color: #ddd; }
+   .answer,.explanation{display:none;padding:10px};
+  
+  .textLayer{display: block;}
+  #chatbotPanel {
+    
+    border-radius: 20px;
+    top: 100px;
+    right:50px;
+    bottom: 10px;
+    width: 35%;
+    height: 700px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px 20px 0 0;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-out;
+}
+
+#chatbotHeader {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px 20px 0 0;
+}
+
+#chatbotHeader span {
+    flex-grow: 1;
+}
+
+#chatbotHeader button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+}
+
+#chatbotMessages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#chatbotInput {
+    border: none;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+button {
+    cursor: pointer;
+}
+
+.chatbot-open {
+    transform: translateY(100%);
+}
+
+.chatbot-closed {
+    transform: translateY(100%);
+}
+
+#chatbotOpenButton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.aiResponse{
+    margin:5px;
+    padding:5px;
+    background-color: rgb(255, 243, 172);
+}
+.user_prompt{
+    margin:5px;
+    padding:5px;
+    background-color: rgb(228, 255, 209);
+}
+
+
+.reveal{
+    margin:10px;
+    border:none;
+}
+#main{
+    margin-top:50px;
+}
+#toolbar {
+    background-color: #e8e8e8;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+#urlForm {
+    display: block;
+    align-items: center;
+}
+
+#fileInput {
+    margin-right: 10px;
+}
+
+#pdfURL {
+    margin-right: 10px;
+}
+
+#loadfromURL,
+#pagePrev,
+#pageNext {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+#loadfromURL:hover,
+#pagePrev:hover,
+#pageNext:hover {
+    background-color: #45a049;
+}
+
+#pageNext{
+    position:fixed;
+    top:50%;
+    left:50%;
+    display: none;
+  }
+#pagePrev{
+    position:fixed;
+    top:50%;
+    left:10px;
+    display: none;
+  }
+#save_new_btn{
+    color:orange;
+    float:right;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+button {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  
+}
+
+th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Answer Options Styles */
+.answer-options {
+  margin-left: 20px;
+}
+
+.answer-options label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Answer Styles */
+.answer {
+  color: gray;
+  display: none;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  margin-top: 10px;
+}
+
+.answer.correct {
+  color: green;
+}
+
+.answer.wrong {
+  color: red;
+}
+
+/* Result Styles */
+#result {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#result h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#result p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+ .notes{
+  height:50px;
+  width:100%;
+  border:1px inset gray;
+
+ }
+ #ai_result{
+   display:none;
+   background: wheat;
+    padding: 20px;
+    border: 1px solid black;
+  position: fixed;
+  right: 130px;
+  top: 55px;
+  background: yellow;
+  z-index:9999;
+  background:white;
+  width:300px;
+  height:fit-content;
+  max-height: 800px;
+  overflow:auto;
+   
+ }
+
+  #toolbar{
+    right: 0px;
+    top: 0px;
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    height: 30px;
+    background: black;
+  }
+  
     </style>
 </head>
 <body>
@@ -171,6 +470,17 @@
         <span>Question 1 of 27</span>
         <button>Next</button>
       </div>
+    </div>
+    <div id="chatbotPanel" class="chatbot-closed">
+        <div id="chatbotHeader">
+            <span>Chatbot</span><button id='save_btn'>Save</button><button id='load_btn'>Load</button>
+            <button id='save_new_btn'>Save New</button>
+            <!-- <button id="closeChatbot" onclick="toggleChatbot()">×</button> -->
+        </div>
+        <div id="chatbotMessages"></div>
+        <input type="text" id="chatbotInput" placeholder="Type your message...">
+        
+        <button onclick="sendMessage()">Send</button>
     </div>
 </body>
 </html>
