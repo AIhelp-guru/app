@@ -475,7 +475,7 @@ tr:hover {
         </div>
       </div>
       <div class="bottom-section">
-        <span>Question 1 of 27</span>
+        <span id="question_index">Question 1 of 27</span>
         <button style="float:right;margin:10px">Next</button>
       </div>
     </div>
@@ -492,6 +492,7 @@ tr:hover {
     <script>
 
         function loadQuestion(num){
+            $("#title").html("SAT Math Algebra Practice")
             $("#content").html("");
             $("#question_text").html(quizData[num].question);
             $("#options").html('');
@@ -499,7 +500,7 @@ tr:hover {
                 
                 $("#options").append('<div class="option"><input type="radio" id="option-'+i+'" name="option"><label for="option-'+i+'">'+quizData[num].options[i]+'</label></div>');
             }
-
+            $("#question_index").html("Question "+num+" of "+quizData.length)
         }
 
         loadQuestion(0);
