@@ -453,7 +453,7 @@ tr:hover {
           organisms into new environments.
         </div>
         <div id="question">
-          <span>Which choice completes the text with the most logical and precise word or phrase?</span>
+          <span id="question_text">Which choice completes the text with the most logical and precise word or phrase?</span>
           <div class="options">
             <div class="option">
               <input type="radio" id="option-a" name="option">
@@ -492,8 +492,8 @@ tr:hover {
     <script>
 
         function loadQuestion(num){
-            $("#content").html(" ");
-            $("#question").html(quizData[num].question);
+            $("#content").html("");
+            $("#question_text").html(quizData[num].question);
         }
 
         loadQuestion(0);
