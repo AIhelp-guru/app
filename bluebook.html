@@ -494,8 +494,9 @@ tr:hover {
         function loadQuestion(num){
             $("#content").html("");
             $("#question_text").html(quizData[num].question);
+            $("#options").html('');
             for(i=0;i<quizData[num].options.length;i++){
-                $("#options").html('');
+                
                 $("#options").append('<div class="option"><input type="radio" id="option-'+i+'" name="option"><label for="option-'+i+'">'+quizData[num].options[i]+'</label></div>');
             }
 
