@@ -487,6 +487,7 @@ tr:hover {
       </div>
       <div class="bottom-section">
         <span id="question_index">Question 1 of 27</span>
+        <button id="prevQ" style="float:right;margin:10px">Prev</button>
         <button id="nextQ" style="float:right;margin:10px">Next</button>
         <button id="help" style="float:right;margin:10px;background-color:orange">Tutor me</button>
       </div>
@@ -665,6 +666,11 @@ $("#quizzes").change(function() {
     
         loadQuestion(0);
         $("#nextQ").click(function(){ loadQuestion();filterHelp();});
+        $("#prevQ").click(function(){ 
+            qindex = qindex -2;
+           if(qindex <0) qindex = 0;
+           filterHelp();
+          });
 
         $("#chatbotPanel").hide();
         $("#notes").show();
