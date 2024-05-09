@@ -547,6 +547,10 @@ tr:hover {
             $("#question_index").html("Question "+(num+1)+" of "+quizData.length);
             if(quizData[num].hint != undefined) {hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";} else{ hint ='';}
             $("#hint").append(hint); 
+            if(quizData[num].similar_question != undefined) {
+              similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+quizData[num].similar_question.question+"<br>"+quizData[num].similar_question.solution+"</div></details>";
+            } else{ hint ='';}
+            $("#hint").append(similar);
             qindex++;
             
         }
