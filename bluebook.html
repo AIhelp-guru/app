@@ -518,7 +518,7 @@ tr:hover {
             }
             $("#question_index").html("Question "+(num+1)+" of "+quizData.length);
             qindex++;
-            filterHelp();
+            
         }
 
 function sendMessage() {
@@ -664,7 +664,7 @@ $("#quizzes").change(function() {
 
     
         loadQuestion(0);
-        $("#nextQ").click(function(){ loadQuestion();});
+        $("#nextQ").click(function(){ loadQuestion();filterHelp();});
 
         $("#chatbotPanel").hide();
         $("#notes").show();
