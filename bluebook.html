@@ -567,7 +567,7 @@ function convertToBold(text) {
     return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
 }
 async function rw_file(filename,action,data){
-
+  url="https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework"
   try {
     if (action === "update") {
       const response = await $.ajax({
