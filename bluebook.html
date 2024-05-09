@@ -522,6 +522,7 @@ tr:hover {
             <span>Chatbot</span><button id="save" style="float:right">Save</button>
             <!-- <button id="closeChatbot" onclick="toggleChatbot()">×</button> -->
         </div>
+        <div id="hint"></div>
         <div id="chatbotMessages"></div>
         <input type="text" id="chatbotInput" placeholder="Type your message...">
         
@@ -532,17 +533,20 @@ tr:hover {
         var username = "admin";
         var selectedQuiz = "Math_Algebra";
         var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry","Math_Nonlinear_2"];
-        function loadQuestion(){
+    function loadQuestion(){
             num = qindex;
             $("#title").html(selectedQuiz.replaceAll("_"," ").replace(".js",""));
             $("#content").html("");
             $("#question_text").html(quizData[num].question);
             $("#options").html('');
             for(i=0;i<quizData[num].options.length;i++){
+
                 
                 $("#options").append('<div class="option"><input type="radio" id="option-'+i+'" name="option"><label for="option-'+i+'">'+quizData[num].options[i]+'</label></div>');
             }
             $("#question_index").html("Question "+(num+1)+" of "+quizData.length);
+            if(quizData[num].hint != undefined) {hint = "<details class='hint' id='hint_"+num+"'><summary>Hint</summary>"+quizData[num].hint+"</details>";} else{ hint ='';}
+            $("#hint").append(hint); 
             qindex++;
             
         }
