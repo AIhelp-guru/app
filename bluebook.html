@@ -667,6 +667,7 @@ $("#quizzes").change(function() {
         loadQuestion(0);
         $("#nextQ").click(function(){ loadQuestion();filterHelp();});
         $("#prevQ").click(function(){ 
+          loadQuestion();
             qindex = qindex -2;
            if(qindex <0) qindex = 0;
            filterHelp();
