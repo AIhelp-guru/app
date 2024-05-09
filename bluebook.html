@@ -574,14 +574,14 @@ async function rw_file(filename, action, data) {
       const response = await $.ajax({
         url,
         type: 'post',
-        data: { filename, data: JSON.stringify(data) },
+        data: { filename:filename, data: JSON.stringify(data) },
       });
       console.log(response);
     } else {
       const response = await $.ajax({
         url,
         type: 'post',
-        data: { filename, data: 'read_data' },
+        data: { filename:filename, data: 'read_data' },
       });
       const teachersData = JSON.parse(response.replaceAll("\\", "\\\\")); // Escape backslashes
       $("#chatbotMessages").html("<div id='teachers'>" + teachersData + "</div></details>");
