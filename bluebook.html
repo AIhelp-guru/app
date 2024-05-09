@@ -566,38 +566,33 @@ function callgemini(prompt){
 function convertToBold(text) {
     return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
 }
-async function rw_file(filename,action,data){
+async function rw_file(filename, action, data) {
+  const url = "https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework";
 
-url ="https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework";
-
-filename = $("#pdfURL").val();
-   if(action === "update"){
-       $.ajax({
-           url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
-           type:'post',
-           data:{filename:JSON.stringify(filename),data:JSON.stringify(data)},
-           success:function(data){
-   
-               console.log(data);
-           }
-       })
-   }else{
-        $.ajax({
-       url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
-       type:'post',
-       data:{filename:JSON.stringify(filename),data:'read_data'},
-       success:function(data){
-           data = JSON.parse(data);
-           data = data.replaceAll("\\n","");
-           $("#chatbotMessages").html("<div id='teachers'>"+data +"</div></details>");
-           $("#teachersHelp").find("details").attr('open', false);
-           return data;
-       }
-   })
-   }
-  
-
+  try {
+    if (action === "update") {
+      const response = await $.ajax({
+        url,
+        type: 'post',
+        data: { filename, data: JSON.stringify(data) },
+      });
+      console.log(response);
+    } else {
+      const response = await $.ajax({
+        url,
+        type: 'post',
+        data: { filename, data: 'read_data' },
+      });
+      const teachersData = JSON.parse(response.replaceAll("\\", "\\\\")); // Escape backslashes
+      $("#chatbotMessages").html("<div id='teachers'>" + teachersData + "</div></details>");
+      $("#teachersHelp").find("details").attr('open', false);
+      return teachersData;
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
 }
+
 
 var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry"];
 
