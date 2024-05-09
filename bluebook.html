@@ -587,7 +587,7 @@ async function rw_file(filename, action, data) {
       $("#chatbotMessages").html("<div id='teachers'>" + teachersData + "</div></details>");
       $("#teachersHelp").find("details").attr('open', false);
       return teachersData;
-    }
+    } 
   } catch (error) {
     console.error("Error:", error);
   }
