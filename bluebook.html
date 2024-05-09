@@ -682,6 +682,8 @@ $("#quizzes").change(function() {
               similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+quizData[num].similar_question.question+"<br>"+quizData[num].similar_question.solution+"</div></details>";
             } else{ similar ='';}
             $("#hint").append(similar);
+            if(quizData[num].explanation != undefined) {explanation = "<details class='hint' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+quizData[num].explanation+"</div></details>";} else{ explanation ='';}
+            $("#hint").append(explanation); 
           });
         $("#prevQ").click(function(){ 
           loadQuestion();
