@@ -585,13 +585,23 @@ async function rw_file(filename,action,data){
       const teachersData = ((response).replaceAll("\\n", "").replaceAll("\\", "")).replaceAll('""',''); // Escape backslashes
       $("#chatbotMessages").html("<div id='teachers'>" + teachersData + "</div></details>");
       $("#teachersHelp").find("details").attr('open', false);
+      filterHelp();
       return teachersData;
     } 
   } catch (error) {
     console.error("Error:", error);
   }
 }
-
+function filterHelp(){
+  question = $("#question_text").text();
+  $("details").hide();
+          
+            $("details").each(function(){
+                if(($(this).find(".refQuestion").text()).toLowerCase().indexOf(question) >=0){
+                    $(this).show();
+                }
+            })
+}
 // filename = $("#pdfURL").val();
 //    if(action === "update"){
 //        $.ajax({
