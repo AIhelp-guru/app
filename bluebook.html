@@ -575,7 +575,7 @@ filename = $("#pdfURL").val();
        $.ajax({
            url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
            type:'post',
-           data:{'filename':filename,'data':data},
+           data:{'filename':JSON.stringify(filename),'data':JSON.stringify(data)},
            success:function(data){
    
                console.log(data);
@@ -585,7 +585,7 @@ filename = $("#pdfURL").val();
         $.ajax({
        url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
        type:'post',
-       data:{'filename':filename,'data':'read_data'},
+       data:{'filename':JSON.stringify(filename),'data':'read_data'},
        success:function(data){
            data = JSON.parse(data);
            data = data.replaceAll("\\n","");
