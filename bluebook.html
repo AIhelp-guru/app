@@ -549,7 +549,7 @@ tr:hover {
             $("#hint").append(hint); 
             if(quizData[num].similar_question != undefined) {
               similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+quizData[num].similar_question.question+"<br>"+quizData[num].similar_question.solution+"</div></details>";
-            } else{ hint ='';}
+            } else{ similar ='';}
             $("#hint").append(similar);
             qindex++;
             
