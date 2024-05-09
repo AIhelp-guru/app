@@ -583,7 +583,7 @@ async function rw_file(filename, action, data) {
         type: 'post',
         data: { filename:filename, data: 'read_data' },
       });
-      const teachersData = (response.replaceAll("\\", "\\\\")); // Escape backslashes
+      const teachersData = JSON.parse(response.replaceAll("\\", "\\\\")); // Escape backslashes
       $("#chatbotMessages").html("<div id='teachers'>" + teachersData + "</div></details>");
       $("#teachersHelp").find("details").attr('open', false);
       return teachersData;
