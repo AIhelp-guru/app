@@ -531,6 +531,7 @@ tr:hover {
         var qindex = 0;
         var username = "admin";
         var selectedQuiz = "Math_Algebra";
+        var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry","Math_Nonlinear_2.js"];
         function loadQuestion(){
             num = qindex;
             $("#title").html(selectedQuiz.replaceAll("_"," ").replace(".js",""));
@@ -661,7 +662,7 @@ function filterHelp(){
 
 // }
 
-var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry"];
+
 
 // Populate the dropdown menu
 for (var i = 0; i < subjects.length; i++) {
