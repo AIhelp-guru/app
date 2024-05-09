@@ -665,6 +665,14 @@ $("#quizzes").change(function() {
         if (event.which == 13) {
             sendMessage();
             event.preventDefault();  // Prevents the default action (form submission)
+        }else{
+            $("details").hide();
+            prompt = ($(this).val()).toLowerCase();
+            $("details").each(function(){
+                if(($(this).find("summary").text()).toLowerCase().indexOf(prompt) >=0){
+                    $(this).show();
+                }
+            })
         }
     });
 
