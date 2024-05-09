@@ -596,9 +596,9 @@ function filterHelp(){
   question = $("#question_text").text();
   $("details").hide();
           
-            $("details").each(function(){
-                if(($(this).find(".refQuestion").text()).toLowerCase().indexOf(question) >=0){
-                    $(this).show();
+            $(".refQuestion").each(function(){
+                if(($(this).text()).toLowerCase().indexOf(question) >=0){
+                    $(this).parents("details").show();
                 }
             })
 }
