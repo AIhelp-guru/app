@@ -621,6 +621,7 @@ async function rw_file(filename,action,data){
       $("#chatbotMessages").html("<div id='teachers'>" + teachersData + "</div></details>");
       $("#teachersHelp").find("details").attr('open', false);
       filterHelp();
+     
       return teachersData;
     } 
   } catch (error) {
@@ -711,7 +712,10 @@ $("#quizzes").change(function() {
     filename = username + $("#title").text();
     rw_file(filename,"read_data",'');
 
-    $("#question_text").change(function(){ filterHelp();})
+    $("#question_text").change(function(){ 
+      filterHelp();
+      
+    })
     </script>
 </body>
 </html>
