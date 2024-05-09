@@ -672,12 +672,31 @@ $("#quizzes").change(function() {
 
     
         loadQuestion(0);
-        $("#nextQ").click(function(){ loadQuestion();filterHelp();});
+        $("#nextQ").click(function(){ 
+          loadQuestion();
+          filterHelp(); 
+          num = qIndex - 1;
+          if(quizData[num].hint != undefined) {hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";} else{ hint ='';}
+            $("#hint").append(hint); 
+            if(quizData[num].similar_question != undefined) {
+              similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+quizData[num].similar_question.question+"<br>"+quizData[num].similar_question.solution+"</div></details>";
+            } else{ similar ='';}
+            $("#hint").append(similar);
+          });
         $("#prevQ").click(function(){ 
           loadQuestion();
             qindex = qindex -2;
            if(qindex <0) qindex = 0;
            filterHelp();
+           num = qIndex + 1;
+          if(quizData[num].hint != undefined) {hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";} else{ hint ='';}
+            $("#hint").append(hint); 
+            if(quizData[num].similar_question != undefined) {
+              similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+quizData[num].similar_question.question+"<br>"+quizData[num].similar_question.solution+"</div></details>";
+            } else{ similar ='';}
+            $("#hint").append(similar);
+
+
           });
 
         $("#chatbotPanel").hide();
