@@ -648,9 +648,11 @@ $("#quizzes").change(function() {
 
     $("#save").click(function(){
         filename = username + $("#title").text();
+        filename = filename.toString();
         rw_file(filename,"update",$("#chatbotMessages").html());
     })
     filename = username + $("#title").text();
+    filename = filename.toString();
     rw_file(filename,"read_data",'');
     </script>
 </body>
