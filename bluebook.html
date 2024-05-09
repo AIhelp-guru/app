@@ -545,7 +545,7 @@ tr:hover {
                 $("#options").append('<div class="option"><input type="radio" id="option-'+i+'" name="option"><label for="option-'+i+'">'+quizData[num].options[i]+'</label></div>');
             }
             $("#question_index").html("Question "+(num+1)+" of "+quizData.length);
-            if(quizData[num].hint != undefined) {hint = "<details class='hint' id='hint_"+num+"'><summary>Hint</summary>"+quizData[num].hint+"</details>";} else{ hint ='';}
+            if(quizData[num].hint != undefined) {hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";} else{ hint ='';}
             $("#hint").append(hint); 
             qindex++;
             
