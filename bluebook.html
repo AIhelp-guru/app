@@ -675,7 +675,7 @@ $("#quizzes").change(function() {
         $("#nextQ").click(function(){ 
           loadQuestion();
           filterHelp(); 
-          num = qIndex - 1;
+          num = qindex - 1;
           if(quizData[num].hint != undefined) {hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";} else{ hint ='';}
             $("#hint").append(hint); 
             if(quizData[num].similar_question != undefined) {
@@ -688,7 +688,7 @@ $("#quizzes").change(function() {
             qindex = qindex -2;
            if(qindex <0) qindex = 0;
            filterHelp();
-           num = qIndex + 1;
+           num = qindex + 1;
           if(quizData[num].hint != undefined) {hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";} else{ hint ='';}
             $("#hint").append(hint); 
             if(quizData[num].similar_question != undefined) {
