@@ -566,8 +566,7 @@ function callgemini(prompt){
 function convertToBold(text) {
     return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
 }
-async function rw_file(filename, action, data) {
-  const url = "https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework";
+async function rw_file(filename,action,data){
 
   try {
     if (action === "update") {
@@ -593,6 +592,34 @@ async function rw_file(filename, action, data) {
   }
 }
 
+filename = $("#pdfURL").val();
+   if(action === "update"){
+       $.ajax({
+           url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
+           type:'post',
+           data:{'filename':filename,'data':data},
+           success:function(data){
+   
+               console.log(data);
+           }
+       })
+   }else{
+        $.ajax({
+       url:"https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
+       type:'post',
+       data:{'filename':filename,'data':'read_data'},
+       success:function(data){
+           data = JSON.parse(data);
+           data = data.replaceAll("\\n","").replaceAll("\\","");
+           $("#chatbotMessages").html("<div id='teachers'>"+data +"</div></details>");
+           $("#teachersHelp").find("details").attr('open', false);
+           return data;
+       }
+   })
+   }
+  
+
+}
 
 var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry"];
 
@@ -643,12 +670,10 @@ $("#quizzes").change(function() {
 
     $("#save").click(function(){
         filename = username + $("#title").text();
-        filename = JSON.stringify(filename);
         rw_file(filename,"update",$("#chatbotMessages").html());
     })
     filename = username + $("#title").text();
-    filename = JSON.stringify(filename);
-    rw_file(filename,"read",'');
+    rw_file(filename,"read_data",'');
     </script>
 </body>
 </html>
