@@ -661,7 +661,7 @@ function filterHelp(){
                 })
 }
 
-
+function init(){
 // Populate the dropdown menu
 for (var i = 0; i < subjects.length; i++) {
     $("#quizzes").append("<option value='" + subjects[i] + ".js'>" + subjects[i].replace(/_/g, " ") + "</option>");
@@ -686,7 +686,7 @@ $("#quizzes").change(function() {
         });
 });
 
- loadQuestion(0);
+
 $("#nextQ").click(function(){ 
           qindex++;
           if(qindex === quizData.length) qindex = qindex -1;
@@ -704,7 +704,7 @@ $("#prevQ").click(function(){
 
         
 
-        $("#notes").show();
+        
 
         $("#help").click(function(){
             $("#chatbotPanel").toggle();
@@ -742,6 +742,12 @@ $("#prevQ").click(function(){
         filterHelp();
         
       })
+      loadQuestion(0);
+      addhelp();
+      $("#notes").show();
+    }
+
+init();
     </script>
 </body>
 </html>
