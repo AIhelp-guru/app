@@ -694,6 +694,7 @@ $("#quizzes").change(function() {
             // Use the quizData defined in the script
             if (typeof quizData !== 'undefined') {
                 loadQuestion(0);
+                addhelp();
             }
         })
         .fail(function(jqxhr, settings, exception) {
