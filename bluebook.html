@@ -506,6 +506,7 @@ tr:hover {
               <label for="option-d">concerning</label>
             </div>
           </div>
+          <div id="correct_answer"></div>
         </div>
       </div>
       <div class="bottom-section">
@@ -539,6 +540,7 @@ function loadQuestion(){
             $("#title").html(selectedQuiz.replaceAll("_"," ").replace(".js",""));
             $("#content").html("");
             $("#question_text").html(quizData[num].question);
+            $("#correct_answer").html(quizData[num].question);
             $("#options").html('');
             for(i=0;i<quizData[num].options.length;i++){
                oa = ["a","b","c","d"];
