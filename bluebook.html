@@ -568,6 +568,7 @@ function addhelp(){
             $("#hint").append(similar);
 
             if(quizData[num].explanation != undefined) {
+              alert(quizData[num].explanation);
               explanation = "<details class='explanation' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+quizData[num].explanation+"</div></details>";
             } else{ 
               explanation ='';
@@ -705,7 +706,7 @@ $("#quizzes").change(function() {
 
 $("#nextQ").click(function(){ 
           r = evaluate();
-          
+
           if(r){
               qindex++;
               if(qindex === quizData.length) qindex = qindex -1;
