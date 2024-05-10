@@ -661,6 +661,15 @@ function filterHelp(){
                 })
 }
 
+function evaluate(){
+  var selectedOption = $('input[name="option"]:checked');
+
+  // Get the id of the selected radio button
+  var selectedOptionId = selectedOption.attr('id');
+  if(quizData[qindex].answer !== selectedOptionId){
+    alert("wrong ");
+  }
+}
 function init(){
 // Populate the dropdown menu
 for (var i = 0; i < subjects.length; i++) {
@@ -693,6 +702,7 @@ $("#nextQ").click(function(){
           loadQuestion();
           filterHelp(); 
           addhelp();
+          evaluate();
           });
 $("#prevQ").click(function(){ 
           qindex--;
