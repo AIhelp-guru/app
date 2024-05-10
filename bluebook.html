@@ -546,16 +546,31 @@ function loadQuestion(){
                 $("#options").append('<div class="option"><input type="radio" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+quizData[num].options[i]+'</label></div>');
             }
             $("#question_index").html("Question "+(num+1)+" of "+quizData.length);
-            if(quizData[num].hint != undefined) {hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";} else{ hint ='';}
-            $("#hint").append(hint); 
-            if(quizData[num].similar_question != undefined) {
-              similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+quizData[num].similar_question.question+"<br>"+quizData[num].similar_question.solution+"</div></details>";
-            } else{ similar ='';}
-            $("#hint").append(similar);
             qindex++;
             
         }
+function addhelp(){
+            num = qindex;
+            if(quizData[num].hint != undefined) {
+              hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";
+            }else{
+               hint ='';
+              }
+            $("#hint").append(hint); 
+            if(quizData[num].similar_question != undefined) {
+              similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+quizData[num].similar_question.question+"<br>"+quizData[num].similar_question.solution+"</div></details>";
+            } else{ 
+              similar ='';
+            }
+            $("#hint").append(similar);
 
+            if(quizData[num].explanation != undefined) {
+              explanation = "<details class='hint' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+quizData[num].explanation+"</div></details>";
+            } else{ 
+              explanation ='';
+            }
+            $("#hint").append(explanation); 
+}
 function sendMessage() {
     const input = document.getElementById('chatbotInput');
     const message = input.value.trim();
@@ -602,6 +617,7 @@ function callgemini(prompt){
 function convertToBold(text) {
     return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
 }
+
 async function rw_file(filename,action,data){
   url="https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework"
   try {
@@ -629,6 +645,7 @@ async function rw_file(filename,action,data){
     console.error("Error:", error);
   }
 }
+
 function filterHelp(){
   question = $("#question_text").text();
       $("details").each(function(){
@@ -643,8 +660,6 @@ function filterHelp(){
                     }
                 })
 }
-
-
 
 
 // Populate the dropdown menu
@@ -671,46 +686,31 @@ $("#quizzes").change(function() {
         });
 });
 
-    
-        loadQuestion(0);
-        $("#nextQ").click(function(){ 
+ loadQuestion(0);
+$("#nextQ").click(function(){ 
           loadQuestion();
           filterHelp(); 
-          num = qindex - 1;
-          if(quizData[num].hint != undefined) {hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";} else{ hint ='';}
-            $("#hint").append(hint); 
-            if(quizData[num].similar_question != undefined) {
-              similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+quizData[num].similar_question.question+"<br>"+quizData[num].similar_question.solution+"</div></details>";
-            } else{ similar ='';}
-            $("#hint").append(similar);
-            if(quizData[num].explanation != undefined) {explanation = "<details class='hint' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+quizData[num].explanation+"</div></details>";} else{ explanation ='';}
-            $("#hint").append(explanation); 
+          addhelp();
           });
-        $("#prevQ").click(function(){ 
+$("#prevQ").click(function(){ 
           loadQuestion();
-            qindex = qindex -2;
-           if(qindex <0) qindex = 0;
-           filterHelp();
-           num = qindex + 1;
-          if(quizData[num].hint != undefined) {hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";} else{ hint ='';}
-            $("#hint").append(hint); 
-            if(quizData[num].similar_question != undefined) {
-              similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+quizData[num].similar_question.question+"<br>"+quizData[num].similar_question.solution+"</div></details>";
-            } else{ similar ='';}
-            $("#hint").append(similar);
-
-
+          filterHelp();  
+          addhelp();
           });
 
         $("#chatbotPanel").hide();
+
         $("#notes").show();
+
         $("#help").click(function(){
             $("#chatbotPanel").toggle();
             //$("#notes").toggle();
         })
+
         $(".option").click(function(){
             $(this).find("input").prop("checked","true");
         })
+
         $('#chatbotInput').keydown(function(event) {
         // Check if the key pressed is the Enter key
         if (event.which == 13) {
@@ -727,17 +727,17 @@ $("#quizzes").change(function() {
         }
     });
 
-    $("#save").click(function(){
-        filename = username + $("#title").text();
-        rw_file(filename,"update",$("#chatbotMessages").html());
-    })
-    filename = username + $("#title").text();
-    rw_file(filename,"read_data",'');
+      $("#save").click(function(){
+          filename = username + $("#title").text();
+          rw_file(filename,"update",$("#chatbotMessages").html());
+      })
+      filename = username + $("#title").text();
+      rw_file(filename,"read_data",'');
 
-    $("#question_text").change(function(){ 
-      filterHelp();
-      
-    })
+      $("#question_text").change(function(){ 
+        filterHelp();
+        
+      })
     </script>
 </body>
 </html>
