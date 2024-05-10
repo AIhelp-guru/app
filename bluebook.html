@@ -546,7 +546,7 @@ function loadQuestion(){
                 $("#options").append('<div class="option"><input type="radio" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+quizData[num].options[i]+'</label></div>');
             }
             $("#question_index").html("Question "+(num+1)+" of "+quizData.length);
-            qindex++;
+            
             
         }
 function addhelp(){
@@ -688,11 +688,15 @@ $("#quizzes").change(function() {
 
  loadQuestion(0);
 $("#nextQ").click(function(){ 
+          qindex++;
+          if(qindex === quizData.length) qindex = qindex -1;
           loadQuestion();
           filterHelp(); 
           addhelp();
           });
 $("#prevQ").click(function(){ 
+          qindex--;
+          if(qindex <0) qindex = 0;
           loadQuestion();
           filterHelp();  
           addhelp();
