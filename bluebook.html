@@ -553,6 +553,7 @@ function loadQuestion(){
         }
 function addhelp(){
             num = qindex;
+            $("#hint").html("");
             if(quizData[num].hint != undefined) {
               hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";
             }else{
