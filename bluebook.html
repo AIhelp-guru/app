@@ -669,7 +669,10 @@ function evaluate(){
   // Get the id of the selected radio button
   var selectedOptionId = selectedOption.attr('id');
   if($("#correct_answer").text() !== selectedOptionId){
-    alert($("#correct_answer").text() + "wrong " +selectedOptionId);
+
+    return false;
+  }else{
+    return true;
   }
 }
 function init(){
@@ -699,13 +702,16 @@ $("#quizzes").change(function() {
 
 
 $("#nextQ").click(function(){ 
-          evaluate();
-          qindex++;
-          if(qindex === quizData.length) qindex = qindex -1;
-          loadQuestion();
-          filterHelp(); 
-          addhelp();
-          
+          r = evaluate();
+          if(r){
+              qindex++;
+              if(qindex === quizData.length) qindex = qindex -1;
+              loadQuestion();
+              filterHelp(); 
+              addhelp();
+        }else{
+          $(".hint").show();
+        }
           });
 $("#prevQ").click(function(){ 
           qindex--;
