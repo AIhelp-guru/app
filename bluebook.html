@@ -669,7 +669,7 @@ function evaluate(){
   // Get the id of the selected radio button
   var selectedOptionId = selectedOption.attr('id');
   if(quizData[qindex].answer !== selectedOptionId){
-    alert("wrong ");
+    alert(quizData[qindex].answer + "wrong " +selectedOptionId);
   }
 }
 function init(){
