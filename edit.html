@@ -43,6 +43,7 @@
     </tr><tr><div>Question : <textarea  class="question_code"></textarea><span  class="question"></span></div>
     </tr><tr><div>Options: <textarea  class="options_code"></textarea><span  class="options"></span></div>
     </tr><tr><div>Answer: <textarea  class="answer_code"></textarea><span  class="answer"></span></div>
+    </tr><tr><div>Explanation: <textarea  class="explanation_code"></textarea><span  class="explanation"></span></div>
     </tr><tr><div>Hint : <textarea  class="hint_code"></textarea><span  class="hint"></span></div>
     </tr><tr><div>Example : <textarea  class="example_code"></textarea><span  class="example"></span></div>
     </tr>
@@ -91,14 +92,14 @@
 
         var updatedQuestion = {
           "passage": textareas[0].value,
-          "question": inputs[0].value,
-          "options": [],
-          "answer": selects[0].value,
-          "explanation": textareas[1].value,
-          "hint": inputs[1].value,
+          "question": textareas[1].value,
+          "options": textareas[2].value,
+          "answer": textareas[3].valuee,
+          "explanation": textareas[4].value,
+          "hint": textareas[5].value,
           "similar_question": {
-            "question": textareas[2].value,
-            "solution": textareas[3].value
+            "question": textareas[6].value,
+            "solution": textareas[6].value
           }
         };
 
