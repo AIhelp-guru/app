@@ -717,7 +717,10 @@ $("#nextQ").click(function(){
         }else{
           if($(".hint").prop("open")) $(".similar").prop("open",true);
           $(".hint").prop("open",true);
-          if($(".similar").prop("open")) $(".explanation").prop("open",true);
+          if($(".similar").prop("open")) {
+            $(".explanation").prop("open",true).show();
+
+          }
         }
           });
 $("#prevQ").click(function(){ 
