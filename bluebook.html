@@ -705,6 +705,7 @@ $("#quizzes").change(function() {
 
 $("#nextQ").click(function(){ 
           r = evaluate();
+          
           if(r){
               qindex++;
               if(qindex === quizData.length) qindex = qindex -1;
@@ -715,6 +716,7 @@ $("#nextQ").click(function(){
         }else{
           if($(".hint").prop("open")) $(".similar").prop("open",true);
           $(".hint").prop("open",true);
+          if($(".similar").prop("open")) $(".explanation").prop("open",true);
         }
           });
 $("#prevQ").click(function(){ 
