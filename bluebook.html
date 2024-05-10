@@ -554,7 +554,7 @@ function loadQuestion(){
   num = qindex;
             $("#title").html("SAT Practice Test");
             if(sheetData[num][0]){
-              $("#content").html(sheetData[num][0]);
+              $("#content").html(sheetData[num][0].replaceAll('\\\"',""));
             }else{
               $("#content").html("");
             }
