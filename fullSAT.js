@@ -42,20 +42,11 @@ var quizData =
            }
        },
    {
-   "passage": null,
-   "question": "What is the x-intercept of the parabola y = x^2 + 2x - 3?",
-   "options": ["a) -1", "b) -3", "c) 1", "d) 3"],
-   "answer": "a",
-   "explanation": "To find the x-intercepts of a parabola, set y = 0 and solve for x:
-   0 = x^2 + 2x - 3
-   Factoring:
-   0 = (x + 3)(x - 1)
-   Setting each factor equal to 0:
-   x + 3 = 0 and x - 1 = 0
-   Solving for x in each equation:
-   x = -3 and x = 1
-   Therefore, the x-intercepts are (-3, 0) and (1, 0).
-   The answer is (a) -1.",
+        "passage": null,
+        "question": "What is the x-intercept of the parabola y = x^2 + 2x - 3?",
+        "options": ["a) -1", "b) -3", "c) 1", "d) 3"],
+         "answer": "a",
+         "explanation": "To find the x-intercepts of a parabola, set y = 0 and solve for x:0 = x^2 + 2x - 3. Factoring:0 = (x + 3)(x - 1) <br>Setting each factor equal to 0: x + 3 = 0 and x - 1 = 0<br>Solving for x in each equation:x = -3 and x = 1<br>Therefore, the x-intercepts are (-3, 0) and (1, 0).<br>The answer is (a) -1.",
    "hint": "To find the x-intercepts of a parabola, set y = 0 and solve for x.",
    "similar_question": {
    "question": "What is the x-intercept of the parabola y = x^2 - 4x + 3?",
