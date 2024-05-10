@@ -713,6 +713,7 @@ $("#nextQ").click(function(){
               addhelp();
               $(".hint").prop("open",false);
         }else{
+          if($(".hint").prop("open")) $(".similar").prop("open",true);
           $(".hint").prop("open",true);
         }
           });
