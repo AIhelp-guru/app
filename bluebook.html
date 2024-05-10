@@ -699,12 +699,13 @@ $("#quizzes").change(function() {
 
 
 $("#nextQ").click(function(){ 
+          evaluate();
           qindex++;
           if(qindex === quizData.length) qindex = qindex -1;
           loadQuestion();
           filterHelp(); 
           addhelp();
-          evaluate();
+          
           });
 $("#prevQ").click(function(){ 
           qindex--;
