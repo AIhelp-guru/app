@@ -538,7 +538,12 @@ tr:hover {
 function loadQuestion(){
             num = qindex;
             $("#title").html(selectedQuiz.replaceAll("_"," ").replace(".js",""));
-            $("#content").html("");
+            if(quizData[num].content){
+              $("#content").html(quizData[num].content);
+            }else{
+              $("#content").html("");
+            }
+           
             $("#question_text").html(quizData[num].question);
             $("#correct_answer").html(quizData[num].answer);
             $("#options").html('');

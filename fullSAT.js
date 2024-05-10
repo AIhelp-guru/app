@@ -1,7 +1,7 @@
 var quizData = 
 [
     {
-    "passage": "<svg align=\"center\" id=\"MathJax-Element-1\" viewBox=\"0 0 100.919 136.368\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M 9,133.288 L 9,10.625 L 12.062,10.625 L 12.062,72.766 L 28.375,72.766 L 28.375,133.288 Z M 37.75,133.288 L 37.75,54.489 L 73.188,54.489 L 73.188,133.288 Z M 81.25,133.288 L 81.25,10.625 L 84.312,10.625 L 84.312,133.288 Z\" fill=\"White\" stroke=\"Black\" stroke-width=\"2\"/>\n<text x=\"50\" y=\"91.168\" font-family=\"texgyrepagella\" font-size=\"24\">y</text>\n<text x=\"18.188\" y=\"69.668\" font-family=\"texgyrepagella\" font-size=\"24\">x</text>\n<path d=\"M 34.688,28.312 L 34.688,10.688 L 37.75,10.688 L 37.75,28.312 Z\" fill=\"Black\" stroke=\"Black\" stroke-width=\"2\"/>\n<text x=\"44.938\" y=\"21.75\" font-family=\"texgyrepagella\" font-size=\"24\">2</text>\n<text x=\"25.938\" y=\"17.75\" font-family=\"texgyrepagella\" font-size=\"24\">1</text>\n<text x=\"73.281\" y=\"17.75\" font-family=\"texgyrepagella\" font-size=\"24\">3</text>\n</svg>",
+    "content": "<svg align=\"center\" id=\"MathJax-Element-1\" viewBox=\"0 0 100.919 136.368\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M 9,133.288 L 9,10.625 L 12.062,10.625 L 12.062,72.766 L 28.375,72.766 L 28.375,133.288 Z M 37.75,133.288 L 37.75,54.489 L 73.188,54.489 L 73.188,133.288 Z M 81.25,133.288 L 81.25,10.625 L 84.312,10.625 L 84.312,133.288 Z\" fill=\"White\" stroke=\"Black\" stroke-width=\"2\"/>\n<text x=\"50\" y=\"91.168\" font-family=\"texgyrepagella\" font-size=\"24\">y</text>\n<text x=\"18.188\" y=\"69.668\" font-family=\"texgyrepagella\" font-size=\"24\">x</text>\n<path d=\"M 34.688,28.312 L 34.688,10.688 L 37.75,10.688 L 37.75,28.312 Z\" fill=\"Black\" stroke=\"Black\" stroke-width=\"2\"/>\n<text x=\"44.938\" y=\"21.75\" font-family=\"texgyrepagella\" font-size=\"24\">2</text>\n<text x=\"25.938\" y=\"17.75\" font-family=\"texgyrepagella\" font-size=\"24\">1</text>\n<text x=\"73.281\" y=\"17.75\" font-family=\"texgyrepagella\" font-size=\"24\">3</text>\n</svg>",
     "question": "",
     "options": ["a) x + y = 5", "b) x + y = 8", "c) x + 2y = 10", "d) x - y = 5"],
     "answer": "a",
@@ -13,7 +13,7 @@ var quizData =
     }
    },
    {
-       "passage": "Find a quadratic inequality that has a solution set of {x | x < 2 or x > 5}.",
+       "content": "Find a quadratic inequality that has a solution set of {x | x < 2 or x > 5}.",
        "question": "",
        "options": [
            "a) x^2 + x - 12 > 0",
@@ -30,7 +30,7 @@ var quizData =
        }
    },
    {
-           "passage": null,
+           "content": null,
            "question": "If x = 2, what is the value of x^2 + 3x + 2?",
            "options": ["a) 14", "b) 13", "c) 12", "d) 11"],
            "answer": "a",
@@ -42,7 +42,7 @@ var quizData =
            }
        },
    {
-        "passage": null,
+        "content": null,
         "question": "What is the x-intercept of the parabola y = x^2 + 2x - 3?",
         "options": ["a) -1", "b) -3", "c) 1", "d) 3"],
          "answer": "a",
@@ -54,7 +54,7 @@ var quizData =
    }
    },
    {
-       "passage": "Given polynomial $$P(x) = 3x^3 + 2x^2 + 5x - 7$$",
+       "content": "Given polynomial $$P(x) = 3x^3 + 2x^2 + 5x - 7$$",
        "question": "What is the remainder when P(x) is divided by (x-2)?",
        "options": ["a) 43 ", "b) -43 ", "c) 3", "d) -3"],
        "answer": "a",
@@ -65,7 +65,7 @@ var quizData =
        }
    },
    {
-       "passage": "<svg height=\"400\" width=\"400\">\
+       "content": "<svg height=\"400\" width=\"400\">\
    <circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" />\
    <line x1=\"50\" y1=\"50\" x2=\"150\" y2=\"150\" stroke=\"red\" stroke-width=\"2\" />\
    </svg>",
@@ -80,7 +80,7 @@ var quizData =
        }
    },
    {
-       "passage": "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400px\" height=\"400px\">\n  <circle cx=\"200px\" cy=\"200px\" r=\"50px\" fill=\"blue\" stroke=\"black\" stroke-width=\"5px\" />\n  <text x=\"220px\" y=\"180px\" font-size=\"14px\">A</text>\n  <circle cx=\"300px\" cy=\"220px\" r=\"40px\" fill=\"red\" stroke=\"black\" stroke-width=\"5px\" />\n  <text x=\"300px\" y=\"220px\" font-size=\"14px\">B</text>\n</svg>",
+       "content": "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400px\" height=\"400px\">\n  <circle cx=\"200px\" cy=\"200px\" r=\"50px\" fill=\"blue\" stroke=\"black\" stroke-width=\"5px\" />\n  <text x=\"220px\" y=\"180px\" font-size=\"14px\">A</text>\n  <circle cx=\"300px\" cy=\"220px\" r=\"40px\" fill=\"red\" stroke=\"black\" stroke-width=\"5px\" />\n  <text x=\"300px\" y=\"220px\" font-size=\"14px\">B</text>\n</svg>",
        "question": "What is the total area, in square units, of the 2 circles in terms of pi (π)?",
        "options": ["a) 30π", "b) 36π", "c) 46π", "d) 50π"],
        "answer": "b",
@@ -92,7 +92,7 @@ var quizData =
        }
    },
    {
-           "passage": "A rectangular prism has a length of 6 cm, a width of 4 cm, and a height of 3 cm. What is the volume of the rectangular prism?",
+           "content": "A rectangular prism has a length of 6 cm, a width of 4 cm, and a height of 3 cm. What is the volume of the rectangular prism?",
            "question": "What is the volume of the rectangular prism?",
            "options": ["a) 72 cubic centimeters", "b) 24 cubic centimeters", "c) 12 cubic centimeters", "d) 36 cubic centimeters"],
            "answer": "a",
@@ -104,7 +104,7 @@ var quizData =
            }
    },
    {
-   "passage": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"100\" width=\"450\"><line x1=\"75\" y1=\"25\" x2=\"75\" y2=\"75\" stroke=\"black\" stroke-width=\"2\"/><line x1=\"0\" y1=\"75\" x2=\"150\" y2=\"75\" stroke=\"black\" stroke-width=\"2\"/><line x1=\"150\" y1=\"75\" x2=\"75\" y2=\"25\" stroke=\"black\" stroke-width=\"2\"/></svg>\n\t",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"100\" width=\"450\"><line x1=\"75\" y1=\"25\" x2=\"75\" y2=\"75\" stroke=\"black\" stroke-width=\"2\"/><line x1=\"0\" y1=\"75\" x2=\"150\" y2=\"75\" stroke=\"black\" stroke-width=\"2\"/><line x1=\"150\" y1=\"75\" x2=\"75\" y2=\"25\" stroke=\"black\" stroke-width=\"2\"/></svg>\n\t",
    "question": "What is the area of this triangle?\n\t",
    "options": ["a) 37.5 sq. units", "b) 75 sq. units", "c) 187.5 sq. units", "d) 48.75 sq. units"],
    "answer": "a",
@@ -116,7 +116,7 @@ var quizData =
    }
    },
    {
-       "passage": "",
+       "content": "",
        "question": "Quadrant III, compute the cosecant 1.5π ?",
        "options": ["a) -√3", "b) √3", "c) -1", "d) 1"],
        "answer": "a",
@@ -128,7 +128,7 @@ var quizData =
        }
    },
    {
-           "passage": "Find the radian measure of the angle \u03b8 that satisfies the equation \u03b8 = \u03c0 / 3.",
+           "content": "Find the radian measure of the angle \u03b8 that satisfies the equation \u03b8 = \u03c0 / 3.",
            "question": "What is the radian measure of the angle \u03b8?",
            "options": ["a) \u03c0 / 3", "b) 3\u03c0", "c) 180\u03c0", "d) \u03c0"],
            "answer": "a",
@@ -140,7 +140,7 @@ var quizData =
            }
        },
    {
-           "passage": "<svg width=\"400\" height=\"300\">\n  <rect width=\"100%\" height=\"100%\" fill=\"#000\" />\n  <text x=\"10\" y=\"20\" fill=\"#fff\">Question:</text>\n  <text x=\"10\" y=\"40\" fill=\"#fff\">What is the area of the rectangle?</text>\n  <rect x=\"10\" y=\"60\" width=\"100\" height=\"100\" fill=\"#fff\" />\n  <text x=\"110\" y=\"120\" fill=\"#000\">Answer:</text>\n  <text x=\"110\" y=\"140\" fill=\"#000\">10000</text>\n</svg>",
+           "content": "<svg width=\"400\" height=\"300\">\n  <rect width=\"100%\" height=\"100%\" fill=\"#000\" />\n  <text x=\"10\" y=\"20\" fill=\"#fff\">Question:</text>\n  <text x=\"10\" y=\"40\" fill=\"#fff\">What is the area of the rectangle?</text>\n  <rect x=\"10\" y=\"60\" width=\"100\" height=\"100\" fill=\"#fff\" />\n  <text x=\"110\" y=\"120\" fill=\"#000\">Answer:</text>\n  <text x=\"110\" y=\"140\" fill=\"#000\">10000</text>\n</svg>",
            "question": "What is the area of the rectangle?",
            "options": ["a) 100", "b) 1000", "c) 10000", "d) 100000"],
            "answer": "c",
@@ -152,7 +152,7 @@ var quizData =
            }
        },
    {
-           "passage": "The following table shows the number of students in each grade at a particular school:\n\n\n| Grade | Number of Students |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|-\n| 9th | 200 |\n| 10th | 180 |\n| 11th | 160 |\n| 12th | 140 |\n\nWhat is the mean number of students per grade?",
+           "content": "The following table shows the number of students in each grade at a particular school:\n\n\n| Grade | Number of Students |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|-\n| 9th | 200 |\n| 10th | 180 |\n| 11th | 160 |\n| 12th | 140 |\n\nWhat is the mean number of students per grade?",
            "question": "What is the mean number of students per grade?",
            "options": ["a) 160", "b) 165", "c) 170", "d) 175"],
            "answer": "b",
@@ -164,7 +164,7 @@ var quizData =
            }
        },
    {
-           "passage": "A box contains 3 red balls, 5 blue balls, and 4 green balls. Suppose you randomly pick two balls from the box without replacement. What is the probability of choosing a red ball and then a green ball?",
+           "content": "A box contains 3 red balls, 5 blue balls, and 4 green balls. Suppose you randomly pick two balls from the box without replacement. What is the probability of choosing a red ball and then a green ball?",
            "question": "What is the probability of choosing a red ball and then a green ball?",
            "options": ["a) 12/55", "b) 3/10", "c) 12/110", "d) 4/22"],
            "answer": "a",
@@ -176,7 +176,7 @@ var quizData =
            }
        },
    {
-       "passage": " <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'><path d='M 50  0 L 50 100 L 100  50 z' fill='red'/><path d='M 0  50 L 100  50 L 50   0 z' fill='blue'/></svg>",
+       "content": " <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'><path d='M 50  0 L 50 100 L 100  50 z' fill='red'/><path d='M 0  50 L 100  50 L 50   0 z' fill='blue'/></svg>",
        "question": "What is the ratio of the red area to the blue area?",
        "options": ["a) 1:1", "b) 1:2", "c) 2:1", "d) 1:3"],
        "answer": "a",
@@ -192,7 +192,7 @@ var quizData =
        }
    },
    {
-           "passage": "",
+           "content": "",
            "question": "What is the value of y?",
            "options": [
                "a) 8",
@@ -209,7 +209,7 @@ var quizData =
            }
        },
    {
-       "passage": "A store is selling a shirt for \\$20. If the store is offering a 20% discount, how much will be saved on the purchase of the shirt?",
+       "content": "A store is selling a shirt for \\$20. If the store is offering a 20% discount, how much will be saved on the purchase of the shirt?",
        "question": "A store is selling a shirt for $\\$20. If the store is offering a 20% discount, how much will be saved on the purchase of the shirt?",
        "options": ["a) $4", "b) $16", "c) $20", "d) $10"],
        "answer": "a",
@@ -221,7 +221,7 @@ var quizData =
        }
    },
    {
-       "passage": "<svg width='354px' height='150px' viewBox='0 0 354 150' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='Canvas' transform='translate(0.000000,150.000000) scale(1,-1)'><g id='Layer_1' transform='translate(0.000000,0.000000)'><g id='y_axis' fill='#000000' stroke='#000000' transform='translate(40.000000,110.000000)'><path d='M98 0L98 100' stroke-width='2' /><path d='M94 0L102 0' stroke-width='2' /><path d='M94 100L102 100' stroke-width='2' /><g id='y_axis_ticks' transform='translate(106.000000, 0.000000)' stroke-width='2' ><path d='M0 96L0 98' /><path d='M0 84L0 86' /><path d='M0 72L0 74' /><path d='M0 60L0 62' /><path d='M0 48L0 50' /><path d='M0 36L0 38' /><path d='M0 24L0 26' /><path d='M0 12L0 14' /><path d='M0 0L0 2' /></g></g><g id='x_axis' transform='translate(40.000000,110.000000)'><line x1='56' y1='0' x2='276' y2='0' stroke='#000000' stroke-width='2' /><g id='x_axis_major_ticks' transform='translate(56.000000, 0.000000)' stroke-width='2' ><path d='M122 0L130 0' /><path d='M148 0L156 0' /><path d='M174 0L182 0' /><path d='M200 0L208 0' /><path d='M226 0L234 0' /><path d='M252 0L260 0' /></g><g id='x_axis_minor_ticks' transform='translate(56.000000, 0.000000)' stroke-width='2' ><path d='M84 0L92 0' /><path d='M110 0L118 0' /><path d='M136 0L144 0' /><path d='M162 0L170 0' /><path d='M188 0L196 0' /><path d='M214 0L222 0' /><path d='M240 0L248 0' /><path d='M266 0L274 0' /></g></g><g id='function' stroke='#0000ff' stroke-width='2' ><path d='M276 100L274 96L272 92L270 88L268 84L266 80L264 76L262 72L260 68L258 64L256 60L254 56L252 52L250 48L248 44L246 40L244 36L242 32L240 28L238 24L236 20L234 16L232 12L230 8L228 4L226 0L224 4L222 8L220 12L218 16L216 20L214 24L212 28L210 32L208 36L206 40L204 44L202 48L200 52L198 56L196 60L194 64L192 68L190 72L188 76L186 80L184 84L182 88L180 92L178 96L176 100' /></g></g></g></svg>",
+       "content": "<svg width='354px' height='150px' viewBox='0 0 354 150' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='Canvas' transform='translate(0.000000,150.000000) scale(1,-1)'><g id='Layer_1' transform='translate(0.000000,0.000000)'><g id='y_axis' fill='#000000' stroke='#000000' transform='translate(40.000000,110.000000)'><path d='M98 0L98 100' stroke-width='2' /><path d='M94 0L102 0' stroke-width='2' /><path d='M94 100L102 100' stroke-width='2' /><g id='y_axis_ticks' transform='translate(106.000000, 0.000000)' stroke-width='2' ><path d='M0 96L0 98' /><path d='M0 84L0 86' /><path d='M0 72L0 74' /><path d='M0 60L0 62' /><path d='M0 48L0 50' /><path d='M0 36L0 38' /><path d='M0 24L0 26' /><path d='M0 12L0 14' /><path d='M0 0L0 2' /></g></g><g id='x_axis' transform='translate(40.000000,110.000000)'><line x1='56' y1='0' x2='276' y2='0' stroke='#000000' stroke-width='2' /><g id='x_axis_major_ticks' transform='translate(56.000000, 0.000000)' stroke-width='2' ><path d='M122 0L130 0' /><path d='M148 0L156 0' /><path d='M174 0L182 0' /><path d='M200 0L208 0' /><path d='M226 0L234 0' /><path d='M252 0L260 0' /></g><g id='x_axis_minor_ticks' transform='translate(56.000000, 0.000000)' stroke-width='2' ><path d='M84 0L92 0' /><path d='M110 0L118 0' /><path d='M136 0L144 0' /><path d='M162 0L170 0' /><path d='M188 0L196 0' /><path d='M214 0L222 0' /><path d='M240 0L248 0' /><path d='M266 0L274 0' /></g></g><g id='function' stroke='#0000ff' stroke-width='2' ><path d='M276 100L274 96L272 92L270 88L268 84L266 80L264 76L262 72L260 68L258 64L256 60L254 56L252 52L250 48L248 44L246 40L244 36L242 32L240 28L238 24L236 20L234 16L232 12L230 8L228 4L226 0L224 4L222 8L220 12L218 16L216 20L214 24L212 28L210 32L208 36L206 40L204 44L202 48L200 52L198 56L196 60L194 64L192 68L190 72L188 76L186 80L184 84L182 88L180 92L178 96L176 100' /></g></g></g></svg>",
        "question": "What is the y-intercept of the function?",
        "options": [
            "a) (0, -2)",
@@ -238,7 +238,7 @@ var quizData =
        }
    },
    {
-           "passage": "The Amazon rainforest is the largest rainforest in the world, covering an area of over 5.5 million square kilometers. It is home to an estimated 10% of the world's known species, including many endangered species such as the jaguar, giant otter, and harpy eagle. The Amazon rainforest is also a vital carbon sink, absorbing an estimated 25% of the world's carbon dioxide emissions. \n\nHowever, the Amazon rainforest is facing a number of threats, including deforestation, climate change, and pollution. Deforestation is the clearing of forests for other uses, such as agriculture, logging, and mining. Climate change is causing the Amazon rainforest to become hotter and drier, which is making it more vulnerable to fire. Pollution from nearby industries and cities is also a major threat to the Amazon rainforest.",
+           "content": "The Amazon rainforest is the largest rainforest in the world, covering an area of over 5.5 million square kilometers. It is home to an estimated 10% of the world's known species, including many endangered species such as the jaguar, giant otter, and harpy eagle. The Amazon rainforest is also a vital carbon sink, absorbing an estimated 25% of the world's carbon dioxide emissions. \n\nHowever, the Amazon rainforest is facing a number of threats, including deforestation, climate change, and pollution. Deforestation is the clearing of forests for other uses, such as agriculture, logging, and mining. Climate change is causing the Amazon rainforest to become hotter and drier, which is making it more vulnerable to fire. Pollution from nearby industries and cities is also a major threat to the Amazon rainforest.",
            "question": "What is the main point of the passage?",
            "options": ["a) The Amazon rainforest is the largest rainforest in the world and is home to a wide variety of plant and animal life.", "b) The Amazon rainforest is facing a number of threats, including deforestation, climate change, and pollution.", "c) The Amazon rainforest is a vital carbon sink, absorbing an estimated 25% of the world's carbon dioxide emissions.", "d) The Amazon rainforest is home to many endangered species, such as the jaguar, giant otter, and harpy eagle."],
            "answer": "a",
@@ -250,7 +250,7 @@ var quizData =
            }
        },
    {
-       "passage": "<p>The Great Fire of London was a major conflagration that swept through the central parts of London from September 2 to 5, 1666. The fire gutted the medieval City of London inside the old Roman city wall. It threatened but did not reach the aristocratic Westminster or the wealthy East End.</p><p>The fire started in a baker's shop on Pudding Lane shortly after midnight on Sunday, September 2nd. Strong winds fanned the flames, which quickly spread to neighboring buildings. By daybreak, the fire had reached London Bridge, and by nightfall, it had crossed the bridge and was raging in the City of London.</p><p>The fire destroyed over 13,200 houses, 87 churches, and many other buildings. It left over 100,000 people homeless and caused an estimated £10 million in damage (equivalent to about £1.5 billion in 2021). The fire also destroyed many important historical buildings, including St. Paul's Cathedral.</p><p>The cause of the fire is unknown, but several theories have been proposed. One theory is that it was started by a careless baker who left his oven unattended. Another theory is that it was started by arsonists. A third theory is that it was started by sparks from a nearby fireworks display.</p>",
+       "content": "<p>The Great Fire of London was a major conflagration that swept through the central parts of London from September 2 to 5, 1666. The fire gutted the medieval City of London inside the old Roman city wall. It threatened but did not reach the aristocratic Westminster or the wealthy East End.</p><p>The fire started in a baker's shop on Pudding Lane shortly after midnight on Sunday, September 2nd. Strong winds fanned the flames, which quickly spread to neighboring buildings. By daybreak, the fire had reached London Bridge, and by nightfall, it had crossed the bridge and was raging in the City of London.</p><p>The fire destroyed over 13,200 houses, 87 churches, and many other buildings. It left over 100,000 people homeless and caused an estimated £10 million in damage (equivalent to about £1.5 billion in 2021). The fire also destroyed many important historical buildings, including St. Paul's Cathedral.</p><p>The cause of the fire is unknown, but several theories have been proposed. One theory is that it was started by a careless baker who left his oven unattended. Another theory is that it was started by arsonists. A third theory is that it was started by sparks from a nearby fireworks display.</p>",
        "question": "What is the approximate equivalent value of the damage caused by the fire in 2021?",
        "options": ["a) £10 million", "b) £150 million", "c) £1.5 billion", "d) £15 billion"],
        "answer": "c",
@@ -262,7 +262,7 @@ var quizData =
        }
    },
    {
-       "passage": "<p>The <a href=\"https://en.wikipedia.org/wiki/Maya_civilization\">Maya</a> civilization flourished in the <a href=\"https://en.wikipedia.org/wiki/Mesoamerica\">Mesoamerican</a> region from the pre-Columbian era to the <a href=\"https://en.wikipedia.org/wiki/Spanish_colonization_of_the_Americas\">Spanish conquest</a> of the 16th century. The Maya are best known for their <a href=\"https://en.wikipedia.org/wiki/Maya_script\">writing system</a>, their <a href=\"https://en.wikipedia.org/wiki/Maya_calendar\">calendar</a>, and their <a href=\"https://en.wikipedia.org/wiki/Maya_architecture\">architecture</a>. The Maya also developed a complex system of <a href=\"https://en.wikipedia.org/wiki/Maya_religion\">religion</a> and a sophisticated system of <a href=\"https://en.wikipedia.org/wiki/Maya_mathematics\">mathematics</a>.</p>\n\n<p>The Maya civilization reached its peak during the <a href=\"https://en.wikipedia.org/wiki/Classic_period_Maya_civilization\">Classic period</a> (250–900 CE). During this time, the Maya built many of their most famous cities, including <a href=\"https://en.wikipedia.org/wiki/Tikal\">Tikal</a> and <a href=\"https://en.wikipedia.org/wiki/Palenque\">Palenque</a>. The Maya also developed their writing system and calendar during this time. However, the Classic period also saw the rise of a number of <a href=\"https://en.wikipedia.org/wiki/Maya_collapse\">political</a> and <a href=\"https://en.wikipedia.org/wiki/Maya_collapse\">environmental</a> problems that led to the eventual collapse of the Maya civilization.</p>",
+       "content": "<p>The <a href=\"https://en.wikipedia.org/wiki/Maya_civilization\">Maya</a> civilization flourished in the <a href=\"https://en.wikipedia.org/wiki/Mesoamerica\">Mesoamerican</a> region from the pre-Columbian era to the <a href=\"https://en.wikipedia.org/wiki/Spanish_colonization_of_the_Americas\">Spanish conquest</a> of the 16th century. The Maya are best known for their <a href=\"https://en.wikipedia.org/wiki/Maya_script\">writing system</a>, their <a href=\"https://en.wikipedia.org/wiki/Maya_calendar\">calendar</a>, and their <a href=\"https://en.wikipedia.org/wiki/Maya_architecture\">architecture</a>. The Maya also developed a complex system of <a href=\"https://en.wikipedia.org/wiki/Maya_religion\">religion</a> and a sophisticated system of <a href=\"https://en.wikipedia.org/wiki/Maya_mathematics\">mathematics</a>.</p>\n\n<p>The Maya civilization reached its peak during the <a href=\"https://en.wikipedia.org/wiki/Classic_period_Maya_civilization\">Classic period</a> (250–900 CE). During this time, the Maya built many of their most famous cities, including <a href=\"https://en.wikipedia.org/wiki/Tikal\">Tikal</a> and <a href=\"https://en.wikipedia.org/wiki/Palenque\">Palenque</a>. The Maya also developed their writing system and calendar during this time. However, the Classic period also saw the rise of a number of <a href=\"https://en.wikipedia.org/wiki/Maya_collapse\">political</a> and <a href=\"https://en.wikipedia.org/wiki/Maya_collapse\">environmental</a> problems that led to the eventual collapse of the Maya civilization.</p>",
        "question": "Which of the following is NOT a characteristic of the Maya civilization?",
        "options": ["a) Writing system", "b) Calendar", "c) Religion", "d) Monotheistic"],
        "answer": "d",
@@ -274,7 +274,7 @@ var quizData =
        }
    },
    {
-       "passage": "**Passage:**\n\nAs the world becomes increasingly interconnected, it is more important than ever to understand and appreciate other cultures. By embracing cultural diversity, we can build bridges between people and create a more tolerant and inclusive society. Cultural exchange allows us to learn from and share ideas, customs, and traditions, enriching our own lives and broadening our perspectives. It fosters empathy, promotes cross-cultural understanding, and breaks down stereotypes. Moreover, cultural diversity stimulates creativity and innovation, leading to new products, services, and artistic expressions that reflect the richness and diversity of our global community.",
+       "content": "**Passage:**\n\nAs the world becomes increasingly interconnected, it is more important than ever to understand and appreciate other cultures. By embracing cultural diversity, we can build bridges between people and create a more tolerant and inclusive society. Cultural exchange allows us to learn from and share ideas, customs, and traditions, enriching our own lives and broadening our perspectives. It fosters empathy, promotes cross-cultural understanding, and breaks down stereotypes. Moreover, cultural diversity stimulates creativity and innovation, leading to new products, services, and artistic expressions that reflect the richness and diversity of our global community.",
        "question": "Which of the following best describes the author's tone in this passage?",
        "options": [
            "a) Optimistic and celebratory",
@@ -291,7 +291,7 @@ var quizData =
        }
    },
    {
-           "passage": "The purpose of this passage is to explain the importance of sleep for overall health and well-being. The passage discusses the various stages of sleep, the benefits of getting enough sleep, and the consequences of sleep deprivation.",
+           "content": "The purpose of this passage is to explain the importance of sleep for overall health and well-being. The passage discusses the various stages of sleep, the benefits of getting enough sleep, and the consequences of sleep deprivation.",
            "question": "What is the author's purpose in writing this passage?",
            "options": ["a) To inform the reader about the importance of sleep", "b) To persuade the reader to get more sleep", "c) To entertain the reader with stories about sleep", "d) To argue that sleep is not important"],
            "answer": "a",
@@ -304,7 +304,7 @@ var quizData =
        }]
        /*
    {
-    "passage": "Author's conclusion: The new link between exercise and health is an important reminder that we all need to exercise regularly<br>   <br>      Exercise helps to improve our health in many ways. For example, exercise can help to reduce the risk of heart disease, stroke, and type 2 diabetes. It can also help to improve our balance and coordination, and can reduce our risk of falls.<br>   <br>      In addition, exercise can help to improve our mental health. For example, exercise can help to reduce stress and anxiety, and can improve our mood. It can also help to improve our sleep quality.<br>   <br>      Based on this evidence, it is clear that exercise is an important part of a healthy lifestyle. We all need to make sure that we are getting enough exercise each week.",<br>   "question": "Which of the following pieces of evidence supports the author's conclusion that exercise is an important part of a healthy lifestyle?",
+    "content": "Author's conclusion: The new link between exercise and health is an important reminder that we all need to exercise regularly<br>   <br>      Exercise helps to improve our health in many ways. For example, exercise can help to reduce the risk of heart disease, stroke, and type 2 diabetes. It can also help to improve our balance and coordination, and can reduce our risk of falls.<br>   <br>      In addition, exercise can help to improve our mental health. For example, exercise can help to reduce stress and anxiety, and can improve our mood. It can also help to improve our sleep quality.<br>   <br>      Based on this evidence, it is clear that exercise is an important part of a healthy lifestyle. We all need to make sure that we are getting enough exercise each week.",<br>   "question": "Which of the following pieces of evidence supports the author's conclusion that exercise is an important part of a healthy lifestyle?",
     "options": ["a) Exercise can help to reduce the risk of heart disease, stroke, and type 2 diabetes.", "b) Exercise can help to improve our balance and coordination.", "c) Exercise can help to improve our mental health.", "d) All of the above"],
    "answer": "d",
    "explanation": "All of the evidence provided in the passage supports the author's conclusion that exercise is an important part of a healthy lifestyle. Evidence a) shows that exercise can help to reduce the risk of heart disease, stroke, and type 2 diabetes. Evidence b) shows that exercise can help to improve our balance and coordination. Evidence c) shows that exercise can help to improve our mental health. Therefore, the answer is d.",
@@ -315,7 +315,7 @@ var quizData =
 }
    },
    {
-       "passage": "<svg width=\"250\" height=\"250\" xmlns=\"http://www.w3.org/2000/svg\">\n<circle cx=\"125\" cy=\"125\" r=\"125\" fill=\"red\" />\n<text x=\"125\" y=\"125\" font-size=\"50\" text-anchor=\"middle\" dominant-baseline=\"central\">1</text>\n</svg>",
+       "content": "<svg width=\"250\" height=\"250\" xmlns=\"http://www.w3.org/2000/svg\">\n<circle cx=\"125\" cy=\"125\" r=\"125\" fill=\"red\" />\n<text x=\"125\" y=\"125\" font-size=\"50\" text-anchor=\"middle\" dominant-baseline=\"central\">1</text>\n</svg>",
        "question": "What is the color of the circle?",
        "options": ["a) Green", "b) Blue", "c) Red", "d) Yellow"],
        "answer": "c",
@@ -327,7 +327,7 @@ var quizData =
        }
    },
    {
-     "passage": "The following graph shows the number of students who enrolled in a particular college over a 5-year period.[Insert SVG of line graph] X-axis: Year Y-axis: Number of StudentsThe graph shows that the number of students who enrolled in the college increased from 2017 to 2020, then decreased from 2020 to 2022.",
+     "content": "The following graph shows the number of students who enrolled in a particular college over a 5-year period.[Insert SVG of line graph] X-axis: Year Y-axis: Number of StudentsThe graph shows that the number of students who enrolled in the college increased from 2017 to 2020, then decreased from 2020 to 2022.",
      "question": "What is the approximate number of students who enrolled in the college in 2021?",
      "options": ["a) 3,000", "b) 3,500", "c) 4,000", "d) 4,500"],
      "answer": "b",
@@ -339,7 +339,7 @@ var quizData =
      }
    },
    {
-       "passage": "Bill Gates helped to raise millions for the relief effort.  Bill Gates designed the software to make this possible.",
+       "content": "Bill Gates helped to raise millions for the relief effort.  Bill Gates designed the software to make this possible.",
        "question": "Which of the following is the best way to rewrite the underlined portion of the sentence?",
        "options": [
            "a)  by designing the software to make it possible", 
@@ -356,7 +356,7 @@ var quizData =
        }
    },
    {
-           "passage": "The scientist describes his findings to the audience.",
+           "content": "The scientist describes his findings to the audience.",
            "question": "Which of the following sentences corrects the tense of the underlined verb?",
            "options": [
                "a) The scientist described his findings to the audience.",
@@ -373,7 +373,7 @@ var quizData =
            }
        },
    {
-           "passage": "Although I was happy to see my friend, I couldn't help but notice he had gained some weight since I had last seen him.",
+           "content": "Although I was happy to see my friend, I couldn't help but notice he had gained some weight since I had last seen him.",
            "question": "Which of the following is the best way to revise the underlined portion of the sentence?",
            "options": ["a) he'd", "b) he had;", "c) he has", "d) he is"],
            "answer": "a",
@@ -385,7 +385,7 @@ var quizData =
            }
        },
    {
-       "passage": null,
+       "content": null,
        "question": "Which of the following choices provides the most logical conclusion for the argument below?\n\nThe cost of gasoline is a major concern for many people. Recent increases in the price of gasoline have made it difficult for people to travel and get to work. To address this concern, the government should increase the taxes on gasoline. The increased taxes would create more revenue that could be used to reduce the cost of gasoline, making it more affordable for people to travel and get to work.",
        "options": ["a) Increased taxes on gasoline would lead to lower prices for gasoline.", "b) The government should not increase taxes on gasoline.", "c) The cost of gasoline is not a major concern for most people.", "d) The government should reduce the taxes on gasoline."],
        "answer": "a",
@@ -397,7 +397,7 @@ var quizData =
        }
    },
    {
-           "passage": "<p>The ancient Egyptians were known for their impressive architectural achievements, including the construction of massive pyramids and temples. These structures were built using large blocks of stone, which were often carved and decorated with intricate designs.</p>\n<p>One of the most famous examples of Egyptian architecture is the Great Pyramid of Giza, which is the largest of the three pyramids built at the Giza necropolis. The pyramid is composed of over 2 million blocks of limestone, each weighing an average of 2.5 tons. The blocks were quarried from a nearby limestone quarry and then transported to the Giza plateau, where they were assembled using a system of ramps and levers.</p>\n<p>The interior of the Great Pyramid is also impressive, with a series of chambers and passages leading to the burial chamber of the pharaoh Khufu. The burial chamber is lined with red granite and contains a large sarcophagus made of the same material. The walls of the burial chamber are also decorated with hieroglyphics and paintings depicting scenes from the life of Khufu.</p>\n<p>The Great Pyramid of Giza is just one example of the many impressive architectural achievements of the ancient Egyptians. These structures are a testament to the skill and ingenuity of the ancient Egyptian people, and they continue to fascinate and inspire people today.</p>",
+           "content": "<p>The ancient Egyptians were known for their impressive architectural achievements, including the construction of massive pyramids and temples. These structures were built using large blocks of stone, which were often carved and decorated with intricate designs.</p>\n<p>One of the most famous examples of Egyptian architecture is the Great Pyramid of Giza, which is the largest of the three pyramids built at the Giza necropolis. The pyramid is composed of over 2 million blocks of limestone, each weighing an average of 2.5 tons. The blocks were quarried from a nearby limestone quarry and then transported to the Giza plateau, where they were assembled using a system of ramps and levers.</p>\n<p>The interior of the Great Pyramid is also impressive, with a series of chambers and passages leading to the burial chamber of the pharaoh Khufu. The burial chamber is lined with red granite and contains a large sarcophagus made of the same material. The walls of the burial chamber are also decorated with hieroglyphics and paintings depicting scenes from the life of Khufu.</p>\n<p>The Great Pyramid of Giza is just one example of the many impressive architectural achievements of the ancient Egyptians. These structures are a testament to the skill and ingenuity of the ancient Egyptian people, and they continue to fascinate and inspire people today.</p>",
            "question": "Which of the following words in the passage is used in a negative sense?",
            "options": ["a) Impressive ", "b) Ancient ", "c) Massive ", "d) intricate"],
            "answer": "a",
@@ -409,7 +409,7 @@ var quizData =
            }
        },
    {
-           "passage": "<svg viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'><path d='M 0 0 l 100 50 l 100 100 l 0 -100 Z' stroke='#000000' fill='#000000'/></svg>",
+           "content": "<svg viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'><path d='M 0 0 l 100 50 l 100 100 l 0 -100 Z' stroke='#000000' fill='#000000'/></svg>",
            "question": "Identify the shape represented by the SVG",
            "options": ["a) trapezium", "b) parallelogram", "c) triangle", "d) quadrilateral"],
            "answer": "b",
@@ -421,7 +421,7 @@ var quizData =
            }
        },
    {
-       "passage": "With emissions from all sectors falling, passenger road transportation was the only sector that saw a small increase in emissions, from 38% in 2005 to 39% in 2019.. A number of factors contributed to this increase, including the rising popularity of SUVs, pickup trucks, and other light-duty vehicles, as well as the increasing number of vehicle miles traveled.",
+       "content": "With emissions from all sectors falling, passenger road transportation was the only sector that saw a small increase in emissions, from 38% in 2005 to 39% in 2019.. A number of factors contributed to this increase, including the rising popularity of SUVs, pickup trucks, and other light-duty vehicles, as well as the increasing number of vehicle miles traveled.",
        "question": "Which choice most effectively combines the two sentences below to improve the flow of the paragraph without changing its meaning?The use of larger vehicles, like SUVs and pickup trucks, has increased their popularity. This increase in popularity contributed to the slight rise in emissions from passenger road transportation.",
        "options": ["a) The increasing popularity of larger vehicles like SUVs and pickup trucks has also contributed to the slight rise in emissions.","b) The slight rise in emissions has also been contributed to by the increasing popularity of larger vehicles like SUVs and pickup trucks.","c) The slight rise in emissions also contributed to the increasing popularity of larger vehicles like SUVs and pickup trucks.","d) The increasing popularity of larger vehicles like SUVs and pickup trucks has also contributed to the slight rise in emissions from passenger road transportation."],
        "answer": "a",
@@ -433,7 +433,7 @@ var quizData =
        }
    },
    {
-           "passage": null,
+           "content": null,
            "question": "Which of the following sentences is written correctly?a) I think it's a a very bad movie.b) Either you or I am going to the store.c) The children, along with their teacher, was excited about the field trip.d) The committee, which was made up of several members, has reached a decision.",
            "options": ["a) ", "b) ", "c) ", "d)"],
            "answer": "d",
@@ -449,7 +449,7 @@ var quizData =
            }
        },
    {
-           "passage": "<p><b>Passage Title:</b> The Importance of Education</p><p>Education is crucial for the progress of a society. It empowers individuals with the knowledge, skills, and values necessary to make informed decisions and navigate the complexities of life. By providing access to quality education, we can unlock human potential and create a more just and equitable world. Furthermore, education fosters innovation, drives economic growth, and promotes social mobility. In today's rapidly changing world, it is more important than ever to invest in education to ensure that our future generations have the tools they need to thrive.</p><p>Education plays a vital role in shaping the minds and characters of young people. Through educational experiences, students learn critical thinking skills, problem-solving abilities, and effective communication. They develop a sense of curiosity, creativity, and resilience. A well-rounded education exposes students to a diverse range of subjects, including the humanities, sciences, arts, and social sciences. This broad exposure helps them understand the interconnectedness of knowledge and the complex nature of the world around them.</p>",
+           "content": "<p><b>Passage Title:</b> The Importance of Education</p><p>Education is crucial for the progress of a society. It empowers individuals with the knowledge, skills, and values necessary to make informed decisions and navigate the complexities of life. By providing access to quality education, we can unlock human potential and create a more just and equitable world. Furthermore, education fosters innovation, drives economic growth, and promotes social mobility. In today's rapidly changing world, it is more important than ever to invest in education to ensure that our future generations have the tools they need to thrive.</p><p>Education plays a vital role in shaping the minds and characters of young people. Through educational experiences, students learn critical thinking skills, problem-solving abilities, and effective communication. They develop a sense of curiosity, creativity, and resilience. A well-rounded education exposes students to a diverse range of subjects, including the humanities, sciences, arts, and social sciences. This broad exposure helps them understand the interconnectedness of knowledge and the complex nature of the world around them.</p>",
            "question": "If the writer were to add a paragraph to the passage, which of the following would be the most logical transition to use at the beginning of the new paragraph?<br>",
            "options": ["a) In addition, education promotes global understanding and cooperation."],
            "answer": "a",
@@ -461,7 +461,7 @@ var quizData =
            }
        },
    {
-           "passage": "The following appeared in a company newsletter:\n\n\"Last summer, our company's fundraising drive was an inspiring success, raising $500,000 to fund our community garden project. A team of 25 volunteers worked tirelessly to organize the drive, and over 1,000 members of our community participated. It is clear that our company is committed to giving back to the community, and we are proud of the positive impact that this project will have on the community garden project. The community garden will provide fresh produce to our low-income neighbors, and it will also serve as a gathering place for our community.\" \n\nWhich of the following is the main idea of the passage?",
+           "content": "The following appeared in a company newsletter:\n\n\"Last summer, our company's fundraising drive was an inspiring success, raising $500,000 to fund our community garden project. A team of 25 volunteers worked tirelessly to organize the drive, and over 1,000 members of our community participated. It is clear that our company is committed to giving back to the community, and we are proud of the positive impact that this project will have on the community garden project. The community garden will provide fresh produce to our low-income neighbors, and it will also serve as a gathering place for our community.\" \n\nWhich of the following is the main idea of the passage?",
            "question": "Which of the following is the main idea of the passage?",
            "options": ["a) The fundraising drive was a major success, and the community garden project will have a positive impact on the community.", "b) Our company is committed to giving back to the community.", "c) The 25 volunteers worked tirelessly to organize the fundraising drive.", "d) Fresh produce will be provided to our low income neighbors"],
            "answer": "a",
@@ -473,7 +473,7 @@ var quizData =
            }
        },
    {
-       "passage": "<p>The use of social media has become increasingly prevalent in recent years, with people of all ages using platforms such as Facebook, Instagram, and Twitter to connect with others, share information, and stay up-to-date on current events.</p>\n\n<p>However, there is a growing concern that social media may have a negative impact on our mental health. Studies have shown that people who spend a lot of time on social media are more likely to experience symptoms of depression, anxiety, and loneliness than those who use it less frequently.</p>\n\n<p>There are a number of factors that may contribute to the negative effects of social media on mental health. One factor is the constant comparison that people make between themselves and others. Social media platforms are full of images of people who seem to be living perfect lives, which can lead to feelings of inadequacy and low self-esteem.</p>\n\n<p>Another factor is the fear of missing out (FOMO) that many people experience when they see their friends and acquaintances posting about their exciting lives on social media.</p>\n\n<p>Social media can also be a source of cyberbullying and harassment, which can have a devastating impact on mental health.</p>\n\n<p>While social media can have some positive effects on mental health, such as providing a sense of community and support, the negative effects are more likely to outweigh the positive ones.</p>\n\n<p>There are a number of things that can be done to reduce the negative effects of social media on mental health. One important step is to limit the amount of time spent on social media platforms. Another helpful strategy is to focus on using social media for positive purposes, such as connecting with friends and family, sharing information, and learning new things.</p>",
+       "content": "<p>The use of social media has become increasingly prevalent in recent years, with people of all ages using platforms such as Facebook, Instagram, and Twitter to connect with others, share information, and stay up-to-date on current events.</p>\n\n<p>However, there is a growing concern that social media may have a negative impact on our mental health. Studies have shown that people who spend a lot of time on social media are more likely to experience symptoms of depression, anxiety, and loneliness than those who use it less frequently.</p>\n\n<p>There are a number of factors that may contribute to the negative effects of social media on mental health. One factor is the constant comparison that people make between themselves and others. Social media platforms are full of images of people who seem to be living perfect lives, which can lead to feelings of inadequacy and low self-esteem.</p>\n\n<p>Another factor is the fear of missing out (FOMO) that many people experience when they see their friends and acquaintances posting about their exciting lives on social media.</p>\n\n<p>Social media can also be a source of cyberbullying and harassment, which can have a devastating impact on mental health.</p>\n\n<p>While social media can have some positive effects on mental health, such as providing a sense of community and support, the negative effects are more likely to outweigh the positive ones.</p>\n\n<p>There are a number of things that can be done to reduce the negative effects of social media on mental health. One important step is to limit the amount of time spent on social media platforms. Another helpful strategy is to focus on using social media for positive purposes, such as connecting with friends and family, sharing information, and learning new things.</p>",
        "question": "<h3>In the passage, the author takes a position on the effect of social media on mental health. Write an essay that agrees or disagrees with the author's position. The essay should contain an introduction, two points in support of the position, and a conclusion.</h3>",
        "options": [],
        "answer": null,
@@ -485,7 +485,7 @@ var quizData =
        }
    },
    {
-    "passage": "Smoking has become a major public health concern, and many arguments have been made for and against stricter smoking regulations. One argument against stricter regulations is that they infringe on personal freedoms and choice. However, this argument is flawed because the government has a responsibility to protect its citizens from harm, even if that means restricting individual liberties.",
+    "content": "Smoking has become a major public health concern, and many arguments have been made for and against stricter smoking regulations. One argument against stricter regulations is that they infringe on personal freedoms and choice. However, this argument is flawed because the government has a responsibility to protect its citizens from harm, even if that means restricting individual liberties.",
     "question": "In the paragraph, the author discusses opposing arguments regarding stricter smoking regulations. Which choice below most accurately reflects the main idea of the paragraph?",
     "options": ["a) Personal freedoms should never be restricted, even if it means harming others.",
    "b) Smoking regulations are necessary to protect public health.",
@@ -501,7 +501,7 @@ var quizData =
     }
    },
    {
-           "passage": "",
+           "content": "",
            "question": "Which of the following is the most effective way to introduce an essay about the importance of voting?",
            "options": [
                "a) Voting is a fundamental right that all citizens should exercise."
@@ -518,7 +518,7 @@ var quizData =
            }
        },
    {
-           "passage": "<p>The use of plastic bags has a detrimental impact on the environment. Firstly, plastic bags take a long time to decompose. It can take up to 500 years for a single plastic bag to break down completely. This means that plastic bags can accumulate in the environment, creating a serious waste problem. Secondly, plastic bags are a major source of pollution. They can easily be blown away by the wind, and they often end up in our oceans and waterways. Plastic bags can harm marine life, and they can also contaminate our drinking water. Thirdly, plastic bags are a waste of resources. They are made from non-renewable fossil fuels, and the process of manufacturing them releases harmful chemicals into the environment.</p>",
+           "content": "<p>The use of plastic bags has a detrimental impact on the environment. Firstly, plastic bags take a long time to decompose. It can take up to 500 years for a single plastic bag to break down completely. This means that plastic bags can accumulate in the environment, creating a serious waste problem. Secondly, plastic bags are a major source of pollution. They can easily be blown away by the wind, and they often end up in our oceans and waterways. Plastic bags can harm marine life, and they can also contaminate our drinking water. Thirdly, plastic bags are a waste of resources. They are made from non-renewable fossil fuels, and the process of manufacturing them releases harmful chemicals into the environment.</p>",
            "question": "Which of the following is the main idea of the passage?",
            "options": ["a) Plastic bags take a long time to decompose and are a major source of pollution.", "b) Plastic bags are a waste of resources.", "c) Plastic bags can harm marine life.", "d) Plastic bags should be banned."],
            "answer": "a",
@@ -530,7 +530,7 @@ var quizData =
            }
        },
    {
-       "passage": "The pristine wilderness of the Amazon rainforest, home to an astonishing diversity of life, is facing unprecedented threats. Rampant deforestation, driven by insatiable consumer demand for timber and agricultural products, is encroaching upon this vital ecosystem.\nHowever, it is crucial to recognize that the preservation of the Amazon rainforest extends far beyond its intrinsic ecological value. Its vast carbon sinks play a pivotal role in regulating global climate patterns, while its indigenous communities hold a wealth of traditional knowledge that has the potential to enrich our understanding of sustainable living.\nTo effectively address these threats, a multifaceted approach is required. Governments must implement stringent environmental regulations, enforce sustainable land-use practices, and invest in alternative livelihoods for local communities. International cooperation is also essential to combat transnational crime syndicates involved in illegal logging and wildlife trafficking.\nFurthermore, as consumers, we must make conscious choices about the products we purchase, favoring those that are sustainably sourced and produced with minimal environmental impact. By reducing our collective demand for deforestation-driven goods, we can create a significant shift towards a more sustainable future for the Amazon rainforest and the countless lives it sustains.",
+       "content": "The pristine wilderness of the Amazon rainforest, home to an astonishing diversity of life, is facing unprecedented threats. Rampant deforestation, driven by insatiable consumer demand for timber and agricultural products, is encroaching upon this vital ecosystem.\nHowever, it is crucial to recognize that the preservation of the Amazon rainforest extends far beyond its intrinsic ecological value. Its vast carbon sinks play a pivotal role in regulating global climate patterns, while its indigenous communities hold a wealth of traditional knowledge that has the potential to enrich our understanding of sustainable living.\nTo effectively address these threats, a multifaceted approach is required. Governments must implement stringent environmental regulations, enforce sustainable land-use practices, and invest in alternative livelihoods for local communities. International cooperation is also essential to combat transnational crime syndicates involved in illegal logging and wildlife trafficking.\nFurthermore, as consumers, we must make conscious choices about the products we purchase, favoring those that are sustainably sourced and produced with minimal environmental impact. By reducing our collective demand for deforestation-driven goods, we can create a significant shift towards a more sustainable future for the Amazon rainforest and the countless lives it sustains.",
        "question": "Which of the following would be the most effective concluding sentence for this essay?",
        "options": [
            "a) The Amazon rainforest is a precious gift that must be protected for generations to come.",
@@ -547,7 +547,7 @@ var quizData =
        }
    },
    {
-           "passage": "This is the legend of King Arthur. King Arthur was a great and noble king who ruled England in the 6th century. He was brave and just, and he always fought for what was right. One day, King Arthur was hunting in the forest when he came across a magical sword in a stone. The sword was called Excalibur, and it was said to be the best sword in the world. King Arthur pulled the sword from the stone, and he became the rightful king of England.",
+           "content": "This is the legend of King Arthur. King Arthur was a great and noble king who ruled England in the 6th century. He was brave and just, and he always fought for what was right. One day, King Arthur was hunting in the forest when he came across a magical sword in a stone. The sword was called Excalibur, and it was said to be the best sword in the world. King Arthur pulled the sword from the stone, and he became the rightful king of England.",
            "question": "Which of the following sentences contains a grammatical error?",
            "options": ["a) King Arthur was a great and noble king who ruled England in the 6th century.", "b) He was brave and just, and he always fought for what was right.", "c) King Arthur pulled the sword from the stone, and he became the rightful king of England.", "d) One day, King Arthur was hunting in the forest when he came across a magical sword in a stone."],
            "answer": "b",
@@ -559,7 +559,7 @@ var quizData =
            }
    },
    {
-       "passage": "The mandatory minimum sentence for drug offenses is a harsh and ineffective policy that should be abolished. This policy has led to the mass incarceration of nonviolent drug offenders, disproportionately affecting Black and Latino communities. The war on drugs has failed to reduce drug use or drug-related crime, and it has wasted billions of taxpayer dollars.",
+       "content": "The mandatory minimum sentence for drug offenses is a harsh and ineffective policy that should be abolished. This policy has led to the mass incarceration of nonviolent drug offenders, disproportionately affecting Black and Latino communities. The war on drugs has failed to reduce drug use or drug-related crime, and it has wasted billions of taxpayer dollars.",
    
      "Question":"Which of the following would strengthen the argument in the passage?",
    
@@ -576,7 +576,7 @@ var quizData =
       }
    },
    {
-           "passage": "<p>Despite popular belief, immigrants do not cause higher crime rates.</p><p>In fact, a study by the National Academy of Sciences found that immigrants are less likely to commit crimes than native-born Americans.</p><p>The study also found that immigrants are less likely to be arrested or incarcerated than native-born Americans.</p><p>In fact, immigrants are more likely to report crimes than native-born Americans.</p>",
+           "content": "<p>Despite popular belief, immigrants do not cause higher crime rates.</p><p>In fact, a study by the National Academy of Sciences found that immigrants are less likely to commit crimes than native-born Americans.</p><p>The study also found that immigrants are less likely to be arrested or incarcerated than native-born Americans.</p><p>In fact, immigrants are more likely to report crimes than native-born Americans.</p>",
            "question": "Which of the following would be the most effective way to combine the third and fourth sentences in the passage?",
            "options": ["a) The study also found that immigrants are less likely to be arrested or incarcerated, and they are more likely to report crimes than native-born Americans.", "b) Although immigrants are less likely to be arrested or incarcerated, they are more likely to report crimes than native-born Americans.", "c) Not only are immigrants less likely to be arrested or incarcerated, but they are also more likely to report crimes than native-born Americans.", "d) Immigrants are less likely to be arrested or incarcerated and are also more likely to report crimes than native-born Americans."],
            "answer": "c",
