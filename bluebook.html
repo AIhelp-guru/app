@@ -603,7 +603,7 @@ function addhelp(){
               }
             $("#hint").append(hint); 
             if(sheetData[num][6] != undefined) {
-              similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+quizData[num][6]+"<br>"+quizData[num][7]+"</div></details>";
+              similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+sheetData[num][6]+"<br>"+sheetData[num][7]+"</div></details>";
             } else{ 
               similar ='';
             }
@@ -611,7 +611,7 @@ function addhelp(){
             
             if(sheetData[num][4] != undefined) {
               
-              explanation = "<details class='explanation' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+quizData[num][4]+"</div></details>";
+              explanation = "<details class='explanation' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+sheetData[num][4]+"</div></details>";
             } else{ 
               explanation ='';
             }
