@@ -546,6 +546,7 @@ tr:hover {
   function loadFromsheet(){
     $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic=full_SAT_1",function(data){
       sheetData = (data);
+      loadQuestion();
     })
 }
 function loadQuestion(){
@@ -815,7 +816,7 @@ $("#prevQ").click(function(){
         filterHelp();
         
       })
-      loadQuestion(0);
+      //loadQuestion(0);
       addhelp();
       $("#notes").show();
     }
