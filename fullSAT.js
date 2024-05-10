@@ -301,23 +301,18 @@ var quizData =
                "question": "What is the author's purpose in writing this passage about the history of the United States?",
                "solution": "a) To inform the reader about the history of the United States"
            }
-       },
+       }]
+       /*
    {
-    "passage": "Author's conclusion: The new link between exercise and health is an important reminder that we all need to exercise regularly
-   
-      Exercise helps to improve our health in many ways. For example, exercise can help to reduce the risk of heart disease, stroke, and type 2 diabetes. It can also help to improve our balance and coordination, and can reduce our risk of falls.
-   
-      In addition, exercise can help to improve our mental health. For example, exercise can help to reduce stress and anxiety, and can improve our mood. It can also help to improve our sleep quality.
-   
-      Based on this evidence, it is clear that exercise is an important part of a healthy lifestyle. We all need to make sure that we are getting enough exercise each week.",
-   "question": "Which of the following pieces of evidence supports the author's conclusion that exercise is an important part of a healthy lifestyle?",
-   "options": ["a) Exercise can help to reduce the risk of heart disease, stroke, and type 2 diabetes.", "b) Exercise can help to improve our balance and coordination.", "c) Exercise can help to improve our mental health.", "d) All of the above"],
+    "passage": "Author's conclusion: The new link between exercise and health is an important reminder that we all need to exercise regularly<br>   <br>      Exercise helps to improve our health in many ways. For example, exercise can help to reduce the risk of heart disease, stroke, and type 2 diabetes. It can also help to improve our balance and coordination, and can reduce our risk of falls.<br>   <br>      In addition, exercise can help to improve our mental health. For example, exercise can help to reduce stress and anxiety, and can improve our mood. It can also help to improve our sleep quality.<br>   <br>      Based on this evidence, it is clear that exercise is an important part of a healthy lifestyle. We all need to make sure that we are getting enough exercise each week.",<br>   "question": "Which of the following pieces of evidence supports the author's conclusion that exercise is an important part of a healthy lifestyle?",
+    "options": ["a) Exercise can help to reduce the risk of heart disease, stroke, and type 2 diabetes.", "b) Exercise can help to improve our balance and coordination.", "c) Exercise can help to improve our mental health.", "d) All of the above"],
    "answer": "d",
    "explanation": "All of the evidence provided in the passage supports the author's conclusion that exercise is an important part of a healthy lifestyle. Evidence a) shows that exercise can help to reduce the risk of heart disease, stroke, and type 2 diabetes. Evidence b) shows that exercise can help to improve our balance and coordination. Evidence c) shows that exercise can help to improve our mental health. Therefore, the answer is d.",
    "hint": "Consider each piece of evidence provided in the passage and how it relates to the author's conclusion.",
    "similar_question": {
    "question": "Which of the following pieces of evidence supports the author's conclusion that climate change is real?",
-   "solution": "Evidence that supports the author's conclusion that climate change is real includes rising global temperatures, melting glaciers, and increasingly extreme weather events."}
+   "solution": "Evidence that supports the author's conclusion that climate change is real includes rising global temperatures, melting glaciers, and increasingly extreme weather events."
+}
    },
    {
        "passage": "<svg width=\"250\" height=\"250\" xmlns=\"http://www.w3.org/2000/svg\">\n<circle cx=\"125\" cy=\"125\" r=\"125\" fill=\"red\" />\n<text x=\"125\" y=\"125\" font-size=\"50\" text-anchor=\"middle\" dominant-baseline=\"central\">1</text>\n</svg>",
@@ -332,14 +327,7 @@ var quizData =
        }
    },
    {
-     "passage": "The following graph shows the number of students who enrolled in a particular college over a 5-year period.
-   
-   [Insert SVG of line graph]
-   
-   X-axis: Year
-   Y-axis: Number of Students
-   
-   The graph shows that the number of students who enrolled in the college increased from 2017 to 2020, then decreased from 2020 to 2022.",
+     "passage": "The following graph shows the number of students who enrolled in a particular college over a 5-year period.[Insert SVG of line graph] X-axis: Year Y-axis: Number of StudentsThe graph shows that the number of students who enrolled in the college increased from 2017 to 2020, then decreased from 2020 to 2022.",
      "question": "What is the approximate number of students who enrolled in the college in 2021?",
      "options": ["a) 3,000", "b) 3,500", "c) 4,000", "d) 4,500"],
      "answer": "b",
@@ -599,4 +587,4 @@ var quizData =
                "solution": "a) Despite popular belief that immigrants cause higher crime rates, a study by the National Academy of Sciences found that immigrants are less likely to commit crimes than native-born Americans."
            }
        }
-    ]
+    ]*/
