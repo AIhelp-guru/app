@@ -533,16 +533,17 @@ tr:hover {
         var username = "admin";
         var selectedQuiz = "Math_Algebra";
         var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry","Math_Nonlinear_2"];
-    function loadQuestion(){
+
+function loadQuestion(){
             num = qindex;
             $("#title").html(selectedQuiz.replaceAll("_"," ").replace(".js",""));
             $("#content").html("");
             $("#question_text").html(quizData[num].question);
             $("#options").html('');
             for(i=0;i<quizData[num].options.length;i++){
-
+               oa = ["a","b","c","d"];
                 
-                $("#options").append('<div class="option"><input type="radio" id="option-'+i+'" name="option"><label for="option-'+i+'">'+quizData[num].options[i]+'</label></div>');
+                $("#options").append('<div class="option"><input type="radio" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+quizData[num].options[i]+'</label></div>');
             }
             $("#question_index").html("Question "+(num+1)+" of "+quizData.length);
             if(quizData[num].hint != undefined) {hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";} else{ hint ='';}
