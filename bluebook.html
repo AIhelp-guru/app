@@ -593,6 +593,30 @@ function old_loadQuestion(){
             
         }
 function addhelp(){
+  num = qindex;
+            $("#hint").html("");
+            if(quizData[num].hint != undefined) {
+              hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+sheetData[num][5]+"</div></details>";
+            }else{
+               hint ='';
+              }
+            $("#hint").append(hint); 
+            if(quizData[num].similar_question != undefined) {
+              similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+quizData[num][6]+"<br>"+quizData[num][7]+"</div></details>";
+            } else{ 
+              similar ='';
+            }
+            $("#hint").append(similar);
+            
+            if(quizData[num].explanation != undefined) {
+              
+              explanation = "<details class='explanation' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+quizData[num][4]]+"</div></details>";
+            } else{ 
+              explanation ='';
+            }
+            $("#hint").append(explanation); 
+}
+function old_addhelp(){
             num = qindex;
             $("#hint").html("");
             if(quizData[num].hint != undefined) {
