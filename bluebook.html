@@ -703,7 +703,7 @@ $("#quizzes").change(function() {
         });
 });
 
-
+var tries = 0;
 $("#nextQ").click(function(){ 
           r = evaluate();
 
@@ -714,13 +714,19 @@ $("#nextQ").click(function(){
               filterHelp(); 
               addhelp();
               $(".hint").prop("open",false);
+              tries = 0;
         }else{
-          if($(".hint").prop("open")) $(".similar").prop("open",true);
-          $(".hint").prop("open",true);
-          if($(".similar").prop("open")) {
-            $(".explanation").prop("open",true).show();
-
+          if(tries === 0){
+            $(".hint").prop("open",true);
+            tries++;
+          }else if(tries === 1){
+            $(".similar").prop("open",true);
+            tries++;
+          }else{
+            $(".explanation").prop("open",true);
+            
           }
+          
         }
           });
 $("#prevQ").click(function(){ 
