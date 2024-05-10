@@ -58,24 +58,10 @@ var quizData =
        "question": "What is the remainder when P(x) is divided by (x-2)?",
        "options": ["a) 43 ", "b) -43 ", "c) 3", "d) -3"],
        "answer": "a",
-       "explanation": "**Remainder Theorem** states that when a polynomial f(x) is divided by (x - a), the remainder is f(a).
-   
-       Therefore, to find the remainder of P(x) when divided by (x-2), we simply need to evaluate P(x) at x = 2:
-   
-       $$P(2) = 3(2)^3 + 2(2)^2 + 5(2) - 7$$
-       $$= 3(8) + 2(4) + 5(2) - 7$$
-       $$= 24 + 8 + 10 - 7$$
-       $$= 43$$",
-       "hint": "Use the Remainder Theorem.",
+       "explanation": "**Remainder Theorem** states that when a polynomial f(x) is divided by (x - a), the remainder is f(a).          Therefore, to find the remainder of P(x) when divided by (x-2), we simply need to evaluate P(x) at x = 2:          $$P(2) = 3(2)^3 + 2(2)^2 + 5(2) - 7$$       $$= 3(8) + 2(4) + 5(2) - 7$$       $$= 24 + 8 + 10 - 7$$       $$= 43$$",       "hint": "Use the Remainder Theorem.",
        "similar_question": {
            "question": "What is the remainder when the polynomial f(x) = x^4 - 3x^3 + 2x^2 - 5x + 1 is divided by (x - 1)?",
-           "solution": "Using the Remainder Theorem, we have:
-       
-           f(1) = 1^4 - 3(1)^3 + 2(1)^2 - 5(1) + 1
-           = 1 - 3 + 2 - 5 + 1
-           = -2
-       
-           Therefore, the remainder is -2."
+           "solution": "Using the Remainder Theorem, we have:                  f(1) = 1^4 - 3(1)^3 + 2(1)^2 - 5(1) + 1           = 1 - 3 + 2 - 5 + 1           = -2                  Therefore, the remainder is -2."
        }
    },
    {
