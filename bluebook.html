@@ -710,8 +710,9 @@ $("#nextQ").click(function(){
               loadQuestion();
               filterHelp(); 
               addhelp();
+              $(".hint").prop("open",false);
         }else{
-          $(".hint").show();
+          $(".hint").prop("open",true);
         }
           });
 $("#prevQ").click(function(){ 
