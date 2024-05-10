@@ -668,8 +668,8 @@ function evaluate(){
 
   // Get the id of the selected radio button
   var selectedOptionId = selectedOption.attr('id');
-  if($("#answer").text() !== selectedOptionId){
-    alert($("#answer").text() + "wrong " +selectedOptionId);
+  if($("#correct_answer").text() !== selectedOptionId){
+    alert($("#correct_answer").text() + "wrong " +selectedOptionId);
   }
 }
 function init(){
