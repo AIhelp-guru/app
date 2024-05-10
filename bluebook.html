@@ -562,10 +562,11 @@ function loadQuestion(){
             $("#question_text").html(sheetData[num][1]);
             $("#correct_answer").html(sheetData[num][3]);
             $("#options").html('');
-            for(i=0;i<sheetData[num][2].length;i++){
+            ops = sheetData[num][2].split("\n");
+            for(i=0;i<ops.length;i++){
                oa = ["a","b","c","d"];
                 
-                $("#options").append('<div class="option"><input type="radio" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+sheetData[num][2][i]+'</label></div>');
+                $("#options").append('<div class="option"><input type="radio" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+ops[i]+'</label></div>');
             }
             //$("#question_index").html("Question "+(num+1)+" of "+quizData.length);
             
