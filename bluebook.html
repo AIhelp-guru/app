@@ -542,13 +542,33 @@ tr:hover {
         var username = "admin";
         var selectedQuiz = "Math_Algebra";
         var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry","Math_plane_Geometry","trignometry","Math_Nonlinear_2","fullSAT","full_SAT_2"];
-
+        var sheetData ="";
   function loadFromsheet(){
     $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic=full_SAT_1",function(data){
-      console.log(data);
+      sheetData = (data);
     })
 }
 function loadQuestion(){
+  num = qindex;
+            //$("#title").html(selectedQuiz.replaceAll("_"," ").replace(".js",""));
+            if(sheetData[num][0]){
+              $("#content").html(sheetData[num][0]);
+            }else{
+              $("#content").html("");
+            }
+           
+            $("#question_text").html(sheetData[num][1]);
+            $("#correct_answer").html(sheetData[num][2]);
+            $("#options").html('');
+            for(i=0;i<sheetData[num][3].length;i++){
+               oa = ["a","b","c","d"];
+                
+                $("#options").append('<div class="option"><input type="radio" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+sheetData[num][3][i]+'</label></div>');
+            }
+            //$("#question_index").html("Question "+(num+1)+" of "+quizData.length);
+            
+}
+function old_loadQuestion(){
             num = qindex;
             $("#title").html(selectedQuiz.replaceAll("_"," ").replace(".js",""));
             if(quizData[num].content){
