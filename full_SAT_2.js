@@ -1,4 +1,4 @@
-var quizData = [{
+[{
     "passage": "<p>What is the value of x such that x<sup>2</sup> + 2x - 15 = 0?</p>",
     "question": "",
     "options": ["a) x = 3 or x = -5", "b) x = 5 or x = -3", "c) x = 4 or x = -6", "d) x = 6 or x = -4"],
