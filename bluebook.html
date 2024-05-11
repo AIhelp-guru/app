@@ -521,7 +521,8 @@ tr:hover {
         <span id="question_index">Question 1 of 27</span>
         <button id="prevQ" style="float:right;margin:10px">Prev</button>
         <button id="nextQ" style="float:right;margin:10px">Next</button>
-        <button id="help" style="float:right;margin:10px;background-color:orange">Tutor me</button>
+        <button id="skipQ" style="float:right;margin:10px">Skip</button>
+        <button id="help" style="display:none;float:right;margin:10px;background-color:orange">Tutor me</button>
       </div>
       <div id="notes" > <div id="notesHeader">Take your notes here</div><div style="height:100%;overflow:auto"contenteditable="true"></div> </div>
    
@@ -770,6 +771,15 @@ $("#quizzes").change(function() {
 });
 
 var tries = 0;
+$("#skipQ").click(function(){
+              qindex++;
+              if(qindex === quizData.length) qindex = qindex -1;
+              loadQuestion();
+              filterHelp(); 
+              addhelp();
+              $(".hint").prop("open",false);
+              tries = 0;
+})
 $("#nextQ").click(function(){ 
           r = evaluate();
 
