@@ -570,7 +570,9 @@ function loadQuestion(){
             $("#question_text").html(sheetData[num][1]);
             $("#correct_answer").html(sheetData[num][3]);
             $("#options").html('');
-            ops = sheetData[num][2].replaceAll("\n\n","\n").split("\n");
+            //ops = sheetData[num][2].replaceAll("\n\n","\n").split("\n");
+            const ops = sheetData[num][2].replaceAll("\n\n","\n").match(/([a-z])\) (.*)/g);
+
             for(i=0;i<ops.length;i++){
                oa = ["a","b","c","d"];
                 
