@@ -543,8 +543,8 @@ tr:hover {
         var selectedQuiz = "Math_Algebra";
         var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry","Math_plane_Geometry","trignometry","Math_Nonlinear_2","fullSAT","full_SAT_2"];
         var sheetData ="";
-  function loadFromsheet(){
-    $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic=full_SAT_2",function(data){
+  function loadFromsheet(topic){
+    $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
       sheetData = (data);
       console.log(sheetData);
       loadQuestion();
@@ -844,7 +844,7 @@ $("#prevQ").click(function(){
         
       })
       //loadQuestion(0);
-      loadFromsheet()
+      loadFromsheet("Reading_SAT_1")
       
       $("#notes").show();
     }
