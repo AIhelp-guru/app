@@ -548,6 +548,7 @@ tr:hover {
         var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry","Math_plane_Geometry","trignometry","Math_Nonlinear_2","fullSAT","full_SAT_2"];
         var sheetData ="";
   function loadFromsheet(topic){
+    selectedQuiz = topic;
     $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
       sheetData = (data);
       console.log(sheetData);
@@ -556,7 +557,7 @@ tr:hover {
 }
 function loadQuestion(){
   num = qindex;
-            $("#title").html("SAT Practice Test");
+            $("#title").html(selectedQuiz);
             if(sheetData[num][0]){
               $("#content").html(sheetData[num][0].replaceAll('\\\"',""));
             }else{
