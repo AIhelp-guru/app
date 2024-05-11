@@ -612,8 +612,10 @@ function addhelp(){
             $("#hint").append(hint); 
             if(sheetData[num][6] != undefined) {
               similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+sheetData[num][6]+"<br>"+sheetData[num][7]+"</div></details>";
+              $(".similar").show();
             } else{ 
               similar ='';
+              $(".similar").hide();
             }
             $("#hint").append(similar);
             
