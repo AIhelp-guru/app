@@ -863,7 +863,12 @@ $("#prevQ").click(function(){
         
       })
       //loadQuestion(0);
-      loadFromsheet("Reading_SAT_1")
+
+      topic = "Reading_SAT_1";
+
+      l = location.href;
+      if(l.indexOf("?topic=")) topic = l.substr(l.indexOf("?topic=")+7);
+      loadFromsheet(topic)
       
       $("#notes").show();
     }
