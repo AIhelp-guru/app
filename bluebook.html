@@ -190,6 +190,7 @@
     border-radius: 20px 20px 0 0;
 }
 #chatbotHeader{
+    height:20px;
     padding: 10px;
     background: #007bff;
     color: white;
@@ -327,7 +328,9 @@ button {
     color:orange;
     float:right;
 }
-
+#save{
+  cursor:pointer;
+}
 body {
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
@@ -528,7 +531,7 @@ tr:hover {
     </div>
      <div id="chatbotPanel" class="chatbot-closed">
         <div id="chatbotHeader">
-            <span>Chatbot</span><button id="save" style="float:right">Save</button>
+            <span>Chatbot</span><span id="save" style="float:right">Save</span>
             <!-- <button id="closeChatbot" onclick="toggleChatbot()">×</button> -->
         </div>
         <div id="hint"></div>
