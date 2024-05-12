@@ -203,7 +203,7 @@ async function rw_file(filename,action,data){
         data:{'filename':filename,'data':'read_data'},
         success:function(data){
             data = JSON.parse(data);
-            data = data.replaceAll("\\n","");
+            data = data.replaceAll("\\n", "").replaceAll("\\", "").replaceAll('""','');;
             $("#chatbotMessages").html("<div id='teachers'>"+data +"</div></details>");
             $("#teachersHelp").find("details").attr('open', false);
             return data;
