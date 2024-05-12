@@ -583,8 +583,6 @@ function loadQuestion(){
                         // Split the text into an array of options
             const ops = sheetData[num][2].split(/\s+[a-d]\)\s+/);
 
-            // Remove the empty first element
-            ops.shift();
 
             for(i=0;i<ops.length;i++){
                oa = ["a","b","c","d"];
