@@ -757,11 +757,11 @@ function filterHelp(){
 }
 
 function evaluate(){
-  var selectedOption = $('input[name="option"]:checked');
-
+  var selectedOption = $('input[name="option"]:checked').attr("id");
+  console.log(selectedOption);
   // Get the id of the selected radio button
-  var selectedOptionId = selectedOption.attr('id');
-  if($("#correct_answer").text() !== selectedOptionId){
+  // var selectedOptionId = selectedOption.attr('id');
+  if($("#correct_answer").text() !== selectedOption){
 
     return false;
   }else{
