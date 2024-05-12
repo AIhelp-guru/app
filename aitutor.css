@@ -312,4 +312,10 @@ tr:hover {
     margin:50px;
     width:60%;
   }
- 
+ #save_btn,#load_btn,#save_new_btn{
+  margin:10px;
+  cursor:pointer;
+  color:white;
+  float:right;
+  width:auto;
+ }
