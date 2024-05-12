@@ -244,7 +244,7 @@ function savenew() {
 
 function generateScoringSheetHTML() {
     const answers = ['A', 'B', 'C', 'D', 'E'];
-    let html = '';
+    let html = '<details><summary>Worksheet</summary>';
 
     for (let i = 1; i <= 10; i++) {
         html += `<h3>Question ${i}</h3>`;
@@ -256,7 +256,7 @@ function generateScoringSheetHTML() {
         html += `</ul>`;
     }
 
-    html += '';
+    html += '</details>';
     $("#chatbotMessages").append(html);
     return html;
 }
