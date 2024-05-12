@@ -65,7 +65,7 @@ function renderPage(num) {
             var strings = textContent.items.map(function(item) { return item.str; });
             var textStr = strings.join(" "); // Join all text strings into a single string with spaces
             pageText = (textStr); // Store the readable text
-            alert(pageText);
+            // alert(pageText);
             $("#pdfViewer").prepend("<details><summary>Text content</summary>"+pageText+"</details>");
 
         });
