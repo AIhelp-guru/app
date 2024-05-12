@@ -579,7 +579,7 @@ function loadQuestion(){
             $("#question_text").html(sheetData[num][1]);
             $("#correct_answer").html(sheetData[num][3]);
             $("#options").html('');
-            alert(sheetData[num][2]);
+            console.log(sheetData[num][2]);
             //ops = sheetData[num][2].replaceAll("\n\n","\n").split("\n");
             const ops = sheetData[num][2].match(/([a-z])\) (.*)/g);
 
