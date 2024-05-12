@@ -586,8 +586,8 @@ function loadQuestion(){
 
             for(i=0;i<ops.length;i++){
                oa = ["a","b","c","d"];
-                
-                $("#options").append('<div class="option"><input type="radio" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+ops[i]+'</label></div>');
+               ops_clean = ops[i].replace("a)",""); 
+                $("#options").append('<div class="option"><input type="radio" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+oa[i]+") "+ops_clean+'</label></div>');
             }
             //$("#question_index").html("Question "+(num+1)+" of "+quizData.length);
             addhelp();
