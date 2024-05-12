@@ -627,11 +627,12 @@ function addhelp(){
             if(sheetData[num][6] != undefined || (sheetData[num][6]) !== "none" ) {
               similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+sheetData[num][6]+"<br>"+sheetData[num][7]+"</div></details>";
               $(".similar").show();
+              $("#hint").append(similar);
             } else{ 
               similar ='';
               $(".similar").hide();
             }
-            $("#hint").append(similar);
+            
             
             if(sheetData[num][4] != undefined) {
               
