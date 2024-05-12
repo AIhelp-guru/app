@@ -552,6 +552,7 @@ tr:hover {
         var qindex = 1;
         var username = "admin";
         var selectedQuiz = "Math_Algebra";
+        var subjects = ["Math_SAT_1","Reading_SAT_1"];
         //var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry","Math_plane_Geometry","trignometry","Math_Nonlinear_2","fullSAT","full_SAT_2"];
         var sheetData ="";
   function loadFromsheet(topic){
@@ -762,27 +763,15 @@ function evaluate(){
 function init(){
 // Populate the dropdown menu
 for (var i = 0; i < subjects.length; i++) {
-    $("#quizzes").append("<option value='" + subjects[i] + ".js'>" + subjects[i].replace(/_/g, " ") + "</option>");
+    $("#quizzes").append("<option value='" + subjects[i] + "'>" + subjects[i].replace(/_/g, " ") + "</option>");
 }
 
 // Change event listener for the dropdown
 $("#quizzes").change(function() {
     selectedQuiz = $(this).val();
-    $("#subjectScripts").attr("src", selectedQuiz);
+   location.href = "https://aihelp-guru.github.io/app/bluebook.html?topic=" + selectedQuiz;
 
 
-    // Dynamically load the selected script
-    $.getScript(selectedQuiz)
-        .done(function(script, textStatus) {
-            // Use the quizData defined in the script
-            if (typeof quizData !== 'undefined') {
-                loadQuestion(0);
-                addhelp();
-            }
-        })
-        .fail(function(jqxhr, settings, exception) {
-            console.log("Could not load script: " + selectedQuiz);
-        });
 });
 
 var tries = 0;
