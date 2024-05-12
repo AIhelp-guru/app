@@ -241,6 +241,26 @@ function savenew() {
     }
 }
 
+function generateScoringSheetHTML() {
+    const answers = ['A', 'B', 'C', 'D', 'E'];
+    let html = '';
+
+    for (let i = 1; i <= 10; i++) {
+        html += `<h3>Question ${i}</h3>`;
+        html += `<p>What is the correct answer?</p>`;
+        html += `<ul>`;
+        answers.forEach((answer) => {
+            html += `<li><input type="radio" name="q${i}" value="${answer}">${answer}</li>`;
+        });
+        html += `</ul>`;
+    }
+
+    html += '';
+    $("#chatbotMessages").append(html);
+    return html;
+}
+
+
 // Initial setup on document ready
 $(document).ready(function() {
     $('#chatbotInput').keydown(function(event) {
@@ -265,6 +285,6 @@ $(document).ready(function() {
     $("#save_btn").click(function(){ rw_file("madhutemp@gmail.com",'update',JSON.stringify($("#chatbotMessages").html()))});
     $("#load_btn").click(function(){ rw_file("madhutemp@gmail.com",'read',"")});
     $("#save_new_btn").click(function(){ rw_file("practice_test",'update',JSON.stringify($(".aiResponse").last().html()))});
-
+    $("#score_btn").click(function(){generateScoringSheetHTML()});
   
 });
