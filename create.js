@@ -215,7 +215,8 @@ async function rw_file(filename,action,data){
 function savenew() {
     var data = $(".aiResponse").last().html();
     var filename = "practice_test";
-
+    saved = await rw_file(filename, "read_data","");
+                
     if (filename) {
         $.ajax({
             url: "https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework",
@@ -224,7 +225,6 @@ function savenew() {
             contentType: "application/json",
             success: function(response) {
                 console.log(response);
-                saved = await rw_file(filename, "read_data","");
                 
                 return saved;
                 // Uncomment the following lines if needed
