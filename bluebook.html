@@ -777,7 +777,7 @@ $("#quizzes").change(function() {
 var tries = 0;
 $("#skipQ").click(function(){
               qindex++;
-              if(qindex === quizData.length) qindex = qindex -1;
+              if(qindex === sheetData.length) qindex = qindex -1;
               loadQuestion();
               filterHelp(); 
               addhelp();
