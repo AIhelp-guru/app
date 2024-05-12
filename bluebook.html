@@ -490,7 +490,7 @@ tr:hover {
      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-    <script id='subjectScripts' src="Math_Algebra.js"></script>
+   
     <div id="toolbar"><select id="quizzes"></select><label id="lesson">SAT Practice Test</label></div>
    <div class="container">
       <div class="top-section">
@@ -529,8 +529,9 @@ tr:hover {
       <div class="bottom-section">
         <span id="question_index">Question 1 of 27</span>
         <button id="prevQ" style="float:right;margin:10px">Prev</button>
-        <button id="nextQ" style="float:right;margin:10px">Next</button>
         <button id="skipQ" style="float:right;margin:10px">Skip</button>
+        <button id="nextQ" style="float:right;margin:10px">Next</button>
+        
         <button id="help" style="display:none;float:right;margin:10px;background-color:orange">Tutor me</button>
       </div>
       <div id="notes" > <div id="notesHeader">Take your notes here</div><div style="height:100%;overflow:auto"contenteditable="true"></div> </div>
@@ -551,7 +552,7 @@ tr:hover {
         var qindex = 1;
         var username = "admin";
         var selectedQuiz = "Math_Algebra";
-        var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry","Math_plane_Geometry","trignometry","Math_Nonlinear_2","fullSAT","full_SAT_2"];
+        //var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry","Math_plane_Geometry","trignometry","Math_Nonlinear_2","fullSAT","full_SAT_2"];
         var sheetData ="";
   function loadFromsheet(topic){
     selectedQuiz = topic;
