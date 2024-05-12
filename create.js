@@ -244,14 +244,14 @@ function savenew() {
 
 function generateScoringSheetHTML() {
     const answers = ['A', 'B', 'C', 'D', 'E'];
-    let html = '<details><summary>Worksheet</summary>';
+    let html = '<details contenteditable=true><summary>Worksheet</summary>';
 
     for (let i = 1; i <= 10; i++) {
         html += `<h3>Question ${i}</h3>`;
         html += `<p>What is the correct answer?</p>`;
         html += `<ul>`;
         answers.forEach((answer) => {
-            html += `<li><input type="radio" name="q${i}" value="${answer}">${answer}</li>`;
+            html += `<span><input type="radio" name="q${i}" value="${answer}">${answer}</span> &nbsp;&nbsp;`;
         });
         html += `</ul>`;
     }
