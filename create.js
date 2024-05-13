@@ -58,8 +58,9 @@ function renderPage(num) {
             viewport: viewport
         };
         var renderTask = page.render(renderContext);
-        console.log(renderContext);
+        
         renderTask.promise.then(function() {
+            console.log(renderContext);
             return page.getTextContent();
         }).then(function(textContent) {
             // Extract text content from page
