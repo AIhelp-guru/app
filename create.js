@@ -41,66 +41,34 @@ function renderPage(num) {
     $("#pageNext").show();
     $("#pagePrev").show();
     
-    // pdfDoc.getPage(num).then(function(page) {
-    //     $("#pageNumber").html(num);
-    //     $(".page").hide();
-    //     $("#p"+num).show();
-
-    //     // Set scale for rendering
-    //     var scale = 1.2;
-    //     var viewport = page.getViewport({ scale: scale });
-    //     canvas.height = viewport.height;
-    //     canvas.width = viewport.width;
-
-    //     // Render the page content to canvas
-    //     var renderContext = {
-    //         canvasContext: ctx,
-    //         viewport: viewport
-    //     };
-    //     var renderTask = page.render(renderContext);
-    //     console.log(renderContext);
-    //     renderTask.promise.then(function() {
-    //         return page.getTextContent();
-    //     }).then(function(textContent) {
-    //         // Extract text content from page
-    //         var strings = textContent.items.map(function(item) { return item.str; });
-    //         var textStr = strings.join(" "); // Join all text strings into a single string with spaces
-    //         pageText = (textStr); // Store the readable text
-    //         // alert(pageText);
-    //         $("#pt").append(pageText);
-
-    //     });
-    // });
     pdfDoc.getPage(num).then(function(page) {
         $("#pageNumber").html(num);
         $(".page").hide();
         $("#p"+num).show();
-    
+
         // Set scale for rendering
         var scale = 1.2;
         var viewport = page.getViewport({ scale: scale });
         canvas.height = viewport.height;
         canvas.width = viewport.width;
-    
+
         // Render the page content to canvas
         var renderContext = {
             canvasContext: ctx,
             viewport: viewport
         };
         var renderTask = page.render(renderContext);
+        console.log(renderContext);
         renderTask.promise.then(function() {
-            return page.getOperatorList();
-        }).then(function(operatorList) {
-            // Extract HTML content from the operator list
-            var htmlContent = pdfDoc.renderers.get('HTML').render({
-                operatorList: operatorList,
-                viewport: viewport,
-                textContent: page.getTextContent()
-            });
-            htmlContent.then(function(html) {
-                // Append the HTML content to the page
-                $("#pt").append(html);
-            });
+            return page.getTextContent();
+        }).then(function(textContent) {
+            // Extract text content from page
+            var strings = textContent.items.map(function(item) { return item.str; });
+            var textStr = strings.join(" "); // Join all text strings into a single string with spaces
+            pageText = (textStr); // Store the readable text
+            // alert(pageText);
+            $("#pt").append(pageText);
+
         });
     });
 }
