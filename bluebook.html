@@ -581,7 +581,8 @@ function loadQuestion(){
             $("#options").html('');
             console.log(sheetData[num][2]);
                         // Split the text into an array of options
-            const ops = sheetData[num][2].split(/\s+[a-d]\)\s+/);
+            
+            const ops = sheetData[num][2].split(/\s+[a-d]\)\s+/).split(/\s+[A-D]\)\s+/);
 
 
             for(i=0;i<ops.length;i++){
