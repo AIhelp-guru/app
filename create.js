@@ -59,7 +59,7 @@ function renderPage(num) {
         };
         var renderTask = page.render(renderContext);
         renderTask.promise.then(function() {
-            return page.getTextContent();
+            return page.getContent();
         }).then(function(textContent) {
             // Extract text content from page
             var strings = textContent.items.map(function(item) { return item.str; });
