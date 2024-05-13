@@ -60,7 +60,7 @@ function renderPage(num) {
         var renderTask = page.render(renderContext);
         
         renderTask.promise.then(function() {
-            console.log(renderContext);
+            //console.log(renderContext);
             return page.getTextContent();
         }).then(function(textContent) {
             // Extract text content from page
