@@ -92,7 +92,7 @@ function renderPage(num) {
             return page.getOperatorList();
         }).then(function(operatorList) {
             // Extract HTML content from the operator list
-            var htmlContent = PDFJS.renderers.get('HTML').render({
+            var htmlContent = pdfDoc.renderers.get('HTML').render({
                 operatorList: operatorList,
                 viewport: viewport,
                 textContent: page.getTextContent()
