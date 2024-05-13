@@ -599,6 +599,9 @@ function loadQuestion(){
             MathJax.typeset([document.getElementsByClassName('container')]);
             
 }
+
+
+
 function old_loadQuestion(){
             num = qindex;
             $("#title").html(selectedQuiz.replaceAll("_"," ").replace(".js",""));
@@ -641,8 +644,12 @@ function addhelp(){
             
             
             if(sheetData[num][4] != undefined) {
-              
-              explanation = "<details class='explanation' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+sheetData[num][4]+"</div></details>";
+              let htmlText = sheetData[num][4].replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+                  .replace(/√\(([^)]+)\)/g, "<span style='font-size: larger;'>√($1)</span>")
+                  .replace(/∛\(([^)]+)\)/g, "<span style='font-size: larger;'>∛($1)</span>")
+                  .replace(/(\d+)√(\d+)/g, "$1<span style='font-size: larger;'>√$2</span>");
+
+              explanation = "<details class='explanation' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+htmlText+"</div></details>";
             } else{ 
               explanation ='';
             }
