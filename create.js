@@ -66,7 +66,7 @@ function renderPage(num) {
             var textStr = strings.join(" "); // Join all text strings into a single string with spaces
             pageText = (textStr); // Store the readable text
             // alert(pageText);
-            $("#pt").html(pageText);
+            $("#pt").append(pageText);
 
         });
     });
