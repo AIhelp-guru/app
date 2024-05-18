@@ -573,41 +573,44 @@ tr:hover {
       loadQuestion();
     })
 }
-function loadQuestion() {
-    num = qindex;
-    $("#title").html(selectedQuiz);
-    
-    if (sheetData[num][0]) {
-        $("#content").html(sheetData[num][0].replaceAll('\\\"', ""));
-    } else {
-        $("#content").html("");
-    }
+function loadQuestion(){
+  num = qindex;
+            $("#title").html(selectedQuiz);
+            if(sheetData[num][0]){
+              $("#content").html(sheetData[num][0].replaceAll('\\\"',""));
+            }else{
+              $("#content").html("");
+            }
+           
+            $("#question_text").html(sheetData[num][1]);
+            $("#correct_answer").html(sheetData[num][3]);
+            $("#options").html('');
+            console.log(sheetData[num][2]);
+                        // Split the text into an array of options
+            if(sheetData[num][2].indexOf("f)") >=0){
 
-    $("#question_text").html(sheetData[num][1]);
-    $("#correct_answer").html(sheetData[num][3]);
-    $("#options").html('');
+              const ops = sheetData[num][2].split(/\s+[f-jF-J]\)\s+/i);
+              oa = ["f","g","h","j"];
+            }else{
+              const ops = sheetData[num][2].split(/\s+[a-dA-D]\)\s+/i);
+              oa = ["a","b","c","d"];
+            }
+              
 
-    // Split the text into an array of options
-    const ops = sheetData[num][2].split(/\s+[a-hA-H]\)\s+/i);
+            
+            
 
-    // Array to hold the possible labels
-    const oa = ["a", "b", "c", "d", "f", "g", "h", "j"];
-    let indexOffset = 0;
 
-    // Check if options start with 'a' or 'f' to adjust indexOffset
-    if (ops[0].trim().toLowerCase().startsWith('f')) {
-        indexOffset = 4; // Offset for 'f) g) h) j)' format
-    }
-
-    for (let i = 0; i < 4; i++) {
-        const ops_clean = ops[i].replace(/[a-hA-H]\)\s*/, ""); 
-        $("#options").append('<div class="option"><input type="radio" id="' + oa[i + indexOffset] + '" name="option"><label for="' + oa[i + indexOffset] + '">' + oa[i + indexOffset] + ") " + ops_clean + '</label></div>');
-    }
-
-    addhelp();
-    MathJax.typeset([document.getElementsByClassName('container')]);
+            for(i=0;i<ops.length;i++){
+              
+               ops_clean = ops[i].replace("a)","").replace("A)",""); 
+                $("#options").append('<div class="option"><input type="radio" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+oa[i]+") "+ops_clean+'</label></div>');
+            }
+            //$("#question_index").html("Question "+(num+1)+" of "+quizData.length);
+            addhelp();
+            MathJax.typeset([document.getElementsByClassName('container')]);
+            
 }
-
 
 
 
