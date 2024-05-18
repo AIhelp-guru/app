@@ -981,7 +981,22 @@ $("#prevQ").click(function(){
 
       // Append canvas to pdfViewer only once
     $('#pdf_content').prepend(canvas);
+        
+        document.getElementById('pageNext').addEventListener('click', function() {
+        if (pageNum >= pdfDoc.numPages) {
+            return;
+        }
+        pageNum++;
+        renderPage(pageNum);
+    });
 
+    document.getElementById('pagePrev').addEventListener('click', function() {
+        if (pageNum <= 1) {
+            return;
+        }
+        pageNum--;
+        renderPage(pageNum);
+    });
     }
 
 init();
