@@ -591,10 +591,10 @@ function loadQuestion(){
             // Split the text into an array of options
             if(o_text.indexOf("g)") >= 0){
 
-              const ops = sheetData[num][2].split(/\s+[f-jF-J]\)\s+/i);
+              let ops = sheetData[num][2].split(/\s+[f-jF-J]\)\s+/i);
               oa = ["f","g","h","j"];
             }else{
-              const ops = sheetData[num][2].split(/\s+[a-dA-D]\)\s+/i);
+              let ops = sheetData[num][2].split(/\s+[a-dA-D]\)\s+/i);
               oa = ["a","b","c","d"];
             }
               
