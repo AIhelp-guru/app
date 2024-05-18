@@ -514,6 +514,9 @@ tr:hover {
     background-color: #d88c00;
     color:white;
   }
+  #alert__msg{
+    text-align: center;
+  }
     </style>
      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -581,7 +584,7 @@ tr:hover {
     </div>
      <div id="chatbotPanel" class="chatbot-closed">
         <div id="chatbotHeader">
-            <span>Chatbot</span><span id="save" style="float:right">Save</span>
+            <span>Chatbot</span><span id="alert__msg" style="float:right"></span><span id="save" style="float:right">Save</span>
             <!-- <button id="closeChatbot" onclick="toggleChatbot()">×</button> -->
         </div>
         <div id="alt_question_container"></div>
@@ -938,7 +941,9 @@ $("#nextQ").click(function(){
               addhelp();
               $(".hint").prop("open",false);
               tries = 0;
+              $("#alert__msg").html("Good Job!").show().hide(1000);
         }else{
+          $("#alert__msg").html("Let us try one more time").show().hide(1000);
           if(tries === 0){
             $(".hint").prop("open",true);
             tries++;
