@@ -934,11 +934,11 @@ $("#skipQ").click(function(){
               tries = 0;
 })
 $("#nextQ").click(function(){ 
-          $("#alt_question_container").slideUp();
+          
           r = evaluate();
 
           if(r){
-              
+              $("#alt_question_container").slideUp();
               qindex++;
               if(qindex === sheetData.length) qindex = qindex -1;
               
@@ -962,7 +962,7 @@ $("#nextQ").click(function(){
             $(".explanation").prop("open",true).show();
             
           }
-          $("#alt_question_container").slideDown();
+         
           
         }
         setTimeout(function() {
