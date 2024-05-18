@@ -597,9 +597,10 @@ tr:hover {
       //console.log(sheetData);
       if(sheetData[1][0].indexOf(".pdf") >= 0){
         //$("#pdfUrl").val("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
-        $("#pdf_content").show();
+        
         $("#content").hide();
         $("#alt_question_container").html($("#question"));
+        $(".middle-section:eq(0)").html($("#pdf_content"));
         $(".option").attr("style","float:left;width:60px;background:black;color:white;")
         loadfromURL("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
       }else{
