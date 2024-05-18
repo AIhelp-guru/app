@@ -585,9 +585,10 @@ function loadQuestion(){
             $("#question_text").html(sheetData[num][1]);
             $("#correct_answer").html(sheetData[num][3]);
             $("#options").html('');
+            console.log(sheetData[num][2]);
             
                         // Split the text into an array of options
-            if(sheetData[num][2].indexOf("f)") >=0){
+            if(sheetData[num][2].indexOf("g)") >=0){
 
               const ops = sheetData[num][2].split(/\s+[f-jF-J]\)\s+/i);
               oa = ["f","g","h","j"];
@@ -597,7 +598,6 @@ function loadQuestion(){
             }
               
 
-            console.log(ops);
             
 
 
