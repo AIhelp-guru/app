@@ -482,6 +482,15 @@ tr:hover {
     height:300px;
     overflow:auto;
   }
+  #pdf_content{
+    display: none;
+    padding:10px;
+    border-right:1px solid black;
+    margin:10px;
+    max-width:50%;
+    height:300px;
+    overflow:auto;
+  }
   #question_index{
     display: none;
   }
@@ -585,6 +594,12 @@ tr:hover {
     $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
       sheetData = (data);
       //console.log(sheetData);
+      if(sheetData[1][0].indexOf(".pdf")){
+        $("pdfUrl").val("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
+        $("#pdf_content").show();
+        $("#content").hide();
+        loadfromURL();
+      }
       loadQuestion();
     })
 }
