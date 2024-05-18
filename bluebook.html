@@ -706,7 +706,7 @@ function addhelp(){
             $("#hint").append(hint); 
             console.log(sheetData[num][6]);
             if(sheetData[num][6] != undefined && (sheetData[num][6]).trim() !== "none" ) {
-              similar = "<details class='similar helps' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+sheetData[num][6]+"<br>"+sheetData[num][7]+"</div></details>";
+              similar = "<details class='similar helps' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+ sheetData[num][6].replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')+"<br>"+sheetData[num][7]+"</div></details>";
               $(".similar").show();
               $("#hint").append(similar);
             } else{ 
@@ -720,6 +720,7 @@ function addhelp(){
                   .replace(/√\(([^)]+)\)/g, "<span style='font-size: larger;'>√($1)</span>")
                   .replace(/∛\(([^)]+)\)/g, "<span style='font-size: larger;'>∛($1)</span>")
                   .replace(/(\d+)√(\d+)/g, "$1<span style='font-size: larger;'>√$2</span>");
+              htmlText = htmlText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
 
               explanation = "<details class='explanation helps' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+htmlText+"</div></details>";
             } else{ 
