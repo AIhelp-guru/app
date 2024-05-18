@@ -93,6 +93,8 @@
       border:1px solid black;
       padding:10px;
       border-radius:10px;
+      background-color: white;
+      width: fit-content;
     }
     .option:hover{
         background-color: #007bff;
@@ -601,7 +603,7 @@ tr:hover {
         $("#content").hide();
         $("#alt_question_container").html($("#question"));
         $(".middle-section:eq(0)").html($("#pdf_content").show());
-        
+        $("#question").css("background-color","#e4ffd1");
         $(".option").attr("style","float:left;width:60px;background:black;color:white;")
         loadfromURL("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
       }else{
