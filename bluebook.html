@@ -569,7 +569,7 @@ tr:hover {
     selectedQuiz = topic;
     $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
       sheetData = (data);
-      console.log(sheetData);
+      //console.log(sheetData);
       loadQuestion();
     })
 }
@@ -587,8 +587,8 @@ function loadQuestion(){
             $("#options").html('');
             console.log(sheetData[num][2]);
             
-                        // Split the text into an array of options
-            if(sheetData[num][2].indexOf("g)") >=0){
+            // Split the text into an array of options
+            if(sheetData[num][2].indexOf("g)") >= 0){
 
               const ops = sheetData[num][2].split(/\s+[f-jF-J]\)\s+/i);
               oa = ["f","g","h","j"];
