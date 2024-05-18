@@ -594,11 +594,14 @@ tr:hover {
     $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
       sheetData = (data);
       //console.log(sheetData);
-      if(sheetData[1][0].indexOf(".pdf")){
+      if(sheetData[1][0].indexOf(".pdf") >= 0){
         //$("#pdfUrl").val("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
         $("#pdf_content").show();
         $("#content").hide();
         loadfromURL("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
+      }else{
+        $("#pdf_content").hide();
+        $("#content").show();
       }
       loadQuestion();
     })
