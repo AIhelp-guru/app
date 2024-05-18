@@ -666,7 +666,7 @@ function loadQuestion(){
             //$("#question_index").html("Question "+(num+1)+" of "+quizData.length);
             addhelp();
             MathJax.typeset([document.getElementsByClassName('container')]);
-            $("#alt_question").slideDown(2000);
+            $("#alt_question_container").slideDown(2000);
             
 }
 
@@ -934,7 +934,7 @@ $("#skipQ").click(function(){
               tries = 0;
 })
 $("#nextQ").click(function(){ 
-          $("#alt_question").hide();
+          $("#alt_question_container").slideUp();
           r = evaluate();
 
           if(r){
