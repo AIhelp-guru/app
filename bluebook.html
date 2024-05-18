@@ -574,6 +574,7 @@ tr:hover {
             <span>Chatbot</span><span id="save" style="float:right">Save</span>
             <!-- <button id="closeChatbot" onclick="toggleChatbot()">×</button> -->
         </div>
+        <div id="alt_question_container"></div>
         <div id="hint"></div>
         <div id="chatbotMessages"></div>
         <input type="text" id="chatbotInput" placeholder="Type your question or doubt...">
@@ -598,6 +599,7 @@ tr:hover {
         //$("#pdfUrl").val("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
         $("#pdf_content").show();
         $("#content").hide();
+        $("#alt_question_container").html($("#question"));
         loadfromURL("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
       }else{
         $("#pdf_content").hide();
