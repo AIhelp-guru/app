@@ -595,10 +595,10 @@ tr:hover {
       sheetData = (data);
       //console.log(sheetData);
       if(sheetData[1][0].indexOf(".pdf")){
-        $("#pdfUrl").val("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
+        //$("#pdfUrl").val("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
         $("#pdf_content").show();
         $("#content").hide();
-        loadfromURL();
+        loadfromURL("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
       }
       loadQuestion();
     })
@@ -829,10 +829,12 @@ function evaluate(){
 }
 
 //Function to load from URL
-function loadfromURL(){
-    var url = $("#pdfURL").val();
+function loadfromURL(url=''){
+    if(url === ''){
+    url = $("#pdfURL").val();
+    }
     
-        //$("#urlForm").hide();
+        $("#urlForm").hide();
         $("#pageNext").show();
         $("#pagePrev").show();
         
