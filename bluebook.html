@@ -934,9 +934,11 @@ $("#skipQ").click(function(){
               tries = 0;
 })
 $("#nextQ").click(function(){ 
+          $("#alt_question").slideUp('slow');
           r = evaluate();
 
           if(r){
+              
               qindex++;
               if(qindex === sheetData.length) qindex = qindex -1;
               loadQuestion();
@@ -945,7 +947,7 @@ $("#nextQ").click(function(){
               $(".hint").prop("open",false);
               tries = 0;
               $("#alert__msg").html("Good Job!").show();
-              $("#alt_question").slideUp();
+              
 
         }else{
           $("#alert__msg").html("Let us try one more time").show();
