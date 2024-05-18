@@ -666,7 +666,9 @@ function loadQuestion(){
             //$("#question_index").html("Question "+(num+1)+" of "+quizData.length);
             addhelp();
             MathJax.typeset([document.getElementsByClassName('container')]);
+            $(".helps").hide();
             $("#alt_question_container").slideDown(1000);
+            
             
 }
 
@@ -729,13 +731,13 @@ function old_addhelp(){
             num = qindex;
             $("#hint").html("");
             if(quizData[num].hint != undefined) {
-              hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";
+              hint = "<details class='hint helps' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";
             }else{
                hint ='';
               }
             $("#hint").append(hint); 
             if(quizData[num].similar_question != undefined) {
-              similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+quizData[num].similar_question.question+"<br>"+quizData[num].similar_question.solution+"</div></details>";
+              similar = "<details class='similar helps' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+quizData[num].similar_question.question+"<br>"+quizData[num].similar_question.solution+"</div></details>";
             } else{ 
               similar ='';
             }
@@ -743,7 +745,7 @@ function old_addhelp(){
             
             if(quizData[num].explanation != undefined) {
               
-              explanation = "<details class='explanation' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+quizData[num].explanation+"</div></details>";
+              explanation = "<details class='explanation helps' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+quizData[num].explanation+"</div></details>";
             } else{ 
               explanation ='';
             }
@@ -953,10 +955,10 @@ $("#nextQ").click(function(){
         }else{
           $("#alert__msg").html("Let us try one more time").show();
           if(tries === 0){
-            $(".hint").prop("open",true);
+            $(".hint").prop("open",true).show();
             tries++;
           }else if(tries === 1){
-            $(".similar").prop("open",true);
+            $(".similar").prop("open",true).show();
             tries++;
           }else{
             $(".explanation").prop("open",true).show();
