@@ -595,7 +595,7 @@ tr:hover {
       sheetData = (data);
       //console.log(sheetData);
       if(sheetData[1][0].indexOf(".pdf")){
-        $("pdfUrl").val("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
+        $("#pdfUrl").val("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
         $("#pdf_content").show();
         $("#content").hide();
         loadfromURL();
