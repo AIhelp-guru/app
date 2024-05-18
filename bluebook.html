@@ -498,7 +498,10 @@ tr:hover {
     </style>
      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></head>
+     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
+    </head>
+
 <body>
    
     <div id="toolbar"><select id="quizzes"><option value='Math_SAT_1'>Select a test</option></select><label id="lesson">SAT Practice Test</label></div>
@@ -510,6 +513,11 @@ tr:hover {
         
       </div>
       <div class="middle-section">
+        <div id="urlForm">
+          <b>Load a local pdf: </b><input type="file" id="fileInput" accept=".pdf" /> or <br><br>
+          <b>Load from a URL:</b><input id="pdfURL" value="https://aihelp-guru.github.io/app/ACT%20Practice%20Questions%20_%20The%20Princeton%20Review.pdf"/>
+      <button id="loadfromURL" onclick="loadfromURL()">Load</button>
+      </div>
         <div id="content">
           Loading the test ...
         </div>
@@ -797,6 +805,24 @@ function evaluate(){
     return true;
   }
 }
+
+//Function to load from URL
+function loadfromURL(){
+    var url = $("#pdfURL").val();
+    
+        $("#urlForm").hide();
+        $("#pageNext").show();
+        $("#pagePrev").show();
+        
+    var loadingTask = pdfjsLib.getDocument(url);
+        loadingTask.promise.then(function(pdf) {
+            pdfDoc = pdf;
+            renderPage(1);
+            
+        });
+        
+    }
+
 function init(){
 // Populate the dropdown menu
 for (var i = 0; i < subjects.length; i++) {
