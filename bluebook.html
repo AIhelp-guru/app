@@ -522,6 +522,7 @@ tr:hover {
       <button id="loadfromURL" onclick="loadfromURL()">Load</button>
       </div>
       <div id="pt" style="display: none"></div>
+        <div id="pdf_content"></div>
         <div id="content">
           Loading the test ...
         </div>
@@ -979,7 +980,7 @@ $("#prevQ").click(function(){
       $("#notes").show();
 
       // Append canvas to pdfViewer only once
-    $('#content').prepend(canvas);
+    $('#pdf_content').prepend(canvas);
 
     }
 
