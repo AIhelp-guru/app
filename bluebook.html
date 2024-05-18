@@ -968,12 +968,14 @@ $("#prevQ").click(function(){
             $(this).find("input").prop("checked","true");
             $("#nextQ").click();
         })
-        $('.option_input').change(function() {
+        
+        $('#options').on('change', '.option_input', function() {
         if ($(this).is(':checked')) {
-            // Take some action when the radio button is checked
-            alert('Radio button ' + $(this).attr('id') + ' is checked.');
+            // Take some action when any radio button within the container is checked
+            $('#result').text('Radio button ' + $(this).attr('id') + ' is checked.');
         }
-    });
+        });
+
         $('#chatbotInput').keydown(function(event) {
         // Check if the key pressed is the Enter key
         if (event.which == 13) {
