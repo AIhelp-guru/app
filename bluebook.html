@@ -587,7 +587,7 @@ function loadQuestion(){
             $("#options").html('');
             o_text = sheetData[num][2];  // Options text "a) b) c) d)"
             console.log(o_text.indexOf("g)"));
-            
+            ops = [];
             // Split the text into an array of options
             if(o_text.indexOf("g)") >= 0){
 
