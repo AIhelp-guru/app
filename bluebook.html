@@ -699,14 +699,14 @@ function addhelp(){
   num = qindex;
             $("#hint").html("");
             if(sheetData[num][5] != undefined) {
-              hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+sheetData[num][5]+"</div></details>";
+              hint = "<details class='hint helps' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+sheetData[num][5]+"</div></details>";
             }else{
                hint ='';
               }
             $("#hint").append(hint); 
             console.log(sheetData[num][6]);
             if(sheetData[num][6] != undefined && (sheetData[num][6]).trim() !== "none" ) {
-              similar = "<details class='similar' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+sheetData[num][6]+"<br>"+sheetData[num][7]+"</div></details>";
+              similar = "<details class='similar helps' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+sheetData[num][6]+"<br>"+sheetData[num][7]+"</div></details>";
               $(".similar").show();
               $("#hint").append(similar);
             } else{ 
@@ -721,11 +721,12 @@ function addhelp(){
                   .replace(/∛\(([^)]+)\)/g, "<span style='font-size: larger;'>∛($1)</span>")
                   .replace(/(\d+)√(\d+)/g, "$1<span style='font-size: larger;'>√$2</span>");
 
-              explanation = "<details class='explanation' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+htmlText+"</div></details>";
+              explanation = "<details class='explanation helps' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+htmlText+"</div></details>";
             } else{ 
               explanation ='';
             }
             $("#hint").append(explanation); 
+            $(".helps").css('display','none');
 }
 function old_addhelp(){
             num = qindex;
@@ -950,7 +951,7 @@ $("#nextQ").click(function(){
               tries = 0;
               $("#alert__msg").html("Good Job!").show();
               setTimeout(function(){
-                $(".helps").css('display','none');
+                
                 loadQuestion()
               
               },1000);
