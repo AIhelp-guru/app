@@ -651,7 +651,7 @@ function loadQuestion(){
                
                ops_clean = ops[i].replace("a)","").replace("f)","").replace("A)",""); 
                ops_clean = ops_clean.replace("''","");
-                $("#options").append('<div class="option"><input type="radio" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+oa[i]+") "+ops_clean+'</label></div>');
+                $("#options").append('<div class="option"><input class="option_input" type="radio" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+oa[i]+") "+ops_clean+'</label></div>');
             }
             //$("#question_index").html("Question "+(num+1)+" of "+quizData.length);
             addhelp();
@@ -997,6 +997,9 @@ $("#prevQ").click(function(){
         
       })
       //loadQuestion(0);
+      $(".option_input").change(function(){
+        alert();
+      })
 
       topic = "Reading_SAT_1";
 
@@ -1028,6 +1031,9 @@ $("#prevQ").click(function(){
         pageNum--;
         renderPage(pageNum);
     });
+
+
+
     }
 
 init();
