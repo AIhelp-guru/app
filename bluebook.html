@@ -572,6 +572,8 @@ tr:hover {
         var username = "admin";
         var selectedQuiz = "Math_Algebra";
         var subjects = ["Math_SAT_1","Reading_SAT_1"];
+        var pdfDoc = null, pageNum = 1, pageText ='', canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
+
         //var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry","Math_plane_Geometry","trignometry","Math_Nonlinear_2","fullSAT","full_SAT_2"];
         var sheetData ="";
   function loadFromsheet(topic){
