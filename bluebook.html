@@ -599,7 +599,7 @@ function loadQuestion() {
         indexOffset = 4; // Offset for 'f) g) h) j)' format
     }
 
-    for (let i = 0; i < ops.length; i++) {
+    for (let i = 0; i < 4; i++) {
         const ops_clean = ops[i].replace(/[a-hA-H]\)\s*/, ""); 
         $("#options").append('<div class="option"><input type="radio" id="' + oa[i + indexOffset] + '" name="option"><label for="' + oa[i + indexOffset] + '">' + oa[i + indexOffset] + ") " + ops_clean + '</label></div>');
     }
