@@ -488,7 +488,7 @@ tr:hover {
     border-right:1px solid black;
     margin:10px;
     max-width:100%;
-    height:500px;
+    height:600px;
     overflow:auto;
   }
   #question_index{
@@ -517,9 +517,9 @@ tr:hover {
    <div class="container">
       <div class="top-section">
         
-        <div class="header"><span id='title'>Test title...</span><span class="time"></span><button id="nextQ" style="float:right;">Check</button></div>
+        <div class="header"><span id='title'>Test title...</span><span class="time"></span> <label id="pageNumber"></label><button id="nextQ" style="float:right;">Check</button></div>
         <button id="pagePrev"><</button>
-        <label id="pageNumber"></label>
+       
         <button id="pageNext">></button>
         
         
@@ -601,7 +601,7 @@ tr:hover {
         $("#content").hide();
         $("#alt_question_container").html($("#question"));
         $(".middle-section:eq(0)").html($("#pdf_content").show());
-        $(".top-section").hide();
+        
         $(".option").attr("style","float:left;width:60px;background:black;color:white;")
         loadfromURL("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
       }else{
