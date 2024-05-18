@@ -600,7 +600,7 @@ tr:hover {
         
         $("#content").hide();
         $("#alt_question_container").html($("#question"));
-        $(".middle-section:eq(0)").html($("#pdf_content"));
+        $(".middle-section:eq(0)").html($("#pdf_content").show());
         $(".option").attr("style","float:left;width:60px;background:black;color:white;")
         loadfromURL("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
       }else{
