@@ -966,13 +966,13 @@ $("#prevQ").click(function(){
 
         $(".option").click(function(){
             $(this).find("input").prop("checked","true");
-            $("#nextQ").click();
+            
         })
         
         $('#options').on('change', '.option_input', function() {
         if ($(this).is(':checked')) {
             // Take some action when any radio button within the container is checked
-            $('#result').text('Radio button ' + $(this).attr('id') + ' is checked.');
+            $("#nextQ").click();
         }
         });
 
@@ -1004,10 +1004,7 @@ $("#prevQ").click(function(){
         
       })
       //loadQuestion(0);
-      $(".option_input").change(function(){
-        alert();
-      })
-
+     
       topic = "Reading_SAT_1";
 
       l = location.href;
