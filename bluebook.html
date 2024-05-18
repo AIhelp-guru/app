@@ -974,6 +974,11 @@ $("#prevQ").click(function(){
       loadFromsheet(topic)
       
       $("#notes").show();
+
+      // Append canvas to pdfViewer only once
+    document.getElementById('middle_section').appendChild(canvas);
+
+
     }
 
 init();
