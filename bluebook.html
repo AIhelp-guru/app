@@ -518,6 +518,7 @@ tr:hover {
           <b>Load from a URL:</b><input id="pdfURL" value="https://aihelp-guru.github.io/app/ACT%20Practice%20Questions%20_%20The%20Princeton%20Review.pdf"/>
       <button id="loadfromURL" onclick="loadfromURL()">Load</button>
       </div>
+      <div id="pt" style="display: none"></div>
         <div id="content">
           Loading the test ...
         </div>
@@ -822,6 +823,44 @@ function loadfromURL(){
         });
         
     }
+// Function to render a page
+function renderPage(num) {
+    $("#urlForm").hide();
+    $("#pageNext").show();
+    $("#pagePrev").show();
+    
+    pdfDoc.getPage(num).then(function(page) {
+        $("#pageNumber").html(num);
+        $(".page").hide();
+        $("#p"+num).show();
+
+        // Set scale for rendering
+        var scale = 1.2;
+        var viewport = page.getViewport({ scale: scale });
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        // Render the page content to canvas
+        var renderContext = {
+            canvasContext: ctx,
+            viewport: viewport
+        };
+        var renderTask = page.render(renderContext);
+        
+        renderTask.promise.then(function() {
+            //console.log(renderContext);
+            return page.getTextContent();
+        }).then(function(textContent) {
+            // Extract text content from page
+            var strings = textContent.items.map(function(item) { return item.str; });
+            var textStr = strings.join(" "); // Join all text strings into a single string with spaces
+            pageText = (textStr); // Store the readable text
+            // alert(pageText);
+            $("#pt").html(pageText);
+
+        });
+    });
+}
 
 function init(){
 // Populate the dropdown menu
