@@ -601,6 +601,7 @@ tr:hover {
         $("#content").hide();
         $("#alt_question_container").html($("#question"));
         $(".middle-section:eq(0)").html($("#pdf_content").show());
+        $(".top-section").hide();
         $(".option").attr("style","float:left;width:60px;background:black;color:white;")
         loadfromURL("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
       }else{
@@ -865,7 +866,7 @@ function renderPage(num) {
         $("#p"+num).show();
 
         // Set scale for rendering
-        var scale = 1.2;
+        var scale = 1.4;
         var viewport = page.getViewport({ scale: scale });
         canvas.height = viewport.height;
         canvas.width = viewport.width;
