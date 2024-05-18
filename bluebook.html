@@ -585,8 +585,8 @@ function loadQuestion(){
             $("#question_text").html(sheetData[num][1]);
             $("#correct_answer").html(sheetData[num][3]);
             $("#options").html('');
-            o_text = sheetData[num][2];  // Options text 
-            console.log(o_text);
+            o_text = sheetData[num][2];  // Options text "a) b) c) d)"
+            console.log(o_text.indexOf("g)"));
             
             // Split the text into an array of options
             if(o_text.indexOf("g)") >= 0){
