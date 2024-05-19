@@ -610,7 +610,10 @@ tr:hover {
         var sheetData ="";
   function loadFromsheet(topic){
     selectedQuiz = topic;
-    $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
+    url = "https://script.google.com/macros/s/AKfycbyds26QQ3W1qMXO6AlyuNJkqyGgflksaSKVRgvLg4CEudPyQlYXD-FLpQOxTIq7Om9Jtw/exec";
+   // $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
+      $.get(url+"?topic="+topic+"&user=aihelp.guru@gmail.com&token=c85bfe55b6",function(data){
+   
       sheetData = (data);
       //console.log(sheetData);
       if(sheetData[1][0].indexOf(".pdf") >= 0){
