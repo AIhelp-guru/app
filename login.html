@@ -108,6 +108,8 @@ function login(){
             sessionStorage.setItem('token', token);
         if(data.indexOf("'1'")>=0){
             location.href = "bluebook.html";
+        }else{
+            alert("A token was sent to your email, please use that to login")
         }
 
 
