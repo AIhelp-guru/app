@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Popup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .login-popup {
+            width: 400px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+        .login-popup img {
+            display: block;
+            margin: 0 auto 20px;
+        }
+        .login-popup h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-popup input[type="text"],
+        .login-popup input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-popup input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .login-popup button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-popup button:hover {
+            background-color: #45a049;
+        }
+        .login-popup .forgot {
+            float: right;
+            text-decoration: none;
+        }
+        .login-popup .join {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+<div class="background"></div>
+<div class="login-popup">
+    <h2>AI Tutor</h2>
+    <h2>Sign in</h2>
+    <form>
+        <input type="text" placeholder="Username" required>
+        <a href="#" class="forgot">Forgot username?</a>
+        <input type="password" placeholder="Password" required>
+        <a href="#" class="forgot">Forgot password?</a>
+        <div>
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember</label>
+        </div>
+        <button type="submit">Sign in</button>
+    </form>
+    <div class="join">
+        Not a member yet? <a href="#">Join now</a>
+    </div>
+</div>
+
+</body>
+</html>
