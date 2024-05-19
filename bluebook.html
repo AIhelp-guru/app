@@ -613,9 +613,7 @@ tr:hover {
     if(sessionStorage.getItem('token') !== null){
     const token = sessionStorage.getItem('token');
     const user = sessionStorage.getItem('user');
-    }else{
-      location.href="login.html";
-    }
+    
 
     url = "https://script.google.com/macros/s/AKfycbzxlbaiqJOq-n355mz4_rYI5eFMtvuOokhAJLnx9XVXwCGFm7lU5i8dQUdACFXwpNgJSg/exec";
    // $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
@@ -642,7 +640,9 @@ tr:hover {
         }
   
     });
-     
+  }else{
+      location.href="login.html";
+    }
 }
 function loadQuestion(){
   num = qindex;
