@@ -82,25 +82,33 @@
     <h2>AI Tutor</h2>
     <h2>Sign in</h2>
     <form>
-        <input type="text" placeholder="Email ID" required>
+        <input id="email" type="email" placeholder="Email ID" required>
         <label>We will send you a token to your email</label>
         <p><button id="get_token" type="submit">1. Get Token</button></p>
-        <input type="password" placeholder="Token" >
+        <input id="token" type="text" placeholder="Token" >
         
         <div>
            
         </div>
-        <button type="submit">2. Sign in</button>
+        <button id="login_btn" type="submit">2. Sign in</button>
     </form>
     
 </div>
 <script>
-token = "226TYAUcMB";
-email ="madhutemp@gmail.com";
+function login(){
+    let email = $("#email").val();
+    let token = $("#token").val();
+        $.get("https://script.google.com/macros/s/AKfycbwveqlB5Lphr3_1GnvMlbo3fe-377oA9_I581Q9lFs9zrnfPYuxJtlhb4QYkYBb478bJg/exec?email="+email+"&token="+token,function(data){
+        alert(data);
+    })
+}
 
-$.get("https://script.google.com/macros/s/AKfycbwveqlB5Lphr3_1GnvMlbo3fe-377oA9_I581Q9lFs9zrnfPYuxJtlhb4QYkYBb478bJg/exec?email="+email+"&token="+token,function(data){
-    alert(data);
+$(document).ready(function(){
+    $("#login_btn").click(function(){
+        login();
+    })
 })
+
 
 
 
