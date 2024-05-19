@@ -105,8 +105,12 @@ function login(){
     let email = $("#email").val();
     let token = $("#token").val();
         $.get("https://script.google.com/macros/s/AKfycbwveqlB5Lphr3_1GnvMlbo3fe-377oA9_I581Q9lFs9zrnfPYuxJtlhb4QYkYBb478bJg/exec?email="+email+"&token="+token,function(data){
-        alert(data);
+        document.executeCommand(data);
     })
+}
+
+function authenticate(authorize,number){
+    alert(authorize);
 }
 
 $(document).ready(function(){
