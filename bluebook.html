@@ -610,7 +610,7 @@ tr:hover {
         var sheetData ="";
   function loadFromsheet(topic){
     selectedQuiz = topic;
-    if(sessionStorage.getItem('token') !== undefined){
+    if(sessionStorage.getItem('token') !== null){
     const token = sessionStorage.getItem('token');
     const user = sessionStorage.getItem('user');
     }else{
