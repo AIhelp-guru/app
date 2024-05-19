@@ -73,6 +73,7 @@
             background-color: orange;
         }
     </style>
+       <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 
@@ -93,6 +94,19 @@
     </form>
     
 </div>
+<script>
+token = "226TYAUcMB";
+email ="madhutemp@gmail.com";
+
+$.get("https://script.google.com/macros/s/AKfycbwveqlB5Lphr3_1GnvMlbo3fe-377oA9_I581Q9lFs9zrnfPYuxJtlhb4QYkYBb478bJg/exec?email="+email+"&token="+token,function(data){
+    alert(data);
+})
+
+
+
+
+
+</script>
 
 </body>
 </html>
