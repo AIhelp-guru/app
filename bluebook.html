@@ -617,27 +617,28 @@ tr:hover {
     url = "https://script.google.com/macros/s/AKfycbzxlbaiqJOq-n355mz4_rYI5eFMtvuOokhAJLnx9XVXwCGFm7lU5i8dQUdACFXwpNgJSg/exec";
    // $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
       $.get(url+"?topic="+topic+"&user="+user+"&token="+token,function(data){
-    if(data.indexOf("Error") >= 0){
-      location.href="login.html";
-    }else{
-      sheetData = (data);
-      //console.log(sheetData);
-      if(sheetData[1][0].indexOf(".pdf") >= 0){
-        //$("#pdfUrl").val("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
-        
-        $("#content").hide();
-        $("#alt_question_container").html($("#question"));
-        $(".middle-section:eq(0)").html($("#pdf_content").show());
-        
-        $(".option").attr("style","float:left;width:60px;background:black;color:white;")
-        loadfromURL("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
-      }else{
-        $("#pdf_content").hide();
-        $("#content").show();
-      }
-      loadQuestion();
-    })
-    }
+        if(data.indexOf("Error") >= 0){
+          location.href="login.html";
+        }else{
+          sheetData = (data);
+          //console.log(sheetData);
+          if(sheetData[1][0].indexOf(".pdf") >= 0){
+            //$("#pdfUrl").val("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
+            
+            $("#content").hide();
+            $("#alt_question_container").html($("#question"));
+            $(".middle-section:eq(0)").html($("#pdf_content").show());
+            
+            $(".option").attr("style","float:left;width:60px;background:black;color:white;")
+            loadfromURL("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
+          }else{
+            $("#pdf_content").hide();
+            $("#content").show();
+          }
+          loadQuestion();
+        }
+  
+    });
      
 }
 function loadQuestion(){
