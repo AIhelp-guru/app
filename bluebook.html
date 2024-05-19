@@ -610,10 +610,16 @@ tr:hover {
         var sheetData ="";
   function loadFromsheet(topic){
     selectedQuiz = topic;
+    const token = sessionStorage.getItem('token');
+    const user = sessionStorage.getItem('user');
+   
+
     url = "https://script.google.com/macros/s/AKfycbzxlbaiqJOq-n355mz4_rYI5eFMtvuOokhAJLnx9XVXwCGFm7lU5i8dQUdACFXwpNgJSg/exec";
    // $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
-      $.get(url+"?topic="+topic+"&user=aihelp.guru@gmail.com&token=c85bfe55b6",function(data){
-   
+      $.get(url+"?topic="+topic+"&user="+user+"&token="=token,function(data){
+    if(data.indexOf("Error") >= 0){
+      location.href="login.html";
+    }else{
       sheetData = (data);
       //console.log(sheetData);
       if(sheetData[1][0].indexOf(".pdf") >= 0){
@@ -631,6 +637,8 @@ tr:hover {
       }
       loadQuestion();
     })
+    }
+     
 }
 function loadQuestion(){
   num = qindex;
@@ -1072,9 +1080,7 @@ $("#prevQ").click(function(){
         renderPage(pageNum);
     });
 
-    const token = sessionStorage.getItem('loginToken');
-    alert(token);
-
+    
     }
 
 init();
