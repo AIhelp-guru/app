@@ -982,6 +982,10 @@ $("#nextQ").click(function(){
 
           if(r){
               $("#alt_question_container").slideUp();
+              u_ans.push(1);
+              u_helps.push(tries);
+              u_time.push(question_time - qtime);
+              clearInterval(qtimer);
               qindex++;
               if(qindex === sheetData.length) qindex = qindex -1;
               
@@ -995,10 +999,7 @@ $("#nextQ").click(function(){
                 loadQuestion()
               
               },1000);
-              u_ans.push(1);
-              u_helps.push(tries);
-              u_time.push(question_time - qtime);
-              clearInterval(qtimer);
+              
 
         }else{
           $("#alert__msg").html("Let us try one more time").show();
