@@ -687,7 +687,7 @@ function loadQuestion(){
               
 
             
-            console.log(ops.Length);
+            //console.log(ops.Length);
 
             for(i=0;i<ops.length;i++){
                
@@ -742,7 +742,7 @@ function addhelp(){
                hint ='';
               }
             $("#hint").append(hint); 
-            console.log(sheetData[num][6]);
+            //console.log(sheetData[num][6]);
             if(sheetData[num][6] != undefined && (sheetData[num][6]).trim() !== "none" ) {
               similar = "<details class='similar helps' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+ sheetData[num][6].replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>')+"<br>"+sheetData[num][7]+"</div></details>";
               $(".similar").show();
@@ -847,7 +847,7 @@ async function rw_file(filename,action,data){
         type: 'post',
         data: { filename:JSON.stringify(filename), data: JSON.stringify(data) },
       });
-      console.log(response);
+      //console.log(response);
     } else {
       const response = await $.ajax({
         url,
@@ -883,7 +883,7 @@ function filterHelp(){
 
 function evaluate(){
   var selectedOption = $('input[name="option"]:checked').attr("id");
-  console.log(selectedOption);
+  //console.log(selectedOption);
   // Get the id of the selected radio button
   // var selectedOptionId = selectedOption.attr('id');
   if($("#correct_answer").text() !== selectedOption){
