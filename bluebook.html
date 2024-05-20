@@ -603,6 +603,7 @@ tr:hover {
         var qindex = 1;
         var qtime = 0;
         var question_time = 30;
+        var qtimer;
         let u_ans =[]; // array of user answers - true or false
         let u_helps =[] ;//number of helps for each question
         let u_time =[]; // time taken to resolve each question
@@ -695,9 +696,13 @@ function loadQuestion(){
             $("#alt_question_container").slideDown(1000);
             qtime = question_time;
             $("#qtime").html(qtime);
-            setInterval(function(){
+           qtimer =  setInterval(function(){
               qtime--;
               $("#qtime").html(qtime);
+              if(qtime==0){
+                alert("timeout");
+                clearInterval(qtimer);
+              } 
             },1000)
             
 }
@@ -990,6 +995,7 @@ $("#nextQ").click(function(){
               u_ans.push(1);
               u_helps.push(tries);
               u_time.push(question_time - qtime);
+              clearInterval(qtimer);
 
         }else{
           $("#alert__msg").html("Let us try one more time").show();
