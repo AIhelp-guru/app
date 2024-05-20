@@ -535,7 +535,7 @@ tr:hover {
    <div class="container">
       <div class="top-section">
         
-        <div class="header"><span id='title'>Test title...</span><span class="time"></span> <label id="pageNumber"></label><button id="nextQ" style="float:right;">Check</button></div>
+        <div class="header"><span id='title'>Test title...</span><span id="qtime"></span> <label id="pageNumber"></label><button id="nextQ" style="float:right;">Check</button></div>
         <button id="pagePrev"><</button>
        
         <button id="pageNext">></button>
@@ -601,6 +601,12 @@ tr:hover {
     </div>
     <script>
         var qindex = 1;
+        var qtime = 0;
+        var question_time = 30;
+        let u_ans =[]; // array of user answers - true or false
+        let u_helps =[] ;//number of helps for each question
+        let u_time =[]; // time taken to resolve each question
+
         var username = "admin";
         var selectedQuiz = "ACT_1_reading";
         var subjects = ["Math_Algebra","Math_SAT_1","Reading_SAT_1","ACT_1_english"];
@@ -687,7 +693,12 @@ function loadQuestion(){
             MathJax.typeset([document.getElementsByClassName('container')]);
             $(".helps").hide();
             $("#alt_question_container").slideDown(1000);
-            
+            qtime = question_time;
+            $("#qtime").html(qtime);
+            setInterval(function(){
+              qtime--;
+              $("#qtime").html(qtime);
+            },1000)
             
 }
 
@@ -947,6 +958,7 @@ $("#quizzes").change(function() {
 });
 
 var tries = 0;
+
 $("#skipQ").click(function(){
               qindex++;
               if(qindex === sheetData.length) qindex = qindex -1;
@@ -975,7 +987,9 @@ $("#nextQ").click(function(){
                 loadQuestion()
               
               },1000);
-              
+              u_ans.push(1);
+              u_helps.push(tries);
+              u_time.push(question_time - qtime);
 
         }else{
           $("#alert__msg").html("Let us try one more time").show();
