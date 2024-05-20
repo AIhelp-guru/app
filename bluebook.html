@@ -518,6 +518,8 @@ tr:hover {
     text-align: center;
     color:darkblue;
     background-color: yellow;
+    position:fixed;
+    font-size:2em;
   }
   #nextQ{
     display: none;
@@ -694,15 +696,12 @@ function loadQuestion(){
             MathJax.typeset([document.getElementsByClassName('container')]);
             $(".helps").hide();
             $("#alt_question_container").slideDown(1000);
-            qtime = question_time;
+            qtime = 0;
             $("#qtime").html(qtime);
            qtimer =  setInterval(function(){
-              qtime--;
+              qtime++;
               $("#qtime").html(qtime);
-              if(qtime==0){
-                alert("timeout");
-                clearInterval(qtimer);
-              } 
+              
             },1000)
             
 }
@@ -986,7 +985,7 @@ $("#nextQ").click(function(){
               addhelp();
               $(".hint").prop("open",false);
               tries = 0;
-              $("#alert__msg").html("Good Job!").show();
+              $("#alert__msg").html("Good Job!").fadeToggle(1000);;
               setTimeout(function(){
                 
                 loadQuestion()
