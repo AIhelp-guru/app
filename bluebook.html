@@ -1065,8 +1065,8 @@ function evaluate(){
 
 function create_report(){
 
-       // Calculate summary data
-       const totalQuestions = u_ans.length;
+      // Calculate summary data
+      const totalQuestions = u_ans.length;
         const correctAnswers = u_ans.filter(ans => ans === 1).length;
         const incorrectAnswers = totalQuestions - correctAnswers;
         const averageTime = (u_time.reduce((sum, time) => sum + time, 0) / totalQuestions).toFixed(2);
@@ -1097,25 +1097,23 @@ function create_report(){
         const categoryPerformance = {};
         q_cat.forEach((cat, index) => {
             if (!categoryPerformance[cat]) {
-                categoryPerformance[cat] = { total: 0, correct: 0 };
+                categoryPerformance[cat] = { total: 0, helps: 0 };
             }
             categoryPerformance[cat].total++;
-            if (u_ans[index] === 1) {
-                categoryPerformance[cat].correct++;
-            }
+            categoryPerformance[cat].helps += u_helps[index];
         });
 
-        // Determine performance level
+        // Determine performance level based on helps
         const performanceLevels = {};
         for (const [cat, performance] of Object.entries(categoryPerformance)) {
-            const percentage = (performance.correct / performance.total * 100).toFixed(2);
-            let level = 'Beginner';
-            if (percentage >= 80) {
-                level = 'Proficient';
-            } else if (percentage >= 50) {
+            const avgHelps = (performance.helps / performance.total).toFixed(2);
+            let level = 'Proficient';
+            if (avgHelps > 2) {
+                level = 'Beginner';
+            } else if (avgHelps > 1) {
                 level = 'Intermediate';
             }
-            performanceLevels[cat] = { ...performance, percentage, level };
+            performanceLevels[cat] = { ...performance, avgHelps, level };
         }
 
         // Update category performance summary
@@ -1123,7 +1121,7 @@ function create_report(){
         for (const [cat, performance] of Object.entries(performanceLevels)) {
             const categorySummary = document.createElement('div');
             categorySummary.className = 'summary-item';
-            categorySummary.innerHTML = `<strong>${cat}:</strong> ${performance.correct} / ${performance.total} (${performance.percentage}%) - ${performance.level}`;
+            categorySummary.innerHTML = `<strong>${cat}:</strong> Avg Helps: ${performance.avgHelps} - ${performance.level}`;
             categoryPerformanceDiv.appendChild(categorySummary);
         }
 
