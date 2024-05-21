@@ -1131,11 +1131,11 @@ function create_report(){
           const avgHelps = (performance.helps / performance.total).toFixed(2);
           //console.log(cat+" - "+avgHelps + " - " + performance.total);
           if (avgHelps > 1.8) {
-              performanceLevels.Beginner.push("<li>" + cat+ performance.total +"</li>");
+              performanceLevels.Beginner.push("<li style='margin-left:150px'>" + cat+ performance.total +"</li>");
           } else if (avgHelps > 0.9 && avgHelps < 1.8) {
-              performanceLevels.Intermediate.push("<li>" + cat+ performance.total +"</li>");
+              performanceLevels.Intermediate.push("<li style='margin-left:150px>" + cat+ performance.total +"</li>");
           } else if (avgHelps < 0.9){
-              performanceLevels.Proficient.push("<li>" + cat+ performance.total +"</li>");
+              performanceLevels.Proficient.push("<li style='margin-left:150px>" + cat+ performance.total +"</li>");
           }
       }
 
