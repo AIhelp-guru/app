@@ -1117,27 +1117,15 @@ function create_report(){
         }
 
         // Update category performance summary
-      /*  const categoryPerformanceDiv = document.getElementById('category-performance');
+       const categoryPerformanceDiv = document.getElementById('category-performance');
         for (const [cat, performance] of Object.entries(performanceLevels)) {
             const categorySummary = document.createElement('div');
             categorySummary.className = 'summary-item';
             categorySummary.innerHTML = `<strong>${cat}:</strong> Avg Helps: ${performance.avgHelps} - ${performance.level}`;
             categoryPerformanceDiv.appendChild(categorySummary);
         }
-        */
-        // Update category performance summary
-        const categoryPerformanceDiv = document.getElementById('category-performance');
-        for (const [level, categories] of Object.entries(performanceLevels)) {
-            const levelHeader = document.createElement('h3');
-            levelHeader.textContent = level;
-            categoryPerformanceDiv.appendChild(levelHeader);
-            for (const [cat, performance] of Object.entries(categories)) {
-                const categorySummary = document.createElement('div');
-                categorySummary.className = 'summary-item';
-                categorySummary.innerHTML = `<strong>${cat}:</strong> Avg Helps: ${performance.avgHelps}`;
-                categoryPerformanceDiv.appendChild(categorySummary);
-            }
-        }
+        
+       
 
         // Populate report table
        
