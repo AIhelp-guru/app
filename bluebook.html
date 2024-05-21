@@ -621,7 +621,8 @@ tr:hover {
 
         //var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry","Math_plane_Geometry","trignometry","Math_Nonlinear_2","fullSAT","full_SAT_2"];
         var sheetData ="";
-  function loadFromsheet(topic){
+
+function loadFromsheet(topic){
     selectedQuiz = topic;
     if(sessionStorage.getItem('token') !== null){
     const token = sessionStorage.getItem('token');
@@ -709,9 +710,6 @@ function loadQuestion(){
             },1000)
             
 }
-
-
-
 function old_loadQuestion(){
             num = qindex;
             $("#title").html(selectedQuiz.replaceAll("_"," ").replace(".js",""));
