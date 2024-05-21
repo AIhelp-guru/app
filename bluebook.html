@@ -638,6 +638,9 @@ tr:hover {
             background-color: rgba(0, 0, 0,0.7);
             z-index: 999;
         }
+        #start_btn{
+          display: none;
+        }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -815,6 +818,7 @@ function loadFromsheet(topic){
           loadQuestion();
           $("#start_msg").html("Click start, when you are ready!");
           $("#start_wait").hide();
+          $("#start_btn").show();
         }
   
     });
