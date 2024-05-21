@@ -539,6 +539,8 @@ tr:hover {
     top:10%;
     left:10%;
     display: none;
+    height:calc(100vh*80/100);
+    overflow:auto;
   }
     
      
@@ -1004,6 +1006,8 @@ function create_report(){
             reportBody.appendChild(row);
         });
         $("#report-container").toggle();
+        $("#container").toggle();
+        $("#chatbotPanel").toggle();
         // Chart.js configurations
         const ctxAccuracy = document.getElementById('accuracyChart').getContext('2d');
         const ctxTime = document.getElementById('timeChart').getContext('2d');
