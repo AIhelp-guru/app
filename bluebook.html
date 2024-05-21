@@ -1129,11 +1129,11 @@ function create_report(){
       const performanceLevels = { Beginner: [], Intermediate: [], Proficient: [] };
       for (const [cat, performance] of Object.entries(categoryPerformance)) {
           const avgHelps = (performance.helps / performance.total).toFixed(2);
-          if (avgHelps > 1) {
+          if (avgHelps > 1.5) {
               performanceLevels.Beginner.push(cat);
-          } else if (avgHelps === 1) {
+          } else if (avgHelps > 0.5 && avgHelps < 1.5) {
               performanceLevels.Intermediate.push(cat);
-          } else {
+          } else if (avgHelps < 0.5){
               performanceLevels.Proficient.push(cat);
           }
       }
