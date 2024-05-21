@@ -754,16 +754,14 @@ tr:hover {
   <div class="background"></div>
   <div class="login-popup">
     <h2>AI Tutor</h2>
-    <h2>Sign in</h2>
+    <h2>Loading the questions</h2>
     <div>
-        <input id="email" type="text" placeholder="Email ID" required>
-    
-        <input id="token" type="text" placeholder="Token" ><br>
-        <small>If you don't have a token, We will send you a token to your email</small>
+        
+        <large>Make sure you are focussed and ready to take this test. Click Start!</large>
         <div>
            
         </div>
-        <button id="login_btn">Login</button>
+        <button id="start_btn">Start</button>
     </div>
     
 </div>  
@@ -1376,7 +1374,12 @@ $("#prevQ").click(function(){
         renderPage(pageNum);
     });
 
-    
+    $("#start_btn").click(function(){
+      qtime = 0;
+      $(".login-popup ").hide();
+      $(".background").hide();
+
+    })
     }
 
 init();
