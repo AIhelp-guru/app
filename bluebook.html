@@ -528,6 +528,16 @@ tr:hover {
     float:right;
     font:1.5em;
   }
+  #report-container{
+    position:fixed;
+    width:80%;
+    background-color: white;
+    border:1px solid black;
+    padding:10px;
+    top:10%;
+    left:10%;
+    display: none;
+  }
     </style>
      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -605,7 +615,7 @@ tr:hover {
         
         <button onclick="sendMessage()">Ask AI</button>
     </div>
-    <div class="report-container">
+    <div id="report-container">
       <h1>Performance Report</h1>
 
       <div class="summary">
@@ -950,7 +960,7 @@ function create_report(){
             `;
             reportBody.appendChild(row);
         });
-    
+    $("#report-container").toggle();
 }
 //Function to load from URL
 function loadfromURL(url=''){
