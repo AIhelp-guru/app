@@ -1055,7 +1055,7 @@ function evaluate(){
   //console.log(selectedOption);
   // Get the id of the selected radio button
   // var selectedOptionId = selectedOption.attr('id');
-  if($("#correct_answer").text() !== selectedOption){
+  if(($("#correct_answer").text().trim()).toLowerCase() !== selectedOption.toLowerCase()){
 
     return false;
   }else{
