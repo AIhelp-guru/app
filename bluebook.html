@@ -1131,7 +1131,7 @@ function create_report(){
           const avgHelps = (performance.helps / performance.total).toFixed(2);
           if (avgHelps > 1) {
               performanceLevels.Beginner.push(cat);
-          } else if (avgHelps > 0) {
+          } else if (avgHelps === 1) {
               performanceLevels.Intermediate.push(cat);
           } else {
               performanceLevels.Proficient.push(cat);
