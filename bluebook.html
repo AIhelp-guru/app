@@ -1129,13 +1129,13 @@ function create_report(){
       const performanceLevels = { Beginner: [], Intermediate: [], Proficient: [] };
       for (const [cat, performance] of Object.entries(categoryPerformance)) {
           const avgHelps = (performance.helps / performance.total).toFixed(2);
-          console.log(cat+" - "+avgHelps);
+          //console.log(cat+" - "+avgHelps + " - " + performance.total);
           if (avgHelps > 1.8) {
-              performanceLevels.Beginner.push(cat);
+              performanceLevels.Beginner.push(cat + performance.total);
           } else if (avgHelps > 0.9 && avgHelps < 1.8) {
-              performanceLevels.Intermediate.push(cat);
+              performanceLevels.Intermediate.push(cat+ performance.total);
           } else if (avgHelps < 0.9){
-              performanceLevels.Proficient.push(cat);
+              performanceLevels.Proficient.push(cat+ performance.total);
           }
       }
 
