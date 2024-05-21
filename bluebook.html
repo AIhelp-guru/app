@@ -530,7 +530,7 @@ tr:hover {
   }
   #report-container{
     position:fixed;
-    max-width: 80%;
+    max-width: calc(100vw*80/100);
     margin: auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -572,6 +572,7 @@ tr:hover {
     }
     .chart-container {
         margin: 20px 0;
+        float:left;
     }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
