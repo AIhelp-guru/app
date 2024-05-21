@@ -576,6 +576,68 @@ tr:hover {
         margin: 20px 0;
         float:left;
     }
+    .login-popup {
+            width: 400px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            display: none;
+        }
+        .login-popup img {
+            display: block;
+            margin: 0 auto 20px;
+        }
+        .login-popup h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-popup input[type="text"],
+        .login-popup input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-popup input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .login-popup button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-popup button:hover {
+            background-color: #45a049;
+        }
+        .login-popup .forgot {
+            float: right;
+            text-decoration: none;
+        }
+        .login-popup .join {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -689,6 +751,22 @@ tr:hover {
           </tbody>
       </table>
   </div>
+  <div class="background"></div>
+  <div class="login-popup">
+    <h2>AI Tutor</h2>
+    <h2>Sign in</h2>
+    <div>
+        <input id="email" type="text" placeholder="Email ID" required>
+    
+        <input id="token" type="text" placeholder="Token" ><br>
+        <small>If you don't have a token, We will send you a token to your email</small>
+        <div>
+           
+        </div>
+        <button id="login_btn">Login</button>
+    </div>
+    
+</div>  
     <script>
         var qindex = 1;
         var qtime = 0;
@@ -711,7 +789,8 @@ function loadFromsheet(topic){
     if(sessionStorage.getItem('token') !== null){
     const token = sessionStorage.getItem('token');
     const user = sessionStorage.getItem('user');
-    
+    $(".login-popup ").show();
+    $(".background").show();
     //console.log(token);
     url = "https://script.google.com/macros/s/AKfycbwVcTsVsJPhxnzdHFX7ipGcu-ypcBUmjtGrPNpk37VHTvW2GDROosYyJVu9wVBLAn0gdQ/exec";
    // $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
