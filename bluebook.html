@@ -538,7 +538,48 @@ tr:hover {
     left:10%;
     display: none;
   }
-    </style>
+    
+      .report-container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+    h1 {
+        text-align: center;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    th, td {
+        padding: 12px;
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .summary {
+        margin: 20px 0;
+    }
+    .summary-item {
+        margin: 10px 0;
+    }
+    .correct {
+        color: green;
+    }
+    .incorrect {
+        color: red;
+    }
+    .chart-container {
+        margin: 20px 0;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -624,6 +665,16 @@ tr:hover {
           <div class="summary-item"><strong>Incorrect Answers:</strong> <span id="incorrect-answers" class="incorrect"></span></div>
           <div class="summary-item"><strong>Average Time per Question:</strong> <span id="average-time"></span> seconds</div>
           <div class="summary-item"><strong>Total Helps Used:</strong> <span id="total-helps"></span></div>
+      </div>
+
+      <div class="chart-container">
+          <canvas id="accuracyChart"></canvas>
+      </div>
+      <div class="chart-container">
+          <canvas id="timeChart"></canvas>
+      </div>
+      <div class="chart-container">
+          <canvas id="helpsChart"></canvas>
       </div>
 
       <table>
@@ -929,13 +980,8 @@ function evaluate(){
 
 function create_report(){
 
-        // Example data
-        //const u_ans = [1, 0, 1, 1, 0];
-        //const u_time = [30, 45, 25, 60, 40];
-        //const u_helps = [1, 2, 0, 1, 3];
-
-        // Calculate summary data
-        const totalQuestions = u_ans.length;
+       // Calculate summary data
+       const totalQuestions = u_ans.length;
         const correctAnswers = u_ans.filter(ans => ans === 1).length;
         const incorrectAnswers = totalQuestions - correctAnswers;
         const averageTime = (u_time.reduce((sum, time) => sum + time, 0) / totalQuestions).toFixed(2);
@@ -961,7 +1007,75 @@ function create_report(){
             `;
             reportBody.appendChild(row);
         });
-    $("#report-container").toggle();
+
+        // Chart.js configurations
+        const ctxAccuracy = document.getElementById('accuracyChart').getContext('2d');
+        const ctxTime = document.getElementById('timeChart').getContext('2d');
+        const ctxHelps = document.getElementById('helpsChart').getContext('2d');
+
+        const accuracyChart = new Chart(ctxAccuracy, {
+            type: 'bar',
+            data: {
+                labels: Array.from({ length: totalQuestions }, (_, i) => `Q${i + 1}`),
+                datasets: [{
+                    label: 'Correct Answers',
+                    data: u_ans,
+                    backgroundColor: u_ans.map(ans => ans === 1 ? 'green' : 'red')
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 1,
+                        ticks: {
+                            stepSize: 1,
+                            callback: value => value === 1 ? 'Correct' : 'Incorrect'
+                        }
+                    }
+                }
+            }
+        });
+
+        const timeChart = new Chart(ctxTime, {
+            type: 'line',
+            data: {
+                labels: Array.from({ length: totalQuestions }, (_, i) => `Q${i + 1}`),
+                datasets: [{
+                    label: 'Time Taken (s)',
+                    data: u_time,
+                    borderColor: 'blue',
+                    backgroundColor: 'rgba(0, 0, 255, 0.1)',
+                    fill: true
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const helpsChart = new Chart(ctxHelps, {
+            type: 'bar',
+            data: {
+                labels: Array.from({ length: totalQuestions }, (_, i) => `Q${i + 1}`),
+                datasets: [{
+                    label: 'Helps Used',
+                    data: u_helps,
+                    backgroundColor: 'orange'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
 }
 //Function to load from URL
 function loadfromURL(url=''){
