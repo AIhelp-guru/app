@@ -776,7 +776,7 @@ tr:hover {
         let u_ans =[]; // array of user answers - true or false
         let u_helps =[] ;//number of helps for each question
         let u_time =[]; // time taken to resolve each question
-
+        let q_cat = [];
         var username = "admin";
         var selectedQuiz = "ACT_1_reading";
         var subjects = ["Math_Algebra","Math_SAT_1","Reading_SAT_1","ACT_1_english"];
@@ -853,7 +853,8 @@ function loadQuestion(){
            
             }
               
-
+            // add to the category of the question
+            if(sheetData[num][7] !== null) q_cat.push(sheetData[num][7]);
             
             //console.log(ops.Length);
 
