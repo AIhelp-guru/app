@@ -950,6 +950,7 @@ function create_report(){
 
         // Populate report table
         const reportBody = document.getElementById('report-body');
+        $("#report-body").html('');
         u_ans.forEach((ans, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
