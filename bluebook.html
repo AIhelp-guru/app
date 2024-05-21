@@ -1144,7 +1144,7 @@ function create_report(){
       const createRow = (level, categories) => {
           const row = document.createElement('div');
           row.className = 'summary-item';
-          row.innerHTML = `<strong>${level}:</strong> ${categories.join(', ') || 'None'}`;
+          row.innerHTML = `<strong>${level}:</strong> ${categories.join('<br> ') || 'None'}`;
           return row;
       };
 
