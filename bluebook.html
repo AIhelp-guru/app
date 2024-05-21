@@ -754,13 +754,12 @@ tr:hover {
   <div class="background"></div>
   <div class="login-popup">
     <h2>AI Tutor</h2>
-    <h2>Loading the questions</h2>
+    
     <div>
+        <h2 id="start_msg">Your test is getting ready</h2>
+        <img id="start_wait" src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />
         
-        <large>Make sure you are focussed and ready to take this test. Click Start!</large>
-        <div>
-           
-        </div>
+        <br>
         <button id="start_btn">Start</button>
     </div>
     
@@ -813,6 +812,8 @@ function loadFromsheet(topic){
             $("#content").show();
           }
           loadQuestion();
+          $("#start_msg").html("Make sure you are focussed and ready to take this test.<br><br> When ready, Click Start!");
+          $("#start_wait").hide();
         }
   
     });
