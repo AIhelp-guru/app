@@ -731,6 +731,11 @@ tr:hover {
           <div class="summary-item"><strong>Total Helps Used:</strong> <span id="total-helps"></span></div>
       </div>
 
+      <div class="summary">
+          <h2>Performance by Category</h2>
+          <div id="category-performance"></div>
+      </div>
+
       <div class="chart-container">
           <canvas id="accuracyChart"></canvas>
       </div>
@@ -745,6 +750,7 @@ tr:hover {
           <thead>
               <tr>
                   <th>Question #</th>
+                  <th>Category</th>
                   <th>Answer</th>
                   <th>Time Taken (s)</th>
                   <th>Helps Used</th>
@@ -1061,9 +1067,8 @@ function evaluate(){
 }
 
 function create_report(){
-
-       // Calculate summary data
-       const totalQuestions = u_ans.length;
+ // Calculate summary data
+ const totalQuestions = u_ans.length;
         const correctAnswers = u_ans.filter(ans => ans === 1).length;
         const incorrectAnswers = totalQuestions - correctAnswers;
         const averageTime = (u_time.reduce((sum, time) => sum + time, 0) / totalQuestions).toFixed(2);
@@ -1078,20 +1083,52 @@ function create_report(){
 
         // Populate report table
         const reportBody = document.getElementById('report-body');
-        $("#report-body").html('');
         u_ans.forEach((ans, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${index + 1}</td>
+                <td>${q_cat[index]}</td>
                 <td class="${ans === 1 ? 'correct' : 'incorrect'}">${ans === 1 ? 'Correct' : 'Incorrect'}</td>
                 <td>${u_time[index]}</td>
                 <td>${u_helps[index]}</td>
             `;
             reportBody.appendChild(row);
         });
-        $("#report-container").toggle();
-        $(".container").toggle();
-        $("#chatbotPanel").toggle();
+
+        // Calculate performance by category
+        const categoryPerformance = {};
+        q_cat.forEach((cat, index) => {
+            if (!categoryPerformance[cat]) {
+                categoryPerformance[cat] = { total: 0, correct: 0 };
+            }
+            categoryPerformance[cat].total++;
+            if (u_ans[index] === 1) {
+                categoryPerformance[cat].correct++;
+            }
+        });
+
+        // Determine performance level
+        const performanceLevels = {};
+        for (const [cat, performance] of Object.entries(categoryPerformance)) {
+            const percentage = (performance.correct / performance.total * 100).toFixed(2);
+            let level = 'Beginner';
+            if (percentage >= 80) {
+                level = 'Proficient';
+            } else if (percentage >= 50) {
+                level = 'Intermediate';
+            }
+            performanceLevels[cat] = { ...performance, percentage, level };
+        }
+
+        // Update category performance summary
+        const categoryPerformanceDiv = document.getElementById('category-performance');
+        for (const [cat, performance] of Object.entries(performanceLevels)) {
+            const categorySummary = document.createElement('div');
+            categorySummary.className = 'summary-item';
+            categorySummary.innerHTML = `<strong>${cat}:</strong> ${performance.correct} / ${performance.total} (${performance.percentage}%) - ${performance.level}`;
+            categoryPerformanceDiv.appendChild(categorySummary);
+        }
+
         // Chart.js configurations
         const ctxAccuracy = document.getElementById('accuracyChart').getContext('2d');
         const ctxTime = document.getElementById('timeChart').getContext('2d');
@@ -1160,6 +1197,7 @@ function create_report(){
                 }
             }
         });
+        $("#report-container").show();
 }
 //Function to load from URL
 function loadfromURL(url=''){
