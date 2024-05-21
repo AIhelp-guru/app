@@ -1102,7 +1102,7 @@ function create_report(){
             categoryPerformance[cat].total++;
             categoryPerformance[cat].helps += u_helps[index];
         });
-
+/*
         // Determine performance level based on helps
         const performanceLevels = {};
         for (const [cat, performance] of Object.entries(categoryPerformance)) {
@@ -1124,8 +1124,33 @@ function create_report(){
             categorySummary.innerHTML = `<strong>${cat}:</strong> Avg Helps: ${performance.avgHelps} - ${performance.level}`;
             categoryPerformanceDiv.appendChild(categorySummary);
         }
-        
-       
+        */
+            // Determine performance level based on helps
+      const performanceLevels = { Beginner: [], Intermediate: [], Proficient: [] };
+      for (const [cat, performance] of Object.entries(categoryPerformance)) {
+          const avgHelps = (performance.helps / performance.total).toFixed(2);
+          if (avgHelps > 2) {
+              performanceLevels.Beginner.push(cat);
+          } else if (avgHelps > 1) {
+              performanceLevels.Intermediate.push(cat);
+          } else {
+              performanceLevels.Proficient.push(cat);
+          }
+      }
+
+      // Update category performance summary
+      const categoryPerformanceDiv = document.getElementById('category-performance');
+      const createRow = (level, categories) => {
+          const row = document.createElement('div');
+          row.className = 'summary-item';
+          row.innerHTML = `<strong>${level}:</strong> ${categories.join(', ') || 'None'}`;
+          return row;
+      };
+
+      categoryPerformanceDiv.appendChild(createRow('Beginner', performanceLevels.Beginner));
+      categoryPerformanceDiv.appendChild(createRow('Intermediate', performanceLevels.Intermediate));
+      categoryPerformanceDiv.appendChild(createRow('Proficient', performanceLevels.Proficient));
+
 
         // Populate report table
        
