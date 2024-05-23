@@ -655,7 +655,12 @@ tr:hover {
    <div class="container">
       <div class="top-section">
         
-        <div class="header"><span id='title'>Test title...</span> <span id="alert__msg" style="margin-left:50px"></span><span id="qtime"></span> <label id="pageNumber"></label><button id="nextQ" style="float:right;">Check</button></div>
+        <div class="header"><span id='title'>Test title...</span> 
+          <span id="question_id" style="margin-left:50px"></span>
+          <span id="alert__msg" style="margin-left:50px"></span>
+          <span id="qtime"></span>
+           <label id="pageNumber"></label>
+           <button id="nextQ" style="float:right;">Check</button></div>
         <button id="pagePrev"><</button>
        
         <button id="pageNext">></button>
@@ -833,15 +838,16 @@ function loadQuestion(){
   num = qindex;
 
             $("#title").html(selectedQuiz);
+            $("#question_id").html(sheetData[num][0]); // Question ID
             if(sheetData[num][1]){
-              $("#content").html(sheetData[num][1].replaceAll('\\\"',""));
+              $("#content").html(sheetData[num][1].replaceAll('\\\"',"")); // Content or passage
             }else{
               $("#content").html("");
             }
            
-            $("#question_text").html(sheetData[num][2]);
-            $("#correct_answer").html(sheetData[num][4]);
-            $("#options").html('');
+            $("#question_text").html(sheetData[num][2]); // Question text
+            $("#correct_answer").html(sheetData[num][4]); // Answer Key
+            $("#options").html(''); 
             o_text = sheetData[num][3];  // Options text "a) b) c) d)"
             //console.log(o_text.indexOf("g)"));
             let ops = [];
