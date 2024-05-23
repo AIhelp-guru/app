@@ -1473,10 +1473,10 @@ $("#prevQ").click(function(){
     });
 
       $("#save").click(function(){
-          filename = username + $("#title").text();
+          filename = user + $("#title").text();
           rw_file(filename,"update",$("#chatbotMessages").html());
       })
-      filename = username + $("#title").text();
+      filename = user + $("#title").text();
       try {
          // rw_file(filename, "read_data", '');
       } catch (error) {
