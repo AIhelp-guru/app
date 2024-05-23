@@ -1034,7 +1034,7 @@ function callgemini(prompt){
             $("#chatbotMessages").find(".user_prompt").last().parents("details").append("<div class='aiResponse' contenteditable='true'>"+data+"</div>");
             data = {
               action:"write",
-              QID : Question_ID,
+              QID : Q_ID,
               User: "madhu",
               Followup:prompt,
               Response : data
