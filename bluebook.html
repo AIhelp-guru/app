@@ -834,7 +834,7 @@ function loadQuestion(){
 
             $("#title").html(selectedQuiz);
             if(sheetData[num][1]){
-              $("#content").html(sheetData[num][0].replaceAll('\\\"',""));
+              $("#content").html(sheetData[num][1].replaceAll('\\\"',""));
             }else{
               $("#content").html("");
             }
