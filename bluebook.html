@@ -920,6 +920,17 @@ function loadQuestion(){
               $("#qtime").html(qtime);
               
             },1000)
+
+            data = {
+              action:"read",
+              QID : Q_ID,
+              User: "madhu",
+              Followup:prompt,
+              Response : data
+
+            }
+            
+            save_read(data);
             
 }
 function old_loadQuestion(){
