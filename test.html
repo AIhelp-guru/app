@@ -8,31 +8,7 @@
   <body>
     <script>
      
-        async function postData(url = '', data = {}) {
-          try {
-            const response = await fetch(url, {
-              method: 'POST',
-              mode: 'cors',
-              cache: 'no-cache',
-              credentials: 'same-origin',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              redirect: 'follow',
-              referrerPolicy: 'no-referrer',
-              body: JSON.stringify(data)
-            });
-
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            return response.json(); 
-          } catch (error) {
-            console.error('Error:', error);
-          }
-        }
-
+      
         // URL of your deployed web app
         const url = 'https://script.google.com/macros/s/AKfycbyvip7mUY01kr-k_8IoyCKt6kM3yqfx8OMJJzvRg9iqSkxVnrxml9JKwAtomEKmAQvz1A/exec';
 
