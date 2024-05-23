@@ -44,11 +44,11 @@
         };
 
         // Call to read a row
-        postData(url, readData)
+     /*   postData(url, readData)
           .then(data => {
             console.log('Read:', data); 
           });
-      });
+      });*/
       $.post(url,JSON.stringify(readData),function(response){
         console.log(response);
       })
