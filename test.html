@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Apps Script Interaction</title>
+  </head>
+  <body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        async function postData(url = '', data = {}) {
+          try {
+            const response = await fetch(url, {
+              method: 'POST',
+              mode: 'cors',
+              cache: 'no-cache',
+              credentials: 'same-origin',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              redirect: 'follow',
+              referrerPolicy: 'no-referrer',
+              body: JSON.stringify(data)
+            });
+
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            return response.json(); 
+          } catch (error) {
+            console.error('Error:', error);
+          }
+        }
+
+        // URL of your deployed web app
+        const url = 'https://script.google.com/macros/s/AKfycbyvip7mUY01kr-k_8IoyCKt6kM3yqfx8OMJJzvRg9iqSkxVnrxml9JKwAtomEKmAQvz1A/exec';
+
+        // Example data for reading a row
+        const readData = {
+          action: 'read',
+          Test_ID: 'T10001',
+          Question_ID: 'Q10001'
+        };
+
+        // Call to read a row
+        postData(url, readData)
+          .then(data => {
+            console.log('Read:', data); 
+          });
+      });
+    </script>
+  </body>
+</html>
