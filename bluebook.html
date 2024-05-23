@@ -831,33 +831,34 @@ function loadFromsheet(topic){
 }
 function loadQuestion(){
   num = qindex;
+
             $("#title").html(selectedQuiz);
-            if(sheetData[num][0]){
+            if(sheetData[num][1]){
               $("#content").html(sheetData[num][0].replaceAll('\\\"',""));
             }else{
               $("#content").html("");
             }
            
-            $("#question_text").html(sheetData[num][1]);
-            $("#correct_answer").html(sheetData[num][3]);
+            $("#question_text").html(sheetData[num][2]);
+            $("#correct_answer").html(sheetData[num][4]);
             $("#options").html('');
-            o_text = sheetData[num][2];  // Options text "a) b) c) d)"
+            o_text = sheetData[num][3];  // Options text "a) b) c) d)"
             //console.log(o_text.indexOf("g)"));
             let ops = [];
             let oa =[];
             // Split the text into an array of options
             if(o_text.indexOf("g)") >= 0){
 
-              ops = sheetData[num][2].split(/\s+[f-jF-J]\)\s+/i);
+              ops = sheetData[num][3].split(/\s+[f-jF-J]\)\s+/i);
               oa = ["f","g","h","j"];
             }else{
-              ops = sheetData[num][2].split(/\s+[a-dA-D]\)\s+/i);
+              ops = sheetData[num][3].split(/\s+[a-dA-D]\)\s+/i);
               oa = ["a","b","c","d"];
            
             }
               
             // add to the category of the question
-            if(sheetData[num][7] !== null) q_cat.push(sheetData[num][7]);
+            if(sheetData[num][8] !== null) q_cat.push(sheetData[num][8]);
             
             //console.log(ops.Length);
 
