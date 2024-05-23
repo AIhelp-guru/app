@@ -861,13 +861,14 @@ function loadQuestion(){
           let q_text = sheetData[num][2];
           let options = sheetData[num][3];
           let answer_key = sheetData[num][4];
-          let Hint = sheetData[num][5];
-          let Example = sheetData[num][6];
-          //let QID = sheetData[num][7];
-          //let QID = sheetData[num][8];
+          let explanation = sheetData[num][5];
+          let hint = sheetData[num][6];
+          let example = sheetData[num][7];
+          let category = sheetData[num][8];
           
             $("#title").html(selectedQuiz);
             $("#question_id").html(sheetData[num][0]); // Question ID
+            save_read(Q_ID);
             if(sheetData[num][1]){
               $("#content").html(sheetData[num][1].replaceAll('\\\"',"")); // Content or passage
             }else{
