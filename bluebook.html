@@ -855,7 +855,7 @@ function save_read(data){
     });*/
     $.post(url,JSON.stringify(Data),function(response){
     r = (response);
-    $("#chatbotMessages").append("<details open><summary>"+r[3]+"</summary><br>"+r[4]+"</details>");
+    $("#chatbotMessages").append("<details open><summary>"+r[3]+"</summary><div class='aiResponse'>"+r[4]+"</div></details>");
     })
 }
 let Q_ID ,content,q_text,options,answer_key,explanation,hint,example,category ;
