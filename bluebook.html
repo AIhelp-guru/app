@@ -785,7 +785,8 @@ tr:hover {
         let u_helps =[] ;//number of helps for each question
         let u_time =[]; // time taken to resolve each question
         let q_cat = [];
-        var username = "admin";
+        var user = "admin";
+        var token;
         var selectedQuiz = "ACT_1_reading";
         var subjects = ["Math_SAT_all","Math_SAT_1","Reading_SAT_1","ACT_1_english"];
         var pdfDoc = null, pageNum = 1, pageText ='', canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
@@ -796,8 +797,8 @@ tr:hover {
 function loadFromsheet(topic){
     selectedQuiz = topic;
     if(sessionStorage.getItem('token') !== null){
-    const token = sessionStorage.getItem('token');
-    const user = sessionStorage.getItem('user');
+    token = sessionStorage.getItem('token');
+    user = sessionStorage.getItem('user');
     $(".login-popup ").show();
     $(".background").show();
     //console.log(token);
@@ -840,7 +841,7 @@ function save_read(data){
     // Example data for reading a row
     const Data = {
       action: data.action,
-      Test_ID: 'T10001',
+      Test_ID: selectedQuiz,
       Question_ID: data.QID,
       User : data.User,
       Followup: data.Followup,
@@ -1045,7 +1046,7 @@ function callgemini(prompt){
             data = {
               action:"write",
               QID : Q_ID,
-              User: "madhu",
+              User: user,
               Followup:prompt,
               Response : data
 
