@@ -720,7 +720,9 @@ tr:hover {
         </div>
         <div id="alt_question_container"></div>
         <div id="hint"></div>
-        <div id="chatbotMessages"></div>
+        <div id="chatbotMessages">
+
+        </div>
         <input type="text" id="chatbotInput" placeholder="Type your question or doubt...">
         
         <button onclick="sendMessage()">Ask AI</button>
@@ -929,7 +931,7 @@ function loadQuestion(){
               User: user
 
             }
-            
+            $("#chatbotMessages").html('');
             save_read(data);
             
 }
@@ -1023,9 +1025,9 @@ function sendMessage() {
     if (message) {
         
         input.value = '';
-        $("#hint").append("<details open><summary class='user_prompt'>"+message+"</summary><div class='refQuestion'>"+$("#question_text").text()+"</div></details>");
+        $("#chatbotMessages").append("<details open><summary class='user_prompt'>"+message+"</summary><div class='refQuestion'>"+$("#question_text").text()+"</div></details>");
        
-            $("#hint").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
+            $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
             //console.log($(".middle_section").text());
             callgemini(message + "; respond in HTML format, based on this page reference:" + $(".content").text() + " - Question : " + $("#alt_question_container").text());
             
