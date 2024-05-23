@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Google Apps Script Interaction</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  
   </head>
   <body>
     <script>
@@ -47,6 +49,9 @@
             console.log('Read:', data); 
           });
       });
+      $.post(url,JSON.stringify(readData),function(response){
+        console.log(response);
+      })
     </script>
   </body>
 </html>
