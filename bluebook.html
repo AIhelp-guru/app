@@ -956,7 +956,9 @@ function old_loadQuestion(){
         }
 function addhelp(){
   num = qindex;
+           
             $("#hint").html("");
+            $("#hint").siblings().remove();
             if(sheetData[num][5] != undefined) {
               hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+sheetData[num][5]+"</div></details>";
             }else{
