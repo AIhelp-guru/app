@@ -834,14 +834,17 @@ function loadFromsheet(topic){
       location.href="login.html";
     }
 }
-function save_read(QID){
+function save_read(data){
       const url = 'https://script.google.com/macros/s/AKfycbyvip7mUY01kr-k_8IoyCKt6kM3yqfx8OMJJzvRg9iqSkxVnrxml9JKwAtomEKmAQvz1A/exec';
 
     // Example data for reading a row
-    const readData = {
-      action: 'read',
+    const Data = {
+      action: data.action,
       Test_ID: 'T10001',
-      Question_ID: 'Q10001'
+      Question_ID: data.QID,
+      User : data.User,
+      Followup: data.Followup,
+      Response: data.Response
     };
 
     // Call to read a row
@@ -850,21 +853,22 @@ function save_read(QID){
         console.log('Read:', data); 
       });
     });*/
-    $.post(url,JSON.stringify(readData),function(response){
+    $.post(url,JSON.stringify(Data),function(response){
     console.log(response);
     })
 }
+let Q_ID ,content,q_text,options,answer_key,explanation,hint,example,category ;
 function loadQuestion(){
             num = qindex;
-          let Q_ID = sheetData[num][0];
-          let content = sheetData[num][1];
-          let q_text = sheetData[num][2];
-          let options = sheetData[num][3];
-          let answer_key = sheetData[num][4];
-          let explanation = sheetData[num][5];
-          let hint = sheetData[num][6];
-          let example = sheetData[num][7];
-          let category = sheetData[num][8];
+          Q_ID = sheetData[num][0];
+          content = sheetData[num][1];
+          q_text = sheetData[num][2];
+          options = sheetData[num][3];
+          answer_key = sheetData[num][4];
+          explanation = sheetData[num][5];
+          hint = sheetData[num][6];
+          example = sheetData[num][7];
+          category = sheetData[num][8];
           
             $("#title").html(selectedQuiz);
             $("#question_id").html(sheetData[num][0]); // Question ID
@@ -1028,7 +1032,18 @@ function callgemini(prompt){
             data = data.replace("```html","").replaceAll("```","");
             data = convertToBold(data);
             $("#chatbotMessages").find(".user_prompt").last().parents("details").append("<div class='aiResponse' contenteditable='true'>"+data+"</div>");
-        },
+            data = {
+              action:"write",
+              QID : Question_ID,
+              User: "madhu",
+              Followup:prompt,
+              Response : data
+
+            }
+            
+            save_read(data);
+
+          },
         error: function(xhr, status, error) {
             console.error(error);
             $("#waiting").remove();
