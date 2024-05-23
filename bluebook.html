@@ -854,7 +854,7 @@ function save_read(data){
       });
     });*/
     $.post(url,JSON.stringify(Data),function(response){
-    r = JSON.parse(response);
+    r = (response);
     $("#chatbotMessages").append("<details open><summary>"+r[3]+"</summary><br>"+r[4]+"</details>");
     })
 }
