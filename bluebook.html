@@ -1058,7 +1058,7 @@ function callgemini(prompt){
               action:"write",
               QID : Q_ID,
               User: user,
-              Followup:input.value.trim(),
+              Followup:$("#chatbotInput").val(),
               Response : data
 
             }
