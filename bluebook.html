@@ -1029,7 +1029,14 @@ function sendMessage() {
        
             $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
             //console.log($(".middle_section").text());
-            callgemini(message + "; respond in HTML format, based on this page reference:" + $(".content").text() + " - Question : " + $("#alt_question_container").text());
+            
+            const context = {
+              subject: "math",
+              details: $("#question").text() + ", and this is part of my SAT test prep for "+ $("#content").text()
+            };
+            const detailedPrompt = createDetailedPrompt(message, context);
+            callgemini(detailedPrompt);
+            //callgemini(message + "; respond in HTML format, based on this page reference:" + $(".content").text() + " - Question : " + $("#alt_question_container").text());
             
     }
 }
@@ -1068,6 +1075,77 @@ function callgemini(prompt){
         }
     });
 }
+function createDetailedPrompt(simpleQuestion, context) {
+  // Define templates for different types of questions
+  const templates = {
+    "general": `I need help with the following question based on my current learning material:
+    
+    Question: {{QUESTION}}
+    
+    Context: {{CONTEXT}}
+    
+    Please provide a detailed and accurate answer.`,
+    
+    "math": `I am working on a SAT Practice math problem and need some assistance.
+    
+    Problem: {{QUESTION}}
+    
+    Context: {{CONTEXT}}
+
+    Format : HTML with Latex notation and SVG for diagrams
+    
+    Please provide coaching, do not directly give me answer. I want to figure out the answer`,
+    
+    "science": `I have a question related to my science studies.
+    
+    Question: {{QUESTION}}
+    
+    Context: {{CONTEXT}}
+    
+    Please explain the concept and provide any relevant examples.`,
+    
+    "literature": `I need help understanding a concept in literature.
+    
+    Question: {{QUESTION}}
+    
+    Context: {{CONTEXT}}
+    
+    Please provide a detailed analysis and any relevant references.`,
+    
+    // Add more templates as needed
+  };
+
+  // Define a function to select the appropriate template based on context
+  function selectTemplate(context) {
+    switch (context.subject.toLowerCase()) {
+      case 'math':
+        return templates.math;
+      case 'science':
+        return templates.science;
+      case 'literature':
+        return templates.literature;
+      default:
+        return templates.general;
+    }
+  }
+
+  // Select the appropriate template
+  const template = selectTemplate(context);
+
+  // Replace placeholders in the template with actual values
+  const detailedPrompt = template.replace('{{QUESTION}}', simpleQuestion).replace('{{CONTEXT}}', context.details);
+
+  return detailedPrompt;
+}
+
+// Example usage
+/*
+const simpleQuestion = "How do I solve this equation?";
+const context = {
+  subject: "math",
+  details: "The equation is 2x + 3 = 7. I am learning about linear equations."
+};
+*/
 
 
 function convertToBold(text) {
