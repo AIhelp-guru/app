@@ -1032,7 +1032,7 @@ function sendMessage() {
             
             const context = {
               subject: "math",
-              details: $("#alt_question_container").text() + " " + $("#question").text() + ", and this is part of my SAT test prep for "+ $("#content").text()
+              details: pageText + " Question I want help : " + $("#question").text() + ", and this is part of my SAT test prep for "+ $("#content").text()
             };
             const detailedPrompt = createDetailedPrompt(message, context);
             console.log(detailedPrompt);
