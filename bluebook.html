@@ -962,14 +962,14 @@ function addhelp(){
             $("#hint").html("");
             //$("#hint").siblings().remove();
             if(sheetData[num][5] != undefined) {
-              hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+sheetData[num][5]+"</div></details>";
+              hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+sheetData[num][6]+"</div></details>";
             }else{
                hint ='';
               }
             $("#hint").append(hint); 
             //console.log(sheetData[num][6]);
             if(sheetData[num][6] != undefined && (sheetData[num][6]).trim() !== "none" ) {
-              similar = "<details class='similar helps' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+ sheetData[num][6].replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>')+"<br>"+sheetData[num][7]+"</div></details>";
+              similar = "<details class='similar helps' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+ sheetData[num][5].replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>')+"<br>"+sheetData[num][7]+"</div></details>";
               $(".similar").show();
               $("#hint").append(similar);
             } else{ 
