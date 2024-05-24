@@ -1035,6 +1035,7 @@ function sendMessage() {
               details: $("#alt_question_container").text() + " " + $("#question").text() + ", and this is part of my SAT test prep for "+ $("#content").text()
             };
             const detailedPrompt = createDetailedPrompt(message, context);
+            console.log(detailedPrompt);
             callgemini(detailedPrompt);
             //callgemini(message + "; respond in HTML format, based on this page reference:" + $(".content").text() + " - Question : " + $("#alt_question_container").text());
             
