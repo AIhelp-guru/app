@@ -903,6 +903,7 @@ function loadQuestion(){
               
             // add to the category of the question
             if(sheetData[num][8] !== null) q_cat.push(sheetData[num][8]);
+            if(sheetData[num][9] !== null) $("#chatbotMessages").append("<details><summary class='user_prompt'>Questions you can ask</summary>"+sheetData[num][8]+"</details>");
             
             //console.log(ops.Length);
 
