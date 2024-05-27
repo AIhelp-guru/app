@@ -1622,7 +1622,7 @@ $("#prevQ").click(function(){
 
     })
 
-    if(location.href.indexOf("&admin")){
+    if((location.href).indexOf("&admin")>0){
       $("#skipQ").show();
       $("#correct_answer").show();
     }
