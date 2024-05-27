@@ -1469,13 +1469,15 @@ var skip = false;
 
 $("#skipQ").click(function(){
               skip = true;
+              $("#nextQ").click();
+
 })
 $("#nextQ").click(function(){ 
           
           if(skip){
             r = true;
             skip = false;
-            qindex++;
+            
           }else{
           r = evaluate();
           }
