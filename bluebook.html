@@ -1465,20 +1465,19 @@ $("#quizzes").change(function() {
 });
 
 var tries = 0;
+var skip = false;
 
 $("#skipQ").click(function(){
-              qindex++;
-              if(qindex === sheetData.length) qindex = qindex -1;
-              loadQuestion();
-              filterHelp(); 
-              addhelp();
-              $(".hint").prop("open",false);
-              tries = 0;
+              skip = true;
 })
 $("#nextQ").click(function(){ 
           
+          if(skip){
+            r =1;
+            skip = false;
+          }else{
           r = evaluate();
-
+          }
           if(r){
               $("#alt_question_container").slideUp();
               u_ans.push(1);
