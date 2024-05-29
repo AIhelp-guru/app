@@ -766,7 +766,19 @@ tr:hover {
           </tbody>
       </table>
   </div>
-
+  <div class="background"></div>
+  <div class="login-popup">
+    <h2>AI Tutor</h2>
+    
+    <div>
+        <h4 id="start_msg">Your test is getting ready</h4>
+        <img id="start_wait" src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />
+        
+        <br>
+        <button id="start_btn">Start</button>
+    </div>
+    
+</div>  
     <script>
         var qindex = 1;
         var qtime = 0;
@@ -787,11 +799,11 @@ tr:hover {
 
 function loadFromsheet(topic){
     selectedQuiz = topic;
-    if(1){
-    token = "";//sessionStorage.getItem('token');
-    user = "";//sessionStorage.getItem('user');
-   // $(".login-popup ").show();
-    //$(".background").show();
+    if(sessionStorage.getItem('token') !== null){
+    token = sessionStorage.getItem('token');
+    user = sessionStorage.getItem('user');
+    $(".login-popup ").show();
+    $(".background").show();
     //console.log(token);
     url = "https://script.google.com/macros/s/AKfycbwVcTsVsJPhxnzdHFX7ipGcu-ypcBUmjtGrPNpk37VHTvW2GDROosYyJVu9wVBLAn0gdQ/exec";
    // $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
@@ -1609,5 +1621,15 @@ $("#prevQ").click(function(){
       $(".background").hide();
 
     })
-  }
-  init();
+
+    if((location.href).indexOf("&admin")>0){
+      $("#skipQ").show();
+      $("#correct_answer").show();
+    }
+
+    }
+
+init();
+    </script>
+</body>
+</html>
