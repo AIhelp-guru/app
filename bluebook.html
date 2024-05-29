@@ -1507,13 +1507,13 @@ $("#nextQ").click(function(){
         }else{
           $("#alert__msg").html("Let us try one more time").show();
           if(tries === 0){
-            $(".hint").prop("open",true).show();
+            $(".hint").appendTo("#chatbotMessages");
             tries++;
           }else if(tries === 1){
-            $(".similar").prop("open",true).show();
+            $(".similar").appendTo("#chatbotMessages");
             tries++;
           }else{
-            $(".explanation").prop("open",true).show();
+            $(".explanation").appendTo("#chatbotMessages");
             
           }
          
