@@ -874,7 +874,10 @@ function loadQuestion(){
           hint = sheetData[num][6];
           example = sheetData[num][7];
           category = sheetData[num][8];
-          
+      if(Q_ID.trim() === ""){
+        qindex++ ;
+        num = qindex;
+      }
             $("#title").html(selectedQuiz);
             $("#question_id").html(sheetData[num][0]); // Question ID
             save_read(Q_ID);
@@ -938,6 +941,7 @@ function loadQuestion(){
             }
             $("#chatbotMessages").html('');
             save_read(data);
+      
             
 }
 function old_loadQuestion(){
@@ -1461,20 +1465,22 @@ $("#quizzes").change(function() {
 });
 
 var tries = 0;
+var skip = false;
 
 $("#skipQ").click(function(){
-              qindex++;
-              if(qindex === sheetData.length) qindex = qindex -1;
-              loadQuestion();
-              filterHelp(); 
-              addhelp();
-              $(".hint").prop("open",false);
-              tries = 0;
+              skip = true;
+              $("#nextQ").click();
+
 })
 $("#nextQ").click(function(){ 
           
+          if(skip){
+            r = true;
+            skip = false;
+            
+          }else{
           r = evaluate();
-
+          }
           if(r){
               $("#alt_question_container").slideUp();
               u_ans.push(1);
@@ -1615,9 +1621,3 @@ $("#prevQ").click(function(){
       $(".background").hide();
 
     })
-    }
-
-init();
-    </script>
-</body>
-</html>
