@@ -1507,7 +1507,8 @@ $("#nextQ").click(function(){
         }else{
           $("#alert__msg").html("Let us try one more time").show();
           if(tries === 0){
-            $(".hint").appendTo("#chatbotMessages");
+            $(".hint").appendTo("#chatbotMessages").show();
+
             tries++;
           }else if(tries === 1){
             $(".similar").appendTo("#chatbotMessages");
@@ -1516,7 +1517,7 @@ $("#nextQ").click(function(){
             $(".explanation").appendTo("#chatbotMessages");
             
           }
-         
+          
           
         }
         setTimeout(function() {
