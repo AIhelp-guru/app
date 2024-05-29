@@ -1,0 +1,1623 @@
+<html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title> AI Tutor</title>
+    <style>
+    .container {
+      font-family: Arial, sans-serif;
+      width: 60%;
+      height:calc(100vh*60/100);
+      margin: 10px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 50px;
+      margin-right:20px;
+      float:left;
+      background-color: white;
+      height: fit-content;
+    }
+    
+    .top-section {
+      margin-bottom: 20px;
+      padding: 10px;
+      border-bottom: 1px solid black;
+    }
+    
+    .header {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .time {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+      float:right;
+      width:fit-content;
+    }
+    
+    .directions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .directions span {
+      font-weight: bold;
+    }
+    
+    .directions button {
+      padding: 5px 10px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    
+    .middle-section {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    
+    .content {
+      font-size: 16px;
+      line-height: 1.5;
+      flex: 1;
+      margin-right: 20px;
+      border-right:1px solid black;
+    }
+    
+    .question {
+      flex: 1;
+    }
+    
+    .question span {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .options {
+      display: flex;
+      flex-direction: column;
+      
+     
+    }
+    
+    .option {
+      display: flex;
+      align-items: center;
+      margin:10px;
+      margin-bottom: 5px;
+      cursor: pointer;
+      border:1px solid black;
+      padding:10px;
+      border-radius:10px;
+      background-color: white;
+      color:black;
+      width: fit-content;
+      float:left;
+    }
+    .option:hover{
+        background-color: #007bff;
+        color:white;
+    }
+    .option input[type="radio"] {
+      margin-right: 10px;
+    }
+    
+    .bottom-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top:1px solid black;
+      padding:10px;
+    }
+    
+    .bottom-section span {
+      font-size: 14px;
+      color: #666;
+    }
+    
+    .bottom-section button {
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    #title{
+        width:50%;
+    }
+    #toolbar{
+    right: 0px;
+    top: 0px;
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    height: 30px;
+    background: black;
+  }    
+  /** styles for chatbot **/
+
+  #pdfViewer { 
+    width: 80%; 
+    height: 100vh; 
+    border-right: 2px solid #ccc;
+    overflow:auto;
+    margin-top:50px;
+ }
+  #answerPanel { width: 600px; padding: 20px; overflow-y: auto;display: inline-block;margin-top:50px; }
+  .answerButton { padding: 10px; margin: 5px; background-color: #f0f0f0; border: none; cursor: pointer; }
+  .answerButton:hover { background-color: #ddd; }
+   .answer{display:block;padding:10px};
+  
+  .textLayer{display: block;}
+  #chatbotPanel {
+    display: none;
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-left:10px;
+    bottom: 10px;
+    width: 35%;
+    height: calc(100vh*80/100);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px 20px 0 0;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-out;
+}
+#notes {
+    display: inline-block;
+    border-radius: 20px;
+    margin-top: 5px;
+    margin-left:10px;
+    bottom: 10px;
+    width: 100%;
+    height: 150px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px 20px 0 0;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-out;
+}
+#notesHeader {
+    padding: 10px;
+    background: #c4c4c4;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px 20px 0 0;
+}
+#chatbotHeader{
+    height:20px;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px 20px 0 0;
+}
+#chatbotHeader{
+    background: orange;
+}
+#chatbotHeader span {
+    flex-grow: 1;
+    
+}
+
+#chatbotHeader button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+}
+
+#chatbotMessages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+
+}
+
+#chatbotInput {
+    border: none;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+button {
+    cursor: pointer;
+}
+
+.chatbot-open {
+    transform: translateY(100%);
+}
+
+.chatbot-closed {
+    transform: translateY(100%);
+}
+
+#chatbotOpenButton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.aiResponse{
+    margin:5px;
+    padding:5px;
+    background-color: rgb(255, 243, 172);
+}
+.user_prompt{
+    margin:5px;
+    padding:5px;
+    background-color: rgb(228, 255, 209);
+}
+
+
+.reveal{
+    margin:10px;
+    border:none;
+}
+#main{
+    margin-top:50px;
+}
+#toolbar {
+    background-color: #e8e8e8;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+#urlForm {
+    display: none;
+    align-items: center;
+}
+
+#fileInput {
+    margin-right: 10px;
+}
+
+#pdfURL {
+    margin-right: 10px;
+}
+
+#loadfromURL,
+#pagePrev,
+#pageNext {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+#loadfromURL:hover,
+#pagePrev:hover,
+#pageNext:hover {
+    background-color: #45a049;
+}
+
+#pageNext{
+    position:fixed;
+    top:50%;
+    left:60%;
+    display: none;
+  }
+#pagePrev{
+    position:fixed;
+    top:50%;
+    left:30px;
+    display: none;
+  }
+#save_new_btn{
+    color:orange;
+    float:right;
+}
+#save{
+  cursor:pointer;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #a19b9b;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+button {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  
+}
+
+th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Answer Options Styles */
+.answer-options {
+  margin-left: 20px;
+}
+
+.answer-options label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Answer Styles */
+.answer {
+  color: gray;
+  display: none;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  margin-top: 10px;
+}
+
+.answer.correct {
+  color: green;
+}
+
+.answer.wrong {
+  color: red;
+}
+
+/* Result Styles */
+#result {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#result h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#result p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+ .notes{
+  height:50px;
+  width:100%;
+  border:1px inset gray;
+
+ }
+ #ai_result{
+   display:none;
+   background: wheat;
+    padding: 20px;
+    border: 1px solid black;
+  position: fixed;
+  right: 130px;
+  top: 55px;
+  background: yellow;
+  z-index:9999;
+  background:white;
+  width:300px;
+  height:fit-content;
+  max-height: 800px;
+  overflow:auto;
+   
+ }
+
+  #toolbar{
+    right: 0px;
+    top: 0px;
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    height: 30px;
+    background: black;
+  }
+  #question_text{margin:10px}
+  #quizzes{
+    background-color: black;
+    font-size: 1em;
+    color:orange;
+    border:none;
+  }
+  .refQuestion{
+    display: none;
+  }
+  #content{
+    padding:10px;
+    border-right:1px solid black;
+    margin:10px;
+    max-width:50%;
+    height:300px;
+    overflow:auto;
+  }
+  #pdf_content{
+    display: none;
+    padding:1px;
+   
+    margin:2px;
+    
+    height:600px;
+    overflow:auto;
+  }
+  #question_index{
+    display: none;
+  }
+  #correct_answer{
+    display: none;
+  }
+  #prevQ{
+    display: none;
+  }
+  #hint{
+    max-height: 500px;
+    overflow: auto;
+  }
+  #alt_question_container{
+    background-color: #d88c00;
+    color:white;
+  }
+  #alert__msg{
+    text-align: center;
+    color:darkblue;
+    background-color: yellow;
+    font-size:1.5em;
+    position:fixed;
+  }
+  #nextQ{
+    display: none;
+  }
+  #qtime{
+    float:right;
+    font:1.5em;
+  }
+  #report-container{
+    position:fixed;
+    max-width: calc(100vw*80/100);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    top:10%;
+    left:10%;
+    display: none;
+    height:calc(100vh*80/100);
+    overflow:auto;
+  }
+    
+     
+    h1 {
+        text-align: center;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    th, td {
+        padding: 12px;
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .summary {
+        margin: 20px 0;
+    }
+    .summary-item {
+        margin: 10px 0;
+    }
+    .correct {
+        color: green;
+    }
+    .incorrect {
+        color: red;
+    }
+    .chart-container {
+        margin: 20px 0;
+        float:left;
+    }
+    .login-popup {
+            width: 400px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            display: none;
+        }
+        .login-popup img {
+            display: block;
+            margin: 0 auto 20px;
+        }
+        .login-popup h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-popup input[type="text"],
+        .login-popup input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-popup input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .login-popup button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-popup button:hover {
+            background-color: #45a049;
+        }
+        .login-popup .forgot {
+            float: right;
+            text-decoration: none;
+        }
+        .login-popup .join {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0,0.7);
+            z-index: 999;
+        }
+        #start_btn{
+          display: none;
+        }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
+    </head>
+
+<body>
+   
+    <div id="toolbar"><select id="quizzes"><option value='Math_SAT_1'>Select a test</option></select><label id="lesson">SAT Practice Test</label><button style="margin:10px;" onclick="create_report()">Report</button></div>
+   <div class="container">
+      <div class="top-section">
+        
+        <div class="header"><span id='title'>Test title...</span> 
+          <span id="question_id" style="margin-left:50px"></span>
+          <span id="alert__msg" style="margin-left:50px"></span>
+          <span id="qtime"></span>
+           <label id="pageNumber"></label>
+           <button id="nextQ" style="float:right;">Check</button></div>
+        <button id="pagePrev"><</button>
+       
+        <button id="pageNext">></button>
+       
+        
+      </div>
+      <div class="middle-section">
+        
+        <div id="urlForm">
+          <b>Load a local pdf: </b><input type="file" id="fileInput" accept=".pdf" /> or <br><br>
+          <b>Load from a URL:</b><input id="pdfURL" value="https://aihelp-guru.github.io/app/ACT%20Practice%20Questions%20_%20The%20Princeton%20Review.pdf"/>
+      <button id="loadfromURL" onclick="loadfromURL()">Load</button>
+      </div>
+      <div id="pt" style="display: none"></div>
+        <div id="pdf_content"></div>
+        <div id="content">
+          Loading the test ...
+        </div>
+        <div id="question">
+          <div id="question_text"></div>
+          <div id="options">
+            <div class="option">
+              <input type="radio" id="option-a" name="option">
+              <label for="option-a"></label>
+            </div>
+            <div class="option">
+              <input type="radio" id="option-b" name="option">
+              <label for="option-b"></label>
+            </div>
+            <div class="option">
+              <input type="radio" id="option-c" name="option">
+              <label for="option-c"></label>
+            </div>
+            <div class="option">
+              <input type="radio" id="option-d" name="option">
+              <label for="option-d"></label>
+            </div>
+          </div>
+          <div id="correct_answer"></div>
+        </div>
+      </div>
+      <div class="bottom-section">
+        <span id="question_index">Question 1 of 27</span>
+        <button id="prevQ" style="float:right;margin:10px">Prev</button>
+        <button id="skipQ" style="float:right;margin:10px;display: none">Skip</button>
+        
+        
+        <button id="help" style="display:none;float:right;margin:10px;background-color:orange">Tutor me</button>
+      </div>
+      <div id="notes" > <div id="notesHeader">Take your notes here</div><div style="height:100%;overflow:auto"contenteditable="true"></div> </div>
+   
+    </div>
+     <div id="chatbotPanel" class="chatbot-closed">
+        <div id="chatbotHeader">
+            <span>Chatbot</span><span id="save" style="float:right">Save</span>
+            <!-- <button id="closeChatbot" onclick="toggleChatbot()">×</button> -->
+        </div>
+        <div id="alt_question_container"></div>
+        <div id="hint"></div>
+        <div id="followup_qs"></div>
+        <div id="chatbotMessages">
+
+        </div>
+        <input type="text" id="chatbotInput" placeholder="Type your question or doubt...">
+        
+        <button onclick="sendMessage()">Ask AI</button>
+    </div>
+    <div id="report-container">
+      <h1>Performance Report</h1>
+      <hr>
+      <div class="summary">
+          <div class="summary-item"><strong>Total Questions:</strong> <span id="total-questions"></span></div>
+          <div class="summary-item"><strong>Correct Answers:</strong> <span id="correct-answers" class="correct"></span></div>
+          <div class="summary-item"><strong>Incorrect Answers:</strong> <span id="incorrect-answers" class="incorrect"></span></div>
+          <div class="summary-item"><strong>Average Time per Question:</strong> <span id="average-time"></span> seconds</div>
+          <div class="summary-item"><strong>Total Helps Used:</strong> <span id="total-helps"></span></div>
+      </div>
+      <div class="summary">
+        <h2>Performance by Category</h2>
+        <div id="category-performance"></div>
+    </div>
+      <div class="chart-container">
+          <canvas id="accuracyChart"></canvas>
+      </div>
+      <div class="chart-container">
+          <canvas id="timeChart"></canvas>
+      </div>
+      <div class="chart-container">
+          <canvas id="helpsChart"></canvas>
+      </div>
+
+      <table>
+          <thead>
+              <tr>
+                  <th>Question #</th>
+                  <th>Answer</th>
+                  <th>Time Taken (s)</th>
+                  <th>Helps Used</th>
+              </tr>
+          </thead>
+          <tbody id="report-body">
+              <!-- Dynamic rows will be inserted here -->
+          </tbody>
+      </table>
+  </div>
+  <div class="background"></div>
+  <div class="login-popup">
+    <h2>AI Tutor</h2>
+    
+    <div>
+        <h4 id="start_msg">Your test is getting ready</h4>
+        <img id="start_wait" src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />
+        
+        <br>
+        <button id="start_btn">Start</button>
+    </div>
+    
+</div>  
+    <script>
+        var qindex = 1;
+        var qtime = 0;
+        var question_time = 30;
+        var qtimer;
+        let u_ans =[]; // array of user answers - true or false
+        let u_helps =[] ;//number of helps for each question
+        let u_time =[]; // time taken to resolve each question
+        let q_cat = [];
+        var user = "admin";
+        var token;
+        var selectedQuiz = "ACT_1_reading";
+        var subjects = ["Math_SAT_all","Math_SAT_1","Reading_SAT_1","ACT_1_english"];
+        var pdfDoc = null, pageNum = 1, pageText ='', canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
+
+        //var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry","Math_plane_Geometry","trignometry","Math_Nonlinear_2","fullSAT","full_SAT_2"];
+        var sheetData ="";
+
+function loadFromsheet(topic){
+    selectedQuiz = topic;
+    if(sessionStorage.getItem('token') !== null){
+    token = sessionStorage.getItem('token');
+    user = sessionStorage.getItem('user');
+    $(".login-popup ").show();
+    $(".background").show();
+    //console.log(token);
+    url = "https://script.google.com/macros/s/AKfycbwVcTsVsJPhxnzdHFX7ipGcu-ypcBUmjtGrPNpk37VHTvW2GDROosYyJVu9wVBLAn0gdQ/exec";
+   // $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
+      $.get(url+"?topic="+topic+"&user="+user+"&token="+token,function(data){
+        
+        if(data.indexOf("Error") >= 0){
+          location.href="login.html";
+        }else{
+          sheetData = (data);
+          
+          if(sheetData[1][1].indexOf(".pdf") >= 0){
+            //$("#pdfUrl").val("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
+            
+            $("#content").hide();
+            $("#alt_question_container").html($("#question"));
+            $(".middle-section:eq(0)").html($("#pdf_content").show());
+            
+            $(".option").attr("style","float:left;width:60px;background:black;color:white;")
+            loadfromURL("https://aihelp-guru.github.io/app/"+sheetData[1][1]);
+          }else{
+            $("#pdf_content").hide();
+            $("#content").show();
+          }
+          loadQuestion();
+          $("#start_msg").html("Click start, when you are ready!");
+          $("#start_wait").hide();
+          $("#start_btn").show();
+        }
+  
+    });
+  }else{
+      location.href="login.html";
+    }
+}
+function save_read(data){
+      const url = 'https://script.google.com/macros/s/AKfycbxCt6ZhyQMvoHRXysYIrM-GECpzIxsprqnJ50RGxU0NX3uM6XY8OW2aArifYYIOV8eVfg/exec';
+
+    // Example data for reading a row
+    const Data = {
+      action: data.action,
+      Test_ID: selectedQuiz,
+      Question_ID: data.QID,
+      User : data.User,
+      Followup: data.Followup,
+      Response: data.Response
+    };
+
+    $.post(url,JSON.stringify(Data),function(response){
+    for(i=0;i<response.length;i++){
+      r = (response[i]);
+    
+      if(r[4] !== undefined)
+      $("#hint").append("<details><summary class='user_prompt'>"+r[3]+"</summary><div class='aiResponse'>"+r[4]+"</div></details>");
+    
+
+    }
+    })
+}
+let Q_ID ,content,q_text,options,answer_key,explanation,hint,example,category ;
+function loadQuestion(){
+            num = qindex;
+          Q_ID = sheetData[num][0];
+          content = sheetData[num][1];
+          q_text = sheetData[num][2];
+          options = sheetData[num][3];
+          answer_key = sheetData[num][4];
+          explanation = sheetData[num][5];
+          hint = sheetData[num][6];
+          example = sheetData[num][7];
+          category = sheetData[num][8];
+          
+            $("#title").html(selectedQuiz);
+            $("#question_id").html(sheetData[num][0]); // Question ID
+            save_read(Q_ID);
+            if(sheetData[num][1]){
+              $("#content").html(sheetData[num][1].replaceAll('\\\"',"")); // Content or passage
+            }else{
+              //$("#content").html("");
+            }
+           
+            $("#question_text").html(sheetData[num][2]); // Question text
+            $("#correct_answer").html(sheetData[num][4]); // Answer Key
+            $("#options").html(''); 
+            o_text = sheetData[num][3];  // Options text "a) b) c) d)"
+            //console.log(o_text.indexOf("g)"));
+            let ops = [];
+            let oa =[];
+            // Split the text into an array of options
+            if(o_text.indexOf("g)") >= 0){
+
+              ops = sheetData[num][3].split(/\s+[f-jF-J]\)\s+/i);
+              oa = ["f","g","h","j"];
+            }else if(o_text.indexOf("<br>") >= 0){
+              ops = sheetData[num][3].split("<br>");
+              oa = ["a","b","c","d"];
+            }else {
+              ops = sheetData[num][3].split(/\s+[a-dA-D]\)\s+/i);
+              oa = ["a","b","c","d"];
+           
+            }
+              
+            // add to the category of the question
+            if(sheetData[num][8] !== null) q_cat.push(sheetData[num][8]);
+            if(sheetData[num][9] !== null) $("#followup_qs").html("<details><summary class='user_prompt'>Questions you can ask</summary>"+sheetData[num][9]+"</details>");
+            
+            //console.log(ops.Length);
+
+            for(i=0;i<ops.length;i++){
+               
+               ops_clean = ops[i].replace("a)","").replace("f)","").replace("A)",""); 
+               ops_clean = ops_clean.replace("''","");
+                $("#options").append('<div class="option"><input class="option_input" type="radio" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+oa[i]+") "+ops_clean+'</label></div>');
+            }
+            //$("#question_index").html("Question "+(num+1)+" of "+quizData.length);
+            addhelp();
+            MathJax.typeset([document.getElementsByClassName('container')]);
+            $(".helps").hide();
+            $("#alt_question_container").slideDown(1000);
+            qtime = 0;
+            $("#qtime").html(qtime);
+           qtimer =  setInterval(function(){
+              qtime++;
+              $("#qtime").html(qtime);
+              
+            },1000)
+
+            data = {
+              action:"read",
+              QID : Q_ID,
+              User: user
+
+            }
+            $("#chatbotMessages").html('');
+            save_read(data);
+            
+}
+function old_loadQuestion(){
+            num = qindex;
+            $("#title").html(selectedQuiz.replaceAll("_"," ").replace(".js",""));
+            if(quizData[num].content){
+              $("#content").html(quizData[num].content);
+            }else{
+              $("#content").html("");
+            }
+           
+            $("#question_text").html(quizData[num].question);
+            $("#correct_answer").html(quizData[num].answer);
+            $("#options").html('');
+            for(i=0;i<quizData[num].options.length;i++){
+               oa = ["a","b","c","d"];
+                
+                $("#options").append('<div class="option"><input type="radio" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+quizData[num].options[i]+'</label></div>');
+            }
+            $("#question_index").html("Question "+(num+1)+" of "+quizData.length);
+            
+            
+        }
+function addhelp(){
+  num = qindex;
+           
+            $("#hint").html("");
+            //$("#hint").siblings().remove();
+            if(sheetData[num][6] != undefined) {
+              hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+sheetData[num][6]+"</div></details>";
+            }else{
+               hint ='';
+              }
+            $("#hint").append(hint); 
+            //console.log(sheetData[num][6]);
+            if(sheetData[num][6] != undefined && (sheetData[num][7]).trim() !== "none" ) {
+              similar = "<details class='similar helps' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+ sheetData[num][7].replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>')+"<br></div></details>";
+              $(".similar").show();
+              $("#hint").append(similar);
+            } else{ 
+              similar ='';
+              $(".similar").hide();
+            }
+            
+            
+            if(sheetData[num][5] != undefined) {
+              let htmlText = sheetData[num][5].replace(/\*\*([^*]+)\*\*/g, "<h4>$1</h4>")
+                  .replace(/√\(([^)]+)\)/g, "<span style='font-size: larger;'>√($1)</span>")
+                  .replace(/∛\(([^)]+)\)/g, "<span style='font-size: larger;'>∛($1)</span>")
+                  .replace(/(\d+)√(\d+)/g, "$1<span style='font-size: larger;'>√$2</span>");
+              htmlText = htmlText.replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>');
+
+              explanation = "<details class='explanation helps' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+htmlText+"</div></details>";
+            } else{ 
+              explanation ='';
+            }
+            $("#hint").append(explanation); 
+            $(".helps").css('display','none');
+}
+function old_addhelp(){
+            num = qindex;
+            $("#hint").html("");
+            if(quizData[num].hint != undefined) {
+              hint = "<details class='hint helps' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";
+            }else{
+               hint ='';
+              }
+            $("#hint").append(hint); 
+            if(quizData[num].similar_question != undefined) {
+              similar = "<details class='similar helps' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+quizData[num].similar_question.question+"<br>"+quizData[num].similar_question.solution+"</div></details>";
+            } else{ 
+              similar ='';
+            }
+            $("#hint").append(similar);
+            
+            if(quizData[num].explanation != undefined) {
+              
+              explanation = "<details class='explanation helps' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+quizData[num].explanation+"</div></details>";
+            } else{ 
+              explanation ='';
+            }
+            $("#hint").append(explanation); 
+}
+function sendMessage() {
+    const input = document.getElementById('chatbotInput');
+    const message = input.value.trim();
+    //const imageInput = document.getElementById('imageInput');
+    //const file = imageInput.files[0];
+
+    if (message) {
+        
+        input.value = '';
+        $("#chatbotMessages").append("<details open><summary class='user_prompt'>"+message+"</summary><div class='refQuestion'>"+$("#question_text").text()+"</div></details>");
+       
+            $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
+            //console.log($(".middle_section").text());
+            
+            const context = {
+              subject: "math",
+              details: pageText + " Question I want help : " + $("#question").text() + ", and this is part of my SAT test prep for "+ $("#content").text()
+            };
+            const detailedPrompt = createDetailedPrompt(message, context);
+            console.log(detailedPrompt);
+            callgemini(detailedPrompt);
+            //callgemini(message + "; respond in HTML format, based on this page reference:" + $(".content").text() + " - Question : " + $("#alt_question_container").text());
+            
+    }
+}
+
+function callgemini(prompt){
+    
+    $.ajax({
+        url: 'https://us-central1-aihelp-382014.cloudfunctions.net/askgemini',
+
+        type: 'POST',
+        data: { "text": prompt },
+        success: function(data) {
+            $("#waiting").remove();
+            
+            data = data.replace("```html","").replaceAll("```","");
+            data = convertToBold(data);
+            $("#chatbotMessages").find(".user_prompt").last().parents("details").append("<div class='aiResponse' contenteditable='true'>"+data+"</div>");
+            data = {
+              action:"write",
+              QID : Q_ID,
+              User: user,
+              Followup:$(".user_prompt").last().html(),
+              Response : data
+
+            }
+            
+            save_read(data);
+
+          },
+        error: function(xhr, status, error) {
+            console.error(error);
+            $("#waiting").remove();
+            alert("AI didn't respond to your message. Probably due to restrictions. Ask another question");
+            //$("#chatbotMessages").find(".user_prompt").last().parents("details").append("<div class='aiResponse'>AI didn't respond to your message. Probably due to restrictions. Ask another question</div>");
+
+        }
+    });
+}
+function createDetailedPrompt(simpleQuestion, context) {
+  // Define templates for different types of questions
+  const templates = {
+    "general": `I need help with the following question based on my current learning material:
+    
+    Question: {{QUESTION}}
+    
+    Context: {{CONTEXT}}
+    
+    Please provide a detailed and accurate answer.`,
+    
+    "math": `I am working on a SAT Practice math problem and need some assistance.
+    
+    Problem: {{QUESTION}}
+    
+    Context: {{CONTEXT}}
+
+    Format : HTML with Latex notation and SVG for diagrams
+    
+    Please provide coaching, do not directly give me answer. I want to figure out the answer`,
+    
+    "science": `I have a question related to my science studies.
+    
+    Question: {{QUESTION}}
+    
+    Context: {{CONTEXT}}
+    
+    Please explain the concept and provide any relevant examples.`,
+    
+    "literature": `I need help understanding a concept in literature.
+    
+    Question: {{QUESTION}}
+    
+    Context: {{CONTEXT}}
+    
+    Please provide a detailed analysis and any relevant references.`,
+    
+    // Add more templates as needed
+  };
+
+  // Define a function to select the appropriate template based on context
+  function selectTemplate(context) {
+    switch (context.subject.toLowerCase()) {
+      case 'math':
+        return templates.math;
+      case 'science':
+        return templates.science;
+      case 'literature':
+        return templates.literature;
+      default:
+        return templates.general;
+    }
+  }
+
+  // Select the appropriate template
+  const template = selectTemplate(context);
+
+  // Replace placeholders in the template with actual values
+  const detailedPrompt = template.replace('{{QUESTION}}', simpleQuestion).replace('{{CONTEXT}}', context.details);
+
+  return detailedPrompt;
+}
+
+// Example usage
+/*
+const simpleQuestion = "How do I solve this equation?";
+const context = {
+  subject: "math",
+  details: "The equation is 2x + 3 = 7. I am learning about linear equations."
+};
+*/
+
+
+function convertToBold(text) {
+    return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+}
+
+async function rw_file(filename,action,data){
+  url="https://us-central1-aihelp-382014.cloudfunctions.net/rw_homework"
+  try {
+    if (action === "update") {
+      const response = await $.ajax({
+        url,
+        type: 'post',
+        data: { filename:JSON.stringify(filename), data: JSON.stringify(data) },
+      });
+      //console.log(response);
+    } else {
+      const response = await $.ajax({
+        url,
+        type: 'post',
+        data: { filename:JSON.stringify(filename), data: 'read_data' },
+      });
+      const teachersData = ((response).replaceAll("\\n", "").replaceAll("\\", "")).replaceAll('""',''); // Escape backslashes
+      $("#chatbotMessages").html("<div id='teachers'>" + teachersData + "</div></details>");
+      $("#teachersHelp").find("details").attr('open', false);
+      filterHelp();
+     
+      return teachersData;
+    } 
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+function filterHelp(){
+  question = $("#question_text").text();
+      $("details").each(function(){
+        $(this).prop("open",false);
+        $(this).hide();
+      })
+     
+          
+      $(".refQuestion").each(function(){
+                    if($(this).text()== question){
+                        $(this).parents("details").show();
+                    }
+                })
+}
+
+function evaluate(){
+  var selectedOption = $('input[name="option"]:checked').attr("id");
+  //console.log(selectedOption);
+  // Get the id of the selected radio button
+  // var selectedOptionId = selectedOption.attr('id');
+  if(($("#correct_answer").text().trim()).toLowerCase() !== selectedOption.toLowerCase()){
+
+    return false;
+  }else{
+    return true;
+  }
+}
+
+function create_report(){
+
+      // Calculate summary data
+      const totalQuestions = u_ans.length;
+        const correctAnswers = u_ans.filter(ans => ans === 1).length;
+        const incorrectAnswers = totalQuestions - correctAnswers;
+        const averageTime = (u_time.reduce((sum, time) => sum + time, 0) / totalQuestions).toFixed(2);
+        const totalHelps = u_helps.reduce((sum, helps) => sum + helps, 0);
+
+        // Update summary section
+        document.getElementById('total-questions').textContent = totalQuestions;
+        document.getElementById('correct-answers').textContent = correctAnswers;
+        document.getElementById('incorrect-answers').textContent = incorrectAnswers;
+        document.getElementById('average-time').textContent = averageTime;
+        document.getElementById('total-helps').textContent = totalHelps;
+
+        // Populate report table
+        const reportBody = document.getElementById('report-body');
+        u_ans.forEach((ans, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${q_cat[index]}</td>
+                <td class="${ans === 1 ? 'correct' : 'incorrect'}">${ans === 1 ? 'Correct' : 'Incorrect'}</td>
+                <td>${u_time[index]}</td>
+                <td>${u_helps[index]}</td>
+            `;
+            reportBody.appendChild(row);
+        });
+
+        // Calculate performance by category
+        const categoryPerformance = {};
+        q_cat.forEach((cat, index) => {
+            if (!categoryPerformance[cat]) {
+                categoryPerformance[cat] = { total: 0, helps: 0 };
+            }
+            categoryPerformance[cat].total++;
+            categoryPerformance[cat].helps += u_helps[index];
+        });
+/*
+        // Determine performance level based on helps
+        const performanceLevels = {};
+        for (const [cat, performance] of Object.entries(categoryPerformance)) {
+            const avgHelps = (performance.helps / performance.total).toFixed(2);
+            let level = 'Proficient';
+            if (avgHelps > 2) {
+                level = 'Beginner';
+            } else if (avgHelps > 1) {
+                level = 'Intermediate';
+            }
+            performanceLevels[cat] = { ...performance, avgHelps, level };
+        }
+
+        // Update category performance summary
+       const categoryPerformanceDiv = document.getElementById('category-performance');
+        for (const [cat, performance] of Object.entries(performanceLevels)) {
+            const categorySummary = document.createElement('div');
+            categorySummary.className = 'summary-item';
+            categorySummary.innerHTML = `<strong>${cat}:</strong> Avg Helps: ${performance.avgHelps} - ${performance.level}`;
+            categoryPerformanceDiv.appendChild(categorySummary);
+        }
+        */
+            // Determine performance level based on helps
+      const performanceLevels = { Beginner: [], Intermediate: [], Proficient: [] };
+      for (const [cat, performance] of Object.entries(categoryPerformance)) {
+          const avgHelps = (performance.helps / performance.total).toFixed(2);
+          //console.log(cat+" - "+avgHelps + " - " + performance.total);
+          if (avgHelps > 1.8) {
+              performanceLevels.Beginner.push("<li style='margin-left:150px'> " + cat+ " [ " +performance.total +" questions ]</li>");
+          } else if (avgHelps > 0.9 && avgHelps < 1.8) {
+              performanceLevels.Intermediate.push("<li style='margin-left:150px'>" + cat+ " [ " +performance.total +" questions ]</li>");
+          } else if (avgHelps < 0.9){
+              performanceLevels.Proficient.push("<li style='margin-left:150px'>" + cat+ " [ " +performance.total +" questions ]</li>");
+          }
+      }
+
+      // Update category performance summary
+      const categoryPerformanceDiv = document.getElementById('category-performance');
+      const createRow = (level, categories) => {
+          const row = document.createElement('div');
+          row.className = 'summary-item';
+          row.innerHTML = `<strong>${level}:</strong> ${categories.join('<br> ') || 'None'}`;
+          return row;
+      };
+
+      categoryPerformanceDiv.appendChild(createRow('Beginner', performanceLevels.Beginner));
+      categoryPerformanceDiv.appendChild(createRow('Intermediate', performanceLevels.Intermediate));
+      categoryPerformanceDiv.appendChild(createRow('Proficient', performanceLevels.Proficient));
+
+
+        // Populate report table
+       
+        $("#report-body").html('');
+        u_ans.forEach((ans, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td class="${ans === 1 ? 'correct' : 'incorrect'}">${ans === 1 ? 'Correct' : 'Incorrect'}</td>
+                <td>${u_time[index]}</td>
+                <td>${u_helps[index]}</td>
+            `;
+            reportBody.appendChild(row);
+        });
+        $("#report-container").toggle();
+        $(".container").toggle();
+        $("#chatbotPanel").toggle();
+        // Chart.js configurations
+        const ctxAccuracy = document.getElementById('accuracyChart').getContext('2d');
+        const ctxTime = document.getElementById('timeChart').getContext('2d');
+        const ctxHelps = document.getElementById('helpsChart').getContext('2d');
+
+        const accuracyChart = new Chart(ctxAccuracy, {
+            type: 'bar',
+            data: {
+                labels: Array.from({ length: totalQuestions }, (_, i) => `Q${i + 1}`),
+                datasets: [{
+                    label: 'Correct Answers',
+                    data: u_ans,
+                    backgroundColor: u_ans.map(ans => ans === 1 ? 'green' : 'red')
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 1,
+                        ticks: {
+                            stepSize: 1,
+                            callback: value => value === 1 ? 'Correct' : 'Incorrect'
+                        }
+                    }
+                }
+            }
+        });
+
+        const timeChart = new Chart(ctxTime, {
+            type: 'line',
+            data: {
+                labels: Array.from({ length: totalQuestions }, (_, i) => `Q${i + 1}`),
+                datasets: [{
+                    label: 'Time Taken (s)',
+                    data: u_time,
+                    borderColor: 'blue',
+                    backgroundColor: 'rgba(0, 0, 255, 0.1)',
+                    fill: true
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const helpsChart = new Chart(ctxHelps, {
+            type: 'bar',
+            data: {
+                labels: Array.from({ length: totalQuestions }, (_, i) => `Q${i + 1}`),
+                datasets: [{
+                    label: 'Helps Used',
+                    data: u_helps,
+                    backgroundColor: 'orange'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+}
+//Function to load from URL
+function loadfromURL(url=''){
+    if(url === ''){
+    url = $("#pdfURL").val();
+    }
+    
+        $("#urlForm").hide();
+        $("#pageNext").show();
+        $("#pagePrev").show();
+        
+    var loadingTask = pdfjsLib.getDocument(url);
+        loadingTask.promise.then(function(pdf) {
+            pdfDoc = pdf;
+            renderPage(1);
+            
+        });
+        
+    }
+// Function to render a page
+function renderPage(num) {
+    $("#urlForm").hide();
+    $("#pageNext").show();
+    $("#pagePrev").show();
+    
+    pdfDoc.getPage(num).then(function(page) {
+        $("#pageNumber").html(num);
+        $(".page").hide();
+        $("#p"+num).show();
+
+        // Set scale for rendering
+        var scale = 1.6;
+        var viewport = page.getViewport({ scale: scale });
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        // Render the page content to canvas
+        var renderContext = {
+            canvasContext: ctx,
+            viewport: viewport
+        };
+        var renderTask = page.render(renderContext);
+        
+        renderTask.promise.then(function() {
+            //console.log(renderContext);
+            return page.getTextContent();
+        }).then(function(textContent) {
+            // Extract text content from page
+            var strings = textContent.items.map(function(item) { return item.str; });
+            var textStr = strings.join(" "); // Join all text strings into a single string with spaces
+            pageText = (textStr); // Store the readable text
+            // alert(pageText);
+            $(".content").html(pageText);
+
+        });
+    });
+}
+
+function init(){
+// Populate the dropdown menu
+for (var i = 0; i < subjects.length; i++) {
+    $("#quizzes").append("<option value='" + subjects[i] + "'>" + subjects[i].replace(/_/g, " ") + "</option>");
+}
+
+// Change event listener for the dropdown
+$("#quizzes").change(function() {
+    selectedQuiz = $(this).val();
+   location.href = "https://aihelp-guru.github.io/app/bluebook.html?topic=" + selectedQuiz;
+
+
+});
+
+var tries = 0;
+
+$("#skipQ").click(function(){
+              qindex++;
+              if(qindex === sheetData.length) qindex = qindex -1;
+              loadQuestion();
+              filterHelp(); 
+              addhelp();
+              $(".hint").prop("open",false);
+              tries = 0;
+})
+$("#nextQ").click(function(){ 
+          
+          r = evaluate();
+
+          if(r){
+              $("#alt_question_container").slideUp();
+              u_ans.push(1);
+              u_helps.push(tries);
+              u_time.push(question_time - qtime);
+              clearInterval(qtimer);
+              qindex++;
+              if(qindex === sheetData.length) qindex = qindex -1;
+              
+              filterHelp(); 
+              addhelp();
+              $(".hint").prop("open",false);
+              tries = 0;
+              $("#alert__msg").html("Good Job!").fadeToggle(1000);;
+              setTimeout(function(){
+                
+                loadQuestion()
+              
+              },1000);
+              
+
+        }else{
+          $("#alert__msg").html("Let us try one more time").show();
+          if(tries === 0){
+            $(".hint").prop("open",true).show();
+            tries++;
+          }else if(tries === 1){
+            $(".similar").prop("open",true).show();
+            tries++;
+          }else{
+            $(".explanation").prop("open",true).show();
+            
+          }
+         
+          
+        }
+        setTimeout(function() {
+                $("#alert__msg").hide();
+            }, 2000);
+          });
+$("#prevQ").click(function(){ 
+          qindex--;
+          if(qindex <0) qindex = 0;
+          loadQuestion();
+          filterHelp();  
+          addhelp();
+          });
+
+        
+
+        
+
+        $("#help").click(function(){
+            $("#chatbotPanel").toggle();
+            //$("#notes").toggle();
+        })
+
+        $(".option").on("click",function(){
+            $(this).find("input").prop("checked","true");
+            
+        })
+        
+        $('#options').on('change', '.option_input', function() {
+        if ($(this).is(':checked')) {
+            // Take some action when any radio button within the container is checked
+            $("#nextQ").click();
+        }
+        });
+
+        $('#chatbotInput').keydown(function(event) {
+        // Check if the key pressed is the Enter key
+        if (event.which == 13) {
+            sendMessage();
+            event.preventDefault();  // Prevents the default action (form submission)
+        }else{
+            $("details").hide();
+            prompt = ($(this).val()).toLowerCase();
+            $("details").each(function(){
+                if(($(this).find("summary").text()).toLowerCase().indexOf(prompt) >=0){
+                    $(this).show();
+                }
+            })
+        }
+    });
+
+      $("#save").click(function(){
+          filename = user + $("#title").text();
+          rw_file(filename,"update",$("#chatbotMessages").html());
+      })
+      filename = user + $("#title").text();
+      try {
+         // rw_file(filename, "read_data", '');
+      } catch (error) {
+          // Handle the error
+          console.error(error);
+      }
+
+      $("#question_text").change(function(){ 
+        filterHelp();
+        
+      })
+      //loadQuestion(0);
+     
+      topic = "Reading_SAT_1";
+
+      l = location.href;
+      if(l.indexOf("?topic=")>0) {
+        topic = l.substr(l.indexOf("?topic=")+7);
+      }else{
+        topic = "Reading_SAT_1";
+      }
+      loadFromsheet(topic)
+      
+      $("#notes").show();
+
+      // Append canvas to pdfViewer only once
+    $('#pdf_content').prepend(canvas);
+        
+        document.getElementById('pageNext').addEventListener('click', function() {
+        if (pageNum >= pdfDoc.numPages) {
+            return;
+        }
+        pageNum++;
+        renderPage(pageNum);
+    });
+
+    document.getElementById('pagePrev').addEventListener('click', function() {
+        if (pageNum <= 1) {
+            return;
+        }
+        pageNum--;
+        renderPage(pageNum);
+    });
+
+    $("#start_btn").click(function(){
+      qtime = 0;
+      $(".login-popup ").hide();
+      $(".background").hide();
+
+    })
+    }
+
+init();
+    </script>
+</body>
+</html>
