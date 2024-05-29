@@ -1549,7 +1549,7 @@ $("#prevQ").click(function(){
         $('#options').on('change', '.option_input', function() {
         if ($(this).is(':checked')) {
             // Take some action when any radio button within the container is checked
-            $("#chatbotMessages").append("<div class='user_input'>"+$(this).val()+"</div>");
+            $("#chatbotMessages").append("<div class='user_prompt'>Answer "+qindex+ " : "+(this).next().text()+"</div>");
             $("#nextQ").click();
         }
         });
