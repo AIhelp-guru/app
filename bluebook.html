@@ -973,14 +973,14 @@ function addhelp(){
             $("#hint").html("");
             //$("#hint").siblings().remove();
             if(sheetData[num][6] != undefined) {
-              hint = "<details class='hint' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+sheetData[num][6]+"</div></details>";
+              hint = "<details class='hint helps' id='hint_"+num+"' open><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+sheetData[num][6]+"</div></details>";
             }else{
                hint ='';
               }
             $("#hint").append(hint); 
             //console.log(sheetData[num][6]);
             if(sheetData[num][6] != undefined && (sheetData[num][7]).trim() !== "none" ) {
-              similar = "<details class='similar helps' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+ sheetData[num][7].replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>')+"<br></div></details>";
+              similar = "<details class='similar helps' id='similar_"+num+"' open><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+ sheetData[num][7].replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>')+"<br></div></details>";
               $(".similar").show();
               $("#hint").append(similar);
             } else{ 
@@ -996,7 +996,7 @@ function addhelp(){
                   .replace(/(\d+)√(\d+)/g, "$1<span style='font-size: larger;'>√$2</span>");
               htmlText = htmlText.replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>');
 
-              explanation = "<details class='explanation helps' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+htmlText+"</div></details>";
+              explanation = "<details class='explanation helps' id='explanation_"+num+"' open><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+htmlText+"</div></details>";
             } else{ 
               explanation ='';
             }
