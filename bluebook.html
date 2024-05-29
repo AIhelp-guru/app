@@ -1496,7 +1496,7 @@ $("#nextQ").click(function(){
               addhelp();
               $(".hint").prop("open",false);
               tries = 0;
-              $("#alert__msg").html("Good Job!").fadeToggle(1000);;
+              $("#chatbotMessages").append("<div class='ai_response'>Good Job!</div>").show();
               setTimeout(function(){
                 
                 loadQuestion()
@@ -1505,7 +1505,7 @@ $("#nextQ").click(function(){
               
 
         }else{
-          $("#alert__msg").clone().html("Let us try one more time").appendTo("#chatbotMessages").show();
+          $("#chatbotMessages").append("<div class='ai_response'>Let us try one more time</div>").show();
           if(tries === 0){
             $(".hint").appendTo("#chatbotMessages").show();
 
