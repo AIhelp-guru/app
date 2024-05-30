@@ -1520,7 +1520,7 @@ $("#nextQ").click(function(){
             //$(".similar").appendTo("#chatbotMessages");
             tries++;
           }else{
-            $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Here is the correct answer.</div>").show();
+            $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Oops!! not correct.</div>").show();
             $("#chatbotMessages").find(".helps").hide();
             $("#chatbotMessages").append($("#hint").find(".explanation").html()).show();
             //$(".explanation").appendTo("#chatbotMessages");
