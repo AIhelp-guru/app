@@ -1503,21 +1503,22 @@ $("#nextQ").click(function(){
 
         }else{
           $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Let us try one more time</div>").show();
-          $("#chatbotMessages").append($("#hint").html());
+         
           $("#hint").html('');
           if(tries === 0){
             $(".helps").hide();
-          
-            $("#chatbotMessages").find(".hint").last().show();
+            $("#chatbotMessages").append($("#hint").find(".hint").html()).show();
+            
             tries++;
           }else if(tries === 1){
             $(".helps").hide();
-            $("#chatbotMessages").find(".similar").last().show();
+            $("#chatbotMessages").append($("#hint").find(".similar").html()).show();
+            
             //$(".similar").appendTo("#chatbotMessages");
             tries++;
           }else{
             $(".helps").hide();
-            $("#chatbotMessages").find(".explanation").last().show();
+            $("#chatbotMessages").append($("#hint").find(".explanation").html()).show();
             //$(".explanation").appendTo("#chatbotMessages");
             
           }
