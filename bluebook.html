@@ -261,11 +261,17 @@ button {
     margin:5px;
     padding:5px;
     background-color: rgb(255, 243, 172);
+    width:fit-content;
+    border-radius: 5px;
+    float:right;
 }
 .user_prompt{
     margin:5px;
     padding:5px;
     background-color: rgb(228, 255, 209);
+    width:fit-content;
+    border-radius: 5px;
+    float: left;
 }
 
 
@@ -1502,7 +1508,14 @@ $("#nextQ").click(function(){
               addhelp();
               $(".hint").prop("open",false);
               tries = 0;
-              $("#chatbotMessages").append("<div class='aiResponse'>Good Job!</div>").show();
+              $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Good Job!</div>").show();
+                            
+
+              setTimeout(function() {
+                $(".alert_msg").fadeOut(500, function() {
+                  $(this).remove(); // Removes the element after fade out
+                });
+              }, 2000); // This sets the delay to 2 seconds (2000 milliseconds)
               setTimeout(function(){
                 
                 loadQuestion()
@@ -1511,7 +1524,7 @@ $("#nextQ").click(function(){
               
 
         }else{
-          $("#chatbotMessages").append("<div class='aiResponse'>Let us try one more time</div>").show();
+          $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Let us try one more time</div>").show();
           if(tries === 0){
             $(".hint").appendTo("#chatbotMessages").show();
 
