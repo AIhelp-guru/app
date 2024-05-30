@@ -1511,20 +1511,20 @@ $("#nextQ").click(function(){
           if(tries === 0){
             $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Let us try one more time</div>").show();
             $("#chatbotMessages").find(".helps").hide();
-            $("#chatbotMessages").append($("#hint").find(".hint").clone()).show();
+            $("#chatbotMessages").append($("#hint").find(".hint").clone().show());
             
             tries++;
           }else if(tries === 1){
             $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Explain your answer or ask any question. Here are few:</div>").show();
             $("#chatbotMessages").find(".helps").hide();
-            $("#chatbotMessages").append($("#hint").find(".similar").clone()).show();
+            $("#chatbotMessages").append($("#hint").find(".similar").clone().show());
             
             //$(".similar").appendTo("#chatbotMessages");
             tries++;
           }else{
             $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Oops!! not correct.</div>").show();
             $("#chatbotMessages").find(".helps").hide();
-            $("#chatbotMessages").append($("#hint").find(".explanation").clone()).show();
+            $("#chatbotMessages").append($("#hint").find(".explanation").clone().show());
             //$(".explanation").appendTo("#chatbotMessages");
             
           }
