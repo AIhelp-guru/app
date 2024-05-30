@@ -1506,22 +1506,23 @@ $("#nextQ").click(function(){
           $("#chatbotMessages").append($("#hint").html());
           $("#hint").html('');
           if(tries === 0){
-            
+            $(".helps").hide();
+          
             $("#chatbotMessages").find(".hint").last().show();
             tries++;
           }else if(tries === 1){
+            $(".helps").hide();
             $("#chatbotMessages").find(".similar").last().show();
             //$(".similar").appendTo("#chatbotMessages");
             tries++;
           }else{
+            $(".helps").hide();
             $("#chatbotMessages").find(".explanation").last().show();
             //$(".explanation").appendTo("#chatbotMessages");
             
           }
           $(".alert_msg").hide();
           $(".alert_msg").last().show();
-          $(".helps").hide();
-          $(".helps").last().show();
           
           
         }
