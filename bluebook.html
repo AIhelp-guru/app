@@ -1543,6 +1543,10 @@ $("#nextQ").click(function(){
           
           
         }
+        var div = $("#chatbotMessages");
+
+              // Scroll the div to its scroll height
+              div.scrollTop(div.prop("scrollHeight"));
         setTimeout(function() {
                 $("#alert__msg").hide();
             }, 2000);
