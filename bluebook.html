@@ -973,14 +973,18 @@ function addhelp(){
             $("#hint").html("");
             //$("#hint").siblings().remove();
             if(sheetData[num][6] != undefined) {
-              hint = "<details class='hint helps' id='hint_"+num+"' open><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+sheetData[num][6]+"</div></details>";
+              //hint = "<details class='hint helps' id='hint_"+num+"' open><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+sheetData[num][6]+"</div></details>";
+              hint = "<div class='hint helps' id='hint_"+num+"' ><div class='aiResponse'>"+sheetData[num][6]+"</div></div>";
+            
             }else{
                hint ='';
               }
             $("#hint").append(hint); 
             //console.log(sheetData[num][6]);
-            if(sheetData[num][6] != undefined && (sheetData[num][7]).trim() !== "none" ) {
-              similar = "<details class='similar helps' id='similar_"+num+"' open><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+ sheetData[num][7].replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>')+"<br></div></details>";
+            if(sheetData[num][7] != undefined && (sheetData[num][7]).trim() !== "" ) {
+              //similar = "<details class='similar helps' id='similar_"+num+"' open><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+ sheetData[num][7].replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>')+"<br></div></details>";
+              similar = "<div class='similar helps' id='similar_"+num+"' ><div class='aiResponse'>"+ sheetData[num][7].replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>')+"<br></div></div>";
+              
               $(".similar").show();
               $("#hint").append(similar);
             } else{ 
@@ -996,7 +1000,9 @@ function addhelp(){
                   .replace(/(\d+)√(\d+)/g, "$1<span style='font-size: larger;'>√$2</span>");
               htmlText = htmlText.replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>');
 
-              explanation = "<details class='explanation helps' id='explanation_"+num+"' open><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+htmlText+"</div></details>";
+             // explanation = "<details class='explanation helps' id='explanation_"+num+"' open><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+htmlText+"</div></details>";
+              explanation = "<div class='explanation helps' id='explanation_"+num+"' ><div class='aiResponse'>"+htmlText+"</div></div>";
+            
             } else{ 
               explanation ='';
             }
@@ -1496,7 +1502,7 @@ $("#nextQ").click(function(){
               addhelp();
               $(".hint").prop("open",false);
               tries = 0;
-              $("#chatbotMessages").append("<div class='ai_response'>Good Job!</div>").show();
+              $("#chatbotMessages").append("<div class='aiResponse'>Good Job!</div>").show();
               setTimeout(function(){
                 
                 loadQuestion()
@@ -1505,7 +1511,7 @@ $("#nextQ").click(function(){
               
 
         }else{
-          $("#chatbotMessages").append("<div class='ai_response'>Let us try one more time</div>").show();
+          $("#chatbotMessages").append("<div class='aiResponse'>Let us try one more time</div>").show();
           if(tries === 0){
             $(".hint").appendTo("#chatbotMessages").show();
 
@@ -1549,7 +1555,7 @@ $("#prevQ").click(function(){
         $('#options').on('change', '.option_input', function() {
         if ($(this).is(':checked')) {
             // Take some action when any radio button within the container is checked
-            $("#chatbotMessages").append("<div class='user_prompt'>Answer "+qindex+ " : "+$(this).next().text()+"</div>");
+            $("#chatbotMessages").append("<div class='user_prompt'>Answer "+(qindex-1)+ " : "+$(this).next().text()+"</div>");
             $("#nextQ").click();
         }
         });
