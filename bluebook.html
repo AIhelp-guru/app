@@ -1015,30 +1015,6 @@ function addhelp(){
             $("#hint").append(explanation); 
             $(".helps").css('display','none');
 }
-function old_addhelp(){
-            num = qindex;
-            $("#hint").html("");
-            if(quizData[num].hint != undefined) {
-              hint = "<details class='hint helps' id='hint_"+num+"'><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+quizData[num].hint+"</div></details>";
-            }else{
-               hint ='';
-              }
-            $("#hint").append(hint); 
-            if(quizData[num].similar_question != undefined) {
-              similar = "<details class='similar helps' id='similar_"+num+"'><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+quizData[num].similar_question.question+"<br>"+quizData[num].similar_question.solution+"</div></details>";
-            } else{ 
-              similar ='';
-            }
-            $("#hint").append(similar);
-            
-            if(quizData[num].explanation != undefined) {
-              
-              explanation = "<details class='explanation helps' id='explanation_"+num+"'><summary class='user_prompt'>Explanation</summary><div class='aiResponse'>"+quizData[num].explanation+"</div></details>";
-            } else{ 
-              explanation ='';
-            }
-            $("#hint").append(explanation); 
-}
 function sendMessage() {
     const input = document.getElementById('chatbotInput');
     const message = input.value.trim();
@@ -1525,15 +1501,18 @@ $("#nextQ").click(function(){
 
         }else{
           $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Let us try one more time</div>").show();
+          $("#chatbotMessages").append($("#hint").clone());
           if(tries === 0){
-            $(".hint").appendTo("#chatbotMessages");
-
+            
+            $("#chatbotMessages").find(".hint").last().show();
             tries++;
           }else if(tries === 1){
-            $(".similar").appendTo("#chatbotMessages");
+            $("#chatbotMessages").find(".similar").last().show();
+            //$(".similar").appendTo("#chatbotMessages");
             tries++;
           }else{
-            $(".explanation").appendTo("#chatbotMessages");
+            $("#chatbotMessages").find(".explanation").last().show();
+            //$(".explanation").appendTo("#chatbotMessages");
             
           }
           $(".alert_msg").hide();
