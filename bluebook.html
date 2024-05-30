@@ -1493,6 +1493,7 @@ $("#nextQ").click(function(){
                 $(".alert_msg").fadeOut(500, function() {
                   $(this).remove(); // Removes the element after fade out
                   $("#history").append($("#chatbotMessages").clone().html()).show();
+                  $("#history").find(".helps").remove();
                   $("#chatbotMessages").html('');
                 });
               }, 1000); // This sets the delay to 2 seconds (2000 milliseconds)
