@@ -1503,21 +1503,24 @@ $("#nextQ").click(function(){
               $("#chatbotMessages").html('');
 
         }else{
-          $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Let us try one more time</div>").show();
+          
          
           
           if(tries === 0){
+            $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Let us try one more time</div>").show();
             $("#chatbotMessages").find(".helps").hide();
             $("#chatbotMessages").append($("#hint").find(".hint").html()).show();
             
             tries++;
           }else if(tries === 1){
+            $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Explain your answer or ask any question. Here are few:</div>").show();
             $("#chatbotMessages").find(".helps").hide();
             $("#chatbotMessages").append($("#hint").find(".similar").html()).show();
             
             //$(".similar").appendTo("#chatbotMessages");
             tries++;
           }else{
+            $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Here is the correct answer.</div>").show();
             $("#chatbotMessages").find(".helps").hide();
             $("#chatbotMessages").append($("#hint").find(".explanation").html()).show();
             //$(".explanation").appendTo("#chatbotMessages");
