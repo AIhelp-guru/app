@@ -1661,6 +1661,11 @@ $("#prevQ").click(function(){
       $("#correct_answer").show();
     }
 
+    $(".followup_question").on("click",function(){
+      $("#chatbotInput").val($(this).html());
+      sendMessage();
+    })
+
     }
 
 init();
