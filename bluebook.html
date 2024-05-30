@@ -1534,7 +1534,7 @@ $("#nextQ").click(function(){
             $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Explain your answer or ask any question. Here are few:</div>").show();
             $("#chatbotMessages").find(".helps").hide();
             $("#chatbotMessages").append($("#hint").find(".similar").clone().show());
-            
+            $(".followup_question").on("click",function(){ $("#chatbotInput").val($(this).html()); sendMessage();})
             //$(".similar").appendTo("#chatbotMessages");
             tries++;
           }else{
