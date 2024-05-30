@@ -1504,6 +1504,7 @@ $("#nextQ").click(function(){
         }else{
           $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Let us try one more time</div>").show();
           $("#chatbotMessages").append($("#hint").html());
+          $("#hint").html('');
           if(tries === 0){
             
             $("#chatbotMessages").find(".hint").last().show();
@@ -1520,7 +1521,7 @@ $("#nextQ").click(function(){
           $(".alert_msg").hide();
           $(".alert_msg").last().show();
           $(".helps").hide();
-          $(".helps").eq(qindex).show();
+          $(".helps").last().show();
           
           
         }
