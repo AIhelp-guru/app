@@ -1492,6 +1492,8 @@ $("#nextQ").click(function(){
               setTimeout(function() {
                 $(".alert_msg").fadeOut(500, function() {
                   $(this).remove(); // Removes the element after fade out
+                  $("#history").append($("#chatbotMessages").clone().html()).show();
+                  $("#chatbotMessages").html('');
                 });
               }, 1000); // This sets the delay to 2 seconds (2000 milliseconds)
               setTimeout(function(){
@@ -1499,8 +1501,7 @@ $("#nextQ").click(function(){
                 loadQuestion()
               
               },1000);
-              $("#history").append($("#chatbotMessages").clone().html()).show();
-              $("#chatbotMessages").html('');
+             
 
         }else{
           
