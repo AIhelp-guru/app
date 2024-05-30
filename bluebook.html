@@ -1526,16 +1526,18 @@ $("#nextQ").click(function(){
         }else{
           $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Let us try one more time</div>").show();
           if(tries === 0){
-            $(".hint").appendTo("#chatbotMessages").show();
+            $(".hint").appendTo("#chatbotMessages");
 
             tries++;
           }else if(tries === 1){
-            $(".similar").appendTo("#chatbotMessages").show();
+            $(".similar").appendTo("#chatbotMessages");
             tries++;
           }else{
-            $(".explanation").appendTo("#chatbotMessages").show();
+            $(".explanation").appendTo("#chatbotMessages");
             
           }
+          $(".helps").hide();
+          $(".helps").last().show();
           
           
         }
