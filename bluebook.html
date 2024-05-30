@@ -1503,7 +1503,7 @@ $("#nextQ").click(function(){
 
         }else{
           $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Let us try one more time</div>").show();
-          $("#chatbotMessages").append($("#hint").clone());
+          $("#chatbotMessages").append($("#hint").html());
           if(tries === 0){
             
             $("#chatbotMessages").find(".hint").last().show();
