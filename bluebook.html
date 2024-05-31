@@ -1047,10 +1047,11 @@ function sendMessage() {
             $("#chatbotMessages").append("<img id='waiting' src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />")
             //console.log($(".middle_section").text());
             
-            const context = {
-              subject: "math",
-              details: pageText + " Question I want help : " + $("#question").text() + ", and this is part of my SAT test prep for "+ $("#content").text()
-            };
+            // const context = {
+            //   subject: "math",
+            //   details: pageText + " Question I want help : " + $("#question").text() + ", and this is part of my SAT test prep for "+ $("#content").text()
+            // };
+            const context = 'english';
             const detailedPrompt = createDetailedPrompt(message, context);
             console.log(detailedPrompt);
             callgemini(detailedPrompt);
@@ -1122,13 +1123,13 @@ function createDetailedPrompt(simpleQuestion, context) {
     
     Please explain the concept and provide any relevant examples.`,
     
-    "literature": `I need help understanding a concept in literature.
+    "english": `I need help in this english test for ACT practice.
     
     Question: {{QUESTION}}
     
     Context: {{CONTEXT}}
     
-    Please provide a detailed analysis and any relevant references.`,
+    Help me like a tutor.`,
     
     // Add more templates as needed
   };
@@ -1140,8 +1141,8 @@ function createDetailedPrompt(simpleQuestion, context) {
         return templates.math;
       case 'science':
         return templates.science;
-      case 'literature':
-        return templates.literature;
+      case 'english':
+        return templates.english;
       default:
         return templates.general;
     }
