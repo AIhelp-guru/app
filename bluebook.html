@@ -1054,7 +1054,7 @@ function sendMessage() {
             
             //const detailedPrompt = createDetailedPrompt(message, context);
            
-            prompt = (" {instruction: As a tutor, please help with my query : " +message + "; - do not give me direct answer. context: "+ JSON.stringify(context)+ "; respond in HTML format: <ol><li> </li><li></li></ol>") ; //$("#question").text() + ", and this is part of my ACT test prep for "+ $("#content").text());
+            prompt = (" {instruction: As a tutor, please help with my query : " +message + "; - do not give me direct answer. context: "+ JSON.stringify(context)+ "; respond in HTML format, based on number of paragraphs: <ol><li> </li><li></li></ol>") ; //$("#question").text() + ", and this is part of my ACT test prep for "+ $("#content").text());
              console.log(prompt);
              callgemini(prompt);
             //callgemini(message + "; respond in HTML format, based on this page reference:" + $(".content").text() + " - Question : " + $("#alt_question_container").text());
