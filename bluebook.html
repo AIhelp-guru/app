@@ -1053,8 +1053,9 @@ function sendMessage() {
              };
             
             //const detailedPrompt = createDetailedPrompt(message, context);
-            //console.log(detailedPrompt);
-            callgemini(" {instruction: As a tutor, please help answer question : " +message + "; context: "+ context+ "; format: HTML list") ; //$("#question").text() + ", and this is part of my ACT test prep for "+ $("#content").text());
+           
+            prompt = (" {instruction: As a tutor, please help answer question : " +message + "; context: "+ context+ "; format: HTML list") ; //$("#question").text() + ", and this is part of my ACT test prep for "+ $("#content").text());
+             console.log(prompt);
             //callgemini(message + "; respond in HTML format, based on this page reference:" + $(".content").text() + " - Question : " + $("#alt_question_container").text());
             
     }
