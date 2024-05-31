@@ -1054,7 +1054,7 @@ function sendMessage() {
             
             //const detailedPrompt = createDetailedPrompt(message, context);
             //console.log(detailedPrompt);
-            callgemini(" Question I want help : " + $("#question").text() + ", and this is part of my ACT test prep for "+ $("#content").text());
+            callgemini(" Question I want help, answer as a tutor : " +message + $("#question").text() + ", and this is part of my ACT test prep for "+ $("#content").text());
             //callgemini(message + "; respond in HTML format, based on this page reference:" + $(".content").text() + " - Question : " + $("#alt_question_container").text());
             
     }
