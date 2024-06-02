@@ -894,8 +894,11 @@ function loadQuestion(){
             //console.log(o_text.indexOf("g)"));
             let ops = [];
             let oa =[];
+            let options_set = false;
             // Split the text into an array of options
-            if(o_text.indexOf("g)") >= 0){
+            if(o_text.indexOf('<div class="option">') >= 0 ){
+              options_set = true;
+            }else if(o_text.indexOf("g)") >= 0){
 
               ops = sheetData[num][3].split(/\s+[f-jF-J]\)\s+/i);
               oa = ["f","g","h","j"];
@@ -913,13 +916,16 @@ function loadQuestion(){
             if(sheetData[num][9] !== null) $("#followup_qs").html("<details><summary class='user_prompt'>Questions you can ask</summary>"+sheetData[num][9]+"</details>");
             
             //console.log(ops.Length);
-
+            if(options_set){
+              $("#options").append(o_text);
+            }else{
             for(i=0;i<ops.length;i++){
                
                ops_clean = ops[i].replace("a)","").replace("f)","").replace("A)",""); 
                ops_clean = ops_clean.replace("''","");
                 $("#options").append('<div class="option"><input class="option_input" type="radio" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+oa[i]+") "+ops_clean+'</label></div>');
             }
+          }
             //$("#question_index").html("Question "+(num+1)+" of "+quizData.length);
             addhelp();
             MathJax.typeset([document.getElementsByClassName('container')]);
