@@ -808,7 +808,7 @@ function loadFromsheet(topic){
     url = "https://script.google.com/macros/s/AKfycbwVcTsVsJPhxnzdHFX7ipGcu-ypcBUmjtGrPNpk37VHTvW2GDROosYyJVu9wVBLAn0gdQ/exec";
    // $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
       $.get(url+"?topic="+topic+"&user="+user+"&token="+token,function(data){
-        alert(data[1].length)
+        
         if(data.indexOf("Error") >= 0){
           location.href="login.html";
         }else{
@@ -1450,182 +1450,211 @@ function renderPage(num) {
     });
 }
 
-function init(){
-// Populate the dropdown menu
-for (var i = 0; i < subjects.length; i++) {
-    $("#quizzes").append("<option value='" + subjects[i] + "'>" + subjects[i].replace(/_/g, " ") + "</option>");
+function updateQ(){
+  url = "https://script.google.com/macros/s/AKfycbykAt2iHvAnOW53Liuvw3XN0jGPiEUMENJK90OQGijnY1fxIXet1IGvJAhj3aCfbQp7ag/exec";
+
+     // Data to send
+     var data = {
+      name: 'John Doe',
+      email: 'john.doe@example.com'
+    };
+
+    // Send POST request
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log('Success:', result);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+
+
+
 }
+function init(){
+    // Populate the dropdown menu
+    for (var i = 0; i < subjects.length; i++) {
+        $("#quizzes").append("<option value='" + subjects[i] + "'>" + subjects[i].replace(/_/g, " ") + "</option>");
+    }
 
-// Change event listener for the dropdown
-$("#quizzes").change(function() {
-    selectedQuiz = $(this).val();
-   location.href = "https://aihelp-guru.github.io/app/bluebook.html?topic=" + selectedQuiz;
+    // Change event listener for the dropdown
+    $("#quizzes").change(function() {
+        selectedQuiz = $(this).val();
+      location.href = "https://aihelp-guru.github.io/app/bluebook.html?topic=" + selectedQuiz;
 
 
-});
-
-var tries = 0;
-var skip = false;
-
-$("#skipQ").click(function(){
-              skip = true;
-              $("#nextQ").click();
-
-})
-$("#nextQ").click(function(){ 
-          
-          if(skip){
-            r = true;
-            skip = false;
-            
-          }else{
-          r = evaluate();
-          }
-          if(1){
-              $("#alt_question_container").slideUp();
-              u_ans.push(1);
-              u_helps.push(tries);
-              u_time.push(question_time - qtime);
-              clearInterval(qtimer);
-              qindex++;
-              if(qindex === sheetData.length) qindex = qindex -1;
-              
-              filterHelp(); 
-              addhelp();
-              $(".hint").prop("open",false);
-              tries = 0;
-              $("#alert__msg").html("Good Job!").fadeToggle(1000);;
-              setTimeout(function(){
-                
-                loadQuestion()
-              
-              },1000);
-              
-
-        }else{
-          $("#alert__msg").html("Let us try one more time").show();
-          if(tries === 0){
-            $(".hint").prop("open",true).show();
-            tries++;
-          }else if(tries === 1){
-            $(".similar").prop("open",true).show();
-            tries++;
-          }else{
-            $(".explanation").prop("open",true).show();
-            
-          }
-         
-          
-        }
-        setTimeout(function() {
-                $("#alert__msg").hide();
-            }, 2000);
-          });
-$("#prevQ").click(function(){ 
-          qindex--;
-          if(qindex <0) qindex = 0;
-          loadQuestion();
-          filterHelp();  
-          addhelp();
-          });
-
-        
-
-        
-
-        $("#help").click(function(){
-            $("#chatbotPanel").toggle();
-            //$("#notes").toggle();
-        })
-
-        $(".option").on("click",function(){
-            $(this).find("input").prop("checked","true");
-            
-        })
-        
-        $('#options').on('change', '.option_input', function() {
-        if ($(this).is(':checked')) {
-            // Take some action when any radio button within the container is checked
-            $("#nextQ").click();
-        }
-        });
-
-        $('#chatbotInput').keydown(function(event) {
-        // Check if the key pressed is the Enter key
-        if (event.which == 13) {
-            sendMessage();
-            event.preventDefault();  // Prevents the default action (form submission)
-        }else{
-            $("details").hide();
-            prompt = ($(this).val()).toLowerCase();
-            $("details").each(function(){
-                if(($(this).find("summary").text()).toLowerCase().indexOf(prompt) >=0){
-                    $(this).show();
-                }
-            })
-        }
     });
 
-      $("#save").click(function(){
-          filename = user + $("#title").text();
-          rw_file(filename,"update",$("#chatbotMessages").html());
-      })
-      filename = user + $("#title").text();
-      try {
-         // rw_file(filename, "read_data", '');
-      } catch (error) {
-          // Handle the error
-          console.error(error);
-      }
+    var tries = 0;
+    var skip = false;
 
-      $("#question_text").change(function(){ 
-        filterHelp();
-        
-      })
-      //loadQuestion(0);
-     
-      topic = "Reading_SAT_1";
-
-      l = location.href;
-      if(l.indexOf("?topic=")>0) {
-        topic = l.substr(l.indexOf("?topic=")+7);
-      }else{
-        topic = "Reading_SAT_1";
-      }
-      loadFromsheet(topic)
-      
-      $("#notes").show();
-
-      // Append canvas to pdfViewer only once
-    $('#pdf_content').prepend(canvas);
-        
-        document.getElementById('pageNext').addEventListener('click', function() {
-        if (pageNum >= pdfDoc.numPages) {
-            return;
-        }
-        pageNum++;
-        renderPage(pageNum);
-    });
-
-    document.getElementById('pagePrev').addEventListener('click', function() {
-        if (pageNum <= 1) {
-            return;
-        }
-        pageNum--;
-        renderPage(pageNum);
-    });
-
-    $("#start_btn").click(function(){
-      qtime = 0;
-      $(".login-popup ").hide();
-      $(".background").hide();
+    $("#skipQ").click(function(){
+                  skip = true;
+                  $("#nextQ").click();
 
     })
+    $("#nextQ").click(function(){ 
+              
+              if(skip){
+                r = true;
+                skip = false;
+                
+              }else{
+              r = evaluate();
+              }
+              if(1){
+                  $("#alt_question_container").slideUp();
+                  u_ans.push(1);
+                  u_helps.push(tries);
+                  u_time.push(question_time - qtime);
+                  clearInterval(qtimer);
+                  qindex++;
+                  if(qindex === sheetData.length) qindex = qindex -1;
+                  
+                  filterHelp(); 
+                  addhelp();
+                  $(".hint").prop("open",false);
+                  tries = 0;
+                  $("#alert__msg").html("Good Job!").fadeToggle(1000);;
+                  setTimeout(function(){
+                    
+                    loadQuestion()
+                  
+                  },1000);
+                  
 
-    if((location.href).indexOf("&admin")>0){
-      $("#skipQ").show();
-      $("#correct_answer").show();
-    }
+            }else{
+              $("#alert__msg").html("Let us try one more time").show();
+              if(tries === 0){
+                $(".hint").prop("open",true).show();
+                tries++;
+              }else if(tries === 1){
+                $(".similar").prop("open",true).show();
+                tries++;
+              }else{
+                $(".explanation").prop("open",true).show();
+                
+              }
+            
+              
+            }
+            setTimeout(function() {
+                    $("#alert__msg").hide();
+                }, 2000);
+              });
+    $("#prevQ").click(function(){ 
+              qindex--;
+              if(qindex <0) qindex = 0;
+              loadQuestion();
+              filterHelp();  
+              addhelp();
+              });
+
+            
+
+            
+
+            $("#help").click(function(){
+                $("#chatbotPanel").toggle();
+                //$("#notes").toggle();
+            })
+
+            $(".option").on("click",function(){
+                $(this).find("input").prop("checked","true");
+                
+            })
+            
+            $('#options').on('change', '.option_input', function() {
+            if ($(this).is(':checked')) {
+                // Take some action when any radio button within the container is checked
+                $("#nextQ").click();
+            }
+            });
+
+            $('#chatbotInput').keydown(function(event) {
+            // Check if the key pressed is the Enter key
+            if (event.which == 13) {
+                sendMessage();
+                event.preventDefault();  // Prevents the default action (form submission)
+            }else{
+                $("details").hide();
+                prompt = ($(this).val()).toLowerCase();
+                $("details").each(function(){
+                    if(($(this).find("summary").text()).toLowerCase().indexOf(prompt) >=0){
+                        $(this).show();
+                    }
+                })
+            }
+        });
+
+          $("#save").click(function(){
+              // filename = user + $("#title").text();
+              // rw_file(filename,"update",$("#chatbotMessages").html());
+              updateQ();
+          })
+          filename = user + $("#title").text();
+          try {
+            // rw_file(filename, "read_data", '');
+          } catch (error) {
+              // Handle the error
+              console.error(error);
+          }
+
+          $("#question_text").change(function(){ 
+            filterHelp();
+            
+          })
+          //loadQuestion(0);
+        
+          topic = "Reading_SAT_1";
+
+          l = location.href;
+          if(l.indexOf("?topic=")>0) {
+            topic = l.substr(l.indexOf("?topic=")+7);
+          }else{
+            topic = "Reading_SAT_1";
+          }
+          loadFromsheet(topic)
+          
+          $("#notes").show();
+
+          // Append canvas to pdfViewer only once
+        $('#pdf_content').prepend(canvas);
+            
+            document.getElementById('pageNext').addEventListener('click', function() {
+            if (pageNum >= pdfDoc.numPages) {
+                return;
+            }
+            pageNum++;
+            renderPage(pageNum);
+        });
+
+        document.getElementById('pagePrev').addEventListener('click', function() {
+            if (pageNum <= 1) {
+                return;
+            }
+            pageNum--;
+            renderPage(pageNum);
+        });
+
+        $("#start_btn").click(function(){
+          qtime = 0;
+          $(".login-popup ").hide();
+          $(".background").hide();
+
+        })
+
+        if((location.href).indexOf("&admin")>0){
+          $("#skipQ").show();
+          $("#correct_answer").show();
+        }
 
     }
 
