@@ -1458,16 +1458,16 @@ function updateQ(){
           content = $("#content").html();
           q_text = $("#question_text").html();
           options = $("#options").html();
-          answer_key = sheetData[num][4];
-          explanation = sheetData[num][5];
-          hint = sheetData[num][6];
-          example = sheetData[num][7];
-          category = sheetData[num][8];
+          answer_key = $("#correct_answer").text();
+          explanation = $(".explanation").find(".aiResponse").html();
+          hint = $(".hint").find(".aiResponse").html();
+          example = $(".similar").find(".aiResponse").html();
+          //category = sheetData[num][8];
 
      // Data to send
      var data = {
       subject: 'Reading_SAT_3',
-      data: [[Q_ID,content,q_text,options]]
+      data: [[Q_ID,content,q_text,options,answer_key,explanation,hint,example]]
     };
     
     
