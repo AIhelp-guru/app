@@ -1453,10 +1453,21 @@ function renderPage(num) {
 function updateQ(){
   url = "https://script.google.com/macros/s/AKfycbxWo8qvoC7JaAo4oSOptvJE7MftI4D5bCTbDyL8e4XTSNfRBHNalP3BbDKvl8frCBV1gw/exec";
 
+
+          Q_ID = $("#question_id").text();
+          content = $("#content").html();
+          q_text = $("#question_text").html();
+          options = $("#options").html();
+          answer_key = sheetData[num][4];
+          explanation = sheetData[num][5];
+          hint = sheetData[num][6];
+          example = sheetData[num][7];
+          category = sheetData[num][8];
+
      // Data to send
      var data = {
       subject: 'Reading_SAT_3',
-      data: [['Q10011','update from web','test data3']]
+      data: [[Q_ID,content,q_text,options]]
     };
     
     
