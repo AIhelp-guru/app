@@ -757,7 +757,7 @@ tr:hover {
         <div id="chatbotMessages">
 
         </div>
-        <details id="other_questions"><summary>More help</summary></details> 
+        <details id="other_questions"><summary>AI help</summary></details> 
         <input type="text" id="chatbotInput" placeholder="Type your question or doubt...">
         
         <button onclick="sendMessage()">Ask AI</button>
@@ -884,7 +884,7 @@ function save_read(data){
       Followup: data.Followup,
       Response: data.Response
     };
-    $("#other_questions").html("<summary>Other questions</summary>").hide();
+    $("#other_questions").html("<summary>AI Help</summary>").hide();
     $.post(url,JSON.stringify(Data),function(response){
         for(i=0;i<response.length;i++){
           r = (response[i]);
@@ -1551,7 +1551,7 @@ $("#nextQ").click(function(){
             
             tries++;
           }else if(tries === 1){
-            $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Explain your answer or ask any question. Here are few:</div>").show();
+            $("#chatbotMessages").append("<div class='aiResponse alert_msg'>AI can help, type why did you choose that option or see below help</div>").show();
             $("#other_questions").attr("open",true);
             // $("#chatbotMessages").find(".helps").hide();
             // $("#chatbotMessages").append($("#hint").find(".similar").clone().show());
