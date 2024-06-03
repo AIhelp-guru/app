@@ -1618,6 +1618,7 @@ $("#prevQ").click(function(){
             $("#other_questions").find("details").each(function(){
                 if(($(this).find("summary").text()).toLowerCase().indexOf(prompt) >=0){
                     $(this).show();
+                    $("#other_questions").attr("open",true);
                 }
             })
         }
