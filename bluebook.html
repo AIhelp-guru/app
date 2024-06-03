@@ -1613,9 +1613,9 @@ $("#prevQ").click(function(){
             sendMessage();
             event.preventDefault();  // Prevents the default action (form submission)
         }else{
-            $("details").hide();
+            $("#other_questions").find("details").hide();
             prompt = ($(this).val()).toLowerCase();
-            $("details").each(function(){
+            $("#other_questions").find("details").each(function(){
                 if(($(this).find("summary").text()).toLowerCase().indexOf(prompt) >=0){
                     $(this).show();
                 }
