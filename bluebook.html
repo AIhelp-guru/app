@@ -1552,9 +1552,10 @@ $("#nextQ").click(function(){
             tries++;
           }else if(tries === 1){
             $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Explain your answer or ask any question. Here are few:</div>").show();
-            $("#chatbotMessages").find(".helps").hide();
-            $("#chatbotMessages").append($("#hint").find(".similar").clone().show());
-            $(".followup_question").on("click",function(){ $("#chatbotInput").val($(this).html()); sendMessage();})
+            $("#other_questions").attr("open",true);
+            // $("#chatbotMessages").find(".helps").hide();
+            // $("#chatbotMessages").append($("#hint").find(".similar").clone().show());
+            // $(".followup_question").on("click",function(){ $("#chatbotInput").val($(this).html()); sendMessage();})
             //$(".similar").appendTo("#chatbotMessages");
             tries++;
           }else{
