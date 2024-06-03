@@ -745,6 +745,7 @@ tr:hover {
         <div id="alt_question_container"></div>
         <div id="hint"></div>
         <div id="followup_qs"></div>
+        <details id="other_questions"><summary>Other questions</summary></details> 
         <details id="history"><summary>History</summary></details>
         <div id="chatbotMessages">
 
@@ -876,13 +877,13 @@ function save_read(data){
       Followup: data.Followup,
       Response: data.Response
     };
-
+    $("#other_questions").html("<summary>Other questions</summary>");
     $.post(url,JSON.stringify(Data),function(response){
     for(i=0;i<response.length;i++){
       r = (response[i]);
     
       if(r[4] !== undefined)
-      $("#hint").append("<details><summary class='user_prompt'>"+r[3]+"</summary><div class='aiResponse'>"+r[4]+"</div></details>");
+      $("#other_questions").append("<details><summary class='user_prompt'>"+r[3]+"</summary><div class='aiResponse'>"+r[4]+"</div></details>");
     
 
     }
@@ -973,7 +974,7 @@ function loadQuestion(){
 
             }
             //$("#chatbotMessages").html('');
-            //save_read(data);
+            save_read(data);
       
             
 }
