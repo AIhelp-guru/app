@@ -659,6 +659,7 @@ tr:hover {
         
         <div class="header"><span id='title'>Test title...</span> 
           <span id="question_id" style="margin-left:50px"></span>
+          <input id="getquestion" />
           <span id="alert__msg" style="margin-left:50px"></span>
           <span id="qtime"></span>
            <label id="pageNumber"></label>
@@ -1614,6 +1615,14 @@ function init(){
                 })
             }
         });
+          $('#getquestion').keydown(function(event) {
+            // Check if the key pressed is the Enter key
+            if (event.which == 13) {
+              qindex =  $('#getquestion').val();
+              loadQuestion();
+            }
+
+          });
 
           $("#save").click(function(){
               // filename = user + $("#title").text();
