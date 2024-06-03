@@ -1617,7 +1617,7 @@ function init(){
         });
           $('#getquestion').keydown(function(event) {
             // Check if the key pressed is the Enter key
-            if (event.which == 13) {
+            if (event.which === 13) {
               qindex =  $('#getquestion').val();
               loadQuestion();
             }
