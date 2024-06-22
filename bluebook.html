@@ -1698,7 +1698,10 @@ $("#prevQ").click(function(){
 
 
     }
-
+    if((location.href).indexOf("&contentonly")>0){
+      $("#chatbotPanel").hide();
+      $(".container").css("width","auto");
+    }
     $(".followup_question").on("click",function(){
       $("#chatbotInput").val($(this).html());
       sendMessage();
