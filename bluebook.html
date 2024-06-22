@@ -1689,6 +1689,11 @@ $("#prevQ").click(function(){
       $("#skipQ").show();
       $("#correct_answer").show();
     }
+    if((location.href).indexOf("&chatonly")>0){
+      $(".container").hide();
+      $("#chatbotPanel").css("width","auto");
+
+    }
 
     $(".followup_question").on("click",function(){
       $("#chatbotInput").val($(this).html());
