@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF.js Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        #pageNext, #pagePrev {
+            display: none;
+        }
+        .page {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="urlForm">
+        <label for="pdfUrl">PDF URL:</label>
+        <input type="text" id="pdfUrl" name="pdfUrl" value="ACT_1_english.pdf">
+        <button id="loadPdf">Load PDF</button>
+    </div>
+    
+    <div>
+        <button id="pagePrev">Previous Page</button>
+        <span id="pageNumber"></span>
+        <button id="pageNext">Next Page</button>
+    </div>
+    
+    <div class="content"></div>
+    <canvas id="pdfCanvas"></canvas>
+    
+    <script>
+        $(document).ready(function() {
+            $.getScript("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js", function() {
+                var canvas = document.getElementById('pdfCanvas'),
+                    ctx = canvas.getContext('2d'),
+                    pdfDoc = null,
+                    currentPage = 1;
+
+                $('#loadPdf').on('click', function() {
+                    var url = $('#pdfUrl').val();
+                    loadfromURL(url);
+                });
+
+                $('#pageNext').on('click', function() {
+                    if (pdfDoc && currentPage < pdfDoc.numPages) {
+                        renderPage(++currentPage);
+                    }
+                });
+
+                $('#pagePrev').on('click', function() {
+                    if (pdfDoc && currentPage > 1) {
+                        renderPage(--currentPage);
+                    }
+                });
+
+                function loadfromURL(url) {
+                    if (url === '') {
+                        url = prompt("Enter pdf url");
+                    }
+
+                    var loadingTask = pdfjsLib.getDocument(url);
+                    loadingTask.promise.then(function(pdf) {
+                        pdfDoc = pdf;
+                        renderPage(1);
+                    });
+                }
+
+                function renderPage(num) {
+                    $("#urlForm").hide();
+                    $("#pageNext").show();
+                    $("#pagePrev").show();
+
+                    pdfDoc.getPage(num).then(function(page) {
+                        $("#pageNumber").html(num);
+                        $(".page").hide();
+                        $("#p" + num).show();
+
+                        var scale = 1.6;
+                        var viewport = page.getViewport({ scale: scale });
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+
+                        var renderContext = {
+                            canvasContext: ctx,
+                            viewport: viewport
+                        };
+                        var renderTask = page.render(renderContext);
+
+                        renderTask.promise.then(function() {
+                            return page.getTextContent();
+                        }).then(function(textContent) {
+                            var strings = textContent.items.map(function(item) { return item.str; });
+                            var textStr = strings.join(" ");
+                            $(".content").html(textStr);
+                        });
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
