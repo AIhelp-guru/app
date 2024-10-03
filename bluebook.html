@@ -825,10 +825,9 @@ tr:hover {
         var user = "admin";
         var token;
         var selectedQuiz = "ACT_1_reading";
-        var subjects = ["Math_SAT_all","Math_SAT_1","Reading_SAT_1","ACT_1_english"];
+        var subjects = ["ACT_1_english","ACT_1_reading","ACT_1_science","ACT_1_math"];
         var pdfDoc = null, pageNum = 1, pageText ='', canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
 
-        //var subjects = ["Math_Algebra", "Math_Nonlinear","Math_Coordinate_Geometry","Math_plane_Geometry","trignometry","Math_Nonlinear_2","fullSAT","full_SAT_2"];
         var sheetData ="";
 
 function loadFromsheet(topic){
@@ -1647,7 +1646,7 @@ $("#prevQ").click(function(){
       })
       //loadQuestion(0);
      
-      topic = "Reading_SAT_1";
+      topic = "ACT_1_english";
 
       l = location.href;
       if(l.indexOf("?topic=")>0) {
