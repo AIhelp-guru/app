@@ -822,6 +822,7 @@ tr:hover {
         let u_helps =[] ;//number of helps for each question
         let u_time =[]; // time taken to resolve each question
         let q_cat = [];
+        let user_performance;
         var user = "admin";
         var token;
         var selectedQuiz = "ACT_1_reading";
@@ -1323,7 +1324,7 @@ function create_report(){
               performanceLevels.Proficient.push("<li style='margin-left:150px'>" + cat+ " [ " +performance.total +" questions ]</li>");
           }
       }
-
+      user_performance = performanceLevels;
       // Update category performance summary
       const categoryPerformanceDiv = document.getElementById('category-performance');
       const createRow = (level, categories) => {
