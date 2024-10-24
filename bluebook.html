@@ -920,10 +920,10 @@ function loadQuestion(){
             $("#title").html(selectedQuiz);
             $("#question_id").html(sheetData[num][0]); // Question ID
             save_read(Q_ID);
-            if(sheetData[num][1]){
+            if(sheetData[num][1].trim() !== ''){
               $("#content").html(sheetData[num][1].replaceAll('\\\"',"")); // Content or passage
             }else{
-              //$("#content").html("");
+              $("#content").html("");
             }
            
             $("#question_text").html(sheetData[num][2]); // Question text
