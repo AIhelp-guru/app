@@ -638,11 +638,42 @@ tr:hover {
             margin-top: 20px;
         }
         #main-menu{
-            width: 300px;
-            height: 200px;
-            overflow: auto;
-            
-            }
+            display: flex;
+            gap: 20px;
+            padding: 10px;
+        }
+        /* Subject container styling */
+        .subject {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 200px;
+        }
+        /* Subject title styling */
+        .subject > a {
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        /* Submenu styling */
+        .sub-menu {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .sub-menu li a {
+            text-decoration: none;
+            color: #555;
+            display: block;
+            padding: 5px;
+        }
+        .sub-menu li a:hover {
+            background-color: #f0f0f0;
+            color: #000;
+        }
+ 
         .background {
             position: fixed;
             top: 0;
@@ -810,7 +841,63 @@ tr:hover {
   </div>
   <div class="background"></div>
   <div id="main-menu" class="login-popup">
-    here would be menu
+     
+        <!-- English Subject Menu -->
+        <div class="subject">
+            <a href="#">English</a>
+            <ul class="sub-menu">
+                <li><a href="#">Usage/Mechanics</a></li>
+                <li><a href="#">Rhetorical Skills</a></li>
+                <li><a href="#">Grammar and Punctuation</a></li>
+                <li><a href="#">Sentence Structure</a></li>
+                <li><a href="#">Style and Strategy</a></li>
+            </ul>
+        </div>
+
+        <!-- Math Subject Menu -->
+        <div class="subject">
+            <a href="#">Math</a>
+            <ul class="sub-menu">
+                <li><a href="#">Pre-Algebra</a></li>
+                <li><a href="#">Elementary Algebra</a></li>
+                <li><a href="#">Intermediate Algebra</a></li>
+                <li><a href="#">Coordinate Geometry</a></li>
+                <li><a href="#">Plane Geometry</a></li>
+                <li><a href="#">Trigonometry</a></li>
+            </ul>
+        </div>
+
+        <!-- Reading Subject Menu -->
+        <div class="subject">
+            <a href="#">Reading</a>
+            <ul class="sub-menu">
+                <li><a href="#">Prose Fiction</a></li>
+                <li><a href="#">Humanities</a></li>
+                <li><a href="#">Social Science</a></li>
+                <li><a href="#">Natural Science</a></li>
+            </ul>
+        </div>
+
+        <!-- Science Subject Menu -->
+        <div class="subject">
+            <a href="#">Science</a>
+            <ul class="sub-menu">
+                <li><a href="#">Data Representation</a></li>
+                <li><a href="#">Research Summaries</a></li>
+                <li><a href="#">Conflicting Viewpoints</a></li>
+            </ul>
+        </div>
+
+        <!-- Writing Subject Menu -->
+        <div class="subject">
+            <a href="#">Writing</a>
+            <ul class="sub-menu">
+                <li><a href="#">Persuasive Writing</a></li>
+                <li><a href="#">Analytical Writing</a></li>
+                <li><a href="#">Structure and Focus</a></li>
+            </ul>
+        </div>
+    
     </div>
   <div id="startup" class="login-popup">
     <h2>AI Tutor</h2>
