@@ -638,7 +638,7 @@ tr:hover {
             margin-top: 20px;
         }
         #main-menu{
-            display: none;
+            display: flex;
             gap: 20px;
             padding: 10px;
         }
@@ -1581,6 +1581,8 @@ function renderPage(num) {
 
 function init(){
 // Populate the dropdown menu
+
+ $("#main-menu ").hide();
 for (var i = 0; i < subjects.length; i++) {
     $("#quizzes").append("<option value='" + subjects[i] + "'>" + subjects[i].replace(/_/g, " ") + "</option>");
 }
