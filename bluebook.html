@@ -682,7 +682,9 @@ tr:hover {
 
 <body>
    
-    <div id="toolbar"><select id="quizzes"><option value='Math_SAT_1'>Select a test</option></select><label id="lesson">SAT Practice Test</label><button style="margin:10px;" onclick="create_report()">Report</button></div>
+    <div id="toolbar">
+          <button id="menu_btn">Menu</button>
+        <select id="quizzes"><option value='Math_SAT_1'>Select a test</option></select><label id="lesson">SAT Practice Test</label><button style="margin:10px;" onclick="create_report()">Report</button></div>
    <div class="container">
       <div class="top-section">
         
@@ -801,7 +803,10 @@ tr:hover {
       </table>
   </div>
   <div class="background"></div>
-  <div class="login-popup">
+  <div id="main_menu" class="login-popup">
+    here would be menu
+    </div>
+  <div id="startup" class="login-popup">
     <h2>AI Tutor</h2>
     
     <div>
@@ -1685,7 +1690,12 @@ $("#prevQ").click(function(){
       $(".background").hide();
 
     })
+   $("#menu_btn").click(function(){
+      
+      $("#main-menu ").show();
+      $(".background").show();
 
+    })
     if((location.href).indexOf("&admin")>0){
       $("#skipQ").show();
       $("#correct_answer").show();
