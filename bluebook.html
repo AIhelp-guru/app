@@ -688,6 +688,7 @@ tr:hover {
             cursor: pointer;
             font-size: 16px;
             border-radius: 5px;
+            height: 50px;
         }
         .cancel-button:hover {
             background-color: #c9302c;
@@ -916,7 +917,8 @@ tr:hover {
                 <li><a href="#">Structure and Focus</a></li>
             </ul>
         </div>
-     <button class="cancel-button" onclick="$(this).parent().hide();">Cancel</button>
+     <button class="cancel-button" onclick="$(this).parent().hide();
+      $('.background').hide();">Cancel</button>
     </div>
   <div id="startup" class="login-popup">
     <h2>AI Tutor</h2>
