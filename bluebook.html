@@ -1780,11 +1780,16 @@ $("#prevQ").click(function(){
       l = location.href;
       if(l.indexOf("?topic=")>0) {
         topic = l.substr(l.indexOf("?topic=")+7);
+        loadFromsheet(topic)
+      }else{    
+        $(".login-popup ").hide();
+        $("#main-menu ").show();
+        $(".background").show();
       }
       if(topic.indexOf("://")>0){
         topic = topic.substr(topic.indexOf("/"))
       }
-      loadFromsheet(topic)
+      
       
       $("#notes").show();
 
