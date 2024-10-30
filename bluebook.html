@@ -1040,20 +1040,20 @@ let Q_ID ,content,q_text,options,answer_key,explanation,hint,example,category ;
 function loadQuestion(){
             num = qindex;
          console.log(sheetData[num]);
-          Q_ID = sheetData[num][1];
+          Q_ID = sheetData[num]['Question_ID'];
 
-          content = sheetData[num][2];
-          q_text = sheetData[num][3];
-          options = sheetData[num][4];
-          answer_key = sheetData[num][5];
-          explanation = sheetData[num][6];
-          hint = sheetData[num][7];
-          example = sheetData[num][8];
-          category = sheetData[num][9];
-      // if(Q_ID.trim() === ""){
+          content = sheetData[num]['passage'];
+          q_text = sheetData[num]['Question'];
+          options = sheetData[num]['Options'];
+          answer_key = sheetData[num]['Answer'];
+          explanation = sheetData[num]['Explanation'];
+          hint = sheetData[num]['Hint'];
+          example = sheetData[num]['Example'];
+          category = sheetData[num]['Category'];
+      if(Q_ID.trim() === ""){
         qindex++ ;
         num = qindex;
-      // }
+       }
             $("#title").html(selectedQuiz);
             $("#question_id").html(sheetData[num][0]); // Question ID
            // save_read(Q_ID);
