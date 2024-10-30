@@ -1039,8 +1039,9 @@ function save_read(data){
 let Q_ID ,content,q_text,options,answer_key,explanation,hint,example,category ;
 function loadQuestion(){
             num = qindex;
-         
+         console.log(sheetData[num]);
           Q_ID = sheetData[num][1];
+
           content = sheetData[num][2];
           q_text = sheetData[num][3];
           options = sheetData[num][4];
