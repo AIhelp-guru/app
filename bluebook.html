@@ -1055,18 +1055,18 @@ function loadQuestion(){
         num = qindex;
        }
             $("#title").html(selectedQuiz);
-            $("#question_id").html(sheetData[num][0]); // Question ID
-           // save_read(Q_ID);
-            if(sheetData[num][1].trim() !== ''){
-              $("#content").html(sheetData[num][1].replaceAll('\\\"',"")); // Content or passage
+            $("#question_id").html(Q_ID); // Question ID
+             save_read(Q_ID);
+            if(content.trim() !== ''){
+              $("#content").html(content.replaceAll('\\\"',"")); // Content or passage
             }else{
               $("#content").html("");
             }
            
-            $("#question_text").html(sheetData[num][2]); // Question text
-            $("#correct_answer").html(sheetData[num][4]); // Answer Key
+            $("#question_text").html(q_text); // Question text
+            $("#correct_answer").html(options); // Answer Key
             $("#options").html(''); 
-            o_text = sheetData[num][3];  // Options text "a) b) c) d)"
+            o_text = options;  // Options text "a) b) c) d)"
             //console.log(o_text.indexOf("g)"));
             let ops = [];
             let oa =[];
@@ -1076,19 +1076,19 @@ function loadQuestion(){
               options_set = true;
             }else if(o_text.indexOf("g)") >= 0){
 
-              ops = sheetData[num][3].split(/\s+[f-jF-J]\)\s+/i);
+              ops = options.split(/\s+[f-jF-J]\)\s+/i);
               oa = ["f","g","h","j"];
             }else if(o_text.indexOf("<br>") >= 0){
-              ops = sheetData[num][3].split("<br>");
+              ops = options.split("<br>");
               oa = ["a","b","c","d"];
             }else {
-              ops = sheetData[num][3].split(/\s+[a-eA-E]\)\s+/i);
+              ops = options.split(/\s+[a-eA-E]\)\s+/i);
               oa = ["a","b","c","d","e"];
            
             }
               
             // add to the category of the question
-            if(sheetData[num][8] !== null) q_cat.push(sheetData[num][8]);
+            if(category !== null) q_cat.push(category);
             //if(sheetData[num][9] !== null) $("#followup_qs").html("<details><summary class='user_prompt'>Questions you can ask</summary>"+sheetData[num][9]+"</details>");
             
             //console.log(ops.Length);
