@@ -1613,7 +1613,7 @@ function renderPage(num) {
 }
 function savePerformance(user,subject,topic,QID,tries){
  url = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=update&subject="+subject+"&topic="+topic+"&question="+QID+"&tries"+tries;
- const response = await $.ajax({
+ const response = $.ajax({
         url,
         type: 'get'
       });
