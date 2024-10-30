@@ -955,6 +955,7 @@ tr:hover {
         let user_performance;
         var user = "admin";
         var token;
+        let topic;
         var selectedQuiz = "ACT_prep_english";
         var subjects = ["ACT_prep_english","ACT_prep_math","ACT_1_science","ACT_1_math"];
         var pdfDoc = null, pageNum = 1, pageText ='', canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
@@ -1610,6 +1611,14 @@ function renderPage(num) {
         });
     });
 }
+function savePerformance(user,subject,topic,QID,tries){
+ url = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=update&subject="+subject+"&topic="+topic+"&question="+QID+"&tries"+tries;
+ const response = await $.ajax({
+        url,
+        type: 'get'
+      });
+
+}
 
 function init(){
 // Populate the dropdown menu
@@ -1626,6 +1635,8 @@ $("#quizzes").change(function() {
 
 
 });
+
+
 
 var tries = 0;
 var skip = false;
@@ -1658,7 +1669,7 @@ $("#nextQ").click(function(){
               $(".hint").prop("open",false);
               tries = 0;
               $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Good Job! Let us go to next question.</div><hr>").show();
-                            
+              savePerformance(user,topic,category,Q_ID,tries);              
 
               setTimeout(function() {
                 $(".alert_msg").fadeOut(500, function() {
