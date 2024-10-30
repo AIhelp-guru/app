@@ -1049,10 +1049,10 @@ function loadQuestion(){
           hint = sheetData[num][7];
           example = sheetData[num][8];
           category = sheetData[num][9];
-      if(Q_ID.trim() === ""){
+      // if(Q_ID.trim() === ""){
         qindex++ ;
         num = qindex;
-      }
+      // }
             $("#title").html(selectedQuiz);
             $("#question_id").html(sheetData[num][0]); // Question ID
             save_read(Q_ID);
