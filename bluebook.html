@@ -982,16 +982,17 @@ function loadFromsheet(topic){
         }else{
           sheetData = (data);
           
-          if(sheetData[1][1].indexOf(".pdf") >= 0){
-            //$("#pdfUrl").val("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
+          // if(sheetData[1][1].indexOf(".pdf") >= 0){
+          //   //$("#pdfUrl").val("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
             
-            $("#content").hide();
-            $("#alt_question_container").html($("#question"));
-            $(".middle-section:eq(0)").html($("#pdf_content").show());
+          //   $("#content").hide();
+          //   $("#alt_question_container").html($("#question"));
+          //   $(".middle-section:eq(0)").html($("#pdf_content").show());
             
-            $(".option").attr("style","float:left;width:60px;background:black;color:white;")
-            loadfromURL("https://aihelp-guru.github.io/app/"+sheetData[1][1]);
-          }else{
+          //   $(".option").attr("style","float:left;width:60px;background:black;color:white;")
+          //   loadfromURL("https://aihelp-guru.github.io/app/"+sheetData[1][1]);
+          // }else
+          {
             $("#pdf_content").hide();
             $("#content").show();
           }
