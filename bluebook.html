@@ -1667,10 +1667,11 @@ $("#nextQ").click(function(){
               
               filterHelp(); 
               addhelp();
+              savePerformance(user,topic,category,Q_ID,tries); 
               $(".hint").prop("open",false);
               tries = 0;
               $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Good Job! Let us go to next question.</div><hr>").show();
-              savePerformance(user,topic,category,Q_ID,tries);              
+                           
 
               setTimeout(function() {
                 $(".alert_msg").fadeOut(500, function() {
