@@ -1039,15 +1039,16 @@ function save_read(data){
 let Q_ID ,content,q_text,options,answer_key,explanation,hint,example,category ;
 function loadQuestion(){
             num = qindex;
-          Q_ID = sheetData[num][0];
-          content = sheetData[num][1];
-          q_text = sheetData[num][2];
-          options = sheetData[num][3];
-          answer_key = sheetData[num][4];
-          explanation = sheetData[num][5];
-          hint = sheetData[num][6];
-          example = sheetData[num][7];
-          category = sheetData[num][8];
+         
+          Q_ID = sheetData[num][1];
+          content = sheetData[num][2];
+          q_text = sheetData[num][3];
+          options = sheetData[num][4];
+          answer_key = sheetData[num][5];
+          explanation = sheetData[num][6];
+          hint = sheetData[num][7];
+          example = sheetData[num][8];
+          category = sheetData[num][9];
       if(Q_ID.trim() === ""){
         qindex++ ;
         num = qindex;
