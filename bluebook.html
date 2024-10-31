@@ -1617,8 +1617,8 @@ function renderPage(num) {
         });
     });
 }
-function savePerformance(user,subject,topic,QID,tries){
- url = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=update&subject="+subject+"&topic="+topic+"&question="+QID+"&tries="+tries;
+function savePerformance(user,subject,topic,QID,tries,timetaken){
+ url = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=update&subject="+subject+"&topic="+topic+"&question="+QID+"&tries="+tries+"&timetaken="+timetaken;
  console.log(url);
  const response = $.ajax({
         url,
@@ -1667,6 +1667,7 @@ $("#nextQ").click(function(){
               u_ans.push(1);
               u_helps.push(tries);
               u_time.push(question_time - qtime);
+              savePerformance(user,topic,category,Q_ID,tries,(question_time - qtime)); 
               clearInterval(qtimer);
               qindex++;
               if(qindex === sheetData.length) qindex = qindex -1;
