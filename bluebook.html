@@ -975,7 +975,7 @@ function loadFromsheet(topic){
    if(parameters.subtopic !== undefined){
     subtopic = parameters.subtopic;
    }
-    url =  "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=question&subject="+topic+"&subtopic="+subtopic;
+    url =  "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=question&subject="+topic+"&subtopic="+encodeURIComponent(subtopic);
     console.log(url);
    // $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
     //$.get(url+"?topic="+topic+"&user="+user+"&token="+token,function(data){
