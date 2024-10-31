@@ -1621,8 +1621,8 @@ function renderPage(num) {
         });
     });
 }
-function savePerformance(user,subject,topic,QID,tries,timetaken){
- url = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=update&subject="+subject+"&topic="+topic+"&question="+QID+"&tries="+tries+"&timetaken="+timetaken;
+function savePerformance(user,subject,subtopic,QID,tries,timetaken){
+ url = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=update&subject="+subject+"&subtopic="+subtopic+"&question="+QID+"&tries="+tries+"&timetaken="+timetaken;
  console.log(url);
  const response = $.ajax({
         url,
@@ -1694,7 +1694,7 @@ $("#nextQ").click(function(){
               
               filterHelp(); 
               addhelp();
-              savePerformance(user,topic,category,Q_ID,tries); 
+              
               $(".hint").prop("open",false);
               tries = 0;
               $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Good Job! Let us go to next question.</div><hr>").show();
