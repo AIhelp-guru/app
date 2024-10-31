@@ -961,7 +961,9 @@ tr:hover {
         var pdfDoc = null, pageNum = 1, pageText ='', canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
 
         var sheetData ="";
-
+function filterforcategory(data){
+  if(locatio)
+}
 function loadFromsheet(topic){
     selectedQuiz = topic;
     if(sessionStorage.getItem('token') !== null){
@@ -980,7 +982,7 @@ function loadFromsheet(topic){
         if(data.indexOf("Error") >= 0){
           location.href="login.html";
         }else{
-          sheetData = (data);
+          sheetData = filterforcategory(data);
           
           // if(sheetData[1][1].indexOf(".pdf") >= 0){
           //   //$("#pdfUrl").val("https://aihelp-guru.github.io/app/"+sheetData[1][0]);
@@ -1647,6 +1649,22 @@ $("#quizzes").change(function() {
 
 var tries = 0;
 var skip = false;
+function getUrlParameters() {
+    const url = new URL(window.location.href); // Read the current URL
+    const params = new URLSearchParams(url.search); // Get the search part (query parameters)
+    const queryParams = {};
+
+    params.forEach((value, key) => {
+        queryParams[key] = value; // Add each parameter as a key-value pair
+    });
+
+    return queryParams;
+}
+
+
+const parameters = getUrlParameters();
+console.log(parameters); // Outputs the parameters as an object
+
 
 $("#skipQ").click(function(){
               skip = true;
