@@ -1628,6 +1628,21 @@ function savePerformance(user,subject,topic,QID,tries,timetaken){
       });
 
 }
+function getUrlParameters() {
+    const url = new URL(window.location.href); // Read the current URL
+    const params = new URLSearchParams(url.search); // Get the search part (query parameters)
+    const queryParams = {};
+
+    params.forEach((value, key) => {
+        queryParams[key] = value; // Add each parameter as a key-value pair
+    });
+
+    return queryParams;
+}
+
+
+const parameters = getUrlParameters();
+console.log(parameters); // Outputs the parameters as an object
 
 function init(){
 // Populate the dropdown menu
@@ -1649,21 +1664,6 @@ $("#quizzes").change(function() {
 
 var tries = 0;
 var skip = false;
-function getUrlParameters() {
-    const url = new URL(window.location.href); // Read the current URL
-    const params = new URLSearchParams(url.search); // Get the search part (query parameters)
-    const queryParams = {};
-
-    params.forEach((value, key) => {
-        queryParams[key] = value; // Add each parameter as a key-value pair
-    });
-
-    return queryParams;
-}
-
-
-const parameters = getUrlParameters();
-console.log(parameters); // Outputs the parameters as an object
 
 
 $("#skipQ").click(function(){
