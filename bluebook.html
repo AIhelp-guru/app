@@ -1675,7 +1675,7 @@ function fetchAndDisplayMenu() {
       // Construct the menu item with the desired structure
       const menuItem = `
         <li>
-          <a href="https://main.html?topic=${encodeURIComponent(category)}" class="${proficiency}">
+          <a href="?user=${user}&topic=${encodeURIComponent(category)}" class="${proficiency}">
             ${category}
           </a>
         </li>
