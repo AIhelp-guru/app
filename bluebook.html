@@ -1659,7 +1659,7 @@ const parameters = getUrlParameters();
 console.log(parameters); // Outputs the parameters as an object
 
 function fetchAndDisplayMenu() {
-  dataUrl = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user=madhutemp@gmail.com&crud=categories&subject=ACT_english&subtopic=all";
+  dataUrl = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=categories&subject=ACT_english";
   $.getJSON(dataUrl, function (data) {
     // Target element where the menu will be displayed
     const menuContainer = $('#English');  // Assuming there's a <ul id="menu"></ul> in HTML
