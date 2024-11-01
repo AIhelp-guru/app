@@ -874,9 +874,9 @@ tr:hover {
   <div id="main-menu" >
      
         <!-- English Subject Menu -->
-        <div class="subject">
+        <div class="subject" >
             <a href="https://aihelp-guru.github.io/app/bluebook.html?topic=ACT_prep_english">English</a>
-            <ul class="sub-menu">
+            <ul class="sub-menu" id="English">
                 <li><a href="#">Usage/Mechanics</a></li>
                 <li><a href="#">Rhetorical Skills</a></li>
                 <li><a href="https://aihelp-guru.github.io/app/bluebook.html?topic=ACT_prep_english&subtopic=Punctuation">Grammar and Punctuation</a></li>
@@ -1646,6 +1646,39 @@ function getUrlParameters() {
 const parameters = getUrlParameters();
 console.log(parameters); // Outputs the parameters as an object
 
+function fetchAndDisplayMenu() {
+  dataUrl = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user=madhutemp@gmail.com&crud=categories&subject=ACT_english&subtopic=all";
+  $.getJSON(dataUrl, function (data) {
+    // Target element where the menu will be displayed
+    const menuContainer = $('#English');  // Assuming there's a <ul id="menu"></ul> in HTML
+
+    // Clear any existing content in the menu
+    menuContainer.empty();
+
+    // Iterate over each item in the fetched data
+    data.forEach(item => {
+      const category = item.Category;
+      const proficiency = item.Proficiency;
+
+      // Construct the menu item with the desired structure
+      const menuItem = `
+        <li>
+          <a href="https://main.html?topic=${encodeURIComponent(category)}" class="${proficiency}">
+            ${category}
+          </a>
+        </li>
+      `;
+
+      // Append the menu item to the container
+      menuContainer.append(menuItem);
+    });
+  })
+  .fail(function () {
+    console.error('Error fetching data from URL');
+  });
+}
+
+
 function init(){
 // Populate the dropdown menu
 
@@ -1894,6 +1927,7 @@ $("#prevQ").click(function(){
     }
 
 init();
+fetchAndDisplayMenu()
     </script>
 </body>
 </html>
