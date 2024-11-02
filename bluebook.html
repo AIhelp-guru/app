@@ -701,7 +701,7 @@ tr:hover {
 
         /* Beginner level styling */
         .Beginner {
-          background-color: #f5e1e1;
+          background-color: #f7c1c1;
           color: #c00;
         }
         .Beginner::before {
@@ -714,7 +714,7 @@ tr:hover {
 
         /* Intermediate level styling */
         .Intermediate {
-          background-color: #fdf2ce;
+          background-color: #ffe693;
           color: #b68b00;
         }
         .Intermediate::before {
@@ -727,7 +727,7 @@ tr:hover {
 
         /* Proficient level styling */
         .Proficient {
-          background-color: #dff0d8;
+          background-color: #c2f5ae;
           color: #3c763d;
         }
         .Proficient::before {
@@ -740,8 +740,8 @@ tr:hover {
 
         /* Expert level styling */
         .Expert {
-          background-color: #d9edf7;
-          color: #31708f;
+          background-color: #02df57;
+          color: #013e20;
         }
         .Expert::before {
           content: '✔'; /* Checkmark symbol */
@@ -1726,8 +1726,8 @@ function fetchAndDisplayMenu() {
 
       // Construct the menu item with the desired structure
       const menuItem = `
-        <li>
-          <a href="?topic=${encodeURIComponent(category)}" class="${proficiency}">
+        <li class="${proficiency}">
+          <a href="?topic=${encodeURIComponent(category)}" >
             ${category}
           </a>
         </li>
