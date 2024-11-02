@@ -1919,7 +1919,7 @@ $("#prevQ").click(function(){
       topic = "ACT_prep_english";
 
       l = location.href;
-      if(l.indexOf("?topic=")>0) {
+      if(parameters.topic !== undefined) {
         topic = l.substr(l.indexOf("?topic=")+7);
         loadFromsheet(topic)
       }else{    
