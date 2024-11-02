@@ -687,34 +687,70 @@ tr:hover {
             background-color: #f0f0f0;
             color: #000;
         }
-        /* Styles for each proficiency level */
-      .Beginner {
-        background-color: #f5e1e1; /* Light red */
-        color: #c00; /* Dark red text */
-        padding: 10px;
-        border-radius: 5px;
-      }
+                    /* Base styling for all proficiency levels */
+        .Beginner, .Intermediate, .Proficient, .Expert {
+          padding: 10px;
+          border-radius: 5px;
+          display: block;
+          margin: 5px 0;
+          text-decoration: none;
+          color: inherit; /* Use color from each proficiency level */
+          position: relative; /* For positioning the pseudo-element */
+          padding-left: 25px; /* Space for the symbol on the left */
+        }
 
-      .Intermediate {
-        background-color: #fdf2ce; /* Light yellow */
-        color: #b68b00; /* Dark yellow text */
-        padding: 10px;
-        border-radius: 5px;
-      }
+        /* Beginner level styling */
+        .Beginner {
+          background-color: #f5e1e1;
+          color: #c00;
+        }
+        .Beginner::before {
+          content: '*';
+          color: white;
+          font-weight: bold;
+          position: absolute;
+          left: 10px;
+        }
 
-      .Proficient {
-        background-color: #dff0d8; /* Light green */
-        color: #3c763d; /* Dark green text */
-        padding: 10px;
-        border-radius: 5px;
-      }
+        /* Intermediate level styling */
+        .Intermediate {
+          background-color: #fdf2ce;
+          color: #b68b00;
+        }
+        .Intermediate::before {
+          content: '**';
+          color: white;
+          font-weight: bold;
+          position: absolute;
+          left: 10px;
+        }
 
-      .Expert {
-        background-color: #d9edf7; /* Light blue */
-        color: #31708f; /* Dark blue text */
-        padding: 10px;
-        border-radius: 5px;
-      }
+        /* Proficient level styling */
+        .Proficient {
+          background-color: #dff0d8;
+          color: #3c763d;
+        }
+        .Proficient::before {
+          content: '***';
+          color: white;
+          font-weight: bold;
+          position: absolute;
+          left: 10px;
+        }
+
+        /* Expert level styling */
+        .Expert {
+          background-color: #d9edf7;
+          color: #31708f;
+        }
+        .Expert::before {
+          content: '✔'; /* Checkmark symbol */
+          color: white;
+          font-weight: bold;
+          position: absolute;
+          left: 10px;
+        }
+
  /* Cancel button styling */
         .cancel-button {
             display: block;
