@@ -1916,7 +1916,7 @@ $("#prevQ").click(function(){
       })
       //loadQuestion(0);
      
-      topic = "ACT_prep_english";
+    
 
       l = location.href;
       if(parameters.topic !== undefined) {
@@ -1927,9 +1927,7 @@ $("#prevQ").click(function(){
         $("#main-menu ").show();
         $(".background").show();
       }
-      if(topic.indexOf("://")>0){
-        topic = topic.substr(topic.indexOf("/"))
-      }
+     
       
       
       $("#notes").show();
