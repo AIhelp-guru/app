@@ -1686,7 +1686,7 @@ function renderPage(num) {
     });
 }
 function savePerformance(user,subject,subtopic,QID,tries,timetaken){
- url = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=update&subject="+subject+"&subtopic="+subtopic+"&question="+QID+"&tries="+tries+"&timetaken="+timetaken;
+ url = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=update&subject="+parameters.subject+"&subtopic="+subtopic+"&question="+QID+"&tries="+tries+"&timetaken="+timetaken;
  console.log(url);
  const response = $.ajax({
         url,
