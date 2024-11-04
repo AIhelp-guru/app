@@ -641,37 +641,41 @@ tr:hover {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    position:fixed;
-    top:10%;
-    z-index:9999;
-    background:white;
-    width:80%;
 }
 
+/* Styling for the tab buttons */
 .tab-link {
     background-color: #e0e0e0;
     border: none;
-    padding: 10px;
+    padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    float:left;
-    
+    border-radius: 5px 5px 0 0; /* Rounded corners at the top */
+    margin-right: 5px;
+    flex: 1;
 }
 
+/* Container for the tab buttons */
+.tab-buttons {
+    display: flex;
+    border-bottom: 2px solid #ccc;
+}
+
+/* Styling for the active tab */
 .tab-link.active {
     background-color: #fff;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #fff; /* Matches background to create seamless effect */
 }
 
+/* Content styling */
 .tab-content {
     display: none;
-    padding: 10px;
+    padding: 20px;
     border: 1px solid #ccc;
     border-top: none;
-    border-radius: 5px;
+    border-radius: 0 5px 5px 5px; /* Rounded corners at the bottom */
 }
+
 
         #menu_btn{
           margin: 20px;
