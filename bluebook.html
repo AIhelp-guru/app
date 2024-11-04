@@ -735,6 +735,8 @@ tr:hover {
         .Beginner, .Intermediate, .Proficient, .Expert {
           padding: 10px;
           border-radius: 15px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+          transition: box-shadow 0.3s ease; /* Smooth shadow transition */
           display: inline-block;
           margin: 10px 10px;
           text-decoration: none;
@@ -745,7 +747,7 @@ tr:hover {
         }
         .Beginner>a, .Intermediate>a, .Proficient>a, .Expert>a {
             text-decoration: none;
-            color: #c00;
+            color: #333;
         }
         /* Beginner level styling */
         .Beginner {
