@@ -1000,11 +1000,7 @@ tr:hover {
     <div id="English" class="tab-content" style="display: block;">
         <a href="https://aihelp-guru.github.io/app/bluebook.html?subject=ACT_english&topic=all">English</a>
         <ul class="sub-menu">
-            <li><a href="#">Usage/Mechanics</a></li>
-            <li><a href="#">Rhetorical Skills</a></li>
-            <li><a href="#">Grammar and Punctuation</a></li>
-            <li><a href="#">Sentence Structure</a></li>
-            <li><a href="#">Style and Strategy</a></li>
+            
         </ul>
     </div>
 
@@ -1012,12 +1008,7 @@ tr:hover {
     <div id="Math" class="tab-content" style="display: none;">
         <a href="https://aihelp-guru.github.io/app/bluebook.html?topic=ACT_math&topic=all">Math</a>
         <ul class="sub-menu">
-            <li class="Beginner"><a href="#">Pre-Algebra</a></li>
-            <li class="Intermediate"><a href="#">Elementary Algebra</a></li>
-            <li class="Proficient"><a href="#">Intermediate Algebra</a></li>
-            <li class="Expert"><a href="#">Coordinate Geometry</a></li>
-            <li><a href="#">Plane Geometry</a></li>
-            <li><a href="#">Trigonometry</a></li>
+            
         </ul>
     </div>
 
@@ -1025,10 +1016,7 @@ tr:hover {
     <div id="Reading" class="tab-content" style="display: none;">
         <a href="#">Reading</a>
         <ul class="sub-menu">
-            <li><a href="#">Prose Fiction</a></li>
-            <li><a href="#">Humanities</a></li>
-            <li><a href="#">Social Science</a></li>
-            <li><a href="#">Natural Science</a></li>
+           
         </ul>
     </div>
 
@@ -1036,9 +1024,7 @@ tr:hover {
     <div id="Science" class="tab-content" style="display: none;">
         <a href="https://aihelp-guru.github.io/app/bluebook.html?topic=ACT_prep_science">Science</a>
         <ul class="sub-menu">
-            <li><a href="#">Data Representation</a></li>
-            <li><a href="#">Research Summaries</a></li>
-            <li><a href="#">Conflicting Viewpoints</a></li>
+           
         </ul>
     </div>
 
@@ -1781,37 +1767,39 @@ console.log(parameters); // Outputs the parameters as an object
 function fetchAndDisplayMenu(tabName) {
   
     dataUrl = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=categories&subject=ACT_"+tabName.toLowerCase();
-  
+
+    if($('#'+tabName).find(".sub-menu").text() === ""){
   
     
-  $.getJSON(dataUrl, function (data) {
-    // Target element where the menu will be displayed
-    const menuContainer = $('#'+tabName);  // Assuming there's a <ul id="menu"></ul> in HTML
-
-    // Clear any existing content in the menu
-    menuContainer.empty();
-
-    // Iterate over each item in the fetched data
-    data.forEach(item => {
-      const category = item.Category;
-      const proficiency = item.Proficiency;
-
-      // Construct the menu item with the desired structure
-      const menuItem = `
-        <li class="${proficiency}">
-          <a href="?subject=${encodeURIComponent(parameters.subject)}&topic=${encodeURIComponent(category)}" >
-            ${category}
-          </a>
-        </li>
-      `;
-
-      // Append the menu item to the container
-      menuContainer.append(menuItem);
-    });
-  })
-  .fail(function () {
-    console.error('Error fetching data from URL');
-  });
+          $.getJSON(dataUrl, function (data) {
+            // Target element where the menu will be displayed
+            const menuContainer = $('#'+tabName);  // Assuming there's a <ul id="menu"></ul> in HTML
+        
+            // Clear any existing content in the menu
+            menuContainer.empty();
+        
+            // Iterate over each item in the fetched data
+            data.forEach(item => {
+              const category = item.Category;
+              const proficiency = item.Proficiency;
+        
+              // Construct the menu item with the desired structure
+              const menuItem = `
+                <li class="${proficiency}">
+                  <a href="?subject=${encodeURIComponent(parameters.subject)}&topic=${encodeURIComponent(category)}" >
+                    ${category}
+                  </a>
+                </li>
+              `;
+        
+              // Append the menu item to the container
+              menuContainer.append(menuItem);
+            });
+          })
+          .fail(function () {
+            console.error('Error fetching data from URL');
+          });
+    }
 }
 
 
