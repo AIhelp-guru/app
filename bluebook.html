@@ -1772,6 +1772,10 @@ function getUrlParameters() {
 
 
 const parameters = getUrlParameters();
+if(parameters.subject === undefined){
+    parameters.subject = "ACT_english";
+}
+
 console.log(parameters); // Outputs the parameters as an object
 
 function fetchAndDisplayMenu() {
@@ -1791,7 +1795,7 @@ function fetchAndDisplayMenu() {
       // Construct the menu item with the desired structure
       const menuItem = `
         <li class="${proficiency}">
-          <a href="?subject=ACT_prep_english&topic=${encodeURIComponent(category)}" >
+          <a href="?subject=${encodeURIComponent(parameters.subject)}&topic=${encodeURIComponent(category)}" >
             ${category}
           </a>
         </li>
