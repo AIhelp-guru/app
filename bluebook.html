@@ -1169,8 +1169,12 @@ function loadQuestion(){
             num = qindex;
          console.log(sheetData[num]);
           Q_ID = sheetData[num]['Question_ID'];
-
-          content = sheetData[num]['passage'];
+          if(sheetData[num]['passage'] !== undefined){
+            content = sheetData[num]['passage'];
+          }else{
+            content = "";
+          }
+          
           q_text = sheetData[num]['Question'];
           options = sheetData[num]['Options'];
           answer_key = sheetData[num]['Answer'];
