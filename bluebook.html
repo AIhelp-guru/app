@@ -875,7 +875,7 @@ tr:hover {
         
         <div class="header"><span id='title'>Test title...</span> 
           <span id="question_id" style="margin-left:50px"></span>
-         
+          <span id="topic" style="margin-left:50px"></span>
           <span id="qtime"></span>
            <label id="pageNumber"></label>
            <button id="nextQ" style="float:right;">Check</button></div>
@@ -1172,6 +1172,7 @@ function loadQuestion(){
         qindex++ ;
         num = qindex;
        }
+            $("#topic").html(category);
             $("#title").html(selectedQuiz);
             $("#question_id").html(Q_ID); // Question ID
              save_read(Q_ID);
@@ -1764,7 +1765,7 @@ if(parameters.subject === undefined){
     location.href = "?subject=ACT_english&topic=all";
 }
 
-console.log(parameters); // Outputs the parameters as an object
+
 
 function fetchAndDisplayMenu(tabName) {
   
