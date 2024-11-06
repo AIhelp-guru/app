@@ -1768,7 +1768,7 @@ function fetchAndDisplayMenu(tabName) {
   
     dataUrl = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=categories&subject=ACT_"+tabName.toLowerCase();
 
-    if($('#'+tabName).find(".sub-menu").text() === ""){
+    if($('#'+tabName).find(".sub-menu").text().trim() === ""){
   
     
           $.getJSON(dataUrl, function (data) {
