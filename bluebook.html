@@ -1778,7 +1778,12 @@ function fetchAndDisplayMenu(tabName) {
         
             // Clear any existing content in the menu
             menuContainer.empty();
-        
+            mainmenu = `<li class="Beginner">
+                  <a href="?subject=${encodeURIComponent("ACT_"+tabName.toLowerCase()}&topic=all}" >
+                    <b>All categories</b>
+                  </a>
+                </li>`;
+              menuContainer.append(menuItem);
             // Iterate over each item in the fetched data
             data.forEach(item => {
               const category = item.Category;
