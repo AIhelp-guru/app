@@ -1070,7 +1070,7 @@ tr:hover {
         var selectedQuiz = "ACT_prep_english";
         var subjects = ["ACT_prep_english","ACT_prep_math","ACT_1_science","ACT_1_math"];
         var pdfDoc = null, pageNum = 1, pageText ='', canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
-
+        
         var sheetData ="";
 
 function loadFromsheet(){
@@ -1768,7 +1768,7 @@ function fetchAndDisplayMenu(tabName) {
   
     dataUrl = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=categories&subject=ACT_"+tabName.toLowerCase();
 
-    //if($('#'+tabName).find(".sub-menu").text().trim() === "")
+    if($('#'+tabName).find("li").length === 0)
     {
   
     
