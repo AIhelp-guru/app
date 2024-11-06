@@ -998,7 +998,7 @@ tr:hover {
     
     <!-- English Tab Content -->
     <div id="English" class="tab-content" style="display: block;">
-        <a href="https://aihelp-guru.github.io/app/bluebook.html?subject=ACT_prep_english&topic=all">English</a>
+        <a href="https://aihelp-guru.github.io/app/bluebook.html?subject=ACT_english&topic=all">English</a>
         <ul class="sub-menu">
             <li><a href="#">Usage/Mechanics</a></li>
             <li><a href="#">Rhetorical Skills</a></li>
@@ -1010,7 +1010,7 @@ tr:hover {
 
     <!-- Math Tab Content -->
     <div id="Math" class="tab-content" style="display: none;">
-        <a href="https://aihelp-guru.github.io/app/bluebook.html?topic=ACT_prep_math">Math</a>
+        <a href="https://aihelp-guru.github.io/app/bluebook.html?topic=ACT_math&topic=all">Math</a>
         <ul class="sub-menu">
             <li class="Beginner"><a href="#">Pre-Algebra</a></li>
             <li class="Intermediate"><a href="#">Elementary Algebra</a></li>
@@ -1775,7 +1775,7 @@ const parameters = getUrlParameters();
 console.log(parameters); // Outputs the parameters as an object
 
 function fetchAndDisplayMenu() {
-  dataUrl = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=categories&subject=ACT_english";
+  dataUrl = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=categories&subject="+parameters.subject;
   $.getJSON(dataUrl, function (data) {
     // Target element where the menu will be displayed
     const menuContainer = $('#English');  // Assuming there's a <ul id="menu"></ul> in HTML
