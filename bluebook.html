@@ -1268,21 +1268,23 @@ function old_loadQuestion(){
         }
 function addhelp(){
   num = qindex;
-           
+            
+        
+    
             $("#hint").html("");
             //$("#hint").siblings().remove();
-            if(sheetData[num][6] != undefined) {
-              //hint = "<details class='hint helps' id='hint_"+num+"' open><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+sheetData[num][6]+"</div></details>";
-              hint = "<div class='hint helps' id='hint_"+num+"' ><div class='aiResponse'>"+sheetData[num][6]+"</div></div>";
+            if(sheetData[num]['Hint'] != undefined) {
+              //hint = "<details class='hint helps' id='hint_"+num+"' open><summary class='user_prompt'>Hint</summary><div class='aiResponse'>"+sheetData[num]['Hint']+"</div></details>";
+              hint = "<div class='hint helps' id='hint_"+num+"' ><div class='aiResponse'>"+sheetData[num]['Hint']+"</div></div>";
             
             }else{
                hint ='';
               }
             $("#hint").append(hint); 
-            //console.log(sheetData[num][6]);
-            if(sheetData[num][7] != undefined && (sheetData[num][7]).trim() !== "" ) {
-              //similar = "<details class='similar helps' id='similar_"+num+"' open><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+ sheetData[num][7].replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>')+"<br></div></details>";
-              similar = "<div class='similar helps' id='similar_"+num+"' ><div class='aiResponse'>"+ sheetData[num][7].replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>')+"<br></div></div>";
+          
+            if(sheetData[num]['Example'] != undefined && (sheetData[num]['Example']).trim() !== "" ) {
+              //similar = "<details class='similar helps' id='similar_"+num+"' open><summary class='user_prompt'>Example</summary><div class='aiResponse'>"+ sheetData[num]['Example'].replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>')+"<br></div></details>";
+              similar = "<div class='similar helps' id='similar_"+num+"' ><div class='aiResponse'>"+ sheetData[num]['Example'].replace(/\*\*(.*?)\*\*/g, '<br><b>$1</b>')+"<br></div></div>";
               
               $(".similar").show();
               $("#hint").append(similar);
@@ -1292,8 +1294,8 @@ function addhelp(){
             }
             
             
-            if(sheetData[num][5] != undefined) {
-              let htmlText = sheetData[num][5].replace(/\*\*([^*]+)\*\*/g, "<h4>$1</h4>")
+            if(sheetData[num]['Explanation'] != undefined) {
+              let htmlText = sheetData[num]['Explanation'].replace(/\*\*([^*]+)\*\*/g, "<h4>$1</h4>")
                   .replace(/√\(([^)]+)\)/g, "<span style='font-size: larger;'>√($1)</span>")
                   .replace(/∛\(([^)]+)\)/g, "<span style='font-size: larger;'>∛($1)</span>")
                   .replace(/(\d+)√(\d+)/g, "$1<span style='font-size: larger;'>√$2</span>");
