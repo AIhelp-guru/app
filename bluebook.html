@@ -1759,7 +1759,7 @@ function getUrlParameters() {
 
 const parameters = getUrlParameters();
 if(parameters.subject === undefined){
-    parameters.subject = "ACT_english";
+    location.href = "?subject=ACT_english";
 }
 
 console.log(parameters); // Outputs the parameters as an object
