@@ -1795,7 +1795,7 @@ function fetchAndDisplayMenu(tabName) {
               // Construct the menu item with the desired structure
               const menuItem = `
                 <li class="${proficiency}">
-                  <a href="?subject=${encodeURIComponent(parameters.subject)}&topic=${encodeURIComponent(category)}" >
+                  <a href="?subject=${encodeURIComponent("ACT"+tabName.toLowerCase())}&topic=${encodeURIComponent(category)}" >
                     ${category}
                   </a>
                 </li>
