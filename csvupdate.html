@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Upload and Edit</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        table, th, td { border: 1px solid black; padding: 8px; text-align: center; }
+        th { background-color: #f2f2f2; }
+        input[type="text"] { width: 100%; }
+        /* Popup styles */
+        .popup { 
+            display: none; 
+            position: fixed; 
+            left: 50%; 
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+            background-color: white;
+            padding: 20px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <h2>Upload and Edit CSV File</h2>
+    <button onclick="downloadCSV()">Save and Download Updated CSV</button>
+    
+    <input type="file" id="csvFileInput" accept=".csv">
+    <br><br>
+    <table id="csvTable"></table>
+    <br>
+    
+   
+<script>
+    let csvData = [];
+
+    document.getElementById('csvFileInput').addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function (event) {
+            const csv = event.target.result;
+            parseCSV(csv);
+        };
+        reader.readAsText(file);
+    });
+
+    function parseCSV(data) {
+        csvData = []; 
+        let currentRow = [];
+        let currentField = "";
+        let inQuotes = false;
+
+        for (let i = 0; i < data.length; i++) {
+            const char = data[i];
+
+            if (char === "," && !inQuotes) {
+            currentRow.push(currentField.trim());
+            currentField = "";
+            } else if (char === '"') {
+            inQuotes = !inQuotes; 
+            } else if (char === "\n" && !inQuotes) {
+            currentRow.push(currentField.trim());
+            csvData.push(currentRow);
+            currentRow = [];
+            currentField = "";
+            } else {
+            currentField += char;
+            }
+        }
+
+        // Push the last row if any
+        if (currentField !== "") {
+            currentRow.push(currentField.trim());
+        }
+        if (currentRow.length > 0) {
+            csvData.push(currentRow);
+        }
+
+        displayTable();
+        addSVGFunctionality()
+        }
+
+        function displayTable() {
+  const table = document.getElementById('csvTable');
+  table.innerHTML = '';
+
+  csvData.forEach((row, rowIndex) => {
+    const tr = document.createElement('tr');
+    row.forEach((cell, cellIndex) => {
+      const td = document.createElement(rowIndex === 0 ? 'th' : 'td');
+      if (rowIndex === 0) {
+        td.innerText = cell;
+      } else {
+        
+         
+          // If not SVG, display as editable div
+          const div = document.createElement('div');
+          div.contentEditable = true;
+          div.textContent = cell;
+          div.style.width = 'fit-content';
+          div.style.maxHeight = '200px';
+          div.style.overflow = 'auto';
+          div.style.padding = '5px';
+          div.style.border = '1px solid #ccc';
+          div.addEventListener('input', (e) => {
+            csvData[rowIndex][cellIndex] = e.target.textContent;
+          });
+          td.appendChild(div);
+        
+      }
+      tr.appendChild(td);
+    });
+    table.appendChild(tr);
+  });
+}
+
+
+    
+    function openSVGPopup(svgDiv) {
+        // Create a popup div
+        const popup = document.createElement('div');
+        popup.style.position = 'fixed';
+        popup.style.top = '50%';
+        popup.style.left = '50%';
+        popup.style.transform = 'translate(-50%, -50%)';
+        popup.style.backgroundColor = 'white';
+        popup.style.padding = '20px';
+        popup.style.border = '1px solid black';
+        popup.style.zIndex = '1000'; // Ensure it's on top
+
+        // Create a close button
+        const closeButton = document.createElement('button');
+        closeButton.innerText = 'Close';
+        closeButton.style.position = 'absolute';
+        closeButton.style.top = '10px';
+        closeButton.style.right = '10px';
+        closeButton.onclick = () => { document.body.removeChild(popup); };
+        popup.appendChild(closeButton);
+
+        const svgCode = svgDiv.querySelector('input').value;
+        const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svgElement.innerHTML = svgCode;
+        popup.appendChild(svgElement);
+
+        // Append the popup to the body
+        document.body.appendChild(popup);
+        }
+
+
+    function downloadCSV() {
+        // Create a temporary table element to work with
+        const tempTable = document.createElement('table');
+        tempTable.innerHTML = document.getElementById('csvTable').innerHTML;
+
+        // Remove the "View SVG" buttons from the temporary table
+        tempTable.querySelectorAll('button').forEach(button => button.remove());
+
+        // Now, get the data from the temporary table (without the buttons)
+        const updatedCsvData = [];
+        tempTable.querySelectorAll('tr').forEach(row => {
+            const rowData = [];
+            row.querySelectorAll('th, td').forEach(cell => {
+            let cellContent = "";
+
+            // Check if the cell has an input (for SVG)
+            if (cell.querySelector('input')) {
+                cellContent = cell.querySelector('input').value;
+            } else {
+                // If not an SVG cell, get the text content
+                cellContent = cell.textContent;
+            }
+
+            // Wrap cell content in double quotes
+            cellContent = '"' + cellContent.replace(/"/g, '""') + '"'; // Escape inner double quotes
+
+            rowData.push(cellContent);
+            });
+            updatedCsvData.push(rowData);
+        });
+
+        // Create the CSV content from the updated data
+        const csvContent = updatedCsvData.map(row => row.join(',')).join('\n');
+        const blob = new Blob([csvContent], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'updated.csv';
+        document.body.appendChild(a);
+        a.click();
+
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        }
+    function addSVGFunctionality() {
+            const table = document.getElementById('csvTable');
+            const cells = table.querySelectorAll('td');
+
+            cells.forEach((cell) => {
+                if (cell.textContent.includes('<svg')) {
+                    // Add a click event listener to the cell
+                    cell.style.cursor = 'pointer'; // Show pointer cursor on hover
+                    cell.addEventListener('click', () => {
+                        // Create popup div
+                        const popup = document.createElement('div');
+                        popup.style.position = 'fixed';
+                        popup.style.top = '50%';
+                        popup.style.left = '50%';
+                        popup.style.transform = 'translate(-50%, -50%)';
+                        popup.style.backgroundColor = 'white';
+                        popup.style.padding = '20px';
+                        popup.style.border = '1px solid black';
+                        popup.style.boxShadow = '0 0 10px rgba(0,0,0,0.5)';
+                        popup.style.zIndex = '1000';
+
+                        // Extract SVG content from cell
+                        const svgContent = cell.textContent;
+                        popup.innerHTML = svgContent;
+
+                        // Add close button
+                        const closeButton = document.createElement('button');
+                        closeButton.textContent = 'Close';
+                        closeButton.style.position = 'absolute';
+                        closeButton.style.top = '10px';
+                        closeButton.style.right = '10px';
+                        closeButton.onclick = () => {
+                            document.body.removeChild(popup);
+                        };
+                        popup.appendChild(closeButton);
+
+                        // Add overlay
+                        const overlay = document.createElement('div');
+                        overlay.style.position = 'fixed';
+                        overlay.style.top = '0';
+                        overlay.style.left = '0';
+                        overlay.style.width = '100%';
+                        overlay.style.height = '100%';
+                        overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
+                        overlay.style.zIndex = '999';
+                        overlay.onclick = () => {
+                            document.body.removeChild(overlay);
+                            document.body.removeChild(popup);
+                        };
+
+                        // Add to document
+                        document.body.appendChild(overlay);
+                        document.body.appendChild(popup);
+                    });
+                }
+            });
+        }
+
+
+</script>
+
+</body>
+</html>
