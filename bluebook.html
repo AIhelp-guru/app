@@ -890,27 +890,7 @@ tr:hover {
         <div id="urlForm">
             <input type="file" id="csvFileInput" accept=".csv" />
 
-<script>
-    document.getElementById("csvFileInput").addEventListener("change", function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            loadFromCSV(file).then(data => {
-                console.log(data); // Data from the CSV file as an array of objects
-          //       loadQuestion();
-          // $("#start_msg").html("Click start, when you are ready!");
-          // $("#start_wait").hide();
-          // $("#start_btn").show();
-					 {
-            $("#pdf_content").hide();
-            $("#content").show();
-          }
-          
-            }).catch(error => {
-                console.error("Error reading CSV file:", error);
-            });
-        }
-    });
-</script>
+
         
       </div>
       <div id="pt" style="display: none"></div>
@@ -2123,5 +2103,26 @@ function openTab(event, tabName) {
 init();
 fetchAndDisplayMenu('English')
     </script>
+    <script>
+      document.getElementById("csvFileInput").addEventListener("change", function(event) {
+          const file = event.target.files[0];
+          if (file) {
+              loadFromCSV(file).then(data => {
+                  sheetData = (data); // Data from the CSV file as an array of objects
+                   loadQuestion();
+            // $("#start_msg").html("Click start, when you are ready!");
+            // $("#start_wait").hide();
+            // $("#start_btn").show();
+             {
+              $("#pdf_content").hide();
+              $("#content").show();
+            }
+            
+              }).catch(error => {
+                  console.error("Error reading CSV file:", error);
+              });
+          }
+      });
+  </script>
 </body>
 </html>
