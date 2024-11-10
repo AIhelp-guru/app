@@ -1188,7 +1188,7 @@ function loadQuestion(){
             $("#correct_answer").html(answer_key); // Answer Key
             $("#options").html(''); 
             o_text = options;  // Options text "a) b) c) d)"
-            o_text = o_text.replaceAll("\n","<br>");
+            
             //console.log(o_text.indexOf("g)"));
             let ops = [];
             let oa =[];
@@ -1202,7 +1202,7 @@ function loadQuestion(){
               oa = ["f","g","h","j"];
             }else if(o_text.indexOf("<br>") >= 0){
               ops = options.split("<br>");
-              oa = ["a","b","c","d"];
+              oa = ["a","b","c","d","e"];
             }else {
               ops = options.split(/\s+[a-eA-E]\)\s+/i);
               oa = ["a","b","c","d","e"];
