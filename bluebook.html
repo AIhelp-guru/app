@@ -2114,7 +2114,9 @@ document.getElementById('csvFileInput').addEventListener('change', function (e) 
     const reader = new FileReader();
     reader.onload = function (event) {
         const csv = event.target.result;
-        console.log(parseCSV(csv));
+        sheetData = (parseCSV(csv));
+        qindex = 1;
+        loadQuestion();
     };
     reader.readAsText(file);
 });
