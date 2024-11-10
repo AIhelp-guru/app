@@ -2152,8 +2152,28 @@ function parseCSV(data) {
     if (currentRow.length > 0) {
         csvData.push(currentRow);
     }
-      return csvData;
+      return csvToObject(csvData);
     }
+  function csvToObject(csv) {
+    // Split the CSV string into rows
+    const rows = csv.trim().split("\n");
+    
+    // Extract the headers from the first row
+    const headers = rows[0].split(",");
+
+    // Map each remaining row to an object
+    const result = rows.slice(1).map(row => {
+        const values = row.split(",");
+        let obj = {};
+        headers.forEach((header, index) => {
+            obj[header.trim()] = values[index].trim();
+        });
+        return obj;
+    });
+
+    return result;
+}
+
   </script>
 </body>
 </html>
