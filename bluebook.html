@@ -2152,6 +2152,7 @@ function parseCSV(data) {
     if (currentRow.length > 0) {
         csvData.push(currentRow);
     }
+    console.log(csvData);
       return csvToObject(csvData);
     }
   function csvToObject(csv) {
