@@ -1926,8 +1926,8 @@ $("#nextQ").click(function(){
           }else if(tries === 1){
             $("#chatbotMessages").append("<div class='aiResponse alert_msg'>AI can help, type why did you choose that option or see below help</div>").show();
             $("#other_questions").attr("open",true);
-            // $("#chatbotMessages").find(".helps").hide();
-            // $("#chatbotMessages").append($("#hint").find(".similar").clone().show());
+            $("#chatbotMessages").find(".helps").hide();
+            $("#chatbotMessages").append($("#hint").find(".similar").clone().show());
             // $(".followup_question").on("click",function(){ $("#chatbotInput").val($(this).html()); sendMessage();})
             //$(".similar").appendTo("#chatbotMessages");
             tries++;
