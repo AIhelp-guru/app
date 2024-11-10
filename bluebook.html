@@ -2105,27 +2105,53 @@ init();
 fetchAndDisplayMenu('English')
     </script>
     <script>
-      document.getElementById("csvFileInput").addEventListener("change", function(event) {
-          const file = event.target.files[0];
-          if (file) {
-              loadFromCSV(file).then(data => {
-                  sheetData = (data); // Data from the CSV file as an array of objects
-                  console.log(sheetData);
-                  qindex = 1;
-                   //loadQuestion();
-            // $("#start_msg").html("Click start, when you are ready!");
-            // $("#start_wait").hide();
-            // $("#start_btn").show();
-             {
-              $("#pdf_content").hide();
-              $("#content").show();
-            }
-            
-              }).catch(error => {
-                  console.error("Error reading CSV file:", error);
-              });
-          }
-      });
+     let csvData = [];
+
+document.getElementById('csvFileInput').addEventListener('change', function (e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (event) {
+        const csv = event.target.result;
+        console.log(parseCSV(csv));
+    };
+    reader.readAsText(file);
+});
+
+function parseCSV(data) {
+    csvData = []; 
+    let currentRow = [];
+    let currentField = "";
+    let inQuotes = false;
+
+    for (let i = 0; i < data.length; i++) {
+        const char = data[i];
+
+        if (char === "," && !inQuotes) {
+        currentRow.push(currentField.trim());
+        currentField = "";
+        } else if (char === '"') {
+        inQuotes = !inQuotes; 
+        } else if (char === "\n" && !inQuotes) {
+        currentRow.push(currentField.trim());
+        csvData.push(currentRow);
+        currentRow = [];
+        currentField = "";
+        } else {
+        currentField += char;
+        }
+    }
+
+    // Push the last row if any
+    if (currentField !== "") {
+        currentRow.push(currentField.trim());
+    }
+    if (currentRow.length > 0) {
+        csvData.push(currentRow);
+    }
+      return csvData;
+    }
   </script>
 </body>
 </html>
