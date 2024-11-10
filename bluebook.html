@@ -2110,8 +2110,9 @@ fetchAndDisplayMenu('English')
           if (file) {
               loadFromCSV(file).then(data => {
                   sheetData = (data); // Data from the CSV file as an array of objects
+                  console.log(sheetData);
                   qindex = 1;
-                   loadQuestion();
+                   //loadQuestion();
             // $("#start_msg").html("Click start, when you are ready!");
             // $("#start_wait").hide();
             // $("#start_btn").show();
