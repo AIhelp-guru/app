@@ -1139,7 +1139,7 @@ function loadfromGoogle(){
     //url =  "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=question&subject="+parameters.subject+"&subtopic="+encodeURIComponent(parameters.topic);
     console.log(url);
    // $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
-    $.get(url+"?topic="+topic+"&user="+user+"&token="+token,function(data){
+    $.get(url+"?subject="+parameters.subject+"&user="+user+"&token="+token,function(data){
       //$.get(url,function(data){
        
         if(data.indexOf("Error") >= 0){
@@ -1152,7 +1152,7 @@ function loadfromGoogle(){
             $("#pdf_content").hide();
             $("#content").show();
           }
-          //loadQuestion();
+          loadQuestion();
           $("#start_msg").html("Click start, when you are ready!");
           $("#start_wait").hide();
           $("#start_btn").show();
