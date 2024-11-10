@@ -2106,23 +2106,22 @@ fetchAndDisplayMenu('English')
     </script>
     <script>
      let csvData = [];
-
-document.getElementById('csvFileInput').addEventListener('change', function (e) {
+     document.getElementById('csvFileInput').addEventListener('change', function (e) {
     const file = e.target.files[0];
     if (!file) return;
 
     const reader = new FileReader();
     reader.onload = function (event) {
         const csv = event.target.result;
-        sheetData = (parseCSV(csv));
-        qindex = 1;
+        const sheetData = parseCSV(csv);
+        const qindex = 1;
         loadQuestion();
     };
     reader.readAsText(file);
 });
 
 function parseCSV(data) {
-    csvData = []; 
+    const csvData = []; 
     let currentRow = [];
     let currentField = "";
     let inQuotes = false;
@@ -2131,49 +2130,53 @@ function parseCSV(data) {
         const char = data[i];
 
         if (char === "," && !inQuotes) {
-        currentRow.push(currentField.trim());
-        currentField = "";
+            currentRow.push(currentField.trim());
+            currentField = "";
         } else if (char === '"') {
-        inQuotes = !inQuotes; 
+            inQuotes = !inQuotes;  // Toggle quote state
         } else if (char === "\n" && !inQuotes) {
-        currentRow.push(currentField.trim());
-        csvData.push(currentRow);
-        currentRow = [];
-        currentField = "";
+            currentRow.push(currentField.trim());
+            csvData.push(currentRow);
+            currentRow = [];
+            currentField = "";
         } else {
-        currentField += char;
+            currentField += char;
         }
     }
 
-    // Push the last row if any
+    // Push the last field if any
     if (currentField !== "") {
         currentRow.push(currentField.trim());
     }
+    // Push the last row
     if (currentRow.length > 0) {
         csvData.push(currentRow);
     }
-    console.log(csvData);
-      return csvToObject(csvData);
-    }
-  function csvToObject(csv) {
-    // Split the CSV string into rows
+    
+    // console.log(csvData);  // Check the parsed CSV data
+    return csvToObject(csvData);
+}
+
+function csvToObject(csv) {
     const rows = csv;
     
-    // Extract the headers from the first row
-    const headers = rows[0].split(",");
-
+    // Extract the headers (first row)
+    const headers = rows[0];
+    
     // Map each remaining row to an object
     const result = rows.slice(1).map(row => {
-        const values = row.split(",");
         let obj = {};
         headers.forEach((header, index) => {
-            obj[header.trim()] = values[index].trim();
+            // Assign values from the row to corresponding header
+            obj[header] = row[index] ? row[index].trim() : "";
         });
         return obj;
     });
 
     return result;
 }
+
+
 
   </script>
 </body>
