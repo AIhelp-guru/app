@@ -2112,10 +2112,10 @@ fetchAndDisplayMenu('English')
 
     const reader = new FileReader();
     reader.onload = function (event) {
-        const csv = event.target.result;
+        csv = event.target.result;
          sheetData = parseCSV(csv);
 
-        const qindex = 1;
+        qindex = 1;
         loadQuestion();
     };
     reader.readAsText(file);
