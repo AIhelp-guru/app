@@ -895,7 +895,7 @@ tr:hover {
         const file = event.target.files[0];
         if (file) {
             loadFromCSV(file).then(data => {
-                sheetData = (data); // Data from the CSV file as an array of objects
+                console.log(data); // Data from the CSV file as an array of objects
 					 {
             $("#pdf_content").hide();
             $("#content").show();
