@@ -2113,7 +2113,8 @@ fetchAndDisplayMenu('English')
     const reader = new FileReader();
     reader.onload = function (event) {
         const csv = event.target.result;
-        const sheetData = parseCSV(csv);
+         sheetData = parseCSV(csv);
+
         const qindex = 1;
         loadQuestion();
     };
