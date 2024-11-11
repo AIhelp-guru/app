@@ -1137,7 +1137,7 @@ function loadfromGoogle(){
     topic = 'all';
    }
     //url =  "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=question&subject="+parameters.subject+"&subtopic="+encodeURIComponent(parameters.topic);
-    console.log(url);
+    //console.log(url);
    // $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
     $.get(url+"?subject="+parameters.subject+"&user="+user+"&token="+token,function(data){
       //$.get(url,function(data){
@@ -1150,14 +1150,14 @@ function loadfromGoogle(){
         const headers = data[0];
 
         // Convert remaining arrays into objects
-        const sheetData = data.slice(1).map(row => {
+        const sh = data.slice(1).map(row => {
             return headers.reduce((obj, header, index) => {
                 obj[header] = row[index];
                 return obj;
             }, {});
         });
         
-        
+        sheetData = sh;
         
         console.log(sheetData);
         
