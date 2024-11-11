@@ -1145,13 +1145,32 @@ function loadfromGoogle(){
         if(data.indexOf("Error") >= 0){
           location.href="login.html";
         }else{
-          sheetData = (data);
+          
           console.log(data);
+          const rows = data;
+        
+        // Extract headers from the first row
+        const headers = rows[0].split(",").map(header => header.trim());
+
+          const sheeDdata = rows.slice(1).map(row => {
+            const values = row.split(",").map(value => value.trim());
+            return headers.reduce((obj, header, index) => {
+                obj[header] = values[index];
+                return obj;
+            }, {});
+        });
+
+        
+        
+        
+        
+        
           
           {
             $("#pdf_content").hide();
             $("#content").show();
           }
+        qindex = 1;
           loadQuestion();
           $("#start_msg").html("Click start, when you are ready!");
           $("#start_wait").hide();
