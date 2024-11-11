@@ -1167,6 +1167,7 @@ function loadfromGoogle(){
             $("#content").show();
           }
         qindex = 1;
+          if(parameters.qindex !== undefined) qindex = parameters.qindex;
           loadQuestion();
           $("#start_msg").html("Click start, when you are ready!");
           $("#start_wait").hide();
