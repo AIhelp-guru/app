@@ -1210,7 +1210,13 @@ function save_read(data){
 }
 let Q_ID ,content,q_text,options,answer_key,explanation,hint,example,category ;
 function loadQuestion(){
-            num = qindex;
+    if(qindex < sheetData.length){
+        num = qindex;
+        }else{
+            $("#menu_btn").click();
+            return;
+            }
+            
          console.log(sheetData[num]);
           Q_ID = sheetData[num]['Question_ID'];
           if(sheetData[num]['passage'] !== undefined){
