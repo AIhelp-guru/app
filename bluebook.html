@@ -1146,20 +1146,16 @@ function loadfromGoogle(){
           location.href="login.html";
         }else{
           
-          console.log(data);
-          const rows = data;
-        
-        // Extract headers from the first row
-        const headers = rows[0].split(",").map(header => header.trim());
+                 // Use the first array as headers
+        const headers = data[0];
 
-          const sheeDdata = rows.slice(1).map(row => {
-            const values = row.split(",").map(value => value.trim());
+        // Convert remaining arrays into objects
+        const sheetData = data.slice(1).map(row => {
             return headers.reduce((obj, header, index) => {
-                obj[header] = values[index];
+                obj[header] = row[index];
                 return obj;
             }, {});
         });
-
         
         
         
