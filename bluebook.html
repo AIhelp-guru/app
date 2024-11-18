@@ -1136,7 +1136,7 @@ prof_level = prof_level.toLowerCase();
   // Get the sorting order for the given proficiency level
   const order = levelOrder[prof_level];
   if (!order) {
-    throw new Error(`Invalid prof_level: ${prof_level.toLowerCase()}`);
+    throw new Error(`Invalid prof_level: ${prof_level}`);
   }
 
   // Create a map for quick lookup of level positions
