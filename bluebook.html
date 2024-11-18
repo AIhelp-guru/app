@@ -1897,7 +1897,7 @@ function fetchAndDisplayMenu(tabName) {
             // Clear any existing content in the menu
             menuContainer.empty();
             mainmenu = `<li class="Beginner">
-                  <a href="?subject=${encodeURIComponent("ACT_"+tabName.toLowerCase())}&topic=all" >
+                  <a href="?subject=${encodeURIComponent("ACT_"+tabName.toLowerCase())}&topic=all&prof_level=Beginner" >
                     <b>All categories</b>
                   </a>
                 </li>`;
@@ -1910,7 +1910,7 @@ function fetchAndDisplayMenu(tabName) {
               // Construct the menu item with the desired structure
               const menuItem = `
                 <li class="${proficiency}">
-                  <a href="?subject=${encodeURIComponent("ACT_"+tabName.toLowerCase())}&topic=${encodeURIComponent(category)}" >
+                  <a href="?subject=${encodeURIComponent("ACT_"+tabName.toLowerCase())}&topic=${encodeURIComponent(category)}&prof_level=${encodeURIComponent(proficiency)}" >
                     ${category}
                   </a>
                 </li>
