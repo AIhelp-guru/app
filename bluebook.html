@@ -1102,7 +1102,7 @@ function loadFromsheet(){
         if(data.indexOf("Error") >= 0){
           location.href="login.html";
         }else{
-          sheetData = sortQuestionsByLevel(data, prof_level);
+          sheetData = sortQuestionsByLevel(data, parameters.prof_level);
           console.log(data);
         
           
