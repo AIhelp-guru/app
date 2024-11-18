@@ -1125,7 +1125,7 @@ function loadFromsheet(){
 }
 
 function sortQuestionsByLevel(data, prof_level) {
-
+prof_level = prof_level.toLowerCase();
   const levelOrder = {
     beginner:[1,2,3,4,5],
     intermediate: [2, 1, 3, 4, 5],
