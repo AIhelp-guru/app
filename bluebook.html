@@ -879,7 +879,7 @@ tr:hover {
         <div class="header"><span id='title'>Test title...</span> 
           <span id="question_id" style="margin-left:50px"></span>
           <span id="topic" style="margin-left:50px"></span>
-          Level : <span id="prof_level" style="margin-left:50px"></span>
+          <span id="prof_level" style="margin-left:50px"></span>
           <span id="qtime"></span>
            <label id="pageNumber"></label>
            <button id="nextQ" style="float:right;">Check</button></div>
@@ -1257,7 +1257,7 @@ function loadQuestion(){
           hint = sheetData[num]['Hint'];
           example = sheetData[num]['Example'];
           category = sheetData[num]['Category'];
-          $("#prof_level").html(sheetData[num]['Level']);
+          $("#prof_level").html("Level : "+ sheetData[num]['Level']);
       if(Q_ID.trim() === ""){
         qindex++ ;
         num = qindex;
