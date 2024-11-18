@@ -1091,7 +1091,7 @@ function loadFromsheet(){
     topic = 'all';
    }
    if(parameters.prof_level === undefined){
-    parameters.prof_level = 'beginner';
+    parameters.prof_level = 'Beginner';
    }
     url =  "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=question&subject="+parameters.subject+"&subtopic="+encodeURIComponent(parameters.topic)+"&proficiency="+encodeURIComponent(parameters.prof_level);
     console.log(url);
@@ -1123,15 +1123,16 @@ function loadFromsheet(){
 
 function sortQuestionsByLevel(data, prof_level) {
   const levelOrder = {
-    Intermediate: [2, 1, 3, 4, 5],
-    Proficient: [3, 2, 1, 4, 5],
-    Expert: [4, 5, 3, 2, 1]
+    beginner:[1,2,3,4,5],
+    intermediate: [2, 1, 3, 4, 5],
+    proficient: [3, 2, 1, 4, 5],
+    expert: [4, 5, 3, 2, 1]
   };
 
   // Get the sorting order for the given proficiency level
   const order = levelOrder[prof_level];
   if (!order) {
-    throw new Error(`Invalid prof_level: ${prof_level}`);
+    throw new Error(`Invalid prof_level: ${prof_level.toLowerCase()}`);
   }
 
   // Create a map for quick lookup of level positions
