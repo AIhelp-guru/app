@@ -1914,7 +1914,7 @@ function fetchAndDisplayMenu(tabName) {
                 // Construct the menu item with proficiency dropdown
                 const menuItem = `
                     <li class="${initialProficiency}">
-                        <span>${category}</span>
+                        <h4>${category}</h4>
                         <select class="proficiency-select" data-category="${category}">
                             <option value="Beginner" ${initialProficiency === 'Beginner' ? 'selected' : ''}>Beginner</option>
                             <option value="Intermediate" ${initialProficiency === 'Intermediate' ? 'selected' : ''}>Intermediate</option>
@@ -1922,7 +1922,7 @@ function fetchAndDisplayMenu(tabName) {
                             <option value="Expert" ${initialProficiency === 'Expert' ? 'selected' : ''}>Expert</option>
                         </select>
                         <a href="?subject=${encodeURIComponent("ACT_" + tabName.toLowerCase())}&topic=${encodeURIComponent(category)}&prof_level=${initialProficiency}" class="proficiency-link">
-                            Go
+                            >
                         </a>
                     </li>`;
 
