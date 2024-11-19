@@ -813,7 +813,7 @@ tr:hover {
       .tab-content a {
           text-decoration: none;
           color: #fff;
-          background-color: #2a7bff;
+          background-color: #9e9f9f;
           padding: 8px 12px;
           border-radius: 5px;
           font-size: 0.9em;
@@ -1943,7 +1943,7 @@ function fetchAndDisplayMenu(tabName) {
                 // Construct the menu item with proficiency dropdown
                 const menuItem = `
                     <li class="${initialProficiency}">
-                        <h4>${category}</h4><br>
+                        <h2>${category}</h2><br>
                         <select class="proficiency-select" data-category="${category}">
                             <option value="Beginner" ${initialProficiency === 'Beginner' ? 'selected' : ''}>Beginner</option>
                             <option value="Intermediate" ${initialProficiency === 'Intermediate' ? 'selected' : ''}>Intermediate</option>
