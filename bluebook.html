@@ -1142,6 +1142,10 @@ function loadFromsheet(){
           $("#start_btn").show();
           $("#quick_btn").show();
         }
+        if(user === 'aiadmin'){
+          $("#skipQ").show();
+          $("#correct_answer").show();
+        }
   
     });
   }else{
@@ -2207,10 +2211,7 @@ $("#prevQ").click(function(){
       $(".background").show();
 
     })
-    if((location.href).indexOf("&admin")>0){
-      $("#skipQ").show();
-      $("#correct_answer").show();
-    }
+    
     if((location.href).indexOf("&chatonly")>0){
       $(".container").hide();
       $("#chatbotPanel").css("width","auto");
