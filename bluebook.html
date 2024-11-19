@@ -1887,46 +1887,63 @@ if(parameters.subject === undefined){
 
 
 function fetchAndDisplayMenu(tabName) {
-  
-    dataUrl = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=categories&subject=ACT_"+tabName.toLowerCase();
+    // URL to fetch category and proficiency data
+    const dataUrl = `https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user=${user}&crud=categories&subject=ACT_${tabName.toLowerCase()}`;
 
-    if($('#'+tabName).find("li").length === 0)
-    {
-  
-    
-          $.getJSON(dataUrl, function (data) {
+    // Check if menu items are already loaded to avoid duplicate loading
+    if ($('#' + tabName).find("li").length === 0) {
+        $.getJSON(dataUrl, function (data) {
             // Target element where the menu will be displayed
-            const menuContainer = $('#'+tabName);  // Assuming there's a <ul id="menu"></ul> in HTML
-        
-            // Clear any existing content in the menu
+            const menuContainer = $('#' + tabName);
             menuContainer.empty();
-            mainmenu = `<li class="Beginner">
-                  <a href="?subject=${encodeURIComponent("ACT_"+tabName.toLowerCase())}&topic=all&prof_level=Beginner" >
-                    <b>All categories</b>
-                  </a>
+
+            // Add "All categories" item
+            const mainMenu = `
+                <li class="Beginner">
+                    <a href="?subject=${encodeURIComponent("ACT_" + tabName.toLowerCase())}&topic=all&prof_level=Beginner">
+                        <b>All categories</b>
+                    </a>
                 </li>`;
-              menuContainer.append(mainmenu);
+            menuContainer.append(mainMenu);
+
             // Iterate over each item in the fetched data
             data.forEach(item => {
-              const category = item.Category;
-              const proficiency = item.Proficiency;
-        
-              // Construct the menu item with the desired structure
-              const menuItem = `
-                <li class="${proficiency}">
-                  <a href="?subject=${encodeURIComponent("ACT_"+tabName.toLowerCase())}&topic=${encodeURIComponent(category)}&prof_level=${encodeURIComponent(proficiency)}" >
-                    ${category}
-                  </a>
-                </li>
-              `;
-        
-              // Append the menu item to the container
-              menuContainer.append(menuItem);
+                const category = item.Category;
+                const initialProficiency = item.Proficiency;
+
+                // Construct the menu item with proficiency dropdown
+                const menuItem = `
+                    <li class="${initialProficiency}">
+                        <span>${category}</span>
+                        <select class="proficiency-select" data-category="${category}">
+                            <option value="Beginner" ${initialProficiency === 'Beginner' ? 'selected' : ''}>Beginner</option>
+                            <option value="Intermediate" ${initialProficiency === 'Intermediate' ? 'selected' : ''}>Intermediate</option>
+                            <option value="Proficient" ${initialProficiency === 'Proficient' ? 'selected' : ''}>Proficient</option>
+                            <option value="Expert" ${initialProficiency === 'Expert' ? 'selected' : ''}>Expert</option>
+                        </select>
+                        <a href="?subject=${encodeURIComponent("ACT_" + tabName.toLowerCase())}&topic=${encodeURIComponent(category)}&prof_level=${initialProficiency}" class="proficiency-link">
+                            Go
+                        </a>
+                    </li>`;
+
+                // Append the menu item to the container
+                menuContainer.append(menuItem);
             });
-          })
-          .fail(function () {
+
+            // Event listener for proficiency dropdown changes
+            $('.proficiency-select').on('change', function () {
+                const selectedProficiency = $(this).val(); // New proficiency level
+                const category = $(this).data('category'); // Associated category
+                const subject = `ACT_${tabName.toLowerCase()}`;
+
+                // Update the link based on the new proficiency
+                const linkElement = $(this).siblings('.proficiency-link');
+                linkElement.attr('href', `?subject=${encodeURIComponent(subject)}&topic=${encodeURIComponent(category)}&prof_level=${encodeURIComponent(selectedProficiency)}`);
+            });
+        })
+        .fail(function () {
             console.error('Error fetching data from URL');
-          });
+        });
     }
 }
 
