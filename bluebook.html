@@ -1083,7 +1083,7 @@ tr:hover {
         <img id="start_wait" src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />
         
         <br>
-        <button id="start_btn">Start</button>
+        <button id="quick_btn">Quick practice</button><button id="start_btn">Long practice</button>
     </div>
     
 </div>  
@@ -1145,6 +1145,7 @@ function loadFromsheet(){
           $("#start_msg").html("Click start, when you are ready!");
           $("#start_wait").hide();
           $("#start_btn").show();
+          $("#quick_btn").show();
         }
   
     });
@@ -1226,6 +1227,7 @@ function loadfromGoogle(){
           $("#start_msg").html("Click start, when you are ready!");
           $("#start_wait").hide();
           $("#start_btn").show();
+          $("#quick_btn").show();
         }
   
     });
@@ -2191,6 +2193,12 @@ $("#prevQ").click(function(){
     });
 
     $("#start_btn").click(function(){
+      qtime = 0;
+      $(".login-popup ").hide();
+      $(".background").hide();
+
+    })
+    $("#quick_btn").click(function(){
       qtime = 0;
       $(".login-popup ").hide();
       $(".background").hide();
