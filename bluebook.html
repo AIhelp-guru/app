@@ -750,7 +750,7 @@ tr:hover {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 10px;
+          padding: 20px;
          
           border: 1px solid #ddd;
           border-radius: 8px;
@@ -1939,7 +1939,7 @@ function fetchAndDisplayMenu(tabName) {
                 // Construct the menu item with proficiency dropdown
                 const menuItem = `
                     <li class="${initialProficiency}">
-                        <h2>${category}</h2><br>
+                        <h3>${category}</h3><br>
                         <select class="proficiency-select" data-category="${category}">
                             <option value="Beginner" ${initialProficiency === 'Beginner' ? 'selected' : ''}>Beginner</option>
                             <option value="Intermediate" ${initialProficiency === 'Intermediate' ? 'selected' : ''}>Intermediate</option>
