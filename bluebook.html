@@ -893,7 +893,7 @@ tr:hover {
    
     <div id="toolbar">
           <button id="menu_btn">Menu</button>
-          <button style="margin:10px;" onclick="create_report()">Report</button>
+          <button id="report_btn" style="margin:10px;" onclick="create_report()">Report</button>
       </div>
    <div class="container">
       <div class="top-section">
@@ -1268,7 +1268,7 @@ function loadQuestion(){
     if(qindex < sheetData.length && qindex < maxquestions){
         num = qindex;
         }else{
-            $("#menu_btn").click();
+            $("#report_btn").click();
             return;
             }
             
