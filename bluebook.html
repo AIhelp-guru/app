@@ -1106,7 +1106,7 @@ tr:hover {
         var selectedQuiz = "ACT_prep_english";
         var subjects = ["ACT_prep_english","ACT_prep_math","ACT_1_science","ACT_1_math"];
         var pdfDoc = null, pageNum = 1, pageText ='', canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
-        
+        var maxquestions = 10;
         var sheetData ="";
 
 function loadFromsheet(){
@@ -1268,7 +1268,7 @@ function save_read(data){
 }
 let Q_ID ,content,q_text,options,answer_key,explanation,hint,example,category ;
 function loadQuestion(){
-    if(qindex < sheetData.length){
+    if(qindex < sheetData.length && qindex < maxquestions){
         num = qindex;
         }else{
             $("#menu_btn").click();
@@ -2196,6 +2196,7 @@ $("#prevQ").click(function(){
 
     $("#start_btn").click(function(){
       qtime = 0;
+      maxquestions = sheetData.length;
       $(".login-popup ").hide();
       $(".background").hide();
 
