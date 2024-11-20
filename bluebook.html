@@ -1288,10 +1288,10 @@ function loadQuestion(){
           example = sheetData[num]['Example'];
           category = sheetData[num]['Category'];
           $("#prof_level").html("Level : "+ sheetData[num]['Level']);
-      if(Q_ID.trim() === "" || Q_ID === 'Question ID'){
-        qindex++ ;
-        num = qindex;
-       }
+          if( Q_ID === 'Question ID'){
+            qindex++ ;
+            num = qindex;
+          }
             $("#topic").html(category);
             $("#title").html(selectedQuiz);
             $("#question_id").html(Q_ID); // Question ID
