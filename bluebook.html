@@ -1295,7 +1295,7 @@ function loadQuestion(){
             $("#topic").html(category);
             $("#title").html(selectedQuiz);
             $("#question_id").html(Q_ID); // Question ID
-             save_read(Q_ID);
+             //save_read(Q_ID);
             if(content.trim() !== ''){
               $("#content").html(content.replaceAll('\\\"',"")); // Content or passage
             }else{
@@ -1363,7 +1363,7 @@ function loadQuestion(){
 
             }
             //$("#chatbotMessages").html('');
-            save_read(data);
+            //save_read(data);
       
             
 }
@@ -1483,7 +1483,7 @@ function callgemini(prompt){
 
             }
             
-            save_read(data);
+            //save_read(data);
 
           },
         error: function(xhr, status, error) {
