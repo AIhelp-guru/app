@@ -1224,9 +1224,7 @@ function loadfromGoogle(){
           $("#start_wait").hide();
           $("#start_btn").show();
           $("#quick_btn").show();
-          $("#hint").show();
-          $("#explanation").show();
-          $("#example").show();
+      
           $("#skipQ").show();
           $("#correct_answer").show();
         
@@ -1433,7 +1431,14 @@ function addhelp(){
               explanation ='';
             }
             $("#hint").append(explanation); 
+          if(parameters.google !== undefined){
+            $("#hint").show();
+          $("#explanation").show();
+          $("#example").show();
             
+
+          }
+         
 }
 function sendMessage() {
     const input = document.getElementById('chatbotInput');
