@@ -1142,10 +1142,7 @@ function loadFromsheet(){
           $("#start_btn").show();
           $("#quick_btn").show();
         }
-        if(user === 'aiadmin' || (parameters.admin !== undefined)){
-          $("#skipQ").show();
-          $("#correct_answer").show();
-        }
+       
   
     });
   }else{
@@ -1227,6 +1224,10 @@ function loadfromGoogle(){
           $("#start_wait").hide();
           $("#start_btn").show();
           $("#quick_btn").show();
+        
+          $("#skipQ").show();
+          $("#correct_answer").show();
+        
         }
   
     });
