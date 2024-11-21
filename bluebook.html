@@ -1142,7 +1142,7 @@ function loadFromsheet(){
           $("#start_btn").show();
           $("#quick_btn").show();
         }
-        if(user === 'aiadmin'){
+        if(user === 'aiadmin' || (parameters.admin !== undefined)){
           $("#skipQ").show();
           $("#correct_answer").show();
         }
