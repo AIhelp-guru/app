@@ -951,7 +951,7 @@ tr:hover {
         <span id="question_index">Question 1 of 27</span>
         <button id="prevQ" style="float:right;margin:10px">Prev</button>
         <button id="skipQ" style="float:right;margin:10px;display: none">Skip</button>
-        
+        <button id="showhelps" style="float:right;margin:10px;display: none">Show helps</button>
         
         <button id="help" style="display:none;float:right;margin:10px;background-color:orange">Tutor me</button>
       </div>
@@ -1435,7 +1435,7 @@ function addhelp(){
             $("#hint").show();
           $("#explanation").show();
           $("#example").show();
-            
+          $("#showhelps").show();  
 
           }
          
@@ -2011,6 +2011,12 @@ var skip = false;
 $("#skipQ").click(function(){
               skip = true;
               $("#nextQ").click();
+
+})
+$("#showhelps").click(function(){
+             $("#hint").show();
+             $("#explanation").show();
+             $("#example").show();
 
 })
 $("#nextQ").click(function(){ 
