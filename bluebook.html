@@ -1290,7 +1290,7 @@ function loadQuestion(){
           category = sheetData[num]['Category'];
           $("#prof_level").html("Level : "+ sheetData[num]['Level']);
           if( Q_ID === 'Question ID'){
-            qindex++ ;
+            qindex = qindex+2 ;
             num = qindex;
           }
             $("#topic").html(category);
