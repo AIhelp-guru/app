@@ -2015,9 +2015,9 @@ $("#skipQ").click(function(){
 })
 $("#showhelps").click(function(){
              $("#chatbotMessages").html($("#hint").clone().show());
-            $(".hint").show();
-            $(".example").show();
-            $(".explanation").show();
+             $("#chatbotMessages").find(".hint").show();
+             $("#chatbotMessages").find(".similar").show();
+             $("#chatbotMessages").find(".explanation").show();
 
 })
 $("#nextQ").click(function(){ 
