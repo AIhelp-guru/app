@@ -1182,8 +1182,13 @@ function loadfromGoogle(){
     selectedQuiz = parameters.subject;
     if(sessionStorage.getItem('token') !== null){
     token = sessionStorage.getItem('token');
-    user = sessionStorage.getItem('user');
-    if(user === undefined) location.href = 'login.html';
+    if(sessionStorage.getItem('user') !== null){
+      user = sessionStorage.getItem('user');
+    }else{
+      location.href = 'login.html';
+    }
+    
+    
     $(".login-popup ").show();
     $(".background").show();
     //console.log(token);
