@@ -1183,7 +1183,7 @@ function loadfromGoogle(){
     if(sessionStorage.getItem('token') !== null){
     token = sessionStorage.getItem('token');
     user = sessionStorage.getItem('user');
-    if(user === null) location.href = 'login.html';
+    if(user === undefined) location.href = 'login.html';
     $(".login-popup ").show();
     $(".background").show();
     //console.log(token);
