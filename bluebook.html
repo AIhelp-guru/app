@@ -2005,7 +2005,7 @@ function fetchAndDisplayMenu(tabName) {
             });
 
             demoset.forEach(function(item) {
-              $(".tab-content").find("h3:contains('Word choice')").addClass("highlight");
+              $(".tab-content").find("h3:contains("+item+")").addClass("highlight");
             });
         })
         .fail(function () {
