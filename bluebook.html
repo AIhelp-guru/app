@@ -2217,10 +2217,15 @@ $("#prevQ").click(function(){
     });
 
     $("#start_btn").click(function(){
-      qtime = 0;
-      maxquestions = 30;
-      $(".login-popup ").hide();
-      $(".background").hide();
+      if(parseInt(sessionStorage.getItem('jobs')) > 10){
+          alert(parseInt(sessionStorage.getItem('jobs')))
+          qtime = 0;
+          maxquestions = 30;
+          $(".login-popup ").hide();
+          $(".background").hide();
+      }else{
+        alert("This feature is for Premium - paid user. Please write to aihelp.guru@gmail.com");
+      }
 
     })
     $("#quick_btn").click(function(){
