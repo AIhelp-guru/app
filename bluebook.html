@@ -1104,7 +1104,9 @@ tr:hover {
         var pdfDoc = null, pageNum = 1, pageText ='', canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
         var maxquestions = 20;
         var sheetData ="";
+        var demoset = ['Word choice','Author%27s%20purpose','Content refinement','Algebra','Functions','Geometry','all'];
 
+        https://aihelp-guru.github.io/app/bluebook.html?subject=ACT_english&topic=Author%27s%20purpose&prof_level=Beginner
 function loadFromsheet(){
     selectedQuiz = parameters.subject;
     if(sessionStorage.getItem('token') !== null){
@@ -1117,12 +1119,21 @@ function loadFromsheet(){
    // url = "https://script.google.com/macros/s/AKfycbwVcTsVsJPhxnzdHFX7ipGcu-ypcBUmjtGrPNpk37VHTvW2GDROosYyJVu9wVBLAn0gdQ/exec";
    if(parameters.topic === undefined){
     topic = 'all';
+    parameters.topic = 'all';
+   }
+   if(sessionStorage.getItem('jobs') >10){ 
+    // do  nothing
+   }else{
+    if(demoset.indexOf(parameters.topic) > 0){
+      //do nothing
+    }else{
+      alert("This feature is for Premium - paid user. Please write to aihelp.guru@gmail.com"); // if you are not paid user, block any other topics
+    }
    }
    
     url =  "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+user+"&crud=question&subject="+parameters.subject+"&subtopic="+encodeURIComponent(parameters.topic)+"&proficiency="+encodeURIComponent(parameters.prof_level);
-    console.log(url);
-   // $.get("https://script.google.com/macros/s/AKfycbwTg1yb5J9dw6O4enSM8iYnteKe8LNgvVPGutLOIOKuNTH751i7nHJhV6ED1QvyoRJKmw/exec?topic="+topic,function(data){
-    //$.get(url+"?topic="+topic+"&user="+user+"&token="+token,function(data){
+    
+
       $.get(url,function(data){
        
         if(data.indexOf("Error") >= 0){
@@ -2218,7 +2229,7 @@ $("#prevQ").click(function(){
 
     $("#start_btn").click(function(){
       if(parseInt(sessionStorage.getItem('jobs')) > 10){
-          alert(parseInt(sessionStorage.getItem('jobs')))
+          
           qtime = 0;
           maxquestions = 30;
           $(".login-popup ").hide();
