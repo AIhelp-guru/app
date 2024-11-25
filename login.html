@@ -108,7 +108,7 @@ function login(){
             sessionStorage.setItem('token', token);
             console.log(data);
         if(data.indexOf("'1'")>=0){
-            location.href = "bluebook.html";
+            //location.href = "bluebook.html";
             //sessionStorage.setItem('jobs', token);
         }else{
             alert("A token was sent to your email, please use that to login")
