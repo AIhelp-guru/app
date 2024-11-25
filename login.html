@@ -106,8 +106,10 @@ function login(){
         $.get("https://script.google.com/macros/s/AKfycbwveqlB5Lphr3_1GnvMlbo3fe-377oA9_I581Q9lFs9zrnfPYuxJtlhb4QYkYBb478bJg/exec?email="+email+"&token="+token,function(data){
             sessionStorage.setItem('user', email);
             sessionStorage.setItem('token', token);
+            console.log(data);
         if(data.indexOf("'1'")>=0){
             location.href = "bluebook.html";
+            //sessionStorage.setItem('jobs', token);
         }else{
             alert("A token was sent to your email, please use that to login")
         }
