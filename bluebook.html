@@ -880,6 +880,9 @@ tr:hover {
     padding:5px;
     background-color: rgb(228, 255, 209);;
   }
+  .highlight{
+    background-color: orange;
+  }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -1999,6 +2002,10 @@ function fetchAndDisplayMenu(tabName) {
                 // Update the link based on the new proficiency
                 const linkElement = $(this).siblings('.proficiency-link');
                 linkElement.attr('href', `?subject=${encodeURIComponent(subject)}&topic=${encodeURIComponent(category)}&prof_level=${encodeURIComponent(selectedProficiency)}`);
+            });
+
+            demoset.forEach(function(item) {
+              $(".tab-content").find("h3:contains('Word choice')").addClass("highlight");
             });
         })
         .fail(function () {
