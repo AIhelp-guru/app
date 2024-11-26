@@ -1,49 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Google Sheets Web App Connector</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tutor - Personalized Test Prep</title>
+  <link rel="stylesheet" href="indexstyles.css">
 </head>
 <body>
-<h1>Google Sheets Web App Connector 1.0</h1>
-<button id="readData">Read Data</button>
-<button id="writeData">Write Data</button>
-<div id="output">Data will appear here...</div>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Master Your Tests with Personalized AI Tutoring!</h1>
+      <p>Ace your exams with tailored practice, instant feedback, and smart analytics to track your progress.</p>
+      <a href="#" class="cta-button">Start Practicing Now!</a>
+    </div>
+  </header>
 
-<script>
-$(document).ready(function() {
-    const webAppUrl = 'https://script.google.com/macros/s/AKfycbzCubbwwhApTeyyIN9KmuQI2RSS7faZJU-tw80WkiYvrGQq-059Hs0SbrB6Z0zdqDD__w/exec'; // Replace with your Web App URL
- 
-    $('#readData').click(function() {
-        $.ajax({
-            url: webAppUrl,
-            type: 'GET', // or 'POST' if your web app is set to handle POST for read
-            data: { 'action': 'read' },
-            success: function(response) {
-                console.log(response);
-                $('#output').html(response);
-            },
-            error: function(xhr, status, error) {
-                $('#output').html("Error: " + error);
-            }
-        });
-    });
+  <section class="features">
+    <h2>Why Choose AI Tutor?</h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <h3>AI-Powered Customization</h3>
+        <p>Get practice sessions designed for your unique strengths and weaknesses.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Real-Time Feedback</h3>
+        <p>Learn from your mistakes instantly and get detailed explanations.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Smart Progress Tracking</h3>
+        <p>Monitor your improvement with actionable insights and analytics.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Comprehensive Test Prep</h3>
+        <p>Covers math, reading, science, and more—tailored to standardized tests.</p>
+      </div>
+    </div>
+  </section>
 
-    $('#writeData').click(function() {
-        $.ajax({
-            url: webAppUrl,
-            type: 'GET', // Change to 'POST' if using doPost in your Google Script
-            data: { 'action': 'write' },
-            success: function(response) {
-                $('#output').html(response);
-            },
-            error: function(xhr, status, error) {
-                $('#output').html("Error: " + error);
-            }
-        });
-    });
-});
-</script>
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <ol>
+      <li><strong>Sign Up:</strong> Create your account in minutes.</li>
+      <li><strong>Personalize Your Learning:</strong> Choose your subjects and goals.</li>
+      <li><strong>Start Practicing:</strong> Get AI-generated problems and immediate feedback.</li>
+      <li><strong>Track Results:</strong> See your progress and focus on areas for improvement.</li>
+    </ol>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Our Students Say</h2>
+    <div class="testimonial">
+      <p>“This app transformed the way I studied for the ACT. The AI feedback is spot-on!”</p>
+      <cite>— Student Name</cite>
+    </div>
+    <div class="testimonial">
+      <p>“With AI Tutor, I felt confident walking into my test. Highly recommend!”</p>
+      <cite>— Student Name</cite>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <a href="#" class="cta-button">Go to the App</a>
+      <p>&copy; 2024 AI Tutor. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
 </body>
 </html>
