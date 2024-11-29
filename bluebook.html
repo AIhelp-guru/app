@@ -494,6 +494,33 @@ tr:hover {
     height:300px;
     overflow:auto;
   }
+  .passage {
+    font-family: Arial, sans-serif;
+    line-height: 1.5em; /* Ensure lines are spaced evenly */
+    margin-left: 2em; /* Add spacing for line numbers */
+    position: relative;
+}
+
+.passage span {
+    display: block;
+    position: relative;
+    padding-left: 2em; /* Offset the text to leave space for numbers */
+    text-indent: -2em; /* Prevent text from overlapping the numbers */
+}
+
+.passage span::before {
+    content: counter(line) ". "; /* Add line numbers before each line */
+    counter-increment: line; /* Increment the counter for each span */
+    position: absolute;
+    left: 0;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Reset the line counter at the beginning of the passage */
+.passage {
+    counter-reset: line;
+}
   #pdf_content{
     display: none;
     padding:1px;
@@ -927,7 +954,7 @@ tr:hover {
       </div>
       <div id="pt" style="display: none"></div>
         <div id="pdf_content"></div>
-        <div id="content">
+        <div id="content" class=".passage>
           Loading the test ...
         </div>
         <div id="question">
