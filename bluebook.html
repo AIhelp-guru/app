@@ -496,31 +496,41 @@ tr:hover {
   }
   .passage {
     font-family: Arial, sans-serif;
-    line-height: 1.5em; /* Ensure lines are spaced evenly */
-    margin-left: 2em; /* Add spacing for line numbers */
+    font-size: 16px;
+    line-height: 1.5em; /* Ensure consistent line spacing */
     position: relative;
+    padding-left: 3em; /* Leave space for line numbers */
+    white-space: pre-line; /* Preserve line breaks */
 }
 
-.passage span {
+.passage::before {
+    content: "";
     display: block;
-    position: relative;
-    padding-left: 2em; /* Offset the text to leave space for numbers */
-    text-indent: -2em; /* Prevent text from overlapping the numbers */
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 2.5em; /* Width for line numbers */
+    counter-reset: line; /* Reset counter for numbering */
 }
 
 .passage span::before {
-    content: counter(line) ". "; /* Add line numbers before each line */
-    counter-increment: line; /* Increment the counter for each span */
+    counter-increment: line;
+    content: counter(line);
     position: absolute;
     left: 0;
     color: #555;
     font-weight: bold;
+    margin-right: 0.5em;
+    text-align: right;
 }
 
-/* Reset the line counter at the beginning of the passage */
-.passage {
-    counter-reset: line;
+/* Add line numbers dynamically without modifying text */
+.passage span {
+    display: block; /* Treat each line as block */
+    position: left;
 }
+
   #pdf_content{
     display: none;
     padding:1px;
