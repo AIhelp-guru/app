@@ -954,7 +954,7 @@ tr:hover {
        
         
       </div>
-      <div class="middle-section">
+        <div class="middle-section">
         
         <div id="urlForm">
             <input type="file" id="csvFileInput" accept=".csv" />
@@ -1123,7 +1123,8 @@ tr:hover {
         <button id="start_btn">Normal Practice</button>
         </div>
     </div>
-    
+    <img src="https://i.pinimg.com/originals/12/4d/e3/124de3d1b5e12f1d8fcec1685e634361.gif" id="hurray" style="display:none"/>
+   
 </div>  
     <script>
         var qindex = 0;
@@ -2113,7 +2114,7 @@ $("#nextQ").click(function(){
               $(".hint").prop("open",false);
               tries = 0;
               $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Good Job! Let us go to next question.</div><hr>").show();
-                           
+              $("#hurray").slideUp();             
 
               setTimeout(function() {
                 $(".alert_msg").fadeOut(500, function() {
