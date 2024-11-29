@@ -2115,7 +2115,7 @@ $("#nextQ").click(function(){
               $(".hint").prop("open",false);
               tries = 0;
               $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Good Job! Let us go to next question.</div><hr>").show();
-              $("#hurray").slideUp();             
+              $("#hurray").show();             
 
               setTimeout(function() {
                 $(".alert_msg").fadeOut(500, function() {
@@ -2123,7 +2123,7 @@ $("#nextQ").click(function(){
                   $("#history").append($("#chatbotMessages").clone().html()).show();
                   $("#history").find(".alert_msg").remove();
                   $("#chatbotMessages").html('');
-
+                  $("#hurray").hide(); 
                 });
               }, 1000); // This sets the delay to 2 seconds (2000 milliseconds)
               setTimeout(function(){
