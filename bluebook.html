@@ -1341,8 +1341,13 @@ function loadQuestion(){
           Q_ID = sheetData[num]['Question_ID'];
           if(sheetData[num]['passage'] !== undefined){
             content = sheetData[num]['passage'];
+            // adjust the panel for better reading
+            $("#chatbotPanel").css("width","20%");
+            $(".container").css("width","75%");
           }else{
             content = "";
+            $("#chatbotPanel").css("width","35%");
+            $(".container").css("width","60%");
           }
           
           q_text = sheetData[num]['Question'];
