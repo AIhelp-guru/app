@@ -1344,8 +1344,10 @@ function loadQuestion(){
             // adjust the panel for better reading
             $("#chatbotPanel").css("width","20%");
             $(".container").css("width","75%");
+            $("#content").show();
           }else{
             content = "";
+            $("#content").hide();
             $("#chatbotPanel").css("width","35%");
             $(".container").css("width","60%");
           }
