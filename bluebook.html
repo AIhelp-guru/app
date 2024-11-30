@@ -2280,10 +2280,8 @@ $("#prevQ").click(function(){
       if(parseInt(sessionStorage.getItem('jobs')) > 10){
           
           qtime = 0;
-          maxquestions = 30;
-          if(parameters.google !== undefined){
-            maxquestions = 10000;
-          }
+          maxquestions = 3000;
+          
           $(".login-popup ").hide();
           $(".background").hide();
       }else{
