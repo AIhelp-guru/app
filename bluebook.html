@@ -2281,6 +2281,9 @@ $("#prevQ").click(function(){
           
           qtime = 0;
           maxquestions = 30;
+          If(parameters.google !== undefined){
+            maxquestions = 10000;
+          }
           $(".login-popup ").hide();
           $(".background").hide();
       }else{
