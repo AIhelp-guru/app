@@ -111,6 +111,7 @@ function login(){
             sessionStorage.setItem('user', email);
             sessionStorage.setItem('token', token);
             jobs = parseInt(data.substr(data.indexOf(",")+1));
+            console.log(data);
         if((data.indexOf("'1'") >=0)||(jobs > 10)){
             
             
@@ -118,6 +119,7 @@ function login(){
             location.href = "bluebook.html";
             
         }else{
+
             alert("A token was sent to your email, please use that to login");
             $("#login_btn").css("background","#4CAF50");
         }
