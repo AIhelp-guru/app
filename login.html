@@ -106,6 +106,7 @@
 function login(){
     let email = $("#email").val();
     let token = $("#token").val();
+    $("#login_btn").css("background","#c0c0c0");
         $.get("https://script.google.com/macros/s/AKfycbzD4-hvBFntWLRE27d12-mqPTNU13jluRpOgFQlbghI7CWGYi4I8ksf3_OmoH1cI3XK4Q/exec?email="+email+"&token="+token,function(data){
             sessionStorage.setItem('user', email);
             sessionStorage.setItem('token', token);
@@ -117,7 +118,8 @@ function login(){
             location.href = "bluebook.html";
             
         }else{
-            alert("A token was sent to your email, please use that to login")
+            alert("A token was sent to your email, please use that to login");
+            $("#login_btn").css("background","#4CAF50");
         }
 
 
