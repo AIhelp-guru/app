@@ -1098,7 +1098,7 @@ tr:hover {
         </ul>
     </div>
 
-    <!-- Writing Tab Content -->
+    <!-- Writing Tab Content 
     <div id="Writing" class="tab-content" style="display: none;">
         <a href="#">Writing</a>
         <ul class="sub-menu">
@@ -1107,7 +1107,7 @@ tr:hover {
             <li><a href="#">Structure and Focus</a></li>
         </ul>
     </div>
-
+-->
     <button class="cancel-button" onclick="$(this).parent().hide(); $('.background').hide();">Cancel</button>
 </div>
 
@@ -1188,7 +1188,7 @@ function loadFromsheet(){
             prof_level = parameters.prof_level;
           }
           sheetData = sortQuestionsByLevel(data, prof_level);
-          console.log(data);
+          //console.log(data);
         
           
             $("#pdf_content").hide();
@@ -1274,7 +1274,7 @@ function loadfromGoogle(){
         
         sheetData = sh;
         
-        console.log(sheetData);
+        //console.log(sheetData);
         loadQuestion(sheetData);
           
           {
@@ -1337,7 +1337,7 @@ function loadQuestion(){
             return;
             }
             
-         console.log(sheetData[num]);
+         //console.log(sheetData[num]);
           Q_ID = sheetData[num]['Question_ID'];
           if(sheetData[num]['passage'] !== undefined){
             content = sheetData[num]['passage'];
@@ -1533,7 +1533,7 @@ function sendMessage() {
             //const detailedPrompt = createDetailedPrompt(message, context);
            
             prompt = (" {instruction: As a tutor, please help with my query : " +message + "; - do not give me direct answer. context: "+ JSON.stringify(context)+ "; respond in HTML format, based on number of paragraphs: <ol><li> </li><li></li></ol>") ; //$("#question").text() + ", and this is part of my ACT test prep for "+ $("#content").text());
-             console.log(prompt);
+             //console.log(prompt);
              callgemini(prompt);
             //callgemini(message + "; respond in HTML format, based on this page reference:" + $(".content").text() + " - Question : " + $("#alt_question_container").text());
             
@@ -1968,7 +1968,7 @@ function renderPage(num) {
 }
 function savePerformance(user,subject,subtopic,QID,tries,timetaken){
  url = "https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user="+encodeURIComponent(user)+"&crud=update&subject="+encodeURIComponent(parameters.subject)+"&subtopic="+encodeURIComponent(subtopic)+"&question="+QID+"&tries="+tries+"&timetaken="+timetaken;
- console.log(url);
+ //console.log(url);
  const response = $.ajax({
         url,
         type: 'get'
@@ -1998,7 +1998,7 @@ if(parameters.subject === undefined){
 function fetchAndDisplayMenu(tabName) {
     // URL to fetch category and proficiency data
     const dataUrl = `https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user=${user}&crud=categories&subject=ACT_${tabName.toLowerCase()}`;
-   console.log(dataUrl);
+   //console.log(dataUrl);
     // Check if menu items are already loaded to avoid duplicate loading
     if ($('#' + tabName).find("li").length === 0) {
         $.getJSON(dataUrl, function (data) {
@@ -2398,7 +2398,7 @@ function parseCSV(data) {
         csvData.push(currentRow);
     }
     
-    // console.log(csvData);  // Check the parsed CSV data
+    //console.log(csvData);  // Check the parsed CSV data
     return csvToObject(csvData);
 }
 
