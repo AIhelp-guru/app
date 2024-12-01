@@ -103,7 +103,7 @@
 function login(){
     let email = $("#email").val();
     let token = $("#token").val();
-        $.get("https://script.google.com/macros/s/AKfycbwveqlB5Lphr3_1GnvMlbo3fe-377oA9_I581Q9lFs9zrnfPYuxJtlhb4QYkYBb478bJg/exec?email="+email+"&token="+token,function(data){
+        $.get("https://script.google.com/macros/s/AKfycbzD4-hvBFntWLRE27d12-mqPTNU13jluRpOgFQlbghI7CWGYi4I8ksf3_OmoH1cI3XK4Q/exec"+email+"&token="+token,function(data){
             sessionStorage.setItem('user', email);
             sessionStorage.setItem('token', token);
             
