@@ -88,6 +88,7 @@
     <h2>AI Tutor</h2>
     <h2>Sign in</h2>
     <div>
+        <h2 id='alertmsg'></h2>
         <input id="email" type="text" placeholder="Enter a email ID" required>
     
         <input id="token" type="text" placeholder="Token" autocomplete="off"><br>
@@ -124,7 +125,7 @@ function login(){
             $("#login_btn").css("background","#4CAF50");
         }else{
             $("#login_btn").css("background","#4CAF50");
-            alert("Your 7 days free period is over, if you are happy! Ask for continuing the access - ai.help.guru@gmail.com")
+            $("#alertmsg").html("Your 7 days free period is over. <br> Hope you like it !! <br> Gives your feeback and ask how you continue to use . write to - ai.help.guru@gmail.com")
         }
 
 
