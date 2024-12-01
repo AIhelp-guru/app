@@ -45,7 +45,19 @@ body {
   .cta-button:hover {
     background: #e64a19;
   }
+  .start {
+    display: inline-block;
+    background: #00b527;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background 0.3s;
+  }
   
+  .start:hover {
+    background: #19e64c;
+  }
   /* Features Section */
   .features {
     background: #f4f4f4;
