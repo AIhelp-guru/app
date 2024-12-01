@@ -1998,7 +1998,7 @@ if(parameters.subject === undefined){
 function fetchAndDisplayMenu(tabName) {
     // URL to fetch category and proficiency data
     const dataUrl = `https://us-central1-aihelp-382014.cloudfunctions.net/questions_mongodb?user=${user}&crud=categories&subject=ACT_${tabName.toLowerCase()}`;
-
+   console.log(dataUrl);
     // Check if menu items are already loaded to avoid duplicate loading
     if ($('#' + tabName).find("li").length === 0) {
         $.getJSON(dataUrl, function (data) {
