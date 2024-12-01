@@ -118,10 +118,13 @@ function login(){
             sessionStorage.setItem('jobs', jobs);
             location.href = "bluebook.html";
             
-        }else{
+        }else if(data.indexOf("'2'") >=0){
 
             alert("A token was sent to your email, please use that to login");
             $("#login_btn").css("background","#4CAF50");
+        }else{
+            $("#login_btn").css("background","#4CAF50");
+            alert("Your 7 days free period over, please ask for paid membership at ai.help.guru@gmail.com")
         }
 
 
