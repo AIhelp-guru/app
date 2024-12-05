@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Plans - AI Help Guru</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            background-color: #1a73e8;
+            padding: 20px;
+            color: #fff;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            color: #1a73e8;
+            text-align: center;
+        }
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .features li {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .features li::before {
+            content: "✔";
+            color: #1a73e8;
+            margin-right: 10px;
+        }
+        .pricing {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .plan {
+            text-align: center;
+            flex: 1;
+            margin: 0 10px;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .plan:hover {
+            border-color: #1a73e8;
+            transform: scale(1.05);
+        }
+        .plan h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .plan p {
+            margin: 10px 0;
+            color: #666;
+        }
+        .plan .price {
+            font-size: 24px;
+            color: #1a73e8;
+        }
+        .cta {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .cta button {
+            background-color: #1a73e8;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .cta button:hover {
+            background-color: #155bb5;
+        }
+        .note {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        .note a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Subscription Plans</h1>
+    </header>
+    <div class="container">
+        <h2>Start with a 3-day free trial, then pick your subscription.</h2>
+        <ul class="features">
+            <li>4,500+ SAT Questions</li>
+            <li>Custom Study Plan</li>
+            <li>Target Specific Topics</li>
+            <li>Score Predictions</li>
+            <li>Performance Data</li>
+            <li>10 Full-length SAT Exams</li>
+            <li>Hints & Explanations</li>
+            <li>Choose Your Difficulty</li>
+            <li>Strongest & Weakest Sections</li>
+            <li>Practice Your Mistakes</li>
+        </ul>
+        <div class="pricing">
+            <div class="plan">
+                <h3>1 Month</h3>
+                <p>Billed monthly</p>
+                <p class="price">$99.00/month</p>
+            </div>
+            <div class="plan">
+                <h3>3 Months</h3>
+                <p>Billed as $199.00 every 3 months</p>
+                <p class="price">$66.33/month*</p>
+            </div>
+            <div class="plan">
+                <h3>6 Months</h3>
+                <p>Billed as $299.00 every 6 months</p>
+                <p class="price">$49.83/month*</p>
+            </div>
+        </div>
+        <div class="cta">
+            <button>Start Your 3-day Free Trial</button>
+        </div>
+        <p class="note">Just looking for practice questions? <a href="#">Cancel your Pro subscription</a> before the trial ends and get access to the question bank for free (with limited features).</p>
+    </div>
+</body>
+</html>
