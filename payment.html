@@ -151,6 +151,7 @@
             
         </div>
         </center>
+        
         <h2>or</h2>
         <a href="/login.html" class="cta-button">
         <div class="cta">
@@ -158,5 +159,17 @@
         </div>
          </a>
       </div>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        var stripe = Stripe('pk_test_51QSfA3HJ2vdn9gYFPlb4Vl5GwMfjKJy7VJNZuOmJAk7616R8ItB4mJqgxltQgwtv6vM1s2CrowcGYBGwYvpoVWH000MBfDgFHF');
+        const fetchClientSecret = async () => {
+            const clientSecret = await createCheckoutSession();
+            return clientSecret;
+            };
+
+            const checkout = await stripe.initEmbeddedCheckout({
+            fetchClientSecret,
+            });
+      </script>
 </body>
 </html>
