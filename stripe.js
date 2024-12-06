@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     // Load the publishable key from the server. The publishable key
     // is set in your .env file.
-    const {publishableKey} = 'pk_test_51QSfA3HJ2vdn9gYFPlb4Vl5GwMfjKJy7VJNZuOmJAk7616R8ItB4mJqgxltQgwtv6vM1s2CrowcGYBGwYvpoVWH000MBfDgFHF';
+    const publishableKey = 'pk_test_51QSfA3HJ2vdn9gYFPlb4Vl5GwMfjKJy7VJNZuOmJAk7616R8ItB4mJqgxltQgwtv6vM1s2CrowcGYBGwYvpoVWH000MBfDgFHF';
     if (!publishableKey) {
       addMessage(
         'No publishable key returned from the server. Please check `.env` and try again'
