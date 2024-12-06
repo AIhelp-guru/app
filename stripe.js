@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       alert('Please set your Stripe publishable API key in the .env file');
     }
   
-    const stripe = Stripe(publishableKey, {
+    const stripe = Stripe('pk_test_51QSfA3HJ2vdn9gYFPlb4Vl5GwMfjKJy7VJNZuOmJAk7616R8ItB4mJqgxltQgwtv6vM1s2CrowcGYBGwYvpoVWH000MBfDgFHF', {
       apiVersion: '2020-08-27',
     });
   
