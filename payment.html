@@ -135,13 +135,13 @@
         <h2>Select</h2>
         <center>
         <div class="pricing">
-            <a href="https://buy.stripe.com/test_6oEeWR90I3MCdZC5kk" style="text-decoration: none;">
+            <a href="https://buy.stripe.com/7sI00y4qH7SMepW000" style="text-decoration: none;">
                 <div class="plan">
                 <h3>1 Month access</h3>
                 <p class="price">$39.99</p>
                 
             </div></a>
-            <a href="https://buy.stripe.com/test_aEUdSN5Owbf4bRubIJ" style="text-decoration: none;">
+            <a href="https://buy.stripe.com/4gw00y1evc924PmcMN" style="text-decoration: none;">
             <div class="plan">
                 <h3>3 Months access</h3>
                 <p class="price">$79.99</p>
@@ -159,17 +159,6 @@
         </div>
          </a>
       </div>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        var stripe = Stripe('pk_test_51QSfA3HJ2vdn9gYFPlb4Vl5GwMfjKJy7VJNZuOmJAk7616R8ItB4mJqgxltQgwtv6vM1s2CrowcGYBGwYvpoVWH000MBfDgFHF');
-        const fetchClientSecret = async () => {
-            const clientSecret = await createCheckoutSession();
-            return clientSecret;
-            };
-
-            const checkout = await stripe.initEmbeddedCheckout({
-            fetchClientSecret,
-            });
-      </script>
+      
 </body>
 </html>
