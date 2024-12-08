@@ -2012,12 +2012,24 @@ function fetchAndDisplayMenu(tabName) {
             menuContainer.empty();
 
             // Add "All categories" item
-            const mainMenu = `
-                <li class="Beginner">
-                    <a href="?subject=${encodeURIComponent("ACT_" + tabName.toLowerCase())}&topic=all&prof_level=Beginner">
-                        <b>All categories</b>
-                    </a>
-                </li>`;
+            const category = 'all';
+                const initialProficiency = 'Beginner';
+
+                // Construct the menu item with proficiency dropdown
+                const menuItem = `
+                    <li class="${initialProficiency}">
+                        <h3>All topics</h3>
+                        <select class="proficiency-select" data-category="${category}">
+                            <option value="Beginner" ${initialProficiency === 'Beginner' ? 'selected' : ''}>Beginner</option>
+                            <option value="Intermediate" ${initialProficiency === 'Intermediate' ? 'selected' : ''}>Intermediate</option>
+                            <option value="Proficient" ${initialProficiency === 'Proficient' ? 'selected' : ''}>Proficient</option>
+                            <option value="Expert" ${initialProficiency === 'Expert' ? 'selected' : ''}>Expert</option>
+                        </select>
+                        <a href="?subject=${encodeURIComponent("ACT_" + tabName.toLowerCase())}&topic=${encodeURIComponent(category)}&prof_level=${initialProficiency}" class="proficiency-link">
+                            >
+                        </a>
+                    </li>`;
+
             menuContainer.append(mainMenu);
 
             // Iterate over each item in the fetched data
