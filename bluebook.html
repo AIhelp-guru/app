@@ -1064,6 +1064,7 @@ tr:hover {
   </div>
   <div class="background"></div>
  <div id="main-menu">
+  <h3>Select a topic : </h2><i>sorted as per your recent performance </i> </h3>
     <!-- Tab Buttons -->
     <div class="tab-link active" onclick="openTab(event, 'English')">English</div>
     <div class="tab-link" onclick="openTab(event, 'Math')">Math</div>
@@ -2010,7 +2011,7 @@ function fetchAndDisplayMenu(tabName) {
             // Target element where the menu will be displayed
             const menuContainer = $('#' + tabName);
             menuContainer.empty();
-            menuContainer.append("<h2>Select a topic</h2><h5 stule='font-size:0.6em'>sorted as per your recent performance </i> </h5>");
+            
 
             // Add "All categories" item
                 let category = 'all';
