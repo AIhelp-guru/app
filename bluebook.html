@@ -2012,11 +2012,11 @@ function fetchAndDisplayMenu(tabName) {
             menuContainer.empty();
 
             // Add "All categories" item
-            const category = 'all';
-                const initialProficiency = 'Beginner';
+                let category = 'all';
+                let initialProficiency = 'Beginner';
 
                 // Construct the menu item with proficiency dropdown
-                const menuItem = `
+                let menuItem = `
                     <li class="${initialProficiency}">
                         <h3>All topics</h3>
                         <select class="proficiency-select" data-category="${category}">
@@ -2034,11 +2034,11 @@ function fetchAndDisplayMenu(tabName) {
 
             // Iterate over each item in the fetched data
             data.forEach(item => {
-                const category = item.Category;
-                const initialProficiency = item.Proficiency;
+                let category = item.Category;
+                let initialProficiency = item.Proficiency;
 
                 // Construct the menu item with proficiency dropdown
-                const menuItem = `
+                let menuItem = `
                     <li class="${initialProficiency}">
                         <h3>${category}</h3>
                         <select class="proficiency-select" data-category="${category}">
