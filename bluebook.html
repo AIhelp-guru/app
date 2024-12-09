@@ -1385,8 +1385,10 @@ function loadQuestion(){
             $("#question_text").html(q_text); // Question text
             $("#correct_answer").html(answer_key); // Answer Key
             $("#options").html(''); 
+            options = options.replace(/^[\s\S]*?(?=[a-eA-E]\)\s+)/, ''); 
             o_text = options;  // Options text "a) b) c) d)"
-            o_text = o_text.replace(/^[\s\S]*?(?=[a-eA-E]\)\s+)/, ''); 
+            //o_text = o_text.replace(/^[\s\S]*?(?=[a-eA-E]\)\s+)/, ''); 
+            
             //console.log(o_text.indexOf("g)"));
             let ops = [];
             let oa =[];
