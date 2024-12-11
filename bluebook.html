@@ -1542,7 +1542,7 @@ function sendMessage() {
             
             //const detailedPrompt = createDetailedPrompt(message, context);
            
-            prompt = (" {instruction: As a tutor, please help with my query : " +message + "; - do not give me direct answer. context: "+ JSON.stringify(context)+ "; respond in HTML with inline CSS format, in this ") ;
+            prompt = (" {instruction: As a tutor, please help with my query : " +message + "; - do not give me direct answer. context: "+ JSON.stringify(context)+ "; respond in HTML with inline CSS format") ;
              //console.log(prompt);
              callgemini(prompt);
             //callgemini(message + "; respond in HTML format, based on this page reference:" + $(".content").text() + " - Question : " + $("#alt_question_container").text());
