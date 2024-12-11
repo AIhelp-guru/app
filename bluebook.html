@@ -2099,6 +2099,11 @@ $("#nextQ").click(function(){
           r = evaluate();
           }
           if(r){
+            if(((qindex+1) < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
+              qindex++;
+            }else{
+              $("#report_btn").click();
+            }
               $("#alt_question_container").slideUp();
               u_ans.push(1);
               u_helps.push(tries);
@@ -2115,14 +2120,11 @@ $("#nextQ").click(function(){
               tries = 0;
               $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Good Job! Let us go to next question.</div><hr>").show();
               $("#hurray").fadeIn();             
-              if((qindex < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
-                qindex++;
+              
+                
               setTimeout(function(){
                loadQuestion(qindex); },1200);
-                }else{
-                  $("#report_btn").click();
-                    return;
-                    }
+                
             
               setTimeout(function() {
                 $(".alert_msg").fadeOut(500, function() {
