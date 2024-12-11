@@ -2103,7 +2103,7 @@ $("#nextQ").click(function(){
           r = evaluate();
           }
           if(r){
-            alert();
+            
               $("#alt_question_container").slideUp();
              //if(aihelp === 1) {
                 //tries = 3;
@@ -2114,6 +2114,7 @@ $("#nextQ").click(function(){
               u_helps.push(tries);
               u_time.push(question_time - qtime);
               savePerformance(user,topic,category,Q_ID,tries,(question_time - qtime)); 
+             alert();
               clearInterval(qtimer);
               if(((qindex+1) < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
               qindex++;
