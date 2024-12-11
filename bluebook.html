@@ -938,7 +938,7 @@ tr:hover {
         <div class="middle-section">
         
         <div id="urlForm">
-            <input type="file" id="csvFileInput" accept=".csv" />
+           
 
 
         
@@ -2105,8 +2105,14 @@ $("#nextQ").click(function(){
               u_time.push(question_time - qtime);
               savePerformance(user,topic,category,Q_ID,tries,(question_time - qtime)); 
               clearInterval(qtimer);
-              qindex++;
-              if(qindex === sheetData.length) qindex = qindex -1;
+              if((qindex < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
+                qindex++;
+                }else{
+                  $("#report_btn").click();
+                    return;
+                    }
+            
+              
               
               filterHelp(); 
               addhelp();
@@ -2126,13 +2132,9 @@ $("#nextQ").click(function(){
                 });
               }, 1000); // This sets the delay to 2 seconds (2000 milliseconds)
               setTimeout(function(){
-                console.log(qindex,"+",max)
-              if((qindex < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
-                loadQuestion(qindex);
-                }else{
-                    $("#report_btn").click();
-                    return;
-                    }
+               loadQuestion(qindex);
+              
+                   
                 
               
               },1200);
@@ -2339,79 +2341,7 @@ function openTab(event, tabName) {
 
 init();
 fetchAndDisplayMenu('English')
-    </script>
-    <script>
-     let csvData = [];
-//      document.getElementById('csvFileInput').addEventListener('change', function (e) {
-//     const file = e.target.files[0];
-//     if (!file) return;
-
-//     const reader = new FileReader();
-//     reader.onload = function (event) {
-//         csv = event.target.result;
-//          sheetData = parseCSV(csv);
-
-//         qindex = 1;
-//         loadQuestion();
-//     };
-//     reader.readAsText(file);
-// });
-
-function parseCSV(data) {
-    const csvData = []; 
-    let currentRow = [];
-    let currentField = "";
-    let inQuotes = false;
-
-    for (let i = 0; i < data.length; i++) {
-        const char = data[i];
-
-        if (char === "," && !inQuotes) {
-            currentRow.push(currentField.trim());
-            currentField = "";
-        } else if (char === '"') {
-            inQuotes = !inQuotes;  // Toggle quote state
-        } else if (char === "\n" && !inQuotes) {
-            currentRow.push(currentField.trim());
-            csvData.push(currentRow);
-            currentRow = [];
-            currentField = "";
-        } else {
-            currentField += char;
-        }
-    }
-
-    // Push the last field if any
-    if (currentField !== "") {
-        currentRow.push(currentField.trim());
-    }
-    // Push the last row
-    if (currentRow.length > 0) {
-        csvData.push(currentRow);
-    }
-    
-    //console.log(csvData);  // Check the parsed CSV data
-    return csvToObject(csvData);
-}
-
-function csvToObject(csv) {
-    const rows = csv;
-    
-    // Extract the headers (first row)
-    const headers = rows[0];
-    
-    // Map each remaining row to an object
-    const result = rows.slice(1).map(row => {
-        let obj = {};
-        headers.forEach((header, index) => {
-            // Assign values from the row to corresponding header
-            obj[header] = row[index] ? row[index].trim() : "";
-        });
-        return obj;
-    });
-
-    return result;
-}
+   
 
 
 
