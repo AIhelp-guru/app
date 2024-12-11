@@ -1527,6 +1527,7 @@ function callgemini(prompt){
         type: 'POST',
         data: { "text": prompt },
         success: function(data) {
+            tries = 3;
             $("#waiting").remove();
             
             data = data.replace("```html","").replaceAll("```","");
