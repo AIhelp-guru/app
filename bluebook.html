@@ -1514,6 +1514,7 @@ function sendMessage() {
             prompt = (" {instruction: As a tutor, please help with my query : " +message + "; - do not give me direct answer. context: "+ JSON.stringify(context)+ "; respond in HTML with inline CSS format") ;
              //console.log(prompt);
              callgemini(prompt);
+            tries = 3;
             //callgemini(message + "; respond in HTML format, based on this page reference:" + $(".content").text() + " - Question : " + $("#alt_question_container").text());
             
     }
@@ -1527,7 +1528,7 @@ function callgemini(prompt){
         type: 'POST',
         data: { "text": prompt },
         success: function(data) {
-            tries = 3;
+            
             $("#waiting").remove();
             
             data = data.replace("```html","").replaceAll("```","");
@@ -2143,7 +2144,7 @@ $("#nextQ").click(function(){
         }else{
           
          
-          
+          alert(tries)
           if(tries === 0){
             $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Let us try one more time</div>").show();
             $("#chatbotMessages").find(".helps").hide();
