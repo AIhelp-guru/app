@@ -2102,7 +2102,8 @@ $("#nextQ").click(function(){
           if(r){
             
               $("#alt_question_container").slideUp();
-              u_ans.push(1);
+            alert(tries)
+              u_any.push(1);
               u_helps.push(tries);
               u_time.push(question_time - qtime);
               savePerformance(user,topic,category,Q_ID,tries,(question_time - qtime)); 
