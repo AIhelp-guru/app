@@ -2105,13 +2105,7 @@ $("#nextQ").click(function(){
               u_time.push(question_time - qtime);
               savePerformance(user,topic,category,Q_ID,tries,(question_time - qtime)); 
               clearInterval(qtimer);
-              if((qindex < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
-                qindex++;
-                }else{
-                  $("#report_btn").click();
-                    return;
-                    }
-            
+              
               
               
               filterHelp(); 
@@ -2121,7 +2115,13 @@ $("#nextQ").click(function(){
               tries = 0;
               $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Good Job! Let us go to next question.</div><hr>").show();
               $("#hurray").fadeIn();             
-
+              if((qindex < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
+                qindex++;
+                }else{
+                  $("#report_btn").click();
+                    return;
+                    }
+            
               setTimeout(function() {
                 $(".alert_msg").fadeOut(500, function() {
                   $(this).remove(); // Removes the element after fade out
