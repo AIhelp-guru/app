@@ -508,33 +508,7 @@ tr:hover {
     white-space: pre-line; /* Preserve line breaks */
 }
 
-.passage::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 2.5em; /* Width for line numbers */
-    counter-reset: line; /* Reset counter for numbering */
-}
 
-.passage span::before {
-    counter-increment: line;
-    content: counter(line);
-    position: absolute;
-    left: 0;
-    color: #555;
-    font-weight: bold;
-    margin-right: 0.5em;
-    text-align: right;
-}
-
-/* Add line numbers dynamically without modifying text */
-.passage span {
-    display: inline-block; /* Treat each line as block */
-    position: left;
-}
 
   #pdf_content{
     display: none;
