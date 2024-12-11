@@ -2117,6 +2117,8 @@ $("#nextQ").click(function(){
               $("#hurray").fadeIn();             
               if((qindex < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
                 qindex++;
+              setTimeout(function(){
+               loadQuestion(qindex); },1200);
                 }else{
                   $("#report_btn").click();
                     return;
@@ -2131,13 +2133,7 @@ $("#nextQ").click(function(){
                   $("#hurray").fadeOut(); 
                 });
               }, 1000); // This sets the delay to 2 seconds (2000 milliseconds)
-              setTimeout(function(){
-               loadQuestion(qindex);
               
-                   
-                
-              
-              },1200);
              
 
         }else{
