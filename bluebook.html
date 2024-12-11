@@ -1127,7 +1127,9 @@ tr:hover {
         var subjects = ["ACT_prep_english","ACT_prep_math","ACT_1_science","ACT_1_math"];
         var pdfDoc = null, pageNum = 1, pageText ='', canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
         var maxquestions = 20;
-        var sheetData ="";
+        var sheetData =""
+        
+        let aihelp = 0;
         var demoset = ['Word choice','Author%27s%20purpose','Content refinement','Algebra','Functions','Geometry','all'];
 
         https://aihelp-guru.github.io/app/bluebook.html?subject=ACT_english&topic=Author%27s%20purpose&prof_level=Beginner
@@ -1514,7 +1516,7 @@ function sendMessage() {
             prompt = (" {instruction: As a tutor, please help with my query : " +message + "; - do not give me direct answer. context: "+ JSON.stringify(context)+ "; respond in HTML with inline CSS format") ;
              //console.log(prompt);
              callgemini(prompt);
-            tries = 3;
+            aihelp = 1;
             //callgemini(message + "; respond in HTML format, based on this page reference:" + $(".content").text() + " - Question : " + $("#alt_question_container").text());
             
     }
@@ -2103,7 +2105,11 @@ $("#nextQ").click(function(){
           if(r){
             
               $("#alt_question_container").slideUp();
-            alert(tries)
+             if(aihelp === 1) {
+                tries = 3;
+                aihelp = 0;
+                }
+                
               u_any.push(1);
               u_helps.push(tries);
               u_time.push(question_time - qtime);
@@ -2144,7 +2150,7 @@ $("#nextQ").click(function(){
         }else{
           
          
-          alert(tries)
+          
           if(tries === 0){
             $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Let us try one more time</div>").show();
             $("#chatbotMessages").find(".helps").hide();
