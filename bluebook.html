@@ -1311,14 +1311,8 @@ function save_read(data){
     })
 }
 let Q_ID ,content,q_text,options,answer_key,explanation,hint,example,category ;
-function loadQuestion(){
-  console.log(qindex,"+",maxquestions)
-    if((qindex < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
-        num = qindex;
-        }else{
-            $("#report_btn").click();
-            return;
-            }
+function loadQuestion(num = 0){
+  
             
          //console.log(sheetData[num]);
           Q_ID = sheetData[num]['Question_ID'];
@@ -2132,8 +2126,14 @@ $("#nextQ").click(function(){
                 });
               }, 1000); // This sets the delay to 2 seconds (2000 milliseconds)
               setTimeout(function(){
+                console.log(qindex,"+",max)
+              if((qindex < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
+                loadQuestion(qindex);
+                }else{
+                    $("#report_btn").click();
+                    return;
+                    }
                 
-                loadQuestion()
               
               },1200);
              
@@ -2176,13 +2176,7 @@ $("#nextQ").click(function(){
                 $("#alert__msg").hide();
             }, 2000);
           });
-$("#prevQ").click(function(){ 
-          qindex--;
-          if(qindex <0) qindex = 0;
-          loadQuestion();
-          filterHelp();  
-          addhelp();
-          });
+
 
         
 
@@ -2239,7 +2233,7 @@ $("#prevQ").click(function(){
         filterHelp();
         
       })
-      //loadQuestion(0);
+    
      
     
 
@@ -2348,20 +2342,20 @@ fetchAndDisplayMenu('English')
     </script>
     <script>
      let csvData = [];
-     document.getElementById('csvFileInput').addEventListener('change', function (e) {
-    const file = e.target.files[0];
-    if (!file) return;
+//      document.getElementById('csvFileInput').addEventListener('change', function (e) {
+//     const file = e.target.files[0];
+//     if (!file) return;
 
-    const reader = new FileReader();
-    reader.onload = function (event) {
-        csv = event.target.result;
-         sheetData = parseCSV(csv);
+//     const reader = new FileReader();
+//     reader.onload = function (event) {
+//         csv = event.target.result;
+//          sheetData = parseCSV(csv);
 
-        qindex = 1;
-        loadQuestion();
-    };
-    reader.readAsText(file);
-});
+//         qindex = 1;
+//         loadQuestion();
+//     };
+//     reader.readAsText(file);
+// });
 
 function parseCSV(data) {
     const csvData = []; 
