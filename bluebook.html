@@ -1312,6 +1312,7 @@ function save_read(data){
 }
 let Q_ID ,content,q_text,options,answer_key,explanation,hint,example,category ;
 function loadQuestion(){
+  console.log(qindex,"+",maxquestions)
     if((qindex < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
         num = qindex;
         }else{
