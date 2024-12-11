@@ -2099,18 +2099,18 @@ $("#nextQ").click(function(){
           r = evaluate();
           }
           if(r){
-            if(((qindex+1) < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
-              qindex++;
-            }else{
-              $("#report_btn").click();
-            }
+            
               $("#alt_question_container").slideUp();
               u_ans.push(1);
               u_helps.push(tries);
               u_time.push(question_time - qtime);
               savePerformance(user,topic,category,Q_ID,tries,(question_time - qtime)); 
               clearInterval(qtimer);
-              
+              if(((qindex+1) < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
+              qindex++;
+            }else{
+              $("#report_btn").click();
+            }
               
               
               filterHelp(); 
