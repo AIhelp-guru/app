@@ -1129,7 +1129,7 @@ tr:hover {
         var maxquestions = 20;
         var sheetData ="";
         var demoset = ['Word choice','Author%27s%20purpose','Content refinement','Algebra','Functions','Geometry','all'];
-
+        var aihelp = false;
         https://aihelp-guru.github.io/app/bluebook.html?subject=ACT_english&topic=Author%27s%20purpose&prof_level=Beginner
 function loadFromsheet(){
     selectedQuiz = parameters.subject;
@@ -1514,6 +1514,7 @@ function sendMessage() {
             prompt = (" {instruction: As a tutor, please help with my query : " +message + "; - do not give me direct answer. context: "+ JSON.stringify(context)+ "; respond in HTML with inline CSS format") ;
              //console.log(prompt);
              callgemini(prompt);
+             aihelp = true;
             //callgemini(message + "; respond in HTML format, based on this page reference:" + $(".content").text() + " - Question : " + $("#alt_question_container").text());
             
     }
@@ -2102,12 +2103,17 @@ $("#nextQ").click(function(){
           if(r){
             
               $("#alt_question_container").slideUp();
+              if(aihelp){
+                tries = 3;
+                aihelp = false;
+
+              }
               u_ans.push(1);
               u_helps.push(tries);
               u_time.push(question_time - qtime);
               savePerformance(user,topic,category,Q_ID,tries,(question_time - qtime)); 
               clearInterval(qtimer);
-              if(((qindex+1) < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
+            if(((qindex+1) < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
               qindex++;
             }else{
               $("#report_btn").click();
