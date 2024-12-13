@@ -16,7 +16,7 @@ function handleCredentialResponse(response) {
 
     // Access the user's email 
     const userEmail = userInfo.email;
-    login(userEmail, user.iss);
+    login(userEmail, userInfo.iss);
     //console.log("User Email: ", userEmail);
 }
 
