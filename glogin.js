@@ -1,7 +1,8 @@
 function handleCredentialResponse(response) {
     // Send the ID token to your backend server 
     // to verify and exchange it for your own tokens.
-    console.log("Encoded JWT ID token: " + response.credential); 
+    console.log(response);
+    //console.log("Encoded JWT ID token: " + response.credential); 
 }
 
 
