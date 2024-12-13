@@ -1,5 +1,5 @@
 function handleCredentialResponse(response) {
-    console.log("Encoded JWT ID token: " + response.credential);
+    //console.log("Encoded JWT ID token: " + response.credential);
 
     // Decode the ID token to extract user information
     const base64Url = response.credential.split('.')[1]; // Get the payload part
