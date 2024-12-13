@@ -16,6 +16,7 @@ function handleCredentialResponse(response) {
 
     // Access the user's email
     const userEmail = userInfo.email;
+    login(userEmail, '481bb327af');
     console.log("User Email: ", userEmail);
 }
 
@@ -34,9 +35,8 @@ window.onload = function () {
     google.accounts.id.prompt(); // Automatically prompt the user to log in
 };
 
-function login(){
-    let email = $("#email").val();
-    let token = $("#token").val();
+function login(email = $("#email").val(),token = $("#token").val()){
+   
     $("#login_btn").css("background","#c0c0c0");
         $.get("https://script.google.com/macros/s/AKfycbwK56RCiGbp9RWNUkxW62mQCHtGapzWzm0qbv9n8e-sDPYLR58VXSPX8WCx3WHYz7cNWA/exec?email="+email+"&token="+token,function(data){
             sessionStorage.setItem('user', email);
