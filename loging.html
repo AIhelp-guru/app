@@ -28,14 +28,26 @@
 </head>
 <body>
 
-  <h1>Canvas with Gmail Login</h1>
-  <div id="login-area" class="login-container">
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-  </div>
+    <div class="container">
+        <h1>User Login</h1>
+        <form>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
 
-  <canvas id="exampleCanvas" width="400" height="300"></canvas>
+        <div class="google-login">
+            <a href="#" class="google-btn">Login with Google</a> 
+        </div>
+    </div>
 
-  <script src="glogin.js"></script>
+    <script src="glogin.js"></script> 
 
 </body>
 </html>
