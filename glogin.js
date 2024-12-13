@@ -11,7 +11,7 @@ window.onload = function() {
     });
 
     google.accounts.id.renderButton(
-        document.getElementById('g_id_onload'),
+        document.getElementById('google-login'),
         { theme: 'outline', size: 'large' }  // Customize button appearance
     );
 };
