@@ -38,7 +38,7 @@ window.onload = function () {
 function login(email ,token){
    
     $("#login_btn").css("background","#c0c0c0");
-        $.get("https://script.google.com/macros/s/AKfycbwiY2OpoBRnvNKOAwhubvqNJRhKdWUkgASL3757Ig25qjmy_X-kJfivjLflN3dPCVtvtQ/exec?email="+email+"&token="+token,function(data){
+        $.get("https://script.google.com/macros/s/AKfycbzvyzwr3M2qMWqXJA0-fP48wOYOdUVlhabiFmwfj4NOzbDFAm2X2u64npHptu-Hyo3L3w/exec?email="+email+"&token="+token,function(data){
             sessionStorage.setItem('user', email);
             sessionStorage.setItem('token', token);
             jobs = parseInt(data.substr(data.indexOf(",")+1));
