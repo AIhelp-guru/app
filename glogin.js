@@ -12,12 +12,12 @@ function handleCredentialResponse(response) {
     );
 
     const userInfo = JSON.parse(jsonPayload);
-   // console.log("User Information: ", userInfo);
+   console.log("User Information: ", userInfo);
 
     // Access the user's email 
     const userEmail = userInfo.email;
     //login(userEmail, '481bb327af');
-    //console.log("User Email: ", userEmail);
+    console.log("User Email: ", userEmail);
 }
 
 
