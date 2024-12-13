@@ -1,8 +1,22 @@
 function handleCredentialResponse(response) {
-    // Send the ID token to your backend server 
-    // to verify and exchange it for your own tokens.
-    console.log(response);
-    //console.log("Encoded JWT ID token: " + response.credential); 
+    console.log("Encoded JWT ID token: " + response.credential);
+
+    // Decode the ID token to extract user information
+    const base64Url = response.credential.split('.')[1]; // Get the payload part
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(
+        atob(base64)
+            .split('')
+            .map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+            .join('')
+    );
+
+    const userInfo = JSON.parse(jsonPayload);
+    console.log("User Information: ", userInfo);
+
+    // Access the user's email
+    const userEmail = userInfo.email;
+    console.log("User Email: ", userEmail);
 }
 
 
