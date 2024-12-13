@@ -36,12 +36,7 @@ window.onload = function () {
 };
 
 function login(email ,token){
-   if(email == undefined){
-        email = $("#email").val();
-    }
-    if(token == undefined){
-        token = $("#token").val();
-    }
+   
     $("#login_btn").css("background","#c0c0c0");
         $.get("https://script.google.com/macros/s/AKfycbwK56RCiGbp9RWNUkxW62mQCHtGapzWzm0qbv9n8e-sDPYLR58VXSPX8WCx3WHYz7cNWA/exec?email="+email+"&token="+token,function(data){
             sessionStorage.setItem('user', email);
@@ -71,7 +66,13 @@ function login(email ,token){
 
 $(document).ready(function(){
     $("#login_btn").click(function(){
-        login();
+        
+            email = $("#email").val();
+        
+   
+            token = $("#token").val();
+        
+        login(email,token);
     })
 })
 
