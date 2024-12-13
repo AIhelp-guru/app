@@ -33,3 +33,40 @@ window.onload = function () {
 
     google.accounts.id.prompt(); // Automatically prompt the user to log in
 };
+
+function login(){
+    let email = $("#email").val();
+    let token = $("#token").val();
+    $("#login_btn").css("background","#c0c0c0");
+        $.get("https://script.google.com/macros/s/AKfycbwK56RCiGbp9RWNUkxW62mQCHtGapzWzm0qbv9n8e-sDPYLR58VXSPX8WCx3WHYz7cNWA/exec?email="+email+"&token="+token,function(data){
+            sessionStorage.setItem('user', email);
+            sessionStorage.setItem('token', token);
+            jobs = parseInt(data.substr(data.indexOf(",")+1));
+            console.log(data);
+        if((data.indexOf("'1'") >=0)||(jobs > 10)){
+            
+            
+            sessionStorage.setItem('jobs', jobs);
+            location.href = "bluebook.html";
+            
+        }else if(data.indexOf("'2'") >=0){
+
+            alert("A token was sent to your email, please use that to login");
+            $("#login_btn").css("background","#4CAF50");
+        }else{
+            $("#login_btn").css("background","#4CAF50");
+            $("#alertmsg").html("Your 7 days free period is over. <p> Hope you liked it !! <p> Let us know your feedback <p> <large>To continue to use, email to - <u>ai.help.guru@gmail.com</u></large>")
+            }
+
+        
+    })
+}
+
+
+
+$(document).ready(function(){
+    $("#login_btn").click(function(){
+        login();
+    })
+})
+
