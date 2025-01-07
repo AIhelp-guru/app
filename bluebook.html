@@ -177,7 +177,7 @@
     border-radius: 20px 20px 0 0;
     box-shadow: -2px 0 5px rgba(0,0,0,0.2);
     display: flex;
-    flex-direction: column-reversal;
+    flex-direction: column;
     transform: translateY(0%);
     transition: transform 0.3s ease-out;
 }
@@ -923,6 +923,24 @@ tr:hover {
           <button id="report_btn" style="margin:10px;" onclick="create_report()">Performance Report</button>
           <button id="login_btn" style="margin:10px;" onclick="sessionStorage.removeItem('user');location.href='login.html'">Logout</button>
       </div>
+      <div id="chatbotPanel" class="chatbot-closed">
+        <div id="chatbotHeader">
+            <span>AI Chatbot</span>
+            <!-- <button id="closeChatbot" onclick="toggleChatbot()">×</button> -->
+        </div>
+        <div id="alt_question_container"></div>
+        <div id="hint"></div>
+        <div id="followup_qs"></div>
+        
+        <details id="history"><summary>History</summary></details>
+        <div id="chatbotMessages">
+
+        </div>
+        <details id="other_questions"><summary>AI help</summary></details> 
+        <input type="text" id="chatbotInput" placeholder="Type your question or doubt...">
+        
+        <button onclick="sendMessage()">Ask AI</button>
+    </div>
    <div class="container">
       <div class="top-section">
         
@@ -986,24 +1004,7 @@ tr:hover {
       <div id="notes" > <div id="notesHeader">Take your notes here</div><div style="height:100%;overflow:auto" contenteditable="true"></div> </div>
    
     </div>
-     <div id="chatbotPanel" class="chatbot-closed">
-        <div id="chatbotHeader">
-            <span>AI Chatbot</span>
-            <!-- <button id="closeChatbot" onclick="toggleChatbot()">×</button> -->
-        </div>
-        <div id="alt_question_container"></div>
-        <div id="hint"></div>
-        <div id="followup_qs"></div>
-        
-        <details id="history"><summary>History</summary></details>
-        <div id="chatbotMessages">
-
-        </div>
-        <details id="other_questions"><summary>AI help</summary></details> 
-        <input type="text" id="chatbotInput" placeholder="Type your question or doubt...">
-        
-        <button onclick="sendMessage()">Ask AI</button>
-    </div>
+   
     <div id="report-container">
       <h1>Performance Report</h1>
       <hr>
