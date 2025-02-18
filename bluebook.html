@@ -1326,13 +1326,13 @@ function loadQuestion(num = 0){
             content = sheetData[num]['passage'];
             // adjust the panel for better reading
             $("#chatbotPanel").css("width","20%");
-            $(".container").css("width","auto");
+            /*$(".container").css("width","auto");*/
             $("#content").css("border-right","1px solid black");
           }else{
             content = "";
             $("#content").css("border","none");
             $("#chatbotPanel").css("width","20%");
-            $(".container").css("width","auto");
+            /*$(".container").css("width","auto");*/
           }
           
           q_text = sheetData[num]['Question'];
