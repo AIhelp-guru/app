@@ -1331,9 +1331,8 @@ function loadQuestion(num = 0){
             $("#chatbotPanel").css("margin-left","50px");
             $(".container").css('background','white');
             $(".container").css('width','fit-content');
-           
-             $(".container").css('scale','0.8');
-              ;
+            $(".container").css('transform-origin', 'left top');
+            $(".container").css('transform','0.8');
             $("#content").css("border-right","1px solid black");
           }else{
             content = "";
