@@ -1331,18 +1331,18 @@ function loadQuestion(num = 0){
           if(sheetData[num]['passage'] !== undefined){
             content = sheetData[num]['passage'];
             // adjust the panel for better reading
-            $("#chatbotPanel").css("margin-left","20%");
+            $("#chatbotPanel").css("margin-left","50px");
             $(".container").css('background','white');
             $(".container").css('width','fit-content');
-            $(".container").css('display','block');
-             $(".container").css('scale','0.6');
+            $(".container").css('display','in-line');
+             $(".container").css('scale','0.9');
               $(".container").css('margin-top','2px');
             $("#content").css("border-right","1px solid black");
           }else{
             content = "";
             $("#content").css('margin-right','220px !important');
             $("#content").css("border","none");
-            $("#chatbotPanel").css("width","20%");
+            $("#chatbotPanel").css("width","50px");
             $(".container").css("width","auto");
             $(".container").css('background','white');
              $(".container").css('margin-top','2px');
@@ -2374,7 +2374,7 @@ fetchAndDisplayMenu('English')
   </script>
   <style>
    div.container{
-    display: fixed;
+    /*display: fixed;
     top: 2px;
     transform:translate(-50%,-50%);
     }
@@ -2393,7 +2393,7 @@ fetchAndDisplayMenu('English')
       background: white;
      margin-top:	180px !important;
     
-    }
-  </style>
+    }*/
+  </style> 
 </body>
 </html>
