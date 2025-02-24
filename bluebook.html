@@ -1328,9 +1328,7 @@ function loadQuestion(num = 0){
           if(sheetData[num]['passage'] !== undefined){
             content = sheetData[num]['passage'];
             // adjust the panel for better reading
-            $("#chatbotPanel").css("margin-left","50px");
-            $("#chatbotPanel").css("position","absolute");
-            $("#chatbotPanel").css("zIndex","999");
+           
             $(".container").css('background','white');
             $(".container").css('width','fit-content');
             $(".container").css('margin-left', '-200px');
