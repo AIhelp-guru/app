@@ -1555,7 +1555,7 @@ function callgemini(prompt){
             
             data = data.replace("```html","").replaceAll("```","");
             data = convertToBold(data);
-            $("#chatbotMessages").find(".user_prompt").last().parents("details").append("<div class='aiResponse' contenteditable='true'>"+data+"</div>");
+            $("#chatbotMessages").find(".user_prompt").last().parents("details").append("<div class='aiResponse' contenteditable='flash'>"+data+"</div>");
             data = {
               action:"write",
               QID : Q_ID,
