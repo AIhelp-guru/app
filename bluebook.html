@@ -1329,12 +1329,13 @@ function loadQuestion(num = 0){
             content = sheetData[num]['passage'];
             // adjust the panel for better reading
             $("#chatbotPanel").css("margin-left","50px");
+            $("#chatbotPanel").css("zIndex","999");
             $(".container").css('background','white');
             $(".container").css('width','fit-content');
             $(".container").css('margin-left', '-200px');
             $(".container").css('margin-top', '-1px');
             $(".container").css('scale','0.7');
-            $(".container").css('margin-right','220px');
+            $(".container").css('margin-right','250px');
             $("#content").css("border-right","1px solid black");
           }else{
             content = "";
