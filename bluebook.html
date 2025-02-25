@@ -1410,9 +1410,10 @@ function loadQuestion(num = 0){
                ops_clean = ops[i].replace(/[a-zA-Z]\)/g, '');; 
                ops_clean = ops_clean.replace("''","");
                 $("#options").append('<div class="option"><input class="option_input" type="checkbox" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+oa[i]+")"+ops_clean+'</label></div>');
+            $('#options').prop('checked', true).trigger('change');
             }
          /*   $('#options').find('input:unchecked');*/
-            $('#options').prop('checked', true).trigger('change');
+           /* $('#options').prop('checked', true).trigger('change');*/
             }
             
             //$("#question_index").html("Question "+(num+1)+" of "+quizData.length);
