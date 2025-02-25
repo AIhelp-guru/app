@@ -1409,8 +1409,8 @@ function loadQuestion(num = 0){
                
                ops_clean = ops[i].replace(/[a-zA-Z]\)/g, '');; 
                ops_clean = ops_clean.replace("''","");
-                $("#options").append('<div class="option"><input class="option_input" type="checkbox" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+oa[i]+")"+ops_clean+'</label></div>');
-            $('#options').prop('checked', true).trigger('change');
+                $("#options").append('<div class="option"><input class="option_input" type="checkbox" id="'+oa[i]+'" name="option"><label onclicked='addd()' for="'+oa[i]+'">'+oa[i]+")"+ops_clean+'</label></div>');
+            
             }
          /*   $('#options').find('input:unchecked');*/
            /* $('#options').prop('checked', true).trigger('change');*/
@@ -1441,6 +1441,10 @@ function loadQuestion(num = 0){
       
             
 }
+function addd(){
+    
+    $('#options').prop('checked', true).trigger('change');
+    }
 function old_loadQuestion(){
             num = qindex;
             $("#title").html(selectedQuiz.replaceAll("_"," ").replace(".js",""));
