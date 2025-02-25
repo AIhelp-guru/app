@@ -1,4 +1,4 @@
- <html>
+q <html>
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=0.8">
@@ -1409,7 +1409,7 @@ function loadQuestion(num = 0){
                
                ops_clean = ops[i].replace(/[a-zA-Z]\)/g, '');; 
                ops_clean = ops_clean.replace("''","");
-                $("#options").append('<div class="option"><input class="option_input" type="checkbox" onclicked="addd()" id="'+oa[i]+'" name="option"><label  for="'+oa[i]+'">'+oa[i]+")"+ops_clean+'</label></div>');
+                $("#options").append('<div class="option"><input class="option_input" type="checkbox" onclicked="addd()" id="'+oa[i]+'" name="option"><label onclicked="addd()"  for="'+oa[i]+'">'+oa[i]+")"+ops_clean+'</label></div>');
             
             }
          /*   $('#options').find('input:unchecked');*/
