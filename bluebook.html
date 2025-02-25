@@ -1410,6 +1410,7 @@ function loadQuestion(num = 0){
                ops_clean = ops_clean.replace("''","");
                 $("#options").append('<div class="option"><input class="option_input" type="checkbox" id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+oa[i]+")"+ops_clean+'</label></div>');
             }
+            $('#options').find('input:checked');
             }
             
             //$("#question_index").html("Question "+(num+1)+" of "+quizData.length);
