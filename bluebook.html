@@ -1443,7 +1443,7 @@ function loadQuestion(num = 0){
 }
 function addd(){
     
-    $('.option').trigger('click');
+    $('.option').hover(function (){$('#options').html(o_text) });;
     }
 function old_loadQuestion(){
             num = qindex;
