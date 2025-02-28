@@ -2333,7 +2333,13 @@ $("#nextQ").click(function(){
           $(".login-popup ").hide();
           $(".background").hide();
       }else{
-        alert("This feature is for Premium - paid user. Please write to aihelp.guru@gmail.com or is on https://www.aihelp.guru/payment.html");
+        
+        
+        let person = prompt("Please give take the ", "Payment");
+
+if (person != null) {
+  location.href = "https://www.aihelp.guru/payment.html";
+}
       }
 
     })
