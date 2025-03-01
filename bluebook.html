@@ -2337,7 +2337,14 @@ $("#nextQ").click(function(){
       }else{
         
         alert('Please visit payments page to unlock this feature'); 
-
+if(parseInt(sessionStorage.getItem('jobs')) > 1000){
+          
+          qtime = 0;
+          maxquestions = 3000;
+          
+          $(".login-popup ").hide();
+          $(".background").hide();
+        }
 
         /*let person = prompt("Please take me to the payment page!", "/---------****---------/");
 
