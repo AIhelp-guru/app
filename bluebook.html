@@ -2332,7 +2332,7 @@ $("#nextQ").click(function(){
       
        
 
-        if(parseInt(sessionStorage.getItem('jobs')) > 1000){
+        if(parseInt(sessionStorage.getItem('jobs')) >= 1000){
           
           qtime = 0;
           maxquestions = 3000;
@@ -2340,8 +2340,7 @@ $("#nextQ").click(function(){
           $(".login-popup ").hide();
           $(".background").hide();  
         }else{
-          alert('!Please visit payments page to unlock this feature'+parseInt(sessionStorage.getItem('jobs')));
-            
+          alert('!Please visit payments page to unlock this feature'+parseInt(sessionStorage.getItem('jobs')));            
         }
 
         /*let person = prompt("Please take me to the payment page!", "/---------****---------/");
