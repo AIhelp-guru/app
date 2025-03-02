@@ -2336,11 +2336,12 @@ $("#nextQ").click(function(){
       }else{
         
        // alert('Please visit payments page to unlock this feature'+sessionStorage.getItem('jobs')); 
-        qtime = 0;
+       
+       
+       qtime = 0;
         maxquestions = 3330;
-        $(".login-popup ").show();
-        $(".background").show();
-
+        $(".login-popup ").hide();
+        $(".background").hide();
 
         if(parseInt(sessionStorage.getItem('jobs')) > 1000){
           alert('Please visit payments page to unlock this feature');
