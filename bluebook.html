@@ -2336,7 +2336,13 @@ $("#nextQ").click(function(){
       }else{
         
         alert('Please visit payments page to unlock this feature'+sessionStorage.getItem('jobs')); 
-if(parseInt(sessionStorage.getItem('jobs')) > 1000){
+        qtime = 0;
+        maxquestions = 3330;
+        $(".login-popup ").show();
+        $(".background").show();
+
+
+        if(parseInt(sessionStorage.getItem('jobs')) > 1000){
           alert('Please visit payments page to unlock this feature');
           qtime = 0;
           maxquestions = 3000;
