@@ -2326,15 +2326,7 @@ $("#nextQ").click(function(){
     });
 
     $("#start_btn").click(function(){
-      if(parseInt(sessionStorage.getItem('jobs')) > 1000){
-          
-          qtime = 0;
-          maxquestions = 3000;
-          
-          $(".login-popup ").hide();
-          $(".background").hide();
-      }else{
-        
+     
        // alert('Please visit payments page to unlock this feature'+sessionStorage.getItem('jobs')); 
        
       
@@ -2359,7 +2351,7 @@ if (person != null) {
 }*/ 
 
 
-}    })
+  })
     $("#quick_btn").click(function(){
       qtime = 0;
       
