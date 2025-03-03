@@ -1419,6 +1419,7 @@ function loadQuestion(num = 0){
             }
             
             //$("#question_index").html("Question "+(num+1)+" of "+quizData.length);
+                $('.chatbotPanel').css('margin-bottom:40px');
             $('#options').hover(function(){addhelp()});
             addhelp();
             MathJax.typeset([document.getElementsByClassName('container')]);
@@ -1440,7 +1441,7 @@ function loadQuestion(num = 0){
             }
             //$("#chatbotMessages").html('');
             //save_read(data);
-      $('.chatbotPanel').css('margin-bottom:40px');
+  
             
 }
 function addd(){
