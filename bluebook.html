@@ -1336,8 +1336,8 @@ function loadQuestion(num = 0){
             $(".container").css('margin-right','250px');
             $(".container").css('margin-top', '150');
             $("#content").css("border-right","1px solid black");
-            $("#chatbotPanel").css('margin-bottom','1px');
-            $('#chatbotMessages').animate({ scrollTop: $('#chatbotMessages').height() }, "slow");
+            $("#chatbotPanel").css('margin-bottom','1px');i
+            $('#chatbotMessages').animate({ scrollTop:0 }, "slow");
           }else{
             content = "";
             $("#content").css('margin-right','250px !important');
@@ -1348,7 +1348,7 @@ function loadQuestion(num = 0){
             $(".container").css('margin-top', '150');
             $(".container").css('background','white');
             $("#chatbotPanel").css('margin-bottom','1px');
-            
+               $('#chatbotMessages').animate({ scrollTop:0 }, "slow");
 
           }
           
