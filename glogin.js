@@ -34,8 +34,14 @@ window.onload = function () {
 
     google.accounts.id.prompt(); // Automatically prompt the user to log in
 };
-
-function login(email ,token){
+function login(email , token){
+    
+    		sessionStorage.setItem('user', email);
+            sessionStorage.setItem('token', token);
+            sessionStorage.setItem('jobs', 1000);
+    
+    }
+function logina(email ,token){
    
     $("#login_btn").css("background","#c0c0c0");
         $.get("https://script.google.com/macros/s/AKfycbzvyzwr3M2qMWqXJA0-fP48wOYOdUVlhabiFmwfj4NOzbDFAm2X2u64npHptu-Hyo3L3w/exec?email="+email+"&token="+token,function(data){
@@ -54,7 +60,7 @@ function login(email ,token){
             alert("A token was sent to your email, please use that to login");
             $("#login_btn").css("background","#4CAF50");
         }else{
-            $("#login_btn").css("background","#4CAF50");
+            $("#illogin_btn").css("background","#4CAF50");
             $("#alertmsg").html("Your 7 days free period is over. <p> Hope you liked it !! <p> Let us know your feedback <p> <large>To continue to use, email to - <u>ai.help.guru@gmail.com</u></large>")
             }
 
