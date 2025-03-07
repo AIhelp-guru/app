@@ -80,6 +80,7 @@ $(document).ready(function(){
             token = $("#token").val();
         
         login(email,token);
+        location.href = "bluebook.html";
     })
 })
 
