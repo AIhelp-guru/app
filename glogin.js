@@ -39,6 +39,7 @@ function login(email , token){
     		sessionStorage.setItem('user', email);
             sessionStorage.setItem('token', token);
             sessionStorage.setItem('jobs', 1000);
+            location.href = "bluebook.html";
     
     }
 function logina(email ,token){
