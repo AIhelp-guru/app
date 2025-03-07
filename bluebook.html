@@ -933,7 +933,7 @@ tr:hover {
         <div id="followup_qs"></div>
         
         <details id="history"><summary>History</summary></details>
-        <div id="chatbotMessages" style="overflow:scroll;height:calc(vh*.6)">
+        <div id="chatbotMessages" style="overflow:scroll;height:calc(vh*.5)">
 
         </div>
         <details id="other_questions"><summary>AI help</summary></details> 
@@ -1336,7 +1336,7 @@ function loadQuestion(num = 0){
             $(".container").css('margin-right','250px');
             $(".container").css('margin-top', '150');
             $("#content").css("border-right","1px solid black");
-            /*$("#chatbotPanel").css('margin-bottom','20px');*/
+            $("#chatbotPanel").css('margin-bottom','1px');
           }else{
             content = "";
             $("#content").css('margin-right','250px !important');
@@ -1346,7 +1346,7 @@ function loadQuestion(num = 0){
             $(".container").css('width','fit-content');
             $(".container").css('margin-top', '150');
             $(".container").css('background','white');
-            $("#chatbotPanel").css('margin-bottom','20px');
+            $("#chatbotPanel").css('margin-bottom','1px');
             
 
           }
