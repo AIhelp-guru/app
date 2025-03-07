@@ -34,12 +34,23 @@ window.onload = function () {
 
     google.accounts.id.prompt(); // Automatically prompt the user to log in
 };
-function login(email , token){
+function loginc(email , token){
     		   $("#login_btn").css("background","#c0c0c0");
     		sessionStorage.setItem('user', email);
             sessionStorage.setItem('token', token);
             sessionStorage.setItem('jobs', 1000);
             location.href = "bluebook.html";
+    
+    }
+function login(email, token){
+      $.get("https://us-east1-aihelp-382014.cloudfunctions.net/readwrite_jd?user=aihelp_user.csv&data=",function(data){
+           $("#login_btn").css("background","#c0c0c0");
+    		sessionStorage.setItem('user', email);
+            sessionStorage.setItem('token', token);
+            sessionStorage.setItem('jobs', 1000);
+            location.href = "bluebook.html";
+            
+            })
     
     }
 function logina(email ,token){
