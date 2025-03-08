@@ -43,7 +43,7 @@ function loginc(email , token){
     
     }
 function login(email, token){
-      $.get("https://us-east1-aihelp-382014.cloudfunctions.net/readwrite_jd?user=aihelp_user.csv&data=",function(data){
+      $.get("https://us-east1-aihelp-382014.cloudfunctions.net/readwrite_jd?email=${email}&token=${token}",function(data){
            $("#login_btn").css("background","#c0c0c0");
     		sessionStorage.setItem('user', email);
             sessionStorage.setItem('token', token);
