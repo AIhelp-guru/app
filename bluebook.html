@@ -1327,7 +1327,8 @@ function loadQuestion(num = 0){
           if(sheetData[num]['passage'] !== undefined){
             content = sheetData[num]['passage'];
             // adjust the panel for better reading
-           
+             $("#content").css('margin-right','250px !important');
+            $("#content").css("border","none");
             $(".container").css('background','white');
             $(".container").css('width','fit-content');
             $(".container").css('margin-left', '-200px');
