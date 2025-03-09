@@ -2077,7 +2077,7 @@ function fetchAndDisplayMenu(tabName) {
                 const linkElement = $(this).siblings('.proficiency-link');
                 linkElement.attr('href', `?subject=${encodeURIComponent(subject)}&topic=${encodeURIComponent(category)}&prof_level=${encodeURIComponent(selectedProficiency)}`);
             });
-            if(parseInt(sessionStorage.getItem('jobs') < 11)){
+            if((sessionStorage.getItem('jobs') < 11)){
               demoset.forEach(function(item) {
               $(".tab-content").find("h3:contains("+item+")").addClass("highlight");
             });
