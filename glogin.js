@@ -61,7 +61,7 @@ function logina(email ,token){
             sessionStorage.setItem('user', email);
             sessionStorage.setItem('token', token);
             jobs = parseInt(data.substr(data.indexOf(",")+1));
-            console.log(data);
+            //console.log(data);
         if((data.indexOf("'1'") >=0)||(jobs > 10)){
             
             
