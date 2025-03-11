@@ -992,7 +992,7 @@ tr:hover {
               <label for="option-d"></label>
             </div>
           </div>
-       
+       <div>----</div>
         <div id="pdf_content"></div>
         <div id="content" class="passage">
           Loading the test ...
@@ -1417,7 +1417,7 @@ function loadQuestion(num = 0){
                
                ops_clean = ops[i].replace(/[a-zA-Z]\)/g, '');; 
                ops_clean = ops_clean.replace("''","");
-                $("#options").append('<br><div class="option"><input class="option_input" type="radio"  id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+oa[i]+")  "+ops_clean+'</label></div><br>');
+                $("#options").append('<div class="option"><input class="option_input" type="radio"  id="'+oa[i]+'" name="option"><label for="'+oa[i]+'">'+oa[i]+")  "+ops_clean+'</label></div>');
             
             }
          /*   $('#options').find('input:unchecked');*/
