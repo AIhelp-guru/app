@@ -924,10 +924,10 @@ tr:hover {
        </div>
 
 
-      <div id="chatbotPanel" style="position:fixed;bottom:0;right:0;width:200px;height:100;margin-bottom: 180px;z-index:99999"  class="chatbot-closed">
+      <div id="chatbotPanel" style="position:static;bottom:0;right:0;;height:100;margin-bottom: 180px;z-index:99999"  class="chatbot-closed">
       
         <div id="chatbotHeader"  >
-            <span>AI Chatbot</span>   <label onclick='if($(this).parent().parent().css("width") == "400px"){$(this).parent().parent().css("width","200px")}else{$(this).parent().parent().css("width","400px")}'>X</label>
+            <span>AI Chatbot</span>   <label onclick='if($(this).parent().parent().css("height") == "400px"){$(this).parent().parent().css("width","100px")}else{$(this).parent().parent().css("width","400px")}'>X</label>
             <!-- <button id="closeChatbot" onclick="toggleChatbot()">×</button> -->
         </div>
         <div id="alt_question_container"></div>
