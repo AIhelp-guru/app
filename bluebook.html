@@ -2326,7 +2326,10 @@ $("#nextQ").click(function(){
        // alert('Please visit payments page to unlock this feature'+sessionStorage.getItem('jobs')); 
        
       
-       
+       if(localStorage.getItem("normal")!= undefined){
+        
+        
+        
 
         if((sessionStorage.getItem('jobs')) >= 1000){
           
@@ -2338,7 +2341,7 @@ $("#nextQ").click(function(){
         }else{
           alert('!Please visit payments page to unlock this feature'+parseInt(sessionStorage.getItem('jobs')));            
         }
-
+		}
         /*let person = prompt("Please take me to the payment page!", "/---------****---------/");
 
 if (person != null) {
