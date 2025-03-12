@@ -1430,7 +1430,7 @@ function loadQuestion(num = 0){
             //$("#question_index").html("Question "+(num+1)+" of "+quizData.length);
                 $('.chatbotPanel').css('margin-bottom:40px');
             $('#options').hover(function(){addhelp()});
-            addhelp();$('#max_btn').click();
+            addhelp();
             MathJax.typeset([document.getElementsByClassName('container')]);
             $(".helps").hide();
             $("#alt_question_container").slideDown(1000);
