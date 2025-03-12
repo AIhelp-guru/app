@@ -938,7 +938,7 @@ tr:hover {
         <div id="followup_qs"></div>
         
         <details id="history"><summary>History</summary></details>
-        <div id="chatbotMessages" style="overflow:visible;height:50px">
+        <div id="chatbotMessages" style="overflow:scroll;height:50px">
 
         </div>
         <details id="other_questions"><summary>AI help</summary></details> 
@@ -1355,7 +1355,7 @@ function loadQuestion(num = 0){
             $(".container").css('margin-top', '150');
             $(".container").css('background','white');
             $("#chatbotPanel").css('margin-bottom','1px');
-               $('#chatbotMessages').animate({ scrollTop:'0px' }, "slow");
+             //  $('#chatbotMessages').animate({ scrollTop:'0px' }, "slow");
 
           }
           
