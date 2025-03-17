@@ -1116,7 +1116,7 @@ button style='display:block;background:orange;margin-right:100;margin-top:20;fon
         <img id="start_wait" src='https://thebowlcut.com/cdn/shop/t/41/assets/loading.gif?v=157493769327766696621701744369' style='height:50px;width:50px;background:gold;border-radius:25px;' />
         
         <br><div style="font:large;text-align: center;"> 
-        <!--  >_btn" style="background:#a59c1a !important">Quick practice</button>-->
+        <button id="quick_btn" style="background:#a59c1a !important">Quick practice</button>
         <button id="start_btn">Ready</button>
         </div>
     </div>
@@ -2103,6 +2103,10 @@ function fetchAndDisplayMenu(tabName) {
 function init(){
 // Populate the dropdown menu
 
+
+
+
+
  $("#main-menu ").hide();
 for (var i = 0; i < subjects.length; i++) {
     $("#quizzes").append("<option value='" + subjects[i] + "'>" + subjects[i].replace(/_/g, " ") + "</option>");
@@ -2323,7 +2327,12 @@ $("#nextQ").click(function(){
         pageNum--;
         renderPage(pageNum);
     });
+    if((location.href).indexOf("&temp")>0){
+      $("#start_btn").hide();
+    }else{
+      $("#quick_btn").hide();
 
+    }
     $("#start_btn").click(function(){
      
        // alert('Please visit payments page to unlock this feature'+sessionStorage.getItem('jobs')); 
