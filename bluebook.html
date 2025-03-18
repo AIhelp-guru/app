@@ -2410,7 +2410,8 @@ function openTab(event, tabName) {
 init();
 fetchAndDisplayMenu('English')
    
- if(((location.href).indexOf("&temp")>0)||(sessionStorage.getItem('jobs') >= 100)){
+ if(((location.href).indexOf("&temp")>0)||(sessionStorage.getItem('jobs') < 11)){
+  
       $("#start_btn").hide();
       $('#quick_btn').show();
     }else{
