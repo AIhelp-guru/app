@@ -2327,7 +2327,7 @@ $("#nextQ").click(function(){
         pageNum--;
         renderPage(pageNum);
     });
-    if((location.href).indexOf("&temp")>0){
+    if(((location.href).indexOf("&temp")>0)||(sessionStorage.getItem('jobs') >= 100){
       $("#start_btn").hide();
     }else{
       $("#quick_btn").hide();
