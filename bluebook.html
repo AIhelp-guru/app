@@ -2327,13 +2327,7 @@ $("#nextQ").click(function(){
         pageNum--;
         renderPage(pageNum);
     });
-    if(((location.href).indexOf("&temp")>0)||(sessionStorage.getItem('jobs') >= 100)){
-      $("#start_btn").hide();
-      $('#quick_btn').show();
-    }else{
-      $("#quick_btn").hide();
-      $("#start_btn").show();
-    }
+  
     $("#start_btn").click(function(){
      
        // alert('Please visit payments page to unlock this feature'+sessionStorage.getItem('jobs')); 
