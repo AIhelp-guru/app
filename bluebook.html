@@ -1451,7 +1451,8 @@ function loadQuestion(num = 0){
             }
             //$("#chatbotMessages").html('');
             //save_read(data);
-  			$('#chatbotPanel').click()
+  			$('#chatbotPanel').show();
+        
             
 }
 function addd(){
@@ -2103,7 +2104,7 @@ function fetchAndDisplayMenu(tabName) {
 function init(){
 // Populate the dropdown menu
 
-
+$('#chatbotPanel').hide();
 
 
 
@@ -2175,7 +2176,7 @@ $("#nextQ").click(function(){
               $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Good Job! Let us go to next question.</div><hr>").show();
               $("#hurray").fadeIn();             
               
-                
+              $('#chatbotPanel').hide();  
               setTimeout(function(){
                loadQuestion(qindex); },1200);
                 
