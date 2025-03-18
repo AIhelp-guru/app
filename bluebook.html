@@ -2329,9 +2329,10 @@ $("#nextQ").click(function(){
     });
     if(((location.href).indexOf("&temp")>0)||(sessionStorage.getItem('jobs') >= 100)){
       $("#start_btn").hide();
+      $('#quick_btn').show();
     }else{
       $("#quick_btn").hide();
-
+      $("#start_btn").show();
     }
     $("#start_btn").click(function(){
      
