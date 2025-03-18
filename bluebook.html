@@ -164,7 +164,7 @@
   
   .textLayer{display: block;}
   #chatbotPanel {
-    visibility: none;
+    
     border-radius: 20px;
     
     height: calc(vh*90);
@@ -1451,7 +1451,7 @@ function loadQuestion(num = 0){
             }
             //$("#chatbotMessages").html('');
             //save_read(data);
-  			$('#chatbotPanel').show();
+  			
         
             
 }
@@ -2196,7 +2196,7 @@ $("#nextQ").click(function(){
         }else{
           
           $('#max_btn').parent().parent().css('height','400px');
-          
+          $('#chatbotPanel').show();
           if(tries === 0){
             $("#chatbotMessages").append("<div class='aiResponse alert_msg'>Let us try one more time</div>").select();
             $("#chatbotMessages").find(".helps").hide();
