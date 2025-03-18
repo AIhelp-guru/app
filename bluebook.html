@@ -164,7 +164,7 @@
   
   .textLayer{display: block;}
   #chatbotPanel {
-   
+    visibility: none;
     border-radius: 20px;
     
     height: calc(vh*90);
@@ -2340,7 +2340,7 @@ $("#nextQ").click(function(){
         
 
         if((sessionStorage.getItem('jobs')) >= 1000){
-          
+         
           $('#quick_btn').hide();
           qtime = 0;
           maxquestions = 3000;
