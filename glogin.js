@@ -43,6 +43,18 @@ function loginc(email , token){
     
     }
 function login(email, token){
+      $.get("https://us-east1-aihelp-382014.cloudfunctions.net/readwrite?email=" + email ,function(data){
+           $("#login_btn").css("background","#c0c0c0");
+    		sessionStorage.setItem('user', email);
+            //sessionStorage.setItem('token', token);
+            sessionStorage.setItem('jobs', data);
+            //alert(data);
+            location.href = "bluebook.html";
+            
+            })
+    
+    }
+function loginb(email, token){
       $.get("https://us-east1-aihelp-382014.cloudfunctions.net/readwrite_jd?email=" + email + "&token=" + token,function(data){
            $("#login_btn").css("background","#c0c0c0");
     		sessionStorage.setItem('user', email);
@@ -54,32 +66,6 @@ function login(email, token){
             })
     
     }
-function logina(email ,token){
-   
-    $("#login_btn").css("background","#c0c0c0");
-        $.get("https://script.google.com/macros/s/AKfycbzvyzwr3M2qMWqXJA0-fP48wOYOdUVlhabiFmwfj4NOzbDFAm2X2u64npHptu-Hyo3L3w/exec?email="+email+"&token="+token,function(data){
-            sessionStorage.setItem('user', email);
-            sessionStorage.setItem('token', token);
-            jobs = parseInt(data.substr(data.indexOf(",")+1));
-            //console.log(data);
-        if((data.indexOf("'1'") >=0)||(jobs > 10)){
-            
-            
-            sessionStorage.setItem('jobs', jobs);
-            location.href = "bluebook.html";
-            
-        }else if(data.indexOf("'2'") >=0){
-
-            alert("A token was sent to your email, please use that to login");
-            $("#login_btn").css("background","#4CAF50");
-        }else{
-            $("#illogin_btn").css("background","#4CAF50");
-            $("#alertmsg").html("Your 7 days free period is over. <p> Hope you liked it !! <p> Let us know your feedback <p> <large>To continue to use, email to - <u>ai.help.guru@gmail.com</u></large>")
-            }
-
-        
-    })
-}
 
 
 
