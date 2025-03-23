@@ -47,7 +47,7 @@ function login(email, token){
            $("#login_btn").css("background","#c0c0c0");
     		sessionStorage.setItem('user', email);
             sessionStorage.setItem('token', 1000);
-            sessionStorage.setItem('jobs', data);
+            sessionStorage.setItem('jobs', data.jobs);
             alert(data);
             location.href = "bluebook.html";
             
