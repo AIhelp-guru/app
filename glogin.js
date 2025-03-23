@@ -43,10 +43,10 @@ function loginc(email , token){
     
     }
 function login(email, token){
-      $.get("https://us-east1-aihelp-382014.cloudfunctions.net/readwrite?email=" + email ,function(data){
+      $.get("https://us-east1-aihelp-382014.cloudfunctions.net/readwrite?email=" + email + "&token=10001",function(data){
            $("#login_btn").css("background","#c0c0c0");
     		sessionStorage.setItem('user', email);
-            sessionStorage.setItem('token', 1000);
+            sessionStorage.setItem('token', 10001);
             sessionStorage.setItem('jobs', data);
             alert(data);
             location.href = "bluebook.html";
