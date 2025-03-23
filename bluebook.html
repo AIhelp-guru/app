@@ -2164,7 +2164,7 @@ $("#nextQ").click(function(){
               savePerformance(user,topic,category,Q_ID,tries,(question_time - qtime)); 
               clearInterval(qtimer);
             if(((qindex+1) < sheetData.length && qindex < maxquestions)||(parameters.google !== undefined)){
-              alert(maxquestions)
+              //alert(maxquestions)
               qindex++;
             }else{
               $("#report_btn").click();
